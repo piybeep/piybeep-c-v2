@@ -1,7 +1,7 @@
 FROM node:lts
 WORKDIR /usr/src/client
 COPY ["package.json", "yarn.lock", "./"]
-RUN yarn
+RUN yarn install -s
 COPY . .
 RUN yarn run lint
 RUN yarn prettier --write .
