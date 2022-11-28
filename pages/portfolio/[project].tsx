@@ -3,20 +3,20 @@ import { useRouter } from "next/router";
 
 export default function Portfolio() {
 	const router = useRouter();
-	const { projectName } = router.query;
+	const { project } = router.query;
 	return (
 		<main>
 			<Head>
-				<title>Piybeep - {projectName}</title>
+				<title>Piybeep - {project}</title>
 				<meta
 					name="description"
-					content={projectName ? `${projectName}` : "Наш проект"}
+					content={project ? `${project}` : "Наш проект"}
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
 			<h1>
-				Проект "{projectName}" <samp>Piybeep</samp>
+				Проект &quot;{project}&quot; <samp>Piybeep</samp>
 			</h1>
 		</main>
 	);
