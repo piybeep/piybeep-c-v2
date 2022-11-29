@@ -22,6 +22,9 @@
 | src/
 | | index.ts
 | | components/
+| | | Layout/
+| | | | index.tsx
+| | | | Layout.module.scss
 | | | Button/
 | | | | index.tsx
 | | | | Button.module.scss
