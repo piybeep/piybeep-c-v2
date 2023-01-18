@@ -1,0 +1,91 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #100f13;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* --- / 404 page / ---*/
+
+.not_found {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 100px;
+
+	flex: 1;
+	padding: 0 50px;
+
+	max-width: 1372px;
+	margin: auto;
+
+	/* FOR DEV */
+	height: 100vh;
+
+	* {
+		transition: all 0.3s;
+		// border: 1px solid orange;
+	}
+
+	&__text {
+		color: #ececec;
+
+		* {
+			margin: 0;
+		}
+
+		h1 {
+			font-style: normal;
+			font-weight: 500;
+			font-size: 90px;
+			margin-bottom: 50px;
+		}
+
+		p {
+			font-style: normal;
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 29px;
+		}
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	.not_found {
+		max-width: 1126px;
+		&__text {
+			h1 {
+				font-size: 70px;
+			}
+			p {
+				line-height: 24px;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.not_found {
+		max-width: 894px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.not_found {
+		flex-direction: column;
+		justify-content: center;
+		row-gap: 100px;
+		h1 {
+			text-align: center;
+		}
+	}
+}
+
+/* --- / end. 404 page / ---*/
+
