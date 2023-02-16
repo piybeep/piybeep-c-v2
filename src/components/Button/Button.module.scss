@@ -1,0 +1,10 @@
+@import "../../styles/variables.scss";
+
+.button {
+	cursor: pointer;
+	color: $main-color;
+	background: transparent;
+	outline: none;
+	border: none;
+}
+

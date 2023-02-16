@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Button } from "../src/components/Button";
 
 export default function Home() {
 	return (
@@ -11,7 +12,9 @@ export default function Home() {
 
 			<h1>
 				Welcome to <samp>Piybeep</samp>
+				<Button value="hello" />
 			</h1>
 		</main>
 	);
 }
+

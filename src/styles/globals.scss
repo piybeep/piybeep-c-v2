@@ -1,8 +1,10 @@
+@import "./variables.scss";
+
 html,
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #100f13;
+	background-color: $black-color;
 }
 
 * {
@@ -29,11 +31,10 @@ body {
 
 	* {
 		transition: all 0.3s;
-		// border: 1px solid orange;
 	}
 
 	&__text {
-		color: #ececec;
+		color: $white-color;
 
 		* {
 			margin: 0;
@@ -55,9 +56,9 @@ body {
 	}
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: $big-screen-width) {
 	.not_found {
-		max-width: 1126px;
+		max-width: $big-content-width;
 		&__text {
 			h1 {
 				font-size: 70px;
@@ -70,13 +71,13 @@ body {
 	}
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: $medium-screen-width) {
 	.not_found {
-		max-width: 894px;
+		max-width: $medium-content-width;
 	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $small-screen-width) {
 	.not_found {
 		flex-direction: column;
 		justify-content: center;
