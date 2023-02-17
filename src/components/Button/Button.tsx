@@ -3,15 +3,16 @@ import { ButtonProps } from "./Button.types";
 import styles from "./Button.module.scss";
 import classNames from "classnames";
 
-export function Button(props: ButtonProps) {
+export function Button({ value, rounded, outline, ...props }: ButtonProps) {
 	return (
 		<button
+			{...props}
 			className={classNames(styles.button, {
-				[styles.button__rounded]: props.rounded,
-				[styles.button__outline]: props.outline,
+				[styles.button__rounded]: rounded,
+				[styles.button__outline]: outline,
 			})}
 		>
-			{props.value}
+			{value}
 		</button>
 	);
 }
