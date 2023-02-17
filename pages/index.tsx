@@ -30,7 +30,7 @@ export default function Home() {
 			</Head>
 
 			<h1>
-				Welcome to <samp>Piybeep</samp>
+				Welcome to <samp>piybeep</samp>
 			</h1>
 
 			<Button onClick={() => add(SUCCESSFUL_SENDING)} value="Open window" />

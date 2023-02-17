@@ -40,7 +40,7 @@
 	&__title {
 		margin: 0px;
 
-		font-family: "Source Code Pro";
+		font-family: var(--font-SourceCodePro);
 		font-style: normal;
 		font-weight: 500;
 		font-size: 20px;
@@ -52,7 +52,7 @@
 	&__subtitle {
 		margin: 0px;
 
-		font-family: "Source Code Pro";
+		font-family: var(--font-SourceCodePro);
 		font-style: normal;
 		font-weight: 400;
 		font-size: 18px;
