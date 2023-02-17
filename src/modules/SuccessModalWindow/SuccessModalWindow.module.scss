@@ -1,125 +1,124 @@
 .SuccessModalWindow {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 69px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 69px;
 
-    position: absolute;
-    top: 50%;
+	position: absolute;
+	top: 50%;
 
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 
-    padding: 58px 89px;
+	padding: 58px 89px;
 
-    border-radius: 30px;
-    background-color: #211F26;
+	border-radius: 30px;
+	background-color: #211f26;
 
-    min-width: 330px;
-    width: 100%;
-    max-width: 840px;
+	min-width: 330px;
+	width: 100%;
+	max-width: 840px;
 
-    &__open {
-        left: 50%;
+	&__open {
+		left: 50%;
 
-        transition: 1s  ease-out;
-    }
-    
-    &__close {
-        left: -50%;
+		transition: 1s ease-out;
+	}
 
-        transition: 1s ease-in;
-    }
+	&__close {
+		left: -50%;
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 17px;
-    }
+		transition: 1s ease-in;
+	}
 
-    &__title {
-        margin: 0px;
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 17px;
+	}
 
-        font-family: 'Source Code Pro';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 128.9%;
+	&__title {
+		margin: 0px;
 
-        color: #FFFFFF;
-    }
+		font-family: "Source Code Pro";
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 128.9%;
 
-    &__subtitle {
-        margin: 0px;
+		color: #fff;
+	}
 
-        font-family: 'Source Code Pro';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 128.9%;
+	&__subtitle {
+		margin: 0px;
 
-        color: #FFFFFF;
-    }
+		font-family: "Source Code Pro";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 128.9%;
+
+		color: #fff;
+	}
 }
 
 @media screen and (max-width: 1024px) {
-    .SuccessModalWindow{
-        padding: 58px 55px;
-        row-gap: 41px;
+	.SuccessModalWindow {
+		padding: 58px 55px;
+		row-gap: 41px;
 
-        max-width: 430px;
+		max-width: 430px;
 
-        &__info{
-            row-gap: 41px;
-        }
+		&__info {
+			row-gap: 41px;
+		}
 
-        &__title{
-            font-size: 18px;
-        }
+		&__title {
+			font-size: 18px;
+		}
 
-        &__subtitle{
-            width: 100%;
-            max-width: 320px;
-        }
-    }
+		&__subtitle {
+			width: 100%;
+			max-width: 320px;
+		}
+	}
 }
 
-@media screen and (max-width: 360px){
-    .SuccessModalWindow{
+@media screen and (max-width: 360px) {
+	.SuccessModalWindow {
+		padding: 48px 40px;
 
-        padding: 48px 40px;
+		&__subtitle {
+			font-size: 16px;
+		}
 
-        &__subtitle{
-            font-size: 16px;
-        }
-
-        &__img{
-            width: 237px;
-            height: 103px;
-        }
-    }
+		&__img {
+			width: 237px;
+			height: 103px;
+		}
+	}
 }
 
-@media screen and (max-width: 320px){
-    .SuccessModalWindow{
+@media screen and (max-width: 320px) {
+	.SuccessModalWindow {
+		padding: 48px 52px;
 
-        padding: 48px 52px;
+		&__info {
+			row-gap: 38px;
+		}
 
-        &__info{
-            row-gap: 38px;
-        }
+		&__title {
+			font-size: 16px;
+		}
 
-        &__title{
-            font-size: 16px;
-        }
+		&__subtitle {
+			text-align: center;
+		}
 
-        &__subtitle{
-            text-align: center;
-        }
-
-        &__img{
-            width: 177px;
-            height: 76px;
-        }
-    }
+		&__img {
+			width: 177px;
+			height: 76px;
+		}
+	}
 }
+
