@@ -4,7 +4,9 @@ export function useModalWindow() {
 	const { query, isLoading, isHas: isHasQuery, mutate } = useRouterQuery();
 
 	const isHas = (name: string) => {
-		return isHasQuery("window") && query.window == name;
+		return (
+			isHasQuery("window") && (query.window as string).split(",").includes(name)
+		);
 	};
 
 	const add = (name: string) => {
