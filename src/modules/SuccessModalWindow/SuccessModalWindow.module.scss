@@ -18,15 +18,38 @@
     width: 100%;
     max-width: 840px;
 
+    cursor: default;
+
+    &__wrapper{
+        width: 100vw;
+        height: 100vh;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        cursor: pointer;
+
+        &__visibile{
+            visibility: visible;
+        }
+
+        &__hidden{
+            visibility: hidden;
+        }
+    }
+
     &__open {
         left: 50%;
 
+        transition-delay: 1s;
         transition: 1s  ease-out;
     }
     
     &__close {
         left: -50%;
 
+        transition-delay: 1s;
         transition: 1s ease-in;
     }
 

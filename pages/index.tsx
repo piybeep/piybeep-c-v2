@@ -18,7 +18,7 @@ export default function Home() {
 				<Button onClick={() => setShow(!show)} value="hello" />
 			</h1>
 
-			<SuccessModalWindow isShow={show}/>
+			<SuccessModalWindow isShow={show} setShow={setShow}/>
 		</main>
 	);
 }
