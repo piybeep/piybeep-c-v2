@@ -1,0 +1,152 @@
+.SuccessModalWindow {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 69px;
+
+    position: absolute;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 58px 89px;
+
+    border-radius: 30px;
+    background-color: #211f26;
+
+    min-width: 330px;
+    width: 100%;
+    max-width: 840px;
+
+    cursor: default;
+
+    &__wrapper {
+        width: 100vw;
+        height: 100vh;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        cursor: pointer;
+
+        transition: .5s;
+
+        &__visibile {
+            visibility: visible;
+
+            background-color: rgba($color: #000000, $alpha: .4);
+        }
+
+        &__hidden {
+            visibility: hidden;
+
+            background-color: rgba($color: #000000, $alpha: 0);
+        }
+    }
+
+    &__open {
+        left: 50%;
+
+        transition-delay: 1s;
+        transition: 1s ease-out;
+    }
+
+    &__close {
+        left: -50%;
+
+        transition-delay: 1s;
+        transition: 1s ease-in;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 17px;
+    }
+
+    &__title {
+        margin: 0px;
+
+        font-family: var(--font-SourceCodePro);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 128.9%;
+
+        color: #fff;
+    }
+
+    &__subtitle {
+        margin: 0px;
+
+        font-family: var(--font-SourceCodePro);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 128.9%;
+
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .SuccessModalWindow {
+        padding: 58px 55px;
+        row-gap: 41px;
+
+        max-width: 430px;
+
+        &__info {
+            row-gap: 41px;
+        }
+
+        &__title {
+            font-size: 18px;
+        }
+
+        &__subtitle {
+            width: 100%;
+            max-width: 320px;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .SuccessModalWindow {
+        padding: 48px 40px;
+
+        &__subtitle {
+            font-size: 16px;
+        }
+
+        &__img {
+            width: 237px;
+            height: 103px;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .SuccessModalWindow {
+        padding: 48px 52px;
+
+        &__info {
+            row-gap: 38px;
+        }
+
+        &__title {
+            font-size: 16px;
+        }
+
+        &__subtitle {
+            text-align: center;
+        }
+
+        &__img {
+            width: 177px;
+            height: 76px;
+        }
+    }
+}

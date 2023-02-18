@@ -2,9 +2,49 @@
 
 .button {
 	cursor: pointer;
-	color: $main-color;
-	background: transparent;
+	background-color: $main-color;
 	outline: none;
 	border: none;
-}
 
+	font-family: var(--font-SourceCodePro);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 128.9%;
+	color: #000000;
+
+	&__small {
+		font-size: 18px;
+
+		padding: 8px 42px;
+
+		border-radius: 4px;
+	}
+
+	&__default {
+		font-weight: 500;
+		line-height: 30px;
+
+		padding: 15px 57px;
+
+		border-radius: 6px;
+	}
+
+	&__large {
+		padding: 32px 72px;
+
+		border-radius: 16px;
+	}
+
+	&__outline {
+		background: transparent;
+
+		border: 1px solid $main-color;
+
+		color: $main-color;
+	}
+
+	&__rounded {
+		border-radius: 100px;
+	}
+}
