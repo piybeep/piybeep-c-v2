@@ -6,7 +6,7 @@
 	outline: none;
 	border: none;
 
-	font-family: 'Source Code Pro';
+	font-family: var(--font-SourceCodePro);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 24px;
@@ -47,5 +47,4 @@
 	&__rounded {
 		border-radius: 100px;
 	}
-
 }

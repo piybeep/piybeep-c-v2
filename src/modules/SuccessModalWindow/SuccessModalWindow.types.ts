@@ -1,4 +1,5 @@
-export interface SuccessModalWindowProps{
-    isShow?: boolean
-    setShow: () => void
+export interface SuccessModalWindowProps {
+	isShow?: boolean;
+	close: () => void;
 }
+
