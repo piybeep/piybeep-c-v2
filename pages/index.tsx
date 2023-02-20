@@ -1,14 +1,17 @@
 import Head from "next/head";
 import React from "react";
 
-import { Button } from "../src/components";
+import { Button, Title } from "../src/components";
+import { Input } from "../src/components/Input";
 import { SUCCESSFUL_SENDING } from "../src/constatnts";
 import { useModalWindow } from "../src/hooks";
 import { SuccessModalWindow } from "../src/modules";
+import { FormModalWindow } from "../src/modules/FormModalWindow";
 
 export default function Home() {
 	const { isHas, add, remove, isLoading } = useModalWindow();
 	const [isShow, setIsShow] = React.useState(false);
+	const [isShowForm, setIsShowForm] = React.useState(false)
 
 	React.useEffect(() => {
 		if (!isLoading) {
@@ -34,10 +37,16 @@ export default function Home() {
 			</h1>
 
 			<Button onClick={() => add(SUCCESSFUL_SENDING)} value="Open window" />
+			<Button onClick={() => setIsShowForm(true)} value="Open form" />
 
 			<SuccessModalWindow
 				isShow={isShow}
 				close={() => remove(SUCCESSFUL_SENDING)}
+			/>
+
+			<FormModalWindow
+				isShow={isShowForm}
+				close={() => setIsShowForm(false)}
 			/>
 		</main>
 	);

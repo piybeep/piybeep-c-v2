@@ -1,0 +1,75 @@
+.privacy {
+    display: flex;
+    column-gap: 6px;
+
+    &__checkbox {
+        display: none;
+
+        &:checked+.privacy__agree {
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__agree {
+        border: 1px solid #98EC65;
+        border-radius: 6px;
+
+        min-width: 25px;
+        height: 25px;
+
+        position: relative;
+
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            display: inline-block;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background-color: #98EC65;
+
+            width: 10px;
+            height: 10px;
+
+            border-radius: 2px;
+
+            transition: .5s;
+
+            opacity: 0;
+        }
+    }
+
+    &__label {
+        position: relative;
+
+        font-family: 'Source Code Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #FFFFFF;
+
+        cursor: pointer;
+    }
+
+    &__link {
+        font-family: 'Source Code Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #FFFFFF;
+
+        text-decoration: underline;
+    }
+}
