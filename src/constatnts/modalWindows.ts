@@ -1,24 +1,25 @@
-export const SUCCESSFUL_SENDING = "SuccessfulSending"
+export const SUCCESSFUL_SENDING = "SuccessfulSending";
+export const FULL_SCREEN_FORM = "FullScreenForm";
 
 export const FORM__PRODUCT = [
-    {
-        id: 0,
-        text: 'Лендинг',
-        active: false
-    },
-    {
-        id: 1,
-        text: 'Интернет-магазин',
-        active: false
-    },
-    {
-        id: 3,
-        text: 'Корпоративный сайт',
-        active: false
-    },
-    {
-        id: 4,
-        text: 'Веб-приложение',
-        active: false
-    },
-]
+	{
+		id: 0,
+		text: "Лендинг",
+		active: false,
+	},
+	{
+		id: 1,
+		text: "Интернет-магазин",
+		active: false,
+	},
+	{
+		id: 3,
+		text: "Корпоративный сайт",
+		active: false,
+	},
+	{
+		id: 4,
+		text: "Веб-приложение",
+		active: false,
+	},
+];

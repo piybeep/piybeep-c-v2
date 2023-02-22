@@ -34,6 +34,6 @@ export function useModalWindow() {
 		}
 	};
 
-	return { isHas, add, remove, isLoading };
+	return { isHas, add, remove, isLoading, windowQuery: query.window };
 }
 
