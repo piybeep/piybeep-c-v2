@@ -48,6 +48,7 @@ export default function Home() {
 				isShow={isShowForm}
 				close={() => setIsShowForm(false)}
 			/>
+
 		</main>
 	);
 }
