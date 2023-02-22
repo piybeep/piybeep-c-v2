@@ -4,12 +4,18 @@ import { Button, Title } from "../../components";
 import s from "./FormModalWindow.module.scss";
 import { Input } from "../../components/Input";
 import classNames from "classnames";
-import { FORM__PRODUCT } from "../../constatnts/modalWindows";
+import {
+	FORM__PRODUCT,
+	FULL_SCREEN_FORM,
+	SUCCESSFUL_SENDING,
+} from "../../constatnts/modalWindows";
 import { Privacy } from "../../components/Privacy/Privacy";
 import { useState } from "react";
+import { useModalWindow } from "../../hooks";
 
 export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
 	const [products, setProducts] = useState(FORM__PRODUCT);
+	const { isHas, add, remove } = useModalWindow();
 
 	const getProducts = products.map((current) => {
 		return (
@@ -69,7 +75,14 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
 					<div className={s.formModalWindow__list}>
 						<div className={s.formModalWindow__products}>{getProducts}</div>
 						<div className={s.formModalWindow__privacy}>
-							<Button value="Отправить" size="default" />
+							<Button
+								value="Отправить"
+								size="default"
+								onClick={() => {
+									remove(FULL_SCREEN_FORM);
+									add(SUCCESSFUL_SENDING);
+								}}
+							/>
 							<Privacy
 								title="Я соглашаюсь на хранение и обработку"
 								subtitle="персональных данных"
@@ -81,3 +94,4 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
 		</div>
 	);
 }
+
