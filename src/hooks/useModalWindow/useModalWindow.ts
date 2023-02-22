@@ -12,25 +12,18 @@ export function useModalWindow() {
 	const add = (name: string) => {
 		if (isHasQuery("window")) {
 			const data = (query.window as string).split(",");
+			data.push(name);
 			mutate({ query: { window: data.join(",") } });
-		}
-		else {
+		} else {
 			mutate({ query: { window: name } });
 		}
 	};
 
-	const addProduct = (name: string, products: any) => {
-		if (products) {
-			mutate({ query: { window: name, products: products } })
-		}
-	}
-
-	const remove = (name?: string, products?: any) => {
+	const remove = (name?: string) => {
 		if (isHasQuery("window")) {
-			if (!name || !products) {
-				mutate({ query: { window: null, products: null} });
-			} 
-			else {
+			if (!name) {
+				mutate({ query: { window: null } });
+			} else {
 				const data = (query.window as string).split(",");
 				data.splice(data.indexOf(name), 1);
 				mutate({
@@ -42,6 +35,6 @@ export function useModalWindow() {
 		}
 	};
 
-	return { isHas, add, addProduct, remove, isLoading, windowQuery: query.window };
+	return { isHas, add, remove, isLoading };
 }
 

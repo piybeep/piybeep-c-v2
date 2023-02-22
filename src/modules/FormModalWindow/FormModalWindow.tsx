@@ -1,60 +1,25 @@
-import { FormModalWindowProps } from "./FormModalWindow.types";
-import { Button, Title } from "../../components";
-// Style
-import s from "./FormModalWindow.module.scss";
-import { Input } from "../../components/Input";
+import React from "react";
 import classNames from "classnames";
+
+import { FormModalWindowProps } from "./FormModalWindow.types";
+import { Button, Title, Input, Privacy } from "../../components";
+import { useModalWindow, useUserSelectForm } from "../../hooks";
 import {
-	FORM__PRODUCT,
+	FORM__PRODUCTS,
 	FULL_SCREEN_FORM,
 	SUCCESSFUL_SENDING,
-} from "../../constatnts/modalWindows";
-import { Privacy } from "../../components/Privacy/Privacy";
-import { useEffect, useState } from "react";
-import { useModalWindow, useRouterQuery } from "../../hooks";
+} from "../../constatnts";
+
+// Style
+import s from "./FormModalWindow.module.scss";
 
 export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
-	
-	let selectedProducts
-	const [products, setProducts] = useState(FORM__PRODUCT);
-	const { isHas, add, addProduct, remove } = useModalWindow();
-
-	const query = useRouterQuery()
-
-	useEffect(() => {
-		products.forEach(currentProduct => {
-			if (currentProduct.text === query.query.products) {
-				currentProduct.active = true
-				console.log(query.query.products)
-			}
-		})
-	}, [isHas])
-
-	const getProducts = products.map((current) => {
-		return (
-			<Button
-				onClick={() => selectProduct(current)}
-				key={current.id}
-				value={current.text}
-				rounded
-				outline
-				color="light"
-				active={current.active}
-			/>
-		);
-	});
-
-	const selectProduct = (productActive: any) => {
-		products.forEach(
-			(productActive) => productActive,
-			(productActive.active = !productActive.active)
-		);
-		setProducts([...products]);
-
-		selectedProducts = products.filter(current => current.active).map(current => current.text)
-
-		addProduct(FULL_SCREEN_FORM, selectedProducts)
-	};
+	const { add, remove } = useModalWindow();
+	const {
+		add: addUserSelect,
+		remove: removeUserSelect,
+		isHas: isHasUserSelect,
+	} = useUserSelectForm();
 
 	return (
 		<div
@@ -90,7 +55,23 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
 				<div className={s.formModalWindow__info}>
 					<h2 className={s.formModalWindow__title}>Выберите продукт:</h2>
 					<div className={s.formModalWindow__list}>
-						<div className={s.formModalWindow__products}>{getProducts}</div>
+						<div className={s.formModalWindow__products}>
+							{FORM__PRODUCTS.map((current) => (
+								<Button
+									onClick={() =>
+										isHasUserSelect(current)
+											? removeUserSelect(current)
+											: addUserSelect(current)
+									}
+									key={current}
+									value={current}
+									rounded
+									outline
+									color="light"
+									active={isHasUserSelect(current)}
+								/>
+							))}
+						</div>
 						<div className={s.formModalWindow__privacy}>
 							<Button
 								value="Отправить"

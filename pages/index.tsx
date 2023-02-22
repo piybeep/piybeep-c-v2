@@ -4,8 +4,7 @@ import React from "react";
 import { Button } from "../src/components";
 import { FULL_SCREEN_FORM, SUCCESSFUL_SENDING } from "../src/constatnts";
 import { useModalWindow } from "../src/hooks";
-import { SuccessModalWindow } from "../src/modules";
-import { FormModalWindow } from "../src/modules/FormModalWindow";
+import { SuccessModalWindow, FormModalWindow } from "../src/modules";
 
 export default function Home() {
 	const { isHas, add, remove } = useModalWindow();
