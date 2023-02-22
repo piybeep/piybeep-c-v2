@@ -8,22 +8,7 @@ import { SuccessModalWindow } from "../src/modules";
 import { FormModalWindow } from "../src/modules/FormModalWindow";
 
 export default function Home() {
-	const { isHas, add, remove, isLoading, windowQuery } = useModalWindow();
-	const [modalOpen, setModalOpen] = React.useState<string | null>();
-
-	React.useEffect(() => {
-		if (!isLoading && !!windowQuery) {
-			if (isHas(SUCCESSFUL_SENDING)) {
-				setModalOpen(SUCCESSFUL_SENDING);
-			}
-			if (isHas(FULL_SCREEN_FORM)) {
-				setModalOpen(FULL_SCREEN_FORM);
-			}
-		} else {
-			setModalOpen(null);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isLoading, windowQuery]);
+	const { isHas, add, remove } = useModalWindow();
 
 	return (
 		<main>
@@ -41,12 +26,12 @@ export default function Home() {
 			<Button onClick={() => add(FULL_SCREEN_FORM)} value="Open form" />
 
 			<SuccessModalWindow
-				isShow={modalOpen === SUCCESSFUL_SENDING}
+				isShow={isHas(SUCCESSFUL_SENDING)}
 				close={() => remove(SUCCESSFUL_SENDING)}
 			/>
 
 			<FormModalWindow
-				isShow={modalOpen === FULL_SCREEN_FORM}
+				isShow={isHas(FULL_SCREEN_FORM)}
 				close={() => remove(FULL_SCREEN_FORM)}
 			/>
 		</main>
