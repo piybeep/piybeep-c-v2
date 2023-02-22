@@ -13,16 +13,24 @@ export function useModalWindow() {
 		if (isHasQuery("window")) {
 			const data = (query.window as string).split(",");
 			mutate({ query: { window: data.join(",") } });
-		} else {
+		}
+		else {
 			mutate({ query: { window: name } });
 		}
 	};
 
-	const remove = (name?: string) => {
+	const addProduct = (name: string, products: any) => {
+		if (products) {
+			mutate({ query: { window: name, products: products } })
+		}
+	}
+
+	const remove = (name?: string, products?: any) => {
 		if (isHasQuery("window")) {
-			if (!name) {
-				mutate({ query: { window: null } });
-			} else {
+			if (!name || !products) {
+				mutate({ query: { window: null, products: null} });
+			} 
+			else {
 				const data = (query.window as string).split(",");
 				data.splice(data.indexOf(name), 1);
 				mutate({
@@ -34,6 +42,6 @@ export function useModalWindow() {
 		}
 	};
 
-	return { isHas, add, remove, isLoading, windowQuery: query.window };
+	return { isHas, add, addProduct, remove, isLoading, windowQuery: query.window };
 }
 

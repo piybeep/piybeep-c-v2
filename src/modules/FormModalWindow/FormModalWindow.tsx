@@ -10,12 +10,25 @@ import {
 	SUCCESSFUL_SENDING,
 } from "../../constatnts/modalWindows";
 import { Privacy } from "../../components/Privacy/Privacy";
-import { useState } from "react";
-import { useModalWindow } from "../../hooks";
+import { useEffect, useState } from "react";
+import { useModalWindow, useRouterQuery } from "../../hooks";
 
 export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
+	
+	let selectedProducts
 	const [products, setProducts] = useState(FORM__PRODUCT);
-	const { isHas, add, remove } = useModalWindow();
+	const { isHas, add, addProduct, remove } = useModalWindow();
+
+	const query = useRouterQuery()
+
+	useEffect(() => {
+		products.forEach(currentProduct => {
+			if (currentProduct.text === query.query.products) {
+				currentProduct.active = true
+				console.log(query.query.products)
+			}
+		})
+	}, [isHas])
 
 	const getProducts = products.map((current) => {
 		return (
@@ -37,6 +50,10 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
 			(productActive.active = !productActive.active)
 		);
 		setProducts([...products]);
+
+		selectedProducts = products.filter(current => current.active).map(current => current.text)
+
+		addProduct(FULL_SCREEN_FORM, selectedProducts)
 	};
 
 	return (
