@@ -42,7 +42,6 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
                     <h2 className={s.formModalWindow__title}>Выберите продукт:</h2>
                     <div className={s.formModalWindow__list}>
                         <div className={s.formModalWindow__products}>
-                            {/* {products} */}
                             {getProducts}
                         </div>
                         <div className={s.formModalWindow__privacy}>
