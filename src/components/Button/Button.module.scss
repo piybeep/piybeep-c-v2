@@ -47,4 +47,18 @@
 	&__rounded {
 		border-radius: 100px;
 	}
+
+	&__form {
+		transition: .5s;
+
+		border-color: #fff;
+
+		color: #fff;
+	}
+
+	&__active {
+		background-color: #fff;
+		border: 1px solid #000;
+		color: #000;
+	}
 }

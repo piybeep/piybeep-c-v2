@@ -6,13 +6,22 @@ import { Input } from '../../components/Input';
 import classNames from 'classnames';
 import { FORM__PRODUCT } from '../../constatnts/modalWindows';
 import { Privacy } from '../../components/Privacy/Privacy';
+import { useState } from 'react';
 
 export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
-    const products = FORM__PRODUCT.map(current => {
+    const [products, setProducts] = useState(FORM__PRODUCT)
+
+    const getProducts = products.map(current => {
         return (
-            <Button key={current.id} value={current.text} rounded outline />
+            <Button onClick={() => selectProduct(current)} key={current.id} value={current.text} rounded outline form active={current.active} />
         )
     })
+
+    const selectProduct = (productActive: any) => {
+        products.forEach(productActive => productActive, productActive.active = !productActive.active)
+        setProducts([...products])
+    }
+
     return (
         <div className={classNames(s.formModalWindow__wrapper, {
             [s.formModalWindow__wrapper__visibile]: isShow,
@@ -33,7 +42,8 @@ export function FormModalWindow({ isShow, close }: FormModalWindowProps) {
                     <h2 className={s.formModalWindow__title}>Выберите продукт:</h2>
                     <div className={s.formModalWindow__list}>
                         <div className={s.formModalWindow__products}>
-                            {products}
+                            {/* {products} */}
+                            {getProducts}
                         </div>
                         <div className={s.formModalWindow__privacy}>
                             <Button value='Отправить' size='default' />

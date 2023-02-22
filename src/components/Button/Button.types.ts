@@ -7,6 +7,8 @@ export interface ButtonProps
 	value: string;
 	outline?: boolean;
 	rounded?: boolean;
-	size?: string
+	size?: string;
+	active?: boolean;
+	form?: boolean
 }
 
