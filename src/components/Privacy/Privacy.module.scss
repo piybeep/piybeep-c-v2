@@ -1,75 +1,74 @@
 .privacy {
-    display: flex;
-    column-gap: 6px;
+	display: flex;
+	column-gap: 6px;
 
-    &__checkbox {
-        display: none;
+	&__checkbox {
+		display: none;
 
-        &:checked+.privacy__agree {
+		&:checked + .privacy__agree {
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
 
-            &::before {
-                opacity: 1;
-            }
-        }
-    }
+	&__agree {
+		border: 1px solid #98ec65;
+		border-radius: 6px;
 
-    &__agree {
-        border: 1px solid #98EC65;
-        border-radius: 6px;
+		min-width: 25px;
+		height: 25px;
 
-        min-width: 25px;
-        height: 25px;
+		position: relative;
 
-        position: relative;
+		cursor: pointer;
 
-        cursor: pointer;
+		&::before {
+			content: "";
+			display: inline-block;
 
-        &::before {
-            content: '';
-            display: inline-block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
 
-            position: absolute;
-            left: 50%;
-            top: 50%;
+			transform: translate(-50%, -50%);
 
-            transform: translate(-50%, -50%);
+			background-color: #98ec65;
 
-            background-color: #98EC65;
+			width: 10px;
+			height: 10px;
 
-            width: 10px;
-            height: 10px;
+			border-radius: 2px;
 
-            border-radius: 2px;
+			transition: 0.3s;
 
-            transition: .3s;
+			opacity: 0;
+		}
+	}
 
-            opacity: 0;
-        }
-    }
+	&__label {
+		position: relative;
 
-    &__label {
-        position: relative;
+		font-family: var(--font-SourceCodePro);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
 
-        font-family: 'Source Code Pro';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
+		color: #ffffff;
 
-        color: #FFFFFF;
+		cursor: pointer;
+	}
 
-        cursor: pointer;
-    }
+	&__link {
+		font-family: var(--font-SourceCodePro);
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
 
-    &__link {
-        font-family: 'Source Code Pro';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
+		color: #ffffff;
 
-        color: #FFFFFF;
-
-        text-decoration: underline;
-    }
+		text-decoration: underline;
+	}
 }

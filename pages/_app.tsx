@@ -1,6 +1,6 @@
 import "../src/styles/globals.scss";
 import type { AppProps } from "next/app";
-import { Source_Code_Pro, PT_Mono } from "@next/font/google";
+import { Source_Code_Pro, PT_Mono, Montserrat } from "@next/font/google";
 import classNames from "classnames";
 
 export const SourceCodePro = Source_Code_Pro({
@@ -18,9 +18,23 @@ export const PTMono = PT_Mono({
 	fallback: ["sans-serif"],
 });
 
+export const montserrat = Montserrat({
+	preload: true,
+	weight: ["400"],
+	subsets: ["cyrillic", "latin"],
+	variable: "--font-Montserrat",
+	fallback: ["sans-serif"],
+});
+
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className={classNames(SourceCodePro.variable, PTMono.variable)}>
+		<div
+			className={classNames(
+				SourceCodePro.variable,
+				PTMono.variable,
+				montserrat.variable
+			)}
+		>
 			<Component {...pageProps} />
 		</div>
 	);

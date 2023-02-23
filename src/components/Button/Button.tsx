@@ -9,7 +9,6 @@ export function Button({
 	rounded,
 	outline,
 	active,
-	form,
 	color = "primary",
 	...props
 }: ButtonProps) {
