@@ -48,15 +48,15 @@
 	&__open {
 		left: 50%;
 
-		transition-delay: 1s;
-		transition: 1s ease-out;
+		transition-delay: .5s;
+		transition: .5s ease-out;
 	}
 
 	&__close {
 		left: -50%;
 
-		transition-delay: 1s;
-		transition: 1s ease-in;
+		transition-delay: .5s;
+		transition: .5s ease-in;
 	}
 
 	&__info {

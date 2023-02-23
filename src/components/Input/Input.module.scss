@@ -30,6 +30,17 @@
 			font-size: 14px;
 			line-height: 17px;
 		}
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:not(:placeholder-shown)+.input__placeholder {
+            top: -22px;
+
+            font-size: 14px;
+            line-height: 17px;
+        }
 	}
 
 	&__placeholder {

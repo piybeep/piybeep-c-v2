@@ -3,14 +3,15 @@ import { PrivacyProps } from "./Privacy.types";
 // Style
 import s from "./Privacy.module.scss";
 
-export function Privacy({ title, subtitle }: PrivacyProps) {
+export function Privacy({ title, subtitle, ...props }: PrivacyProps) {
 	return (
 		<div className={s.privacy}>
-			<input className={s.privacy__checkbox} type="checkbox" id="checkbox" />
-			<span className={s.privacy__agree}></span>
-			<label className={s.privacy__label} htmlFor="checkbox">
+			<input {...props} className={s.privacy__checkbox} readOnly type="checkbox" />
+			<span className={s.privacy__agree} onClick={props.onClick}></span>
+			<span className={s.privacy__label} onClick={props.onClick}>
 				{title}{" "}
 				<a
+				onClick={e => e.stopPropagation()}
 					className={s.privacy__link}
 					href="https://piybeep.com"
 					target="_blank"
@@ -18,7 +19,7 @@ export function Privacy({ title, subtitle }: PrivacyProps) {
 				>
 					{subtitle}
 				</a>
-			</label>
+			</span>
 		</div>
 	);
 }

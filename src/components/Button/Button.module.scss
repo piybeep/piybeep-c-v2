@@ -13,6 +13,10 @@
 
 	transition: 0.3s;
 
+	&:disabled{
+		cursor: not-allowed;
+	}
+
 	&__small {
 		font-size: 18px;
 
