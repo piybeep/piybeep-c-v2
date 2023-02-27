@@ -9,6 +9,7 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	const [error, setError] = React.useState(
 		router.isFallback ? new Error("Router is fallback") : null
 	);
+	const [queue, setQueue] = React.useState<RouterQueryMutate[]>([]);
 
 	const isHas = (key: string) => {
 		return (
@@ -28,8 +29,6 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 				if (router.query[key] === null) {
 					if (Object.keys(router.query).length > 1) {
 						delete router.query[key];
-						// Как вариант для исправления
-						// router.query = {};
 					} else {
 						router.query = {};
 					}
@@ -41,6 +40,14 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 		router[props.method ?? "push"]({
 			query: router.query,
 		})
+			.then((v) => {
+				if (!v) {
+					setQueue((v) => {
+						v.push(props);
+						return v;
+					});
+				}
+			})
 			.catch((err) => setError(err))
 			.finally(() => {
 				setIsLoading(false);
@@ -50,6 +57,15 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	React.useEffect(() => {
 		if (router.isReady == isLoading) setIsLoading(!router.isReady);
 	}, [router.isReady, isLoading]);
+
+	React.useEffect(() => {
+		if (!isLoading && queue.length) {
+			setQueue(([first, ...other]) => {
+				mutate(first);
+				return other;
+			});
+		}
+	}, [queue, isLoading]);
 
 	init_props && mutate(init_props);
 
