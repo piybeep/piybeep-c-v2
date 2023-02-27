@@ -9,7 +9,6 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	const [error, setError] = React.useState(
 		router.isFallback ? new Error("Router is fallback") : null
 	);
-	const [queue, setQueue] = React.useState<RouterQueryMutate[]>([]);
 
 	const isHas = (key: string) => {
 		return (
@@ -42,10 +41,7 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 		})
 			.then((v) => {
 				if (!v) {
-					setQueue((v) => {
-						v.push(props);
-						return v;
-					});
+					setError(new Error("Не удалось выполнить изменение параметров"));
 				}
 			})
 			.catch((err) => setError(err))
@@ -57,15 +53,6 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	React.useEffect(() => {
 		if (router.isReady == isLoading) setIsLoading(!router.isReady);
 	}, [router.isReady, isLoading]);
-
-	React.useEffect(() => {
-		if (!isLoading && queue.length) {
-			setQueue(([first, ...other]) => {
-				mutate(first);
-				return other;
-			});
-		}
-	}, [queue, isLoading]);
 
 	init_props && mutate(init_props);
 

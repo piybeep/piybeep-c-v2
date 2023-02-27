@@ -21,7 +21,7 @@ export function FormRequest() {
 		isHas: isHasUserSelect,
 	} = useUserSelectForm();
 
-	const { query, mutate, isHas, isLoading } = useRouterQuery();
+	const { query, isHas } = useRouterQuery();
 
 	const initialValues: {
 		name: string;
@@ -45,7 +45,7 @@ export function FormRequest() {
 			formik.resetForm();
 		},
 		onReset() {
-			mutate({ query: { userSelect: null } });
+			removeUserSelect();
 		},
 	});
 
