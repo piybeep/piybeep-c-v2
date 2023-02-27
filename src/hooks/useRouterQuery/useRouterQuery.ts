@@ -22,22 +22,21 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 		if (props.query === null) {
 			router.query = {};
 		} else {
-			for (const key in props.query) {
-				if (props.query[key] === null) {
-					if (Object.keys(router.query).length > 1)
-					{
+			router.query = Object.assign({}, router.query, props.query);
+
+			for (const key in router.query) {
+				if (router.query[key] === null) {
+					if (Object.keys(router.query).length > 1) {
 						delete router.query[key];
 						// Как вариант для исправления
 						// router.query = {};
-					}
-					else{
+					} else {
 						router.query = {};
-					} 
-				} else {
-					router.query = Object.assign({}, router.query, props.query);
+					}
 				}
 			}
 		}
+
 		setIsLoading(true);
 		router[props.method ?? "push"]({
 			query: router.query,

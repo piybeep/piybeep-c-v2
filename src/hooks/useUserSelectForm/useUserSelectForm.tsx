@@ -12,9 +12,13 @@ export function useUserSelectForm() {
 
 	const add = (name: string) => {
 		if (isHasQuery("userSelect")) {
-			const data = (query.userSelect as string).split(",");
-			data.push(name);
-			mutate({ query: { userSelect: data.join(",") } });
+			mutate({
+				query: {
+					userSelect: (query.userSelect as string)
+						.split(",")
+						.reduce((pre, cur) => [cur, pre].join(","), name),
+				},
+			});
 		} else {
 			mutate({ query: { userSelect: name } });
 		}
@@ -25,11 +29,13 @@ export function useUserSelectForm() {
 			if (!name) {
 				mutate({ query: { userSelect: null } });
 			} else {
-				const data = (query.userSelect as string).split(",");
-				data.splice(data.indexOf(name), 1);
 				mutate({
 					query: {
-						userSelect: data.length ? data.join(",") : null,
+						userSelect:
+							(query.userSelect as string)
+								.split(",")
+								.filter((v) => v !== name && v != "")
+								.join(",") || null,
 					},
 				});
 			}

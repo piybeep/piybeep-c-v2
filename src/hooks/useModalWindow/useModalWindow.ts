@@ -11,9 +11,13 @@ export function useModalWindow() {
 
 	const add = (name: string) => {
 		if (isHasQuery("window")) {
-			const data = (query.window as string).split(",");
-			data.push(name);
-			mutate({ query: { window: data.join(",") } });
+			mutate({
+				query: {
+					window: (query.window as string)
+						.split(",")
+						.reduce((pre, cur) => [cur, pre].join(","), name),
+				},
+			});
 		} else {
 			mutate({ query: { window: name } });
 		}
@@ -24,11 +28,13 @@ export function useModalWindow() {
 			if (!name) {
 				mutate({ query: { window: null } });
 			} else {
-				const data = (query.window as string).split(",");
-				data.splice(data.indexOf(name), 1);
 				mutate({
 					query: {
-						window: data.length ? data.join(",") : null,
+						window:
+							(query.window as string)
+								.split(",")
+								.filter((v) => v !== name && v != "")
+								.join(",") || null,
 					},
 				});
 			}
