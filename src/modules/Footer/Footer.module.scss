@@ -1,0 +1,90 @@
+@import "../../styles/variables.scss";
+
+.footer {
+	background-color: $dark-color;
+
+	font-family: var(--font-Inter);
+	font-style: normal;
+	font-weight: 400;
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 3rem 0;
+
+	* {
+		transition: all 0.3s;
+	}
+
+	.wrapper {
+		width: 100%;
+		max-width: 1125px;
+
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		row-gap: 40px;
+	}
+
+	a {
+		font-size: 14px;
+		line-height: 17px;
+
+		color: $white-color;
+
+		transition: all 0.3s;
+
+		&:hover {
+			text-underline-position: under;
+			text-decoration: underline;
+		}
+	}
+
+	.links {
+		display: flex;
+
+		column-gap: 25px;
+
+		svg {
+			margin-left: 5px;
+		}
+	}
+
+	.contacts {
+		display: flex;
+
+		column-gap: 50px;
+
+		a {
+			// todo font-family: 'Actay';
+			font-size: 32px; // todo 48
+			line-height: 100%;
+
+			&:hover {
+				text-decoration: inherit;
+
+				color: $main-color;
+			}
+		}
+	}
+
+	.copyright {
+		cursor: default;
+		line-height: 130%;
+
+		text-align: end;
+		justify-self: flex-end;
+
+		a {
+			text-decoration: underline;
+			text-underline-position: under;
+			font-size: inherit;
+		}
+	}
+}
+
