@@ -2,16 +2,21 @@
 
 .button {
 	cursor: pointer;
-	background-color: $main-color;
 	outline: none;
 	border: none;
+	color: #000;
 
 	font-family: var(--font-SourceCodePro);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 128.9%;
-	color: #000000;
+
+	transition: 0.3s;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 
 	&__small {
 		font-size: 18px;
@@ -36,15 +41,44 @@
 		border-radius: 16px;
 	}
 
+	&__color_primary {
+		background-color: $main-color;
+
+		&.button__outline {
+			color: $main-color;
+
+			border: 1px solid $main-color;
+
+			&.button__active {
+				background-color: #fff;
+				border: 1px solid #000;
+				color: #000;
+			}
+		}
+	}
+
+	&__color_light {
+		background-color: #fff;
+
+		&.button__outline {
+			color: #fff;
+
+			border: 1px solid #fff;
+
+			&.button__active {
+				background-color: #fff;
+				border: 1px solid #000;
+				color: #000;
+			}
+		}
+	}
+
 	&__outline {
 		background: transparent;
-
-		border: 1px solid $main-color;
-
-		color: $main-color;
 	}
 
 	&__rounded {
 		border-radius: 100px;
 	}
 }
+

@@ -19,22 +19,31 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	};
 
 	const mutate = (props: RouterQueryMutate) => {
+		setError(null);
+		let { query } = router;
 		if (props.query === null) {
-			router.query = {};
+			query = {};
 		} else {
-			for (const key in props.query) {
-				if (props.query[key] === null) {
-					if (Object.keys(router.query).length > 1) delete router.query[key];
-					else router.query = {};
-				} else {
-					router.query = Object.assign({}, router.query, props.query);
+			query = Object.assign({}, query, props.query);
+
+			for (const key in query) {
+				if (query[key] === null) {
+					if (Object.keys(query).length > 1) {
+						delete query[key];
+					} else {
+						query = {};
+					}
 				}
 			}
 		}
+
 		setIsLoading(true);
-		router[props.method ?? "push"]({
-			query: router.query,
-		})
+		router[props.method ?? "push"]({ query })
+			.then((v) => {
+				if (!v) {
+					setError(new Error("Не удалось выполнить изменение параметров"));
+				}
+			})
 			.catch((err) => setError(err))
 			.finally(() => {
 				setIsLoading(false);

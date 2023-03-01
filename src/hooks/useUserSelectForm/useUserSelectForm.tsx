@@ -1,37 +1,38 @@
 import { useRouterQuery } from "../useRouterQuery";
 
-export function useModalWindow() {
+export function useUserSelectForm() {
 	const { query, isLoading, isHas: isHasQuery, mutate } = useRouterQuery();
 
 	const isHas = (name: string) => {
 		return (
-			isHasQuery("window") && (query.window as string).split(",").includes(name)
+			isHasQuery("userSelect") &&
+			(query.userSelect as string).split(",").includes(name)
 		);
 	};
 
 	const add = (name: string) => {
-		if (isHasQuery("window")) {
+		if (isHasQuery("userSelect")) {
 			mutate({
 				query: {
-					window: (query.window as string)
+					userSelect: (query.userSelect as string)
 						.split(",")
 						.reduce((pre, cur) => [cur, pre].join(","), name),
 				},
 			});
 		} else {
-			mutate({ query: { window: name } });
+			mutate({ query: { userSelect: name } });
 		}
 	};
 
 	const remove = (name?: string) => {
-		if (isHasQuery("window")) {
+		if (isHasQuery("userSelect")) {
 			if (!name) {
-				mutate({ query: { window: null } });
+				mutate({ query: { userSelect: null } });
 			} else {
 				mutate({
 					query: {
-						window:
-							(query.window as string)
+						userSelect:
+							(query.userSelect as string)
 								.split(",")
 								.filter((v) => v !== name && v != "")
 								.join(",") || null,
@@ -41,6 +42,6 @@ export function useModalWindow() {
 		}
 	};
 
-	return { isHas, add, remove, isLoading };
+	return { add, remove, isHas, isLoading };
 }
 
