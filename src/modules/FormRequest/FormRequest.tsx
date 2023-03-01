@@ -3,25 +3,21 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { Button, Title, Input, Privacy } from "../../components";
-import { useModalWindow, useRouterQuery, useUserSelectForm } from "../../hooks";
-import {
-	FORM__PRODUCTS,
-	FULL_SCREEN_FORM,
-	SUCCESSFUL_SENDING,
-} from "../../constatnts";
+import { useRouterQuery, useUserSelectForm } from "../../hooks";
+import { FORM__PRODUCTS, SUCCESSFUL_SENDING } from "../../constatnts";
 
 // Style
 import s from "./FormRequest.module.scss";
 
 export function FormRequest() {
-	const { add, remove } = useModalWindow();
+	// const { add, remove } = useModalWindow();
 	const {
 		add: addUserSelect,
 		remove: removeUserSelect,
 		isHas: isHasUserSelect,
 	} = useUserSelectForm();
 
-	const { query, isHas } = useRouterQuery();
+	const { query, mutate, isHas } = useRouterQuery();
 
 	const initialValues: {
 		name: string;
@@ -38,14 +34,14 @@ export function FormRequest() {
 			privacy: Yup.bool().required().isTrue(),
 		}),
 		onSubmit(values) {
-			remove(FULL_SCREEN_FORM);
-			add(SUCCESSFUL_SENDING);
+			mutate({ query: { window: SUCCESSFUL_SENDING, userSelect: null } });
+			// remove(FULL_SCREEN_FORM);
+			// add(SUCCESSFUL_SENDING);
+
+			// removeUserSelect();
 
 			formik.setSubmitting(false);
 			formik.resetForm();
-		},
-		onReset() {
-			removeUserSelect();
 		},
 	});
 
@@ -54,6 +50,7 @@ export function FormRequest() {
 			"products",
 			isHas("userSelect") ? (query.userSelect as string).split(",") : []
 		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query.userSelect]);
 
 	return (
