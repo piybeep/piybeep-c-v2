@@ -4,6 +4,7 @@
 	cursor: pointer;
 	outline: none;
 	border: none;
+	color: #000;
 
 	font-family: var(--font-SourceCodePro);
 	font-style: normal;
@@ -13,7 +14,7 @@
 
 	transition: 0.3s;
 
-	&:disabled{
+	&:disabled {
 		cursor: not-allowed;
 	}
 
@@ -41,7 +42,6 @@
 	}
 
 	&__color_primary {
-		color: #000000;
 		background-color: $main-color;
 
 		&.button__outline {
@@ -58,7 +58,6 @@
 	}
 
 	&__color_light {
-		color: #000;
 		background-color: #fff;
 
 		&.button__outline {

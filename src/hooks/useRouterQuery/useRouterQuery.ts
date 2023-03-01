@@ -19,6 +19,7 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 	};
 
 	const mutate = (props: RouterQueryMutate) => {
+		setError(null);
 		let { query } = router;
 		if (props.query === null) {
 			query = {};
