@@ -3,14 +3,14 @@
 .footer {
 	background-color: $dark-color;
 
-	font-family: var(--font-Inter);
+	font-family: "Inter";
 	font-style: normal;
 	font-weight: 400;
 
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 3rem 0;
+	padding: 48px 0;
 
 	* {
 		transition: all 0.3s;
@@ -18,7 +18,8 @@
 
 	.wrapper {
 		width: 100%;
-		max-width: 1125px;
+		max-width: 1688px;
+		padding: 0 24px;
 
 		display: flex;
 		justify-content: space-between;
@@ -61,8 +62,8 @@
 		column-gap: 50px;
 
 		a {
-			// todo font-family: 'Actay';
-			font-size: 32px; // todo 48
+			font-family: "Actay", Arial, sans-serif;
+			font-size: 40px;
 			line-height: 100%;
 
 			&:hover {
