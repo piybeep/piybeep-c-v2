@@ -1,20 +1,19 @@
 import Head from "next/head";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Footer } from "../src/modules";
 
 export default function Home() {
 	return (
 		<>
-			<main>
-				<Head>
-					<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
-					<meta
-						name="description"
-						content="Разработка и поддержка сайтов для стартапов и растущих компаний. Мы поможем вам сделать шаг к расширению вашего бизнеса - сделаем качественный сайт."
-					/>
-					<meta
-						name="keywords"
-						content="piybeep,
+			<Head>
+				<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
+				<meta
+					name="description"
+					content="Разработка и поддержка сайтов для стартапов и растущих компаний. Мы поможем вам сделать шаг к расширению вашего бизнеса - сделаем качественный сайт."
+				/>
+				<meta
+					name="keywords"
+					content="piybeep,
   пиубип,
   веб студия,
   студия веб дизайна,
@@ -57,12 +56,18 @@ export default function Home() {
   создать сайт агентство,
   создать сайт под ключ цена,
   создать корпоративный сайт"
-					/>
-					<link rel="icon" href="/favicon.ico" />
-				</Head>
-			</main>
-			<Footer />
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<main></main>
 		</>
 	);
 }
+
+Home.getLayout = (page: ReactNode) => (
+	<>
+		{page}
+		<Footer />
+	</>
+);
 
