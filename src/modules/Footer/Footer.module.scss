@@ -1,5 +1,35 @@
 @import "../../styles/variables.scss";
 
+$media: (
+	1550px: (
+		links: 14px,
+		contacts: 48px,
+		copyright: 16px,
+		padding: 48px 0,
+		row-gap: 40px,
+		fdir: row,
+		align-items: flex-start,
+	),
+	1024px: (
+		links: 14px,
+		contacts: 34px,
+		copyright: 16px,
+		padding: 34px 0,
+		row-gap: 40px,
+		fdir: row,
+		align-items: flex-start,
+	),
+	768px: (
+		links: 12px,
+		contacts: 16px,
+		copyright: 16px,
+		padding: 16px 0,
+		row-gap: 20px,
+		fdir: column,
+		align-items: center,
+	),
+);
+
 .footer {
 	background-color: $dark-color;
 
@@ -37,6 +67,7 @@
 		line-height: 17px;
 
 		color: $white-color;
+		width: max-content;
 
 		transition: all 0.3s;
 
@@ -58,13 +89,14 @@
 
 	.contacts {
 		display: flex;
+		flex-wrap: wrap;
 
 		column-gap: 50px;
 
 		a {
 			font-family: "Actay", Arial, sans-serif;
-			font-size: 40px;
-			line-height: 100%;
+			font-size: 48px;
+			line-height: 150%;
 
 			&:hover {
 				text-decoration: inherit;
@@ -77,6 +109,7 @@
 	.copyright {
 		cursor: default;
 		line-height: 130%;
+		width: 100%;
 
 		text-align: end;
 		justify-self: flex-end;
@@ -85,6 +118,51 @@
 			text-decoration: underline;
 			text-underline-position: under;
 			font-size: inherit;
+		}
+	}
+}
+
+@each $width, $params in $media {
+	@media screen and (max-width: #{$width}) {
+		.footer {
+			padding: map-get($map: $params, $key: "padding");
+
+			a {
+				font-size: map-get($map: $params, $key: "links");
+			}
+
+			.wrapper {
+				flex-direction: map-get($map: $params, $key: "fdir");
+				@if (map-get($map: $params, $key: "align-items") == flex-start) {
+					align-self: stretch;
+				} @else {
+					align-items: map-get($map: $params, $key: "align-items");
+				}
+				row-gap: map-get($map: $params, $key: "row-gap");
+			}
+
+			.column {
+				align-items: map-get($map: $params, $key: "align-items");
+				row-gap: map-get($map: $params, $key: "row-gap");
+			}
+
+			.contacts {
+				justify-content: map-get($map: $params, $key: "align-items");
+				column-gap: map-get($map: $params, $key: "row-gap") + 10px;
+
+				a {
+					font-size: map-get($map: $params, $key: "contacts");
+				}
+			}
+
+			.copyright {
+				@if (map-get($map: $params, $key: "align-items") == flex-start) {
+					text-align: flex-end;
+				} @else {
+					text-align: center;
+				}
+				font-size: map-get($map: $params, $key: "copyright");
+			}
 		}
 	}
 }
