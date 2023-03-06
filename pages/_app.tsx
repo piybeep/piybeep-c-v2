@@ -1,41 +1,24 @@
 import "../src/styles/globals.scss";
 import type { AppProps } from "next/app";
-import { Source_Code_Pro, PT_Mono, Montserrat } from "@next/font/google";
 import classNames from "classnames";
+import { BaseLayout } from "../src/layouts";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
 
-export const SourceCodePro = Source_Code_Pro({
-	preload: true,
-	subsets: ["cyrillic", "latin"],
-	variable: "--font-SourceCodePro",
-	fallback: ["sans-serif"],
-});
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+	getLayout?: (page: ReactElement) => ReactNode;
+};
 
-export const PTMono = PT_Mono({
-	preload: true,
-	weight: ["400"],
-	subsets: ["cyrillic", "latin"],
-	variable: "--font-PTMono",
-	fallback: ["sans-serif"],
-});
+type AppPropsWithLayout = AppProps & {
+	Component: NextPageWithLayout;
+};
 
-export const montserrat = Montserrat({
-	preload: true,
-	weight: ["400"],
-	subsets: ["cyrillic", "latin"],
-	variable: "--font-Montserrat",
-	fallback: ["sans-serif"],
-});
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+	const getLayout = Component.getLayout ?? ((page) => page);
 
-export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<div
-			className={classNames(
-				SourceCodePro.variable,
-				PTMono.variable,
-				montserrat.variable
-			)}
-		>
-			<Component {...pageProps} />
+		<div className={classNames("wrapper")}>
+			{getLayout(<Component {...pageProps} />)}
 		</div>
 	);
 }

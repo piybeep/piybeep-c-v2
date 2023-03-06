@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { ReactNode } from "react";
+import { Footer } from "../../src/modules";
 
-export default function Portfolio() {
+export default function PortfolioCase() {
 	const router = useRouter();
 	const { project } = router.query;
 	return (
@@ -21,3 +23,10 @@ export default function Portfolio() {
 		</main>
 	);
 }
+
+PortfolioCase.getLayout = (page: ReactNode) => (
+	<>
+		{page}
+		<Footer />
+	</>
+);

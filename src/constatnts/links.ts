@@ -11,7 +11,7 @@ export const MENU_ITEMS = [
 
 export const SOCIAL_LINKS = [
 	{ display_name: "Вконтакте", link: "https://vk.com/piybeep" },
-	{ display_name: "Ватсап", link: "https://web.whatsapp.com/" },
+	{ display_name: "Ватсап", link: "https://wa.me/79265762877" },
 	{ display_name: "Телеграм", link: "https://t.me/piybeep" },
 ];
 
