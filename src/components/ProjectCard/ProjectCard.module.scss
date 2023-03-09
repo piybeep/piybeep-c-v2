@@ -1,0 +1,51 @@
+.project_card {
+	width: 507px;
+
+	.image {
+		width: inherit;
+		height: 380px;
+		background-color: #ececec;
+		margin-bottom: 22px;
+
+		img {
+			width: inherit;
+			height: inherit;
+			object-fit: contain;
+		}
+	}
+
+	h3,
+	p {
+		margin: 0;
+
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 18px;
+	}
+
+	h3 {
+		color: #8e8e8e;
+	}
+
+	p {
+		color: #ececec;
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	.project_card {
+		width: 355px;
+
+		.image {
+			width: inherit;
+			height: 287px;
+
+			img {
+				width: inherit;
+				height: inherit;
+			}
+		}
+	}
+}
