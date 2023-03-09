@@ -1,11 +1,10 @@
 .project_card {
-	width: 507px;
-
 	.image {
-		width: inherit;
-		height: 380px;
 		background-color: #ececec;
 		margin-bottom: 22px;
+
+		width: 100%;
+		height: 100%;
 
 		img {
 			width: inherit;
@@ -31,21 +30,5 @@
 
 	p {
 		color: #ececec;
-	}
-}
-
-@media screen and (max-width: 1550px) {
-	.project_card {
-		width: 355px;
-
-		.image {
-			width: inherit;
-			height: 287px;
-
-			img {
-				width: inherit;
-				height: inherit;
-			}
-		}
 	}
 }

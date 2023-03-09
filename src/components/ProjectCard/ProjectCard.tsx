@@ -11,7 +11,12 @@ export function ProjectCard({
 	return (
 		<div className={classNames(props.className, s.project_card)}>
 			<div className={s.image}>
-				<Image src={"/imgs/sleeping-cat.png"} alt="" width={507} height={380} />
+				<Image
+					src={"/imgs/project-template.png"}
+					alt=""
+					width={507}
+					height={380}
+				/>
 			</div>
 			<h3 className={s.title}>{title}</h3>
 			<p className={s.description}>{description}</p>
