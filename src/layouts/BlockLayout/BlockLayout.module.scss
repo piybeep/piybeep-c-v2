@@ -1,0 +1,52 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 44px;
+	width: 100%;
+
+	.title {
+		display: flex;
+		column-gap: 15px;
+		align-items: center;
+
+		text-transform: uppercase;
+
+		h3,
+		h4 {
+			font-family: "Inter", sans-serif;
+			font-style: normal;
+			font-weight: 500;
+			margin: 0;
+		}
+
+		h3 {
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		h4 {
+			font-size: 13px;
+			line-height: 16px;
+
+			padding: 7px 14px;
+			border: 1px solid #4b4951;
+			border-radius: 59px;
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
+	.wrapper {
+		.title {
+			h3: {
+				font-size: 14px;
+				line-height: 17px;
+			}
+
+			h4 {
+				font-size: 10px;
+				line-height: 12px;
+			}
+		}
+	}
+}

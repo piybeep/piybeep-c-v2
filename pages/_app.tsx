@@ -1,9 +1,10 @@
-import "../src/styles/globals.scss";
 import type { AppProps } from "next/app";
 import classNames from "classnames";
-import { BaseLayout } from "../src/layouts";
 import { ReactElement, ReactNode } from "react";
 import { NextPage } from "next";
+
+import "../src/styles/globals.scss";
+import "swiper/css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;
