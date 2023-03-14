@@ -5,7 +5,6 @@ import { NextPage } from "next";
 
 import "../src/styles/globals.scss";
 import "swiper/css";
-import "react-multi-carousel/lib/styles.css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode;

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import { Footer, OurProjectsBlock } from "../src/modules";
-import { BlockLayout } from "../src/layouts";
 
 export default function Home() {
 	return (
