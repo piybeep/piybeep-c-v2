@@ -1,14 +1,16 @@
 .project_card {
 	.image {
-		background-color: #ececec;
+		// background-color: #ececec;
 		margin-bottom: 22px;
 
-		width: 100%;
 		height: 100%;
+		width: 100%;
 
 		img {
-			width: inherit;
-			height: inherit;
+			// border: 1px inset red;
+			max-height: 390px;
+			height: 100%;
+			width: 100%;
 			object-fit: contain;
 		}
 	}
@@ -30,5 +32,30 @@
 
 	p {
 		color: #ececec;
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	.project_card {
+		.image {
+			img {
+				max-height: 287px;
+			}
+		}
+		h3,
+		p {
+			font-size: 13px;
+			line-height: 16px;
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
+	.project_card {
+		.image {
+			img {
+				max-height: 188px;
+			}
+		}
 	}
 }
