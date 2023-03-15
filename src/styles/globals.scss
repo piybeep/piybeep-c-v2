@@ -60,6 +60,16 @@ body {
 	}
 }
 
+@media screen and (max-width: 430px) {
+	body {
+		.wrapper {
+			main {
+				padding: 0 16px;
+			}
+		}
+	}
+}
+
 * {
 	box-sizing: border-box;
 }

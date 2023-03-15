@@ -1,11 +1,20 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import { Footer, OurProjectsBlock } from "../src/modules";
+import { AdvantagesBlock, Footer, OurProjectsBlock } from "../src/modules";
 
 export default function Home() {
 	return (
-		<main>
+		<main
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				rowGap: 100,
+				marginBottom: 90,
+				marginTop: 50,
+			}}
+		>
 			<OurProjectsBlock />
+			<AdvantagesBlock />
 		</main>
 	);
 }

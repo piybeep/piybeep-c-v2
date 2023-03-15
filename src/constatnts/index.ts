@@ -3,4 +3,4 @@ export * from "./form";
 export * from "./links";
 export * from "./contacts";
 export * from "./products";
-
+export * from "./advantages";
