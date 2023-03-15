@@ -122,6 +122,14 @@ $media: (
 	}
 }
 
+@media screen and (max-width: 1550px) {
+	.footer {
+		.wrapper {
+			max-width: 1214px;
+		}
+	}
+}
+
 @each $width, $params in $media {
 	@media screen and (max-width: #{$width}) {
 		.footer {
