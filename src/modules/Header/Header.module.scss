@@ -16,9 +16,12 @@
 
     width: fit-content;
 
+    cursor: pointer;
+
     &__svg {
-        width: 36px;
-        height: 34px;
+        width: 100%;
+        max-width: 36px;
+        height: auto;
     }
 
     &__text {
@@ -77,6 +80,7 @@
 
     &__button {
         display: flex;
+        align-items: center;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -89,7 +93,12 @@
         border: none;
 
         padding: 0px;
+        padding-right: 15px;
 
         cursor: pointer;
+
+        background-image: url(../../../public/svg/Arrows/Right.svg);
+        background-repeat: no-repeat;
+        background-position: right;
     }
 }
