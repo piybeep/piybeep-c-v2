@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Footer } from "../../src/modules";
+import { BaseLayout } from "../../src/layouts";
 
 export default function Studio() {
 	return (
@@ -13,13 +13,13 @@ export default function Studio() {
 }
 
 Studio.getLayout = (page: ReactNode) => (
-	<>
+	<BaseLayout>
 		<Head>
 			<title>Piybeep - Студия</title>
 			<meta name="description" content="Наша студия" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		{page}
-		<Footer />
-	</>
+	</BaseLayout>
 );
+
