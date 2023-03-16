@@ -1,6 +1,11 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import { AdvantagesBlock, Footer, OurProjectsBlock } from "../src/modules";
+import {
+	AdvantagesBlock,
+	Footer,
+	OurProjectsBlock,
+	RojectsPreview,
+} from "../src/modules";
 
 export default function Home() {
 	return (
@@ -15,6 +20,7 @@ export default function Home() {
 		>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
+			<RojectsPreview />
 		</main>
 	);
 }
