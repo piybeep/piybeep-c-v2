@@ -4,3 +4,4 @@ export * from "./FormRequest";
 export * from "./Footer";
 export * from "./OurProjectsBlock";
 export * from "./AdvantagesBlock";
+export * from "./RojectsPreview";

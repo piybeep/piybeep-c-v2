@@ -1,6 +1,11 @@
 import Head from "next/head";
-import React, { ReactNode } from "react";
-import { AdvantagesBlock, Footer, OurProjectsBlock } from "../src/modules";
+import { ReactNode } from "react";
+import {
+	AdvantagesBlock,
+	OurProjectsBlock,
+	RojectsPreview,
+} from "../src/modules";
+import { BaseLayout } from "../src/layouts";
 
 export default function Home() {
 	return (
@@ -15,12 +20,13 @@ export default function Home() {
 		>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
+			<RojectsPreview />
 		</main>
 	);
 }
 
 Home.getLayout = (page: ReactNode) => (
-	<>
+	<BaseLayout>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta
@@ -76,7 +82,6 @@ Home.getLayout = (page: ReactNode) => (
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		{page}
-		<Footer />
-	</>
+	</BaseLayout>
 );
 

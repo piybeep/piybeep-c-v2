@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Footer } from "../../src/modules";
+import { BaseLayout } from "../../src/layouts";
 
 export default function Services() {
 	return (
@@ -13,13 +13,13 @@ export default function Services() {
 }
 
 Services.getLayout = (page: ReactNode) => (
-	<>
+	<BaseLayout>
 		<Head>
 			<title>Piybeep - Услуги</title>
 			<meta name="description" content="Наши услуги" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		{page}
-		<Footer />
-	</>
+	</BaseLayout>
 );
+

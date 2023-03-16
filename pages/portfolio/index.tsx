@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Footer } from "../../src/modules";
+import { BaseLayout } from "../../src/layouts";
 
 export default function Portfolio() {
 	return (
@@ -13,13 +13,13 @@ export default function Portfolio() {
 }
 
 Portfolio.getLayout = (page: ReactNode) => (
-	<>
+	<BaseLayout>
 		<Head>
 			<title>Piybeep - Портфолио</title>
 			<meta name="description" content="Наше портфолио" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		{page}
-		<Footer />
-	</>
+	</BaseLayout>
 );
+
