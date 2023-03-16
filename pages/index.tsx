@@ -6,6 +6,7 @@ import {
 	RojectsPreview,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
+import { Header } from "../src/modules/Header";
 
 export default function Home() {
 	return (
@@ -18,6 +19,7 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
+            <Header/>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />

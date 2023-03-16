@@ -1,0 +1,95 @@
+@import '../../styles/variables.scss';
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0px;
+
+    background-color: $black-color;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    border: 1px solid red;
+
+    width: fit-content;
+
+    &__svg {
+        width: 36px;
+        height: 34px;
+    }
+
+    &__text {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+
+        color: $white-color;
+
+        margin: 0px;
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    column-gap: 68px;
+
+    border: 1px solid red;
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+        text-transform: uppercase;
+
+        color: $white-color;
+    }
+}
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 30px;
+    border: 1px solid red;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 16px;
+        text-transform: uppercase;
+
+        color: $white-color;
+    }
+
+    &__button {
+        display: flex;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11.5px;
+        line-height: 14px;
+
+        color: $white-color;
+
+        background-color: transparent;
+        border: none;
+
+        padding: 0px;
+
+        cursor: pointer;
+    }
+}
