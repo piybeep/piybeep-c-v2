@@ -6,6 +6,7 @@ import { CONTACTS_DATA, MENU_ITEMS } from '../../constatnts';
 import s from './Header.module.scss'
 
 import logo from '../../../public/svg/logo.svg'
+import burger from '../../../public/svg/burger.svg'
 
 export function Header({ ...props }: HeaderProps) {
 
@@ -37,6 +38,8 @@ export function Header({ ...props }: HeaderProps) {
                     {CONTACTS_DATA.get('email')}
                 </Link>
             </div>
+
+            <button className={s.burger}></button>
         </div>
     );
 };

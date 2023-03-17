@@ -1,0 +1,43 @@
+@media screen and (max-width: 1550px) {
+    .menu {
+        column-gap: 19px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header{
+        padding: 12px 0px;
+    }
+    
+    .menu {
+
+        &__link {
+            font-size: 12px;
+            line-height: 15px;
+        }
+    }
+
+    .info{
+
+        &__link{
+            text-decoration: underline;
+            &:last-child{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .menu{
+        display: none;
+    }
+
+    .info{
+        display: none;
+    }
+
+    .burger{
+        display: flex;
+    }
+}

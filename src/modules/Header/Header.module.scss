@@ -12,8 +12,6 @@
     align-items: center;
     column-gap: 15px;
 
-    border: 1px solid red;
-
     width: fit-content;
 
     cursor: pointer;
@@ -42,8 +40,6 @@
     align-items: center;
     column-gap: 68px;
 
-    border: 1px solid red;
-
     &__link {
         font-family: 'Inter';
         font-style: normal;
@@ -60,7 +56,6 @@
     display: flex;
     align-items: flex-start;
     column-gap: 30px;
-    border: 1px solid red;
 
     &__column {
         display: flex;
@@ -102,3 +97,23 @@
         background-position: right;
     }
 }
+
+.burger{
+    display: none;
+
+    cursor: pointer;
+
+    background-color: transparent;
+    background-image: url('../../../public/svg/burger.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+
+    padding: 0px;
+
+    width: 100%;
+    max-width: 29px;
+    height: 31px;
+}
+
+@import './HeaderMedia.module.scss'
