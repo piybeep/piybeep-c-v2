@@ -19,7 +19,6 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
-            <Header/>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />

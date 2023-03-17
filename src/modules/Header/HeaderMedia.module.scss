@@ -1,4 +1,8 @@
 @media screen and (max-width: 1550px) {
+    .wrapper{
+        max-width: 1262px;
+    }
+
     .menu {
         column-gap: 19px;
     }
@@ -39,5 +43,11 @@
 
     .burger{
         display: flex;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .wrapper{
+        padding: 0px 16px;
     }
 }
