@@ -85,7 +85,7 @@ export function OurProjectsBlock() {
 	}, [width]);
 
 	return (
-		<BlockLayout title="Наши проекты ." subtitle="Скоро больше проектов">
+		<BlockLayout value="Наши проекты" subtitle="Скоро больше проектов">
 			<Swiper
 				className={s.slider}
 				direction="horizontal"
@@ -129,3 +129,4 @@ export function OurProjectsBlock() {
 		</BlockLayout>
 	);
 }
+
