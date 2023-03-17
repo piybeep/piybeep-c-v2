@@ -30,6 +30,7 @@ export function Reviews() {
 				slideClass={s.items}
 				loop={false}
 				allowTouchMove={false}
+				autoHeight
 				breakpoints={{
 					1024: {
 						slidesPerGroup: 2,
@@ -39,11 +40,11 @@ export function Reviews() {
 			>
 				{REVIEWS_LIST.map((i) => (
 					<SwiperSlide key={i.id} className={s.slide}>
-						<p className={s.text}>{i.text}</p>
-						<p className={s.info}>
+						<div className={s.text}>{i.text}</div>
+						<div className={s.info}>
 							{i.author} -{" "}
 							<Link href={"/projects/" + i.project.id}>{i.project.title}</Link>
-						</p>
+						</div>
 					</SwiperSlide>
 				))}
 				<SwiperButtons groupCount={groupCount} />
