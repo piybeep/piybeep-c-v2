@@ -5,3 +5,4 @@ export * from "./Footer";
 export * from "./OurProjectsBlock";
 export * from "./AdvantagesBlock";
 export * from "./RojectsPreview";
+export * from "./Reviews";

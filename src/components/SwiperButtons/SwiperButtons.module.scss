@@ -1,0 +1,23 @@
+.buttonGroup {
+	align-self: center;
+
+	display: flex;
+	justify-content: center;
+	column-gap: 20px;
+
+	font-family: "Inter", sans-serif;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 17px;
+
+	cursor: default;
+
+	.image {
+		cursor: pointer;
+
+		img {
+			height: 100%;
+		}
+	}
+}
