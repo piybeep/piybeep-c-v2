@@ -1,0 +1,65 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	column-gap: 50px;
+
+	font-family: "Actay";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 130%;
+
+	.title {
+		width: fit-content;
+		white-space: nowrap;
+	}
+
+	.slider {
+		margin: 0;
+	}
+
+	.text {
+		margin: 0;
+		padding: 0;
+
+		height: auto;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.wrapper {
+		font-size: 32px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.wrapper {
+		flex-direction: row;
+
+		font-size: 28px;
+
+		.text {
+			height: 70px;
+		}
+	}
+}
+
+@media screen and (min-width: 1550px) {
+	.wrapper {
+		font-size: 34px;
+
+		.text {
+			height: 88px;
+		}
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.wrapper {
+		font-size: 48px;
+
+		.text {
+			height: 120px;
+		}
+	}
+}
