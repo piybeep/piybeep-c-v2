@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import {
 	AdvantagesBlock,
 	OurProjectsBlock,
+	Reviews,
 	RojectsPreview,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
@@ -21,6 +22,7 @@ export default function Home() {
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
+			<Reviews />
 		</main>
 	);
 }
