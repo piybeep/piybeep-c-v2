@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
+import Link from "next/link";
 
 import { BlockLayout } from "../../layouts";
 import { useWindowSizes } from "../../hooks";
@@ -7,7 +8,6 @@ import { useWindowSizes } from "../../hooks";
 import s from "./Reviews.module.scss";
 import { SwiperButtons } from "../../components";
 import { REVIEWS_LIST } from "../../constatnts/reviews";
-import Link from "next/link";
 
 export function Reviews() {
 	const { width } = useWindowSizes();
