@@ -1,5 +1,5 @@
 @media screen and (max-width: 1550px) {
-    .wrapper{
+    .bar {
         max-width: 1262px;
     }
 
@@ -9,10 +9,22 @@
 }
 
 @media screen and (max-width: 1024px) {
+
     .header{
-        padding: 12px 0px;
+
+        &__visible{
+            transform: translateY(0px);
+        }
     }
-    
+
+    .preview{
+        display: none;
+    }
+
+    .bar {
+        padding: 12px 24px;
+    }
+
     .menu {
 
         &__link {
@@ -21,33 +33,63 @@
         }
     }
 
-    .info{
+    .info {
 
-        &__link{
+        &__link {
             text-decoration: underline;
-            &:last-child{
+
+            &:last-child {
                 display: none;
             }
         }
     }
 }
 
-@media screen and (max-width: 768px){
-    .menu{
-        display: none;
+@media screen and (max-width: 1000px) {
+    .bar{
+        display: grid;
+        grid-template-areas: 
+        'logo info'
+        'menu menu';
+        row-gap: 30px;
+    }
+
+    .logo{
+        grid-area: logo;
     }
 
     .info{
-        display: none;
+        grid-area: info;
+        justify-content: flex-end;
+
+        &__button{
+            display: none;
+        }
     }
 
-    .burger{
-        display: flex;
+    .menu{
+        grid-area: menu;
     }
 }
 
-@media screen and (max-width: 430px){
-    .wrapper{
-        padding: 0px 16px;
+@media screen and (max-width: 768px) {
+
+    .bar {
+        padding: 15px 24px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .menu {
+        min-width: 100%;
+        overflow-x: scroll;
+
+        padding: 6.5px 0px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .bar {
+        padding: 15px 16px;
     }
 }
