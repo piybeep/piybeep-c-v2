@@ -30,7 +30,6 @@ export function Reviews() {
 				slideClass={s.items}
 				loop={false}
 				allowTouchMove={false}
-				autoHeight
 				breakpoints={{
 					1024: {
 						slidesPerGroup: 2,
@@ -52,3 +51,4 @@ export function Reviews() {
 		</BlockLayout>
 	);
 }
+
