@@ -5,6 +5,7 @@ import {
 	OurProjectsBlock,
 	Reviews,
 	RojectsPreview,
+	TextSlider,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 
@@ -23,6 +24,7 @@ export default function Home() {
 			<AdvantagesBlock />
 			<RojectsPreview />
 			<Reviews />
+			<TextSlider />
 		</main>
 	);
 }
