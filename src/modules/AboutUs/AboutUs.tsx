@@ -15,5 +15,3 @@ export function AboutUs({...props}: AboutUsProps){
         </div>
     );
 };
-
-export default AboutUs;
