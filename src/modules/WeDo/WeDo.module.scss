@@ -42,20 +42,18 @@
 
         width: fit-content;
 
-        &_arrow {
-            display: flex;
-            align-items: center;
-            column-gap: 10px;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
 
-            &::after {
-                content: '';
-                display: inline-block;
-                width: 10px;
-                height: 10px;
-                background-image: url('../../../public/svg/Arrows/Right.svg');
-                background-repeat: no-repeat;
-                background-position: right;
-            }
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-image: url('../../../public/svg/Arrows/Right.svg');
+            background-repeat: no-repeat;
+            background-position: right;
         }
     }
 

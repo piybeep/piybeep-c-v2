@@ -1,10 +1,10 @@
 import { BlockLayout } from '../../layouts';
 import { WeDoProps } from './WeDo.types';
-
 import { WE_DO_LIST } from '../../constatnts/weDo';
 
-import s from './WeDo.module.scss'
 import classNames from 'classnames';
+
+import s from './WeDo.module.scss'
 
 export function WeDo({ ...props }: WeDoProps) {
     return (
@@ -12,8 +12,8 @@ export function WeDo({ ...props }: WeDoProps) {
             <div className={s.list}>
                 {WE_DO_LIST.map((current, index) => {
                     return (
-                        <div className={s.info} style={{marginLeft: (index * 8)+'%'}}>
-                            <h2 className={classNames(s.info__title, {[s.info__title_arrow]: current.arrow})}>{current.title}</h2>
+                        <div key={current.title} className={s.info} style={{marginLeft: (index * 8)+'%'}}>
+                            <h2 className={s.info__title}>{current.title}</h2>
                             <h3 className={s.info__subtitle}>{current.text}</h3>
                         </div>
                     )
