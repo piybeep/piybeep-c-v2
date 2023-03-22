@@ -1,0 +1,110 @@
+@import '../../styles/variables.scss';
+
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+
+    position: relative;
+
+    cursor: pointer;
+
+    &:hover &__title::after {
+        opacity: 1;
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+
+        position: absolute;
+        bottom: -15px;
+
+        width: 100%;
+
+        border-bottom: 1px solid #4B4951;
+    }
+
+    &__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+
+        color: $white-color;
+
+        margin: 0px;
+
+        width: fit-content;
+
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-image: url('../../../public/svg/Arrows/Right.svg');
+            background-repeat: no-repeat;
+            background-position: right;
+
+            opacity: 0;
+
+            transition: .3s;
+        }
+    }
+
+    &__subtitle {
+        font-size: 15px;
+        line-height: 130%;
+
+        color: $gray-color;
+
+        margin: 0px;
+
+        width: fit-content;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .info{
+
+        &__title::after{
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .info {
+        margin-left: 0px !important;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .info {
+
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        &__subtitle {
+            font-size: 13px;
+            line-height: 150%;
+        }
+    }
+}
