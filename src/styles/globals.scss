@@ -1,6 +1,9 @@
 @import "./variables.scss";
 @import "fonts";
 
+body{
+	height: 100vh;
+}
 html,
 body {
 	padding: 0;

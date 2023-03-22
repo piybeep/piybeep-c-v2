@@ -78,7 +78,7 @@ export function Header({ ...props }: HeaderProps) {
             <div className={classNames(s.preview,
                 {
                     [s.preview__visible]: query.pathname === '/',
-                    [s.preview__hidden]: hidden,
+                    // [s.preview__hidden]: hidden,
                 })}>
                 <div className={s.preview__info}>
                     <h2 className={s.preview__title}>web-studio</h2>
