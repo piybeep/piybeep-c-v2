@@ -17,6 +17,12 @@
 
     position: relative;
 
+    cursor: pointer;
+
+    &:hover &__title::after {
+        opacity: 1;
+    }
+
     &::after {
         content: '';
         display: inline-block;
@@ -54,6 +60,10 @@
             background-image: url('../../../public/svg/Arrows/Right.svg');
             background-repeat: no-repeat;
             background-position: right;
+
+            opacity: 0;
+
+            transition: .3s;
         }
     }
 
@@ -66,6 +76,15 @@
         margin: 0px;
 
         width: fit-content;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .info{
+
+        &__title::after{
+            opacity: 1;
+        }
     }
 }
 
