@@ -6,6 +6,7 @@ import {
 	Reviews,
 	RojectsPreview,
 	TextSlider,
+    WeDo,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 
@@ -20,6 +21,7 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
+            <WeDo/>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
