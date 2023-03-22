@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { ReactNode } from "react";
+
 import { BaseLayout } from "../../src/layouts";
+import { ProductsList } from "../../src/modules";
 
 export default function Services() {
 	return (
 		<main>
-			<h1>
-				Услуги <samp>Piybeep</samp>
-			</h1>
+			<ProductsList />
 		</main>
 	);
 }
