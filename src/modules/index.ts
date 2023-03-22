@@ -7,3 +7,4 @@ export * from "./AdvantagesBlock";
 export * from "./RojectsPreview";
 export * from "./Reviews";
 export * from "./TextSlider";
+export * from './AboutUs'
