@@ -22,7 +22,8 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
-            <WeDo/>
+			<AboutUs />
+			<WeDo />
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
