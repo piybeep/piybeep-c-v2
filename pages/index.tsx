@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
+    AboutUs,
 	AdvantagesBlock,
 	OurProjectsBlock,
 	Reviews,
@@ -20,6 +21,7 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
+            <AboutUs/>
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
