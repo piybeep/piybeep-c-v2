@@ -2,8 +2,6 @@ import { BlockLayout } from '../../layouts';
 import { WeDoProps } from './WeDo.types';
 import { WE_DO_LIST } from '../../constatnts/weDo';
 
-import classNames from 'classnames';
-
 import s from './WeDo.module.scss'
 
 export function WeDo({ ...props }: WeDoProps) {
