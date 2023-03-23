@@ -35,9 +35,13 @@
 			line-height: 97px;
 			letter-spacing: -0.04em;
 
-			color: $gray-color;
-
+			color: $white-color;
+			
 			z-index: 1;
+			
+			&::placeholder{
+				color: $gray-color;
+			}
 		}
 	}
 

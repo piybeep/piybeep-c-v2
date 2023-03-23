@@ -38,7 +38,7 @@ export function Form({ ...props }: FormProps) {
         initialValues,
         validationSchema: Yup.object({
             name: Yup.string().required(),
-            email: Yup.string().required(),
+            email: Yup.string().email().required(),
             products: Yup.array().of(Yup.string()).min(1),
             privacy: Yup.bool().required().isTrue(),
         }),
@@ -59,16 +59,15 @@ export function Form({ ...props }: FormProps) {
 
     return (
         <div className={s.wrapper}>
-            <Title value='ОСТАВЬТЕ ЗАЯВКУ И МЫ с вами СВЯЖЕМСЯ' />
+            <Title value='Оставьте заявку и мы с вами свяжемся' />
             <form className={s.form}>
                 <div className={s.info}>
                     <Input
                         name='name'
                         autoComplete="off"
                         text='Имя'
-                        placeholder='Имя'
                         position='center'
-                        size='large'
+                        sizeInput='large'
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
@@ -77,9 +76,8 @@ export function Form({ ...props }: FormProps) {
                         name='email'
                         autoComplete="off"
                         text='Почта или телефон'
-                        placeholder='Почта или телефон'
                         position='center'
-                        size='large'
+                        sizeInput='large'
                         value={formik.values.email}
                         onChange={formik.handleChange}
                     />
@@ -97,10 +95,7 @@ export function Form({ ...props }: FormProps) {
                         disabled={formik.isSubmitting || !formik.isValid}
                     />
                     <Privacy title='Я соглашаюсь на хранение и обработку персональных данных'
-                        checked={formik.values.privacy}
-                        onClick={() => {
-                            formik.setFieldValue("privacy", !formik.values.privacy)
-                        }}
+                        onClick={() => formik.setFieldValue("privacy", !formik.values.privacy)}
                     />
                 </div>
             </form>
