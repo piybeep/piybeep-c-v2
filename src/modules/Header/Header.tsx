@@ -10,26 +10,27 @@ import s from "./Header.module.scss";
 
 import logo from "../../../public/svg/logo.svg";
 import Image from "next/image";
+import { PreviewHeader } from "./PreviewHeader";
 
 export function Header({ ...props }: HeaderProps) {
 	const query = useRouter();
-	const [hidden, setHidden] = useState(false);
+	// const [hidden, setHidden] = useState(false);
 
 	// Скрытие preview, пока тест ибо работает не стабильно
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > 50) {
-				setHidden(true);
-			}
-			if (window.scrollY == 0) {
-				setHidden(false);
-			}
-		};
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, [hidden]);
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		if (window.scrollY > 50) {
+	// 			setHidden(true);
+	// 		}
+	// 		if (window.scrollY == 0) {
+	// 			setHidden(false);
+	// 		}
+	// 	};
+	// 	window.addEventListener("scroll", handleScroll);
+	// 	return () => {
+	// 		window.removeEventListener("scroll", handleScroll);
+	// 	};
+	// }, [hidden]);
 
 	// Появление менюшки и её скрытие и открытие при помощи мыши, пока тест
 	useEffect(() => {
@@ -81,50 +82,41 @@ export function Header({ ...props }: HeaderProps) {
 	});
 
 	return (
-		<header
-			className={classNames(s.header, {
-				[s.header__visible]: hidden,
-			})}
-		>
-			<div
-				className={classNames(s.preview, {
-					[s.preview__visible]: query.pathname === "/",
-					[s.preview__hidden]: hidden,
+		<>
+			<PreviewHeader />
+			<header
+				className={classNames(s.header, {
+					// [s.header__visible]: hidden,
 				})}
 			>
-				<div className={s.preview__info}>
-					<h2 className={s.preview__title}>web-studio</h2>
-					<p className={s.preview__subtitle}>PIYBEEP</p>
-				</div>
-			</div>
+				<div className={s.bar}>
+					<Link href="/" className={s.logo}>
+						<Image className={s.logo__svg} src={logo} alt="Логотип" />
+						<p className={s.logo__text}>piybeep.</p>
+					</Link>
 
-			<div className={s.bar}>
-				<Link href="/" className={s.logo}>
-					<Image className={s.logo__svg} src={logo} alt="Логотип" />
-					<p className={s.logo__text}>piybeep.</p>
-				</Link>
+					<div className={s.menu}>{links}</div>
 
-				<div className={s.menu}>{links}</div>
-
-				<div className={s.info}>
-					<div className={s.info__column}>
+					<div className={s.info}>
+						<div className={s.info__column}>
+							<Link
+								className={s.info__link}
+								href={`tel:${CONTACTS_DATA.get("phone")}`}
+							>
+								{CONTACTS_DATA.get("phone")}
+							</Link>
+							<button className={s.info__button}>Заказать звонок</button>
+						</div>
 						<Link
 							className={s.info__link}
-							href={`tel:${CONTACTS_DATA.get("phone")}`}
+							href={`mailto:${CONTACTS_DATA.get("email")}`}
 						>
-							{CONTACTS_DATA.get("phone")}
+							{CONTACTS_DATA.get("email")}
 						</Link>
-						<button className={s.info__button}>Заказать звонок</button>
 					</div>
-					<Link
-						className={s.info__link}
-						href={`mailto:${CONTACTS_DATA.get("email")}`}
-					>
-						{CONTACTS_DATA.get("email")}
-					</Link>
 				</div>
-			</div>
-		</header>
+			</header>
+		</>
 	);
 }
 

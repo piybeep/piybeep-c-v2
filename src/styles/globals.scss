@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "fonts";
 
-body{
+body {
 	height: 100vh;
 }
 html,
@@ -17,7 +17,7 @@ body {
 		min-height: 100vh;
 		min-width: 320px;
 
-		// header,
+		header,
 		footer {
 			flex: 0 0 auto;
 		}
