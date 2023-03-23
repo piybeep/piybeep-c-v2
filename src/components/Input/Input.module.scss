@@ -1,70 +1,145 @@
-.input {
-	position: sticky;
+@import '../../styles/variables.scss';
 
-	margin-top: 20px;
+.input {
+	position: relative;
+
+	&_top {
+		padding-top: 25px;
+		padding-bottom: 7px;
+
+		border-bottom: 1px solid #E5E5E5;
+	}
 
 	&__text {
-		background-color: transparent;
-		height: 100%;
-		width: 100%;
-
-		padding-top: 4px;
-		padding-bottom: 10px;
-
-		border: none;
-		outline: none;
-
-		font-family: var(--font-Montserrat);
+		font-family: 'Inter';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 24px;
-		line-height: 29px;
 
-		color: #ffffff;
+		outline: none;
+		background-color: transparent;
+		border: none;
 
-		border-bottom: 1px solid #ffffff;
+		position: inherit;
 
-		&:focus + .input__placeholder {
-			top: -22px;
+		width: 100%;
 
-			font-size: 14px;
-			line-height: 17px;
+		&_default {
+			font-size: 16px;
+			line-height: 19px;
+
+			color: $white-color;
 		}
 
-        &::placeholder {
-            color: transparent;
-        }
+		&_large {
+			font-size: 80px;
+			line-height: 97px;
+			letter-spacing: -0.04em;
 
-        &:not(:placeholder-shown)+.input__placeholder {
-            top: -22px;
-
-            font-size: 14px;
-            line-height: 17px;
-        }
+			color: $white-color;
+			
+			z-index: 1;
+			
+			&::placeholder{
+				color: $gray-color;
+			}
+		}
 	}
 
 	&__placeholder {
 		position: absolute;
 		left: 0px;
+		top: 0px;
 
-		z-index: -1;
+		z-index: 0;
 
-		font-family: var(--font-Montserrat);
+		font-family: 'Inter';
 		font-style: normal;
-		font-weight: 400;
-		font-size: 24px;
-		line-height: 29px;
 
-		color: #838383;
 
-		transition: 0.5s;
+		color: $gray-color;
 
-		&__top {
-			top: -22px;
+		&_default {
+			font-weight: 500;
+			font-size: 13px;
+			line-height: 16px;
+		}
 
-			font-size: 14px;
-			line-height: 17px;
+		&_large {
+			font-weight: 400;
+			font-size: 80px;
+			line-height: 97px;
+			letter-spacing: -0.04em;
+		}
+
+		&_top {
+			opacity: 1;
+		}
+
+		&_center {
+			opacity: 0;
 		}
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	.input {
+
+		&__text {
+
+			&_large {
+				font-size: 64px;
+				line-height: 77px;
+			}
+		}
+
+		&__placeholder {
+
+			&_large {
+				font-size: 64px;
+				line-height: 77px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.input {
+
+		&__text {
+
+			&_large {
+				font-size: 40px;
+				line-height: 48px;
+			}
+		}
+
+		&__placeholder {
+
+			&_large {
+				font-size: 40px;
+				line-height: 48px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.input {
+
+		&__text {
+
+			&_large {
+				font-size: 32px;
+				line-height: 39px;
+			}
+		}
+
+		&__placeholder {
+
+			&_large {
+				font-size: 32px;
+				line-height: 39px;
+			}
+		}
+	}
+}

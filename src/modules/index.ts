@@ -10,3 +10,4 @@ export * from "./TextSlider";
 export * from "./OurProjectsPortfolio";
 export * from "./AboutUs";
 export * from "./WeDo";
+export * from './Form'
