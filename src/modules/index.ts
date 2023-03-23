@@ -7,6 +7,6 @@ export * from "./AdvantagesBlock";
 export * from "./RojectsPreview";
 export * from "./Reviews";
 export * from "./TextSlider";
+export * from "./OurProjectsPortfolio";
 export * from "./AboutUs";
 export * from "./WeDo";
-export * from "./OurProjectsPortfolio";
