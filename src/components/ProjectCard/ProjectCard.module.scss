@@ -8,7 +8,7 @@
 
 		img {
 			// border: 1px inset red;
-			max-height: 390px;
+			// max-height: 390px;
 			height: 100%;
 			width: 100%;
 			object-fit: contain;
@@ -37,11 +37,6 @@
 
 @media screen and (max-width: 1550px) {
 	.project_card {
-		.image {
-			img {
-				max-height: 287px;
-			}
-		}
 		h3,
 		p {
 			font-size: 13px;
@@ -50,12 +45,3 @@
 	}
 }
 
-@media screen and (max-width: 430px) {
-	.project_card {
-		.image {
-			img {
-				max-height: 188px;
-			}
-		}
-	}
-}
