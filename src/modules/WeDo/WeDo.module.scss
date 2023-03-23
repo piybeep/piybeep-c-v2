@@ -1,110 +1,110 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
 
-    position: relative;
+	position: relative;
 
-    cursor: pointer;
+	cursor: pointer;
 
-    &:hover &__title::after {
-        opacity: 1;
-    }
+	&:hover &__title::after {
+		opacity: 1;
+	}
 
-    &::after {
-        content: '';
-        display: inline-block;
+	&::after {
+		content: "";
+		display: inline-block;
 
-        position: absolute;
-        bottom: -15px;
+		position: absolute;
+		bottom: -15px;
 
-        width: 100%;
+		width: 100%;
 
-        border-bottom: 1px solid #4B4951;
-    }
+		border-bottom: 1px solid #4b4951;
+	}
 
-    &__title {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
+	&__title {
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
 
-        color: $white-color;
+		color: $white-color;
 
-        margin: 0px;
+		margin: 0px;
 
-        width: fit-content;
+		width: fit-content;
 
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
+		display: flex;
+		align-items: center;
+		column-gap: 10px;
 
-        &::after {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-image: url('../../../public/svg/Arrows/Right.svg');
-            background-repeat: no-repeat;
-            background-position: right;
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-image: url("../../../public/svg/Arrows/Right.svg");
+			background-repeat: no-repeat;
+			background-position: right;
 
-            opacity: 0;
+			opacity: 0;
 
-            transition: .3s;
-        }
-    }
+			transition: 0.3s;
+		}
+	}
 
-    &__subtitle {
-        font-size: 15px;
-        line-height: 130%;
+	&__subtitle {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 130%;
 
-        color: $gray-color;
+		color: $gray-color;
 
-        margin: 0px;
+		margin: 0px;
 
-        width: fit-content;
-    }
+		width: fit-content;
+	}
 }
 
 @media screen and (max-width: 1024px) {
-    .info{
-
-        &__title::after{
-            opacity: 1;
-        }
-    }
+	.info {
+		&__title::after {
+			opacity: 1;
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
-    .info {
-        margin-left: 0px !important;
-    }
+	.info {
+		margin-left: 0px !important;
+	}
 }
 
 @media screen and (max-width: 430px) {
-    .info {
+	.info {
+		&__title {
+			font-size: 18px;
+			line-height: 22px;
+		}
 
-        &__title {
-            font-size: 18px;
-            line-height: 22px;
-        }
-
-        &__subtitle {
-            font-size: 13px;
-            line-height: 150%;
-        }
-    }
+		&__subtitle {
+			font-size: 13px;
+			line-height: 150%;
+		}
+	}
 }
