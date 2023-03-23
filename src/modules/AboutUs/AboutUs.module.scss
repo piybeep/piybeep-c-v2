@@ -1,0 +1,131 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.title {
+    font-family: 'Actay';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: $white-color;
+
+    margin: 0px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    column-gap: 39px;
+
+    &__slogan {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+
+        color: $white-color;
+
+        margin: 0px;
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 1080px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .title {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .info {
+        column-gap: 34px;
+
+        &__slogan {
+            font-size: 15px;
+
+            max-width: 401px;
+        }
+
+        &__img {
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        row-gap: 30px;
+    }
+
+    .title {
+        max-width: 585px;
+    }
+
+    .info {
+        column-gap: 20px;
+        justify-content: space-between;
+
+        &__slogan {
+            max-width: 473px;
+        }
+
+        &__img {
+            max-width: 478px;
+            min-width: 350px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info {
+
+        &__slogan {
+            max-width: 330px;
+        }
+
+        &__img {
+            min-width: 260px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .info {
+        flex-direction: column;
+        align-items: unset;
+        row-gap: 30px;
+
+        &__slogan {
+            max-width: unset;
+        }
+
+        &__img {
+            max-width: unset;
+        }
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .title {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .info {
+
+        &__slogan {
+            font-size: 13px;
+        }
+    }
+}
