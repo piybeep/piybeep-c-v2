@@ -1,10 +1,9 @@
 import { PrivacyProps } from "./Privacy.types";
-import { PRIVACY_LINK } from "../../constatnts";
 
 // Style
 import s from "./Privacy.module.scss";
 
-export function Privacy({ title, subtitle, ...props }: PrivacyProps) {
+export function Privacy({ title, ...props }: PrivacyProps) {
 	return (
 		<div className={s.privacy}>
 			<input
@@ -12,20 +11,12 @@ export function Privacy({ title, subtitle, ...props }: PrivacyProps) {
 				className={s.privacy__checkbox}
 				readOnly
 				type="checkbox"
+				id="check"
 			/>
-			<span className={s.privacy__agree} onClick={props.onClick}></span>
-			<span className={s.privacy__label} onClick={props.onClick}>
-				{title}{" "}
-				<a
-					onClick={(e) => e.stopPropagation()}
-					className={s.privacy__link}
-					href={PRIVACY_LINK}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{subtitle}
-				</a>
-			</span>
+			<label htmlFor="check" className={s.privacy__agree} onClick={props.onClick}></label>
+			<label htmlFor="check" className={s.privacy__label}>
+				{title}
+			</label>
 		</div>
 	);
 }

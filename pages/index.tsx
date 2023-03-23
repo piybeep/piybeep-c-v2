@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import {
     AboutUs,
 	AdvantagesBlock,
+	Form,
 	OurProjectsBlock,
 	Reviews,
 	RojectsPreview,
@@ -29,6 +30,7 @@ export default function Home() {
 			<RojectsPreview />
 			<Reviews />
 			<TextSlider />
+            <Form/>
 		</main>
 	);
 }
