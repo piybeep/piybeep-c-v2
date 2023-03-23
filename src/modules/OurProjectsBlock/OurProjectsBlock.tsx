@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ProjectCard, SwiperButtons } from "../../components";
 import { BlockLayout } from "../../layouts";
-import { PRODUCTS } from "../../constatnts";
+import { PROJECTS } from "../../constatnts";
 import { useWindowSizes } from "../../hooks";
 
 import s from "./OurProjectsBlock.module.scss";
@@ -47,7 +47,7 @@ export function OurProjectsBlock() {
 					},
 				}}
 			>
-				{PRODUCTS.map((item) => (
+				{PROJECTS.map((item) => (
 					<SwiperSlide key={item.id}>
 						<ProjectCard title={item.title} description={item.description} />
 					</SwiperSlide>
