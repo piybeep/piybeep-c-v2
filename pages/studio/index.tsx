@@ -1,13 +1,12 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
+import { AboutUsStudio } from "../../src/modules";
 
 export default function Studio() {
 	return (
 		<main>
-			<h1>
-				Студия <samp>Piybeep</samp>
-			</h1>
+			<AboutUsStudio/>
 		</main>
 	);
 }
