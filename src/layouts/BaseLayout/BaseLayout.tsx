@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-// import Scrollbar from 'smooth-scrollbar';
-import { Footer, Header } from "../../modules";
-
+import { Footer, Form, Header } from "../../modules";
 export function BaseLayout({ children }: { children: React.ReactNode }) {
 	// const options = {
 	// 	damping: 0.07
@@ -15,6 +12,7 @@ export function BaseLayout({ children }: { children: React.ReactNode }) {
 		<>
 			<Header />
 			{children}
+			<Form />
 			<Footer />
 		</>
 	);

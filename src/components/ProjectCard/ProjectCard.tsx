@@ -14,8 +14,8 @@ export function ProjectCard({
 				<Image
 					src={"/imgs/project-template.png"}
 					alt=""
-					width={507}
-					height={380}
+					width={800}
+					height={600}
 				/>
 			</div>
 			<h3 className={s.title}>{title}</h3>

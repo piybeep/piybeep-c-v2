@@ -6,6 +6,24 @@ body {
 }
 html,
 body {
+
+	// Стили скрола
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $dark-color;
+		border-radius: 8px;
+		border: 1.5px solid $black-color;
+
+		&:hover{
+			border-color: $dark-color;
+		}
+	}
+
 	padding: 0;
 	margin: 0;
 	background-color: $black-color;
@@ -58,7 +76,7 @@ body {
 	body {
 		.wrapper {
 			main {
-				max-width: 1262px;
+				max-width: 1318px;
 			}
 		}
 	}

@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
+    AboutUs,
 	AdvantagesBlock,
 	OurProjectsBlock,
 	Reviews,
 	RojectsPreview,
 	TextSlider,
+    WeDo,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { Header } from "../src/modules/Header";
@@ -21,6 +23,8 @@ export default function Home() {
 				marginTop: 50,
 			}}
 		>
+			<AboutUs />
+			<WeDo />
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
