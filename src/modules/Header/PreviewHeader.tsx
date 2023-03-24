@@ -56,7 +56,7 @@ export function PreviewHeader() {
 	// }, []);
 
 	return (
-		<div
+		<header
 			className={classNames(s.preview, {
 				[s.preview__visible]: query.pathname === "/",
 			})}
@@ -66,7 +66,7 @@ export function PreviewHeader() {
 				<h2 className={s.preview__title}>web-studio</h2>
 				<p className={s.preview__subtitle}>PIYBEEP</p>
 			</div>
-		</div>
+		</header>
 	);
 }
 
