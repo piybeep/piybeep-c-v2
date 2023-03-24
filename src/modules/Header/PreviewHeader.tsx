@@ -9,6 +9,7 @@ export function PreviewHeader() {
 	const ref = React.useRef(null);
 
 	React.useEffect(() => {
+
 		let lastScrollTop = 0,
 			isScrolling = false;
 
@@ -22,12 +23,16 @@ export function PreviewHeader() {
 
 				if (!isScrolling) {
 					if (st > lastScrollTop) {
+						// Тестовый вариант, но на мобилке баги
+						document.body.style.overflow = 'hidden'
 						window.scrollTo({
 							top: ref.current.clientHeight,
 							behavior: "smooth",
 						});
 					}
 					if (st < lastScrollTop) {
+						// Тестовый вариант, но на мобилке баги
+						document.body.style.overflow = 'hidden'
 						window.scrollTo({
 							top: 0,
 							behavior: "smooth",
@@ -36,6 +41,8 @@ export function PreviewHeader() {
 					isScrolling = true;
 					setTimeout(() => {
 						isScrolling = false;
+						// Тестовый вариант, но на мобилке баги
+						document.body.style.overflow = 'auto'
 					}, 500);
 				}
 				lastScrollTop = st <= 0 ? 0 : st;
