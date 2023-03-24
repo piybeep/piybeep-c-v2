@@ -3,7 +3,9 @@ import { ReactNode } from "react";
 import {
 	AdvantagesBlock,
 	OurProjectsBlock,
+	Reviews,
 	RojectsPreview,
+	TextSlider,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { Header } from "../src/modules/Header";
@@ -22,6 +24,8 @@ export default function Home() {
 			<OurProjectsBlock />
 			<AdvantagesBlock />
 			<RojectsPreview />
+			<Reviews />
+			<TextSlider />
 		</main>
 	);
 }

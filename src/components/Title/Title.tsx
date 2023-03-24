@@ -1,12 +1,17 @@
 // Style
-import classNames from 'classnames'
-import style from './Title.module.scss'
-import { TitleProps } from './Title.types'
+import classNames from "classnames";
 
-export function Title({ value, size = 'default', position = 'center' }: TitleProps) {
-    return (
-        <div className={style.Title__wrapper}>
-            <h2 className={classNames(style.Title, style[`Title__` + position], style[`Title__` + size])}>{value}</h2>
-        </div>
-    )
+import style from "./Title.module.scss";
+import { TitleProps } from "./Title.types";
+
+export function Title({ value, subtitle, position = "left" }: TitleProps) {
+	return (
+		<div className={style.wrapper}>
+			<div className={classNames(style.title, style[position])}>
+				<h3>{value} .</h3>
+				{subtitle ? <h4>{subtitle}</h4> : ""}
+			</div>
+		</div>
+	);
 }
+

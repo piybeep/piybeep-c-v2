@@ -6,3 +6,5 @@ export * from "./OurProjectsBlock";
 export * from "./AdvantagesBlock";
 export * from "./RojectsPreview";
 export * from './Header'
+export * from "./Reviews";
+export * from "./TextSlider";

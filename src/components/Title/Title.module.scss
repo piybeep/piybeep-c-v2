@@ -1,73 +1,91 @@
-.Title {
-	font-family: var(--font-SourceCodePro);
-	line-height: 128.9%;
-	font-weight: 400;
-	font-style: normal;
-	color: #ffffff;
+.wrapper {
+	width: 100%;
 
-	width: fit-content;
+	.title {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px 15px;
 
-	padding: 0px;
-	margin: 0px;
+		width: fit-content;
 
-	position: relative;
+		text-transform: uppercase;
 
-	&::after {
-		content: "";
-		display: inline-block;
+		h3,
+		h4 {
+			color: inherit;
+			font-family: "Inter", sans-serif;
+			font-style: normal;
+			font-weight: 500;
+			margin: 0;
 
-		height: 9px;
-		width: 9px;
+			a {
+				color: inherit;
+			}
+		}
 
-		margin-left: 24px;
-		background-color: #98ec65;
-	}
+		h3 {
+			font-size: 16px;
+			line-height: 19px;
+		}
 
-	&__wrapper {
-		width: 100%;
-	}
+		h4 {
+			font-size: 13px;
+			line-height: 14px;
 
-	&__left {
-		text-align: left;
-		padding-bottom: 15px;
+			padding: 7px 14px;
+			border: 1px solid #4b4951;
+			border-radius: 59px;
+		}
 
-		&::before {
-			content: "";
-			display: inline-block;
+		&.center {
+			flex-direction: column;
+			margin: 0 auto;
+			align-items: flex-end;
+			gap: 0;
 
-			position: absolute;
-			bottom: 0px;
+			h3,
+			h4 {
+				font-style: normal;
+				font-weight: 400;
+				margin: 0;
+			}
 
-			width: 69px;
-			height: 1px;
+			h3 {
+				font-family: "Actay";
+				font-size: 48px;
+				line-height: 60px;
+			}
 
-			background-color: #ffffff;
+			h4 {
+				font-family: "Inter";
+				font-size: 16px;
+				line-height: 150%;
+
+				color: #8e8e8e;
+				border: none;
+				border-radius: 0;
+				padding: 0;
+
+				text-transform: none;
+			}
 		}
 	}
+}
 
-	&__center {
-		text-align: center;
+@media screen and (max-width: 430px) {
+	.wrapper {
+		.title {
+			h3 {
+				font-size: 14px;
+				line-height: 17px;
+			}
 
-		width: 100%;
-	}
-
-	&__default {
-		font-size: 60px;
-
-		color: #ececec;
-	}
-
-	&__large {
-		font-family: var(--font-PTMono);
-		font-size: 72px;
-		line-height: 150.4%;
-	}
-
-	&__small {
-		font-size: 36px;
-
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
+			h4 {
+				font-size: 10px;
+				line-height: 12px;
+			}
+		}
 	}
 }
 

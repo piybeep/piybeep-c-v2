@@ -1,5 +1,8 @@
+import { ReactNode } from "react";
+
 export interface TitleProps {
-    value: string,
-    size?: 'large' | 'default' | 'small',
-    position?: 'left' | 'center',
+	value: string;
+	subtitle?: string | ReactNode;
+	position?: "left" | "center";
 }
+
