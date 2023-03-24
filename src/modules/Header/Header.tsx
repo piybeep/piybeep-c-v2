@@ -14,23 +14,6 @@ import { PreviewHeader } from "./PreviewHeader";
 
 export function Header({ ...props }: HeaderProps) {
 	const query = useRouter();
-	// const [hidden, setHidden] = useState(false);
-
-	// Скрытие preview, пока тест ибо работает не стабильно
-	// useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		if (window.scrollY > 50) {
-	// 			setHidden(true);
-	// 		}
-	// 		if (window.scrollY == 0) {
-	// 			setHidden(false);
-	// 		}
-	// 	};
-	// 	window.addEventListener("scroll", handleScroll);
-	// 	return () => {
-	// 		window.removeEventListener("scroll", handleScroll);
-	// 	};
-	// }, [hidden]);
 
 	// Появление менюшки и её скрытие и открытие при помощи мыши, пока тест
 	useEffect(() => {
@@ -84,11 +67,7 @@ export function Header({ ...props }: HeaderProps) {
 	return (
 		<>
 			<PreviewHeader />
-			<header
-				className={classNames(s.header, {
-					// [s.header__visible]: hidden,
-				})}
-			>
+			<header className={classNames(s.header)}>
 				<div className={s.bar}>
 					<Link href="/" className={s.logo}>
 						<Image className={s.logo__svg} src={logo} alt="Логотип" />
