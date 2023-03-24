@@ -10,6 +10,7 @@ import {
     WeDo,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
+import { Header } from "../src/modules/Header";
 
 export default function Home() {
 	return (

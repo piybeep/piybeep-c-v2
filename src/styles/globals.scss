@@ -1,8 +1,29 @@
 @import "./variables.scss";
 @import "fonts";
 
+body {
+	height: 100vh;
+}
 html,
 body {
+
+	// Стили скрола
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $dark-color;
+		border-radius: 8px;
+		border: 1.5px solid $black-color;
+
+		&:hover{
+			border-color: $dark-color;
+		}
+	}
+
 	padding: 0;
 	margin: 0;
 	background-color: $black-color;
@@ -12,8 +33,9 @@ body {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		min-width: 320px;
 
-		// header,
+		header,
 		footer {
 			flex: 0 0 auto;
 			z-index: 1;

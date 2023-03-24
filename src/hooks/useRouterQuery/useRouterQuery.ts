@@ -38,7 +38,7 @@ export function useRouterQuery(init_props?: RouterQueryMutate) {
 		}
 
 		setIsLoading(true);
-		router[props.method ?? "push"]({ query })
+		router[props.method ?? "push"]({ query }, undefined, { shallow: true })
 			.then((v) => {
 				if (!v) {
 					setError(new Error("Не удалось выполнить изменение параметров"));
