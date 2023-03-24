@@ -1,6 +1,9 @@
 @import "./variables.scss";
 @import "fonts";
 
+body {
+	height: 100vh;
+}
 html,
 body {
 
@@ -30,8 +33,9 @@ body {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		min-width: 320px;
 
-		// header,
+		header,
 		footer {
 			flex: 0 0 auto;
 		}
