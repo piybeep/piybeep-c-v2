@@ -6,9 +6,6 @@ import { AboutUsStudio } from "../../src/modules";
 export default function Studio() {
 	return (
 		<main>
-			<h1>
-				Студия <samp>Piybeep</samp>
-			</h1>
 			<AboutUsStudio/>
 		</main>
 	);
