@@ -1,10 +1,12 @@
 import Image from 'next/image';
 
+import { SpaProps } from './Spa.types';
+
 import img from '../../../public/imgs/spaImg.png'
 
 import s from './Spa.module.scss'
 
-export function Spa() {
+export function Spa({...props}: SpaProps) {
     return (
         <div className={s.wrapper}>
             <h2 className={s.header}>Мы разрабатываем <a className={s.header__link} target='_blank' rel='noreferrer' href="https://ru.wikipedia.org/wiki/Одностраничное_приложение">Spa</a></h2>
