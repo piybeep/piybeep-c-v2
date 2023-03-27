@@ -7,7 +7,7 @@ import s from './Spa.module.scss'
 export function Spa() {
     return (
         <div className={s.wrapper}>
-            <h2 className={s.header}>Мы разрабатываем <a className={s.header__link} target='_blank' href="https://ru.wikipedia.org/wiki/Одностраничное_приложение">Spa</a></h2>
+            <h2 className={s.header}>Мы разрабатываем <a className={s.header__link} target='_blank' rel='noreferrer' href="https://ru.wikipedia.org/wiki/Одностраничное_приложение">Spa</a></h2>
             <div className={s.info}>
                 <div className={s.column}>
                     <h2 className={s.title}>Что такое SPA?</h2>
