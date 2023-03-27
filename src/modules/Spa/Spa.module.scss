@@ -7,6 +7,7 @@
         'info block';
     column-gap: 40px;
     row-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 
@@ -47,6 +48,7 @@
         line-height: inherit;
 
         text-decoration-line: underline;
+        text-underline-position: under;
         text-transform: uppercase;
 
         color: $white-color;
@@ -105,16 +107,11 @@
 }
 
 .block {
-    width: 800px;
-    height: 430px;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
 
     grid-area: block;
-}
-
-@media screen and (max-width: 1610px) {
-    .block {
-        max-width: 740px;
-    }
 }
 
 @media screen and (max-width: 1550px) {
@@ -125,6 +122,7 @@
 
         grid-template-columns: repeat(2, minmax(400px, 589px));
         column-gap: 91px;
+        row-gap: 40px;
     }
 
     .header {
@@ -133,23 +131,6 @@
 
     .info {
         max-width: 589px;
-    }
-
-    .block {
-        width: 100%;
-        max-width: 590px;
-        min-width: 447px;
-
-        height: -webkit-fill-available;
-    }
-}
-
-@media screen and (max-width: 1190px) {
-    .wrapper {
-        row-gap: 40px;
-    }
-
-    .info {
         row-gap: 40px;
     }
 
@@ -157,24 +138,32 @@
         font-size: 13px;
         line-height: 140%;
     }
-}
 
-@media screen and (max-width: 1024px) {
-    .header {
-        font-size: 36px;
-        line-height: 45px;
+    .block {
+        width: 100%;
+        max-width: 590px;
+        min-width: 447px;
+
+        height: auto;
     }
 }
 
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 1024px) {
     .wrapper {
         display: flex;
         flex-direction: column;
         row-gap: 47px;
     }
 
+    .header {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
     .info {
         row-gap: 47px;
+
+        max-width: unset;
     }
 
     .title {
@@ -186,12 +175,12 @@
         font-size: 12px;
     }
 
-    .right {
-        justify-content: unset;
+    .column {
+        max-width: unset;
     }
 
-    .block {
-        height: 320px;
+    .right {
+        justify-content: unset;
     }
 }
 
@@ -220,24 +209,15 @@
 
     .block {
         min-width: unset;
-
-        height: 268px;
     }
 }
 
-@media screen and (max-width: 420px){
-    .block{
-        height: 221px;
-    }
+@media screen and (max-width: 420px) {
 }
 
 @media screen and (max-width: 360px) {
     .header {
         font-size: 22px;
         line-height: 27px;
-    }
-
-    .block{
-        height: 194px;
     }
 }
