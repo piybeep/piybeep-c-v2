@@ -14,3 +14,4 @@ export * from "./AboutUs";
 export * from "./WeDo";
 export * from './Form'
 export * from './AboutUsStudio'
+export * from './Spa'
