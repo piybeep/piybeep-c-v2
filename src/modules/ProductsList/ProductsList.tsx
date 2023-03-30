@@ -33,6 +33,7 @@ export function ProductsList() {
 					/>
 				))}
 				<ProductListItem
+					disabled={true}
 					className={s.item}
 					number={"0#"}
 					title={"No-code решение"}

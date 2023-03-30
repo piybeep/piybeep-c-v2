@@ -6,5 +6,6 @@ export interface ProductListItemProps extends ComponentProps<"div"> {
 	price?: number;
 	discount?: number;
 	status?: string;
+	disabled?: boolean;
 }
 
