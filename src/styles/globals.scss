@@ -6,7 +6,6 @@ body {
 }
 html,
 body {
-
 	// Стили скрола
 	&::-webkit-scrollbar {
 		width: 10px;
@@ -19,7 +18,7 @@ body {
 		border-radius: 8px;
 		border: 1.5px solid $black-color;
 
-		&:hover{
+		&:hover {
 			border-color: $dark-color;
 		}
 	}
@@ -38,6 +37,11 @@ body {
 		header,
 		footer {
 			flex: 0 0 auto;
+
+			&,
+			* {
+				z-index: 2;
+			}
 		}
 
 		main {
@@ -46,28 +50,32 @@ body {
 
 			width: 100%;
 			max-width: 1688px;
-			padding: 0 24px;
+			padding: 50px 24px 120px;
+
+			* {
+				z-index: 1;
+			}
 
 			//todo
-			// &::after {
-			// 	content: "";
-			// 	box-sizing: border-box;
-			// 	width: 1121px;
-			// 	height: 100%;
-			// 	position: fixed;
-			// 	top: 0;
-			// 	left: 50%;
-			// 	transform: translateX(-50%);
+			&::after {
+				content: "";
+				box-sizing: border-box;
+				width: 1121px;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
 
-			// 	background-color: transparent;
-			// 	background-image: linear-gradient(
-			// 		90deg,
-			// 		/* #1c1c1c */ $main-color 1px,
-			// 		transparent 1px
-			// 	);
-			// 	background-size: 280px;
-			// 	background-position: left;
-			// }
+				background-color: transparent;
+				background-image: linear-gradient(
+					90deg,
+					#1c1c1c /* $main-color */ 1px,
+					transparent 1px
+				);
+				background-size: 280px;
+				background-position: left;
+			}
 		}
 	}
 }

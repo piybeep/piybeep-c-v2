@@ -8,6 +8,7 @@ export * from "./RojectsPreview";
 export * from './Header'
 export * from "./Reviews";
 export * from "./TextSlider";
+export * from "./ProductsList";
 export * from "./OurProjectsPortfolio";
 export * from "./AboutUs";
 export * from "./WeDo";

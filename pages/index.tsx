@@ -1,16 +1,15 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-    AboutUs,
+	AboutUs,
 	AdvantagesBlock,
 	OurProjectsBlock,
 	Reviews,
 	RojectsPreview,
 	TextSlider,
-    WeDo,
+	WeDo,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
-import { Header } from "../src/modules/Header";
 
 export default function Home() {
 	return (
@@ -19,8 +18,8 @@ export default function Home() {
 				display: "flex",
 				flexDirection: "column",
 				rowGap: 100,
-				marginBottom: 90,
-				marginTop: 50,
+				// marginBottom: 90,
+				// marginTop: 50,
 			}}
 		>
 			<AboutUs />
