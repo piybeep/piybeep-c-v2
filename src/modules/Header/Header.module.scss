@@ -133,8 +133,12 @@
 
 		padding: 7px 14px;
 
+		border: 1px solid transparent;
+
+		text-underline-position: under;
+
 		&_active {
-			border: 1px solid $active-link-color;
+			border-color: $active-link-color;
 			border-radius: 59px;
 		}
 
