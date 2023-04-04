@@ -35,7 +35,7 @@
 		font-style: normal;
 		font-weight: 400;
 		font-size: 14px;
-		line-height: 128.9%;
+		line-height: 18px;
 
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
@@ -46,8 +46,8 @@
 	}
 
 	&__subtitle {
-		font-family: "Sanchez";
-		font-style: normal;
+		font-family: "Actay";
+		font-style: italic;
 		font-weight: 400;
 		font-size: 144px;
 		line-height: 100%;
@@ -58,14 +58,8 @@
 
 		margin: 0px;
 
-		&::after {
-			content: "";
-			display: inline-block;
-
-			width: 9px;
-			height: 9px;
-
-			background-color: $main-color;
+		> span {
+			color: $main-color;
 		}
 	}
 }

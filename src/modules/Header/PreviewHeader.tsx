@@ -64,7 +64,9 @@ export function PreviewHeader() {
 		>
 			<div className={s.preview__info}>
 				<h2 className={s.preview__title}>web-studio</h2>
-				<p className={s.preview__subtitle}>PIYBEEP</p>
+				<p className={s.preview__subtitle}>
+					PIYBEEP<span>.</span>
+				</p>
 			</div>
 		</header>
 	);
