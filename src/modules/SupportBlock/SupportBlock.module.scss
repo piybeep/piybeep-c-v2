@@ -1,0 +1,27 @@
+.container {
+	.description {
+		display: flex;
+
+		column-gap: 40px;
+		justify-content: space-between;
+		padding: 46px 0 90px;
+
+		.col {
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 130%;
+
+			color: #8e8e8e;
+		}
+	}
+
+	.cards {
+		width: 100%;
+
+		display: flex;
+		justify-content: space-between;
+		column-gap: 70px;
+	}
+}

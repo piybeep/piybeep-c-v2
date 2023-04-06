@@ -2,12 +2,13 @@ import Head from "next/head";
 import { ReactNode } from "react";
 
 import { BaseLayout } from "../../src/layouts";
-import { ProductsList } from "../../src/modules";
+import { ProductsList, SupportBlock } from "../../src/modules";
 
 export default function Services() {
 	return (
 		<main>
 			<ProductsList />
+			<SupportBlock />
 		</main>
 	);
 }
