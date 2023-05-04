@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 30px;
+	width: calc((100% - 70px * 2) / 3);
 
 	.title {
 		font-family: "Inter";
@@ -14,6 +15,17 @@
 
 		display: flex;
 		column-gap: 15px;
+
+		h4 {
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 21px;
+
+			padding: 0;
+			margin: 0;
+		}
 
 		span {
 			color: #98ec65;
@@ -84,7 +96,10 @@
 		line-height: 21px;
 		color: #ececec;
 
-		transition: 0.2s;
+		&,
+		* {
+			transition: 0.2s;
+		}
 
 		&:hover {
 			background: #ececec;
@@ -99,6 +114,79 @@
 
 		&:active {
 			background: #cacaca;
+		}
+	}
+}
+
+@media screen and (max-width: 1550px) {
+	.card {
+		width: calc((100% - 40px * 2) / 3);
+
+		.title {
+			flex-direction: column;
+			row-gap: 15px;
+
+			> * {
+				font-size: 14px;
+			}
+		}
+
+		.options {
+			font-size: 13px;
+
+			.group {
+				&:not(.group:nth-child(1)) {
+					&::before {
+						font-size: 48px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.card {
+		width: 50%;
+
+		.title {
+			row-gap: 5px;
+
+			h4 {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 20px;
+				line-height: 130%;
+			}
+
+			span {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 13px;
+				line-height: 130%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.card {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.card {
+		.title {
+			h4 {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 130%;
+			}
 		}
 	}
 }

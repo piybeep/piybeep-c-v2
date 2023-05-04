@@ -6,7 +6,15 @@ import { ProductsList, SupportBlock } from "../../src/modules";
 
 export default function Services() {
 	return (
-		<main>
+		<main
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				rowGap: 100,
+				marginBottom: 90,
+				marginTop: 50,
+			}}
+		>
 			<ProductsList />
 			<SupportBlock />
 		</main>

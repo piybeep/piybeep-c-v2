@@ -13,7 +13,8 @@ export function SupportCard({
 	return (
 		<div {...props} className={classNames(s.card, className)}>
 			<div className={s.title}>
-				{title} <span className={s.description}>{description}</span>
+				<h4>{title}</h4>
+				<span className={s.description}>{description}</span>
 			</div>
 			<div className={s.options}>
 				{options.map((i, index) => (
@@ -26,7 +27,7 @@ export function SupportCard({
 			</div>
 			<div className={s.price}>{price.toLocaleString()} р./мес</div>
 			<button>
-				Нужна помощь{" "}
+				Нужна поддержка{" "}
 				<svg
 					width="12"
 					height="11"
