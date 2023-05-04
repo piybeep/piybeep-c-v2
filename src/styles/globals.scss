@@ -7,13 +7,14 @@ body {
 html,
 body {
 	// Стили скрола
-	&::-webkit-scrollbar {
+	*::-webkit-scrollbar {
 		width: 10px;
+		height: 12px;
 	}
-	&::-webkit-scrollbar-track {
+	*::-webkit-scrollbar-track {
 		background: transparent;
 	}
-	&::-webkit-scrollbar-thumb {
+	*::-webkit-scrollbar-thumb {
 		background-color: $dark-color;
 		border-radius: 8px;
 		border: 1.5px solid $black-color;
@@ -113,6 +114,11 @@ body {
 
 a {
 	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	font-family: inherit;
 }
 
 /* --- / 404 page / ---*/
