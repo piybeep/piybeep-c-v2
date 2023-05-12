@@ -8,7 +8,7 @@ import s from './Eyes.module.scss'
 import classNames from "classnames";
 
 export function Eyes({ }: EyesProps) {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         if (isOpen){
@@ -27,7 +27,7 @@ export function Eyes({ }: EyesProps) {
                     <h2 className={s.info__text}>Смотрим вашу заявку!</h2>
                     <h2 className={s.info__text}>Скоро мы напишем вам на почту и обговорим проект подробнее.</h2>
                 </div>
-                <button className={s.info__button}>Хорошо</button>
+                <button onClick={() => setIsOpen(false)} className={s.info__button}>Хорошо</button>
                 <Image className={s.info__img} src={imageEye} alt={"Глазки"} />
             </div>
         </div>

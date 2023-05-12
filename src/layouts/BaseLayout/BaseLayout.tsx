@@ -1,10 +1,10 @@
-import { Footer, Form, Header } from "../../modules";
-import { Eyes } from "../../modules/Eyes";
+import { Eyes, Footer, Form, Header, PopupForm } from "../../modules";
 
 export function BaseLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
-		<Eyes/>
+			<PopupForm />
+			<Eyes />
 			<Header />
 			{children}
 			<Form />

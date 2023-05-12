@@ -19,3 +19,5 @@ export * from "./SupportBlock";
 export * from './Team'
 export * from './Technologies'
 export * from './Contacts'
+export * from './Eyes'
+export * from './PopupForm'
