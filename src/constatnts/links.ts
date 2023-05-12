@@ -1,5 +1,9 @@
 export const PRIVACY_LINK = "https://piybeep.com";
 
+import vk from '../../public/imgs/contacts/VK.png'
+import whatsApp from '../../public/imgs/contacts/WhatsApp.png'
+import telegram from '../../public/imgs/contacts/Telegram.png'
+
 export const MENU_ITEMS = [
 	{ display_name: "Главная", link: "/" },
 	{ display_name: "Услуги", link: "/services" },
@@ -10,8 +14,8 @@ export const MENU_ITEMS = [
 ];
 
 export const SOCIAL_LINKS = [
-	{ display_name: "Вконтакте", link: "https://vk.com/piybeep" },
-	{ display_name: "Ватсап", link: "https://wa.me/79265762877" },
-	{ display_name: "Телеграм", link: "https://t.me/piybeep" },
+	{ display_name: "Вконтакте", link: "https://vk.com/piybeep", icon: vk },
+	{ display_name: "WhatsApp", link: "https://wa.me/79265762877", icon: whatsApp },
+	{ display_name: "Телеграм", link: "https://t.me/piybeep", icon: telegram },
 ];
 

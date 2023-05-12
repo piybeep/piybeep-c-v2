@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import { AboutUsStudio, Spa, Technologies } from "../../src/modules";
+import { AboutUsStudio, Contacts, Spa, Technologies } from "../../src/modules";
 
 export default function Studio() {
 	return (
@@ -17,6 +17,7 @@ export default function Studio() {
 			<AboutUsStudio />
 			<Spa />
 			<Technologies/>
+			<Contacts/>
 		</main>
 	);
 }
