@@ -17,3 +17,4 @@ export * from "./AboutUsStudio";
 export * from "./Spa";
 export * from "./SupportBlock";
 export * from './Team'
+export * from './Contacts'
