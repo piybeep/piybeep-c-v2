@@ -17,8 +17,8 @@ export default function Studio() {
 			<AboutUsStudio />
 			<Team/>
 			<Spa />
-			<Technologies/>
 			<Contacts/>
+			<Technologies/>
 		</main>
 	);
 }
