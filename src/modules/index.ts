@@ -16,5 +16,6 @@ export * from "./Form";
 export * from "./AboutUsStudio";
 export * from "./Spa";
 export * from "./SupportBlock";
+export * from './Team'
 export * from './Technologies'
 export * from './Contacts'
