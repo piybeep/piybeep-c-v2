@@ -14,8 +14,6 @@ export function Team({ }: TeamProps) {
 
     useEffect(() => {
         if (window){
-            console.log(window.screen.width)
-            console.log(windowSize)
             if (window.screen.width > 1550){
                 setWindowSize(11)
             }else if (window.screen.width < 1551 && window.screen.width > 1270){
