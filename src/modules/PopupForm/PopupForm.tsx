@@ -12,7 +12,7 @@ import { PopupFormProps } from "./PopupForm.types";
 import s from './PopupForm.module.scss'
 
 export function PopupForm({ }: PopupFormProps) {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         if (isOpen) {
@@ -40,17 +40,16 @@ export function PopupForm({ }: PopupFormProps) {
         name: string;
         email: string;
         products: string[];
-        privacy: boolean;
-    } = { name: "", email: "", products: [], privacy: false };
+    } = { name: "", email: "", products: [] };
+
     const formik = useFormik({
         initialValues,
         validationSchema: Yup.object({
             name: Yup.string().required(),
             email: Yup.string().email().required(),
             products: Yup.array().of(Yup.string()).min(1),
-            privacy: Yup.bool().required().isTrue(),
         }),
-        onSubmit(values) {
+        onSubmit: (values) => {
             console.log(values);
             // formik.setSubmitting(false);
             // formik.resetForm();
@@ -70,7 +69,7 @@ export function PopupForm({ }: PopupFormProps) {
             [s.wrapper__open]: isOpen,
         })}>
 
-            <form className={s.info} onClick={(e) => e.stopPropagation()}>
+            <form onSubmit={formik.handleSubmit} className={s.info} onClick={(e) => e.stopPropagation()}>
                 <Title value={"Оставьте заявку и мы с вами свяжемся"} />
                 <div className={s.inputs}>
                     <Input
@@ -110,13 +109,15 @@ export function PopupForm({ }: PopupFormProps) {
                 </div>
 
                 <div className={s.buttons}>
-                    <button onClick={() => formik.submitForm()} className={s.buttons__sumbit}>
+                    <button
+                        type='submit'
+                        className={s.buttons__sumbit}>
                         Отправить
                         <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path className={s.buttons__svg} d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z" fill="#8E8E8E" />
                         </svg>
                     </button>
-                    <button onClick={() => setIsOpen(false)} className={s.buttons__close}>Отмена</button>
+                    <button type="button" onClick={() => setIsOpen(false)} className={s.buttons__close}>Отмена</button>
                 </div>
             </form>
         </div>

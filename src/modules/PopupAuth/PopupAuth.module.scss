@@ -28,80 +28,43 @@
     }
 }
 
-.info {
-    background-color: $black-color;
-
-    padding: 50px;
-
+.form {
     display: flex;
+    align-items: center;
     flex-direction: column;
     row-gap: 35px;
 
-    width: 100%;
-    max-width: 510px;
+    padding: 50px;
 
-    overflow: auto;
+    background-color: $black-color;
+
+    width: 100%;
+    max-width: 509px;
+}
+
+.title {
+    width: fit-content;
 }
 
 .inputs {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-
-    width: 100%;
-    max-width: 410px;
-
-    &__product {
-        margin: 0px;
-
-        cursor: pointer;
-
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-        text-decoration-line: underline;
-
-        color: $gray-color;
-
-
-        transition: 0.3s;
-
-        &:hover {
-            color: $white-color;
-        }
-
-        &_active {
-            color: $main-color !important;
-        }
-    }
-}
-
 .privacy {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
 
-    &__text {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-
-        color: $white-color;
-
-        margin: 0px;
-    }
+    color: $white-color;
 
     &__link {
         text-decoration: underline;
-
-        cursor: pointer;
     }
 }
 
@@ -110,6 +73,8 @@
     align-items: center;
     flex-direction: column;
     row-gap: 15px;
+
+    width: 100%;
 
     &__sumbit {
         font-family: 'Inter';
@@ -153,7 +118,7 @@
 }
 
 @media screen and (max-width: 430px){
-    .info{
+    .form{
         padding: 30px 16px;
     }
 }
