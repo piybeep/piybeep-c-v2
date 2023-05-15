@@ -75,6 +75,7 @@ export function PopupForm({ }: PopupFormProps) {
                     <Input
                         text="Имя"
                         name="name"
+                        required
                         autoComplete="off"
                         value={formik.values.name}
                         onChange={formik.handleChange}
@@ -82,6 +83,7 @@ export function PopupForm({ }: PopupFormProps) {
                     <Input
                         text="Почта или телефон"
                         name="email"
+                        required
                         autoComplete="off"
                         value={formik.values.email}
                         onChange={formik.handleChange}
