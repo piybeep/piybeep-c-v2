@@ -1,5 +1,7 @@
+import { useRouterQuery } from "../../hooks";
+
 import * as Yup from "yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import { useFormik } from "formik";
@@ -11,6 +13,24 @@ import s from './PopupAuth.module.scss'
 
 export function PopupAuth({ }: PopupAuthProps) {
     const [isOpen, setIsOpen] = useState(false)
+
+    const { isHas, query, mutate } = useRouterQuery()
+
+    useEffect(() => {
+        if (isHas('form') && query.form === 'auth') {
+            setIsOpen(true)
+        } else {
+            setIsOpen(false)
+        }
+    }, [isHas('form'), query.form])
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isOpen])
 
     const formik = useFormik({
         initialValues: {
@@ -26,8 +46,14 @@ export function PopupAuth({ }: PopupAuthProps) {
         }
     })
 
+    const handleCloseForm = () => {
+        mutate({
+            query: { form: null },
+        })
+    }
+
     return (
-        <div onClick={() => setIsOpen(false)} className={classNames(s.wrapper, {
+        <div onClick={() => handleCloseForm()} className={classNames(s.wrapper, {
             [s.wrapper__open]: isOpen
         })}>
             <form onSubmit={formik.handleSubmit} onClick={e => e.stopPropagation()} className={s.form}>
@@ -40,9 +66,11 @@ export function PopupAuth({ }: PopupAuthProps) {
                         onChange={formik.handleChange}
                         value={formik.values.email}
                         text="Почта"
+                        required
                     />
                     <Input
                         name="password"
+                        required
                         onChange={formik.handleChange}
                         value={formik.values.password}
                         text="Пароль"
@@ -65,7 +93,7 @@ export function PopupAuth({ }: PopupAuthProps) {
                     <button
                         className={s.buttons__close}
                         type='button'
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => handleCloseForm()}
                     >
                         Отмена</button>
                 </div>

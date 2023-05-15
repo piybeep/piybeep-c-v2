@@ -7,12 +7,23 @@ import { useEffect, useState } from "react";
 
 import { Input, Title } from "../../components";
 import { FORM__PRODUCTS } from "../../constatnts";
+import { toast } from "../../utils";
 
 import { PopupFormProps } from "./PopupForm.types";
 import s from './PopupForm.module.scss'
 
 export function PopupForm({ }: PopupFormProps) {
     const [isOpen, setIsOpen] = useState(false)
+
+    const { isHas, query, mutate } = useRouterQuery()
+
+    useEffect(() => {
+        if (isHas('form') && query.form === 'request') {
+            setIsOpen(true)
+        } else {
+            setIsOpen(false)
+        }
+    }, [isHas('form'), query.form])
 
     useEffect(() => {
         if (isOpen) {
@@ -22,13 +33,17 @@ export function PopupForm({ }: PopupFormProps) {
         }
     }, [isOpen])
 
+    const handleCloseForm = () => {
+        mutate({
+            query: { form: null },
+        })
+    }
+
     const {
         add: addUserSelect,
         remove: removeUserSelect,
         isHas: isHasUserSelect,
     } = useUserSelectForm();
-
-    const { query, isHas } = useRouterQuery();
 
     const handleProduct = (current: string) => {
         isHasUserSelect(current)
@@ -47,10 +62,15 @@ export function PopupForm({ }: PopupFormProps) {
         validationSchema: Yup.object({
             name: Yup.string().required(),
             email: Yup.string().email().required(),
-            products: Yup.array().of(Yup.string()).min(1),
+            products: Yup.array().of(Yup.string()),
         }),
         onSubmit: (values) => {
-            console.log(values);
+            // console.log(values);
+            if (!values.products.length) {
+                console.log('Продукты не заполнены')
+
+                toast('Выберите услуги')
+            }
             // formik.setSubmitting(false);
             // formik.resetForm();
             // removeUserSelect();
@@ -65,7 +85,7 @@ export function PopupForm({ }: PopupFormProps) {
     }, [query.userSelect]);
 
     return (
-        <div onClick={() => setIsOpen(false)} className={classNames(s.wrapper, {
+        <div onClick={() => handleCloseForm()} className={classNames(s.wrapper, {
             [s.wrapper__open]: isOpen,
         })}>
 
@@ -76,7 +96,6 @@ export function PopupForm({ }: PopupFormProps) {
                         text="Имя"
                         name="name"
                         required
-                        autoComplete="off"
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
@@ -84,7 +103,6 @@ export function PopupForm({ }: PopupFormProps) {
                         text="Почта или телефон"
                         name="email"
                         required
-                        autoComplete="off"
                         value={formik.values.email}
                         onChange={formik.handleChange}
                     />
@@ -113,13 +131,14 @@ export function PopupForm({ }: PopupFormProps) {
                 <div className={s.buttons}>
                     <button
                         type='submit'
-                        className={s.buttons__sumbit}>
+                        className={s.buttons__sumbit}
+                    >
                         Отправить
                         <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path className={s.buttons__svg} d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z" fill="#8E8E8E" />
                         </svg>
                     </button>
-                    <button type="button" onClick={() => setIsOpen(false)} className={s.buttons__close}>Отмена</button>
+                    <button type="button" onClick={() => handleCloseForm()} className={s.buttons__close}>Отмена</button>
                 </div>
             </form>
         </div>
