@@ -1,0 +1,111 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    width: 100%;
+    min-width: 320px;
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 23px;
+
+    width: 100%;
+    max-width: 375px;
+
+    &__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: $main-color;
+
+        margin: 0px;
+    }
+
+    &__slogan {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: $white-color;
+
+        margin: 0px;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    &__link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 130%;
+        text-decoration-line: underline;
+
+        color: $white-color;
+    }
+}
+
+.img {
+    width: 100%;
+    max-width: 413px;
+
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        row-gap: 100px;
+    }
+
+    .info {
+        order: 2;
+    }
+
+    .img {
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .img {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .info {
+        max-width: 300px;
+
+        &__title {
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        &__slogan {
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        &__link {
+            font-size: 12px;
+            line-height: 130%;
+        }
+    }
+}
