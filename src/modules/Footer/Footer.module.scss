@@ -7,6 +7,7 @@ $media: (
 		copyright: 16px,
 		padding: 48px 0,
 		row-gap: 40px,
+		wrapper-row-gap: 40px,
 		fdir: row,
 		align-items: flex-start,
 	),
@@ -16,15 +17,17 @@ $media: (
 		copyright: 16px,
 		padding: 34px 0,
 		row-gap: 40px,
+		wrapper-row-gap: 40px,
 		fdir: row,
 		align-items: flex-start,
 	),
 	768px: (
 		links: 12px,
-		contacts: 16px,
-		copyright: 16px,
-		padding: 16px 0,
-		row-gap: 20px,
+		contacts: 12px,
+		copyright: 12px,
+		padding: 15px 0,
+		row-gap: 35px,
+		wrapper-row-gap: 15px,
 		fdir: column,
 		align-items: center,
 	),
@@ -130,6 +133,23 @@ $media: (
 	}
 }
 
+@media screen and (max-width: 1550px) {
+	.footer {
+		.contacts {
+			a {
+				font-family: "Inter";
+				font-style: normal;
+				font-weight: 400;
+				color: $main-color;
+			}
+		}
+
+		// nav.links {
+		// 	margin-bottom: 35px;
+		// }
+	}
+}
+
 @each $width, $params in $media {
 	@media screen and (max-width: #{$width}) {
 		.footer {
@@ -146,7 +166,7 @@ $media: (
 				} @else {
 					align-items: map-get($map: $params, $key: "align-items");
 				}
-				row-gap: map-get($map: $params, $key: "row-gap");
+				row-gap: map-get($map: $params, $key: "wrapper-row-gap");
 			}
 
 			.column {
