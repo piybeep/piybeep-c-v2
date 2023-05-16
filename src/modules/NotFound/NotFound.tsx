@@ -17,7 +17,7 @@ export function NotFound({ }: NotFoundProps) {
                     Тсс.. не разбуди!</h3>
                 <div className={s.info__list}>
                     {MENU_ITEMS.map(current => (
-                        <Link key={current.display_name} href={current.link} className={s.info__link}>{current.display_name}</Link>
+                        <Link key={current.link} href={current.link} className={s.info__link}>{current.display_name}</Link>
                     ))}
                 </div>
             </div>
