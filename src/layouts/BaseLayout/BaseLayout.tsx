@@ -5,7 +5,6 @@ export function BaseLayout({ children }: { children: React.ReactNode }) {
 		<>
 			<Header />
 			{children}
-			<Form />
 			<Footer />
 		</>
 	);

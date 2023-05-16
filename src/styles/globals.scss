@@ -41,7 +41,7 @@ body {
 
 			&,
 			* {
-				z-index: 2;
+				z-index: 5;
 			}
 		}
 
@@ -52,8 +52,9 @@ body {
 			width: 100%;
 			max-width: 1688px;
 			padding: 50px 24px 120px;
+			position: relative;
 
-			* {
+			> * {
 				z-index: 1;
 			}
 
@@ -102,7 +103,7 @@ body {
 	body {
 		.wrapper {
 			main {
-				padding: 0 16px;
+				padding: 0 16px 58px;
 			}
 		}
 	}
