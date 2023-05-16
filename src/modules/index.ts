@@ -17,4 +17,7 @@ export * from "./AboutUsStudio";
 export * from "./Spa";
 export * from "./SupportBlock";
 export * from "./OpenFormButton";
+export * from "./Team";
+export * from "./Technologies";
+export * from "./Contacts";
 

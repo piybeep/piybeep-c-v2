@@ -8,4 +8,5 @@ export * from "./advantages";
 export * from "./reviews";
 export * from "./textslider";
 export * from "./support";
+export * from "./technologies"
 
