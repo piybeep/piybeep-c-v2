@@ -1,7 +1,15 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import { AboutUsStudio, Spa, Team, Contacts, Technologies } from "../../src/modules";
+import {
+	AboutUsStudio,
+	Spa,
+	Form,
+	OpenFormButton,
+	Team,
+	Contacts,
+	Technologies,
+} from "../../src/modules";
 
 export default function Studio() {
 	return (
@@ -9,16 +17,27 @@ export default function Studio() {
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				rowGap: 100,
-				marginBottom: 90,
-				marginTop: 50,
+				// rowGap: 100,
+				// marginBottom: 90,
+				// marginTop: 50,
 			}}
 		>
-			<AboutUsStudio />
-			<Team/>
-			<Spa />
-			<Technologies/>
-			<Contacts/>
+			<OpenFormButton />
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					rowGap: 100,
+					marginBottom: 150,
+				}}
+			>
+				<AboutUsStudio />
+				<Team />
+				<Spa />
+				<Technologies />
+				<Contacts />
+			</div>
+			<Form />
 		</main>
 	);
 }
