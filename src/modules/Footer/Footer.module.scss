@@ -46,7 +46,7 @@ $media: (
 	padding: 48px 0;
 
 	* {
-		transition: all 0.3s;
+		transition: all 0.2s;
 	}
 
 	.wrapper {
@@ -72,7 +72,7 @@ $media: (
 		color: $white-color;
 		width: max-content;
 
-		transition: all 0.3s;
+		transition: all 0.2s;
 
 		&:hover {
 			text-underline-position: under;
@@ -133,7 +133,7 @@ $media: (
 	}
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 768px) {
 	.footer {
 		.contacts {
 			a {
