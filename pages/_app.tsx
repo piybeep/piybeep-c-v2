@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import type { AppProps } from "next/app";
 import classNames from "classnames";
 import { ReactElement, ReactNode } from "react";
@@ -19,6 +20,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
 	return (
 		<div className={classNames("wrapper")}>
+			<Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
 			{getLayout(<Component {...pageProps} />)}
 		</div>
 	);
