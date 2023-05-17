@@ -4,5 +4,6 @@ export interface TitleProps {
 	value: string;
 	subtitle?: string | ReactNode;
 	position?: "left" | "center";
+	dot?: boolean;
 }
 
