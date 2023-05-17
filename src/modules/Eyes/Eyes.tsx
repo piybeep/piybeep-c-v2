@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { useRouterQuery } from "../../hooks";
+
 import imageEye from '../../../public/imgs/eyes.png'
 
 import { EyesProps } from "./Eyes.types";
@@ -9,6 +11,16 @@ import classNames from "classnames";
 
 export function Eyes({ }: EyesProps) {
     const [isOpen, setIsOpen] = useState(false)
+
+    const { isHas, query } = useRouterQuery()
+
+    useEffect(() => {
+        if (isHas('form') && query.form === 'success') {
+            setIsOpen(true)
+        } else {
+            setIsOpen(false)
+        }
+    }, [isHas('form'), query.form])
 
     useEffect(() => {
         if (isOpen){

@@ -70,6 +70,10 @@ export function PopupForm({ }: PopupFormProps) {
                 console.log('Продукты не заполнены')
 
                 toast('Выберите услуги')
+            }else{
+                mutate({
+                    query: {form: 'success'}
+                })
             }
             // formik.setSubmitting(false);
             // formik.resetForm();
