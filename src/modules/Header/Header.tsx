@@ -29,7 +29,7 @@ export function Header({ ...props }: HeaderProps) {
 				elY = Math.min(0, Math.max(-height, elY + diff));
 				el.style.position =
 					pos >= height ? "sticky" : pos === 0 ? "sticky" : el.style.position;
-				el.style.transform = `translateY(${pos > 50 ? elY : 0}px)`;
+				el.style.transform = `translateY(${pos > 50 ? elY : -2}px)`;
 
 				scrollY = pos;
 			}
@@ -43,7 +43,7 @@ export function Header({ ...props }: HeaderProps) {
 			const el = document.querySelector<HTMLElement>("." + s.bar);
 
 			if (offsetY < 50 && el) {
-				el.style.transform = `translateY(0px)`;
+				el.style.transform = `translateY(-2px)`;
 			}
 		};
 

@@ -1,0 +1,158 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    min-width: 320px;
+
+    position: fixed;
+    left: 0px;
+
+    z-index: 99;
+
+    background-color: rgba($color: #000000, $alpha: 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+
+    &__open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    cursor: pointer;
+}
+
+.info {
+    background-color: $black-color;
+
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+
+    width: 100%;
+    max-width: 510px;
+
+    cursor: default;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    width: 100%;
+    max-width: 410px;
+
+    &__product {
+        margin: 0px;
+
+        cursor: pointer;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-decoration-line: underline;
+
+        color: $gray-color;
+
+
+        transition: 0.3s;
+
+        &:hover {
+            color: $white-color;
+        }
+
+        &_active {
+            color: $main-color !important;
+        }
+    }
+}
+
+.privacy {
+
+    &__text {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: $white-color;
+
+        margin: 0px;
+    }
+
+    &__link {
+        text-decoration: underline;
+
+        cursor: pointer;
+    }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+
+    &__sumbit {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: $gray-color;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 17px 20px;
+
+        background-color: transparent;
+
+        border: 1px solid $gray-color;
+
+        width: 100%;
+    }
+
+    &__close {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        color: $white-color;
+
+        width: fit-content;
+
+        background-color: transparent;
+
+        border: none;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .info{
+        padding: 30px 16px;
+    }
+}
