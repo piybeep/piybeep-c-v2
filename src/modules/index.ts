@@ -22,4 +22,6 @@ export * from "./OpenFormButton";
 export * from "./Team";
 export * from "./Technologies";
 export * from "./Contacts";
-export * from './NotFound'
+export * from "./NotFound";
+export * from "./ProjectPost";
+
