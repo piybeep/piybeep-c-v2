@@ -12,7 +12,7 @@ import classNames from "classnames";
 export function Eyes({ }: EyesProps) {
     const [isOpen, setIsOpen] = useState(false)
 
-    const { isHas, query } = useRouterQuery()
+    const { isHas, query, mutate } = useRouterQuery()
 
     useEffect(() => {
         if (isHas('form') && query.form === 'success') {
@@ -30,8 +30,16 @@ export function Eyes({ }: EyesProps) {
         }
     }, [isOpen])
 
+    const closeEyes = () => {
+        setIsOpen(false)
+
+        mutate({
+            query:null
+        })
+    }
+
     return (
-        <div onClick={() => setIsOpen(false)} className={classNames(s.wrapper, {
+        <div onClick={() => closeEyes()} className={classNames(s.wrapper, {
             [s.wrapper__open]: isOpen
         })}>
             <div className={s.info} onClick={(e) => e.stopPropagation()}>
@@ -39,7 +47,7 @@ export function Eyes({ }: EyesProps) {
                     <h2 className={s.info__text}>Смотрим вашу заявку!</h2>
                     <h2 className={s.info__text}>Скоро мы напишем вам на почту и обговорим проект подробнее.</h2>
                 </div>
-                <button onClick={() => setIsOpen(false)} className={s.info__button}>Хорошо</button>
+                <button onClick={() => closeEyes()} className={s.info__button}>Хорошо</button>
                 <Image className={s.info__img} src={imageEye} alt={"Глазки"} />
             </div>
         </div>
