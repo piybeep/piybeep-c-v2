@@ -9,7 +9,6 @@ export function BaseLayout({ children }: { children: React.ReactNode }) {
 			<Eyes />
 			<Header />
 			{children}
-			<Form />
 			<Footer />
 		</>
 	);

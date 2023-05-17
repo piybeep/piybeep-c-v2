@@ -5,6 +5,7 @@ import React from "react";
 import { Montserrat } from "@next/font/google";
 
 import SleepingCat from "../public/imgs/sleeping-cat.png";
+import { NotFound } from "../src/modules";
 
 const font = Montserrat({
 	preload: true,
@@ -44,15 +45,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div className="not_found__text">
-				<h1>Упсс...</h1>
-				<p>
-					Похоже, тут ничего нет, кроме спящего котика
-					<br />
-					Тсс.. не разбуди!
-				</p>
-			</div>
-			<Image width={imageWidth} src={SleepingCat} alt="404" />
+			<NotFound/>
 		</main>
 	);
 }
