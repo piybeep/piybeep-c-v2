@@ -1,54 +1,65 @@
 import Head from "next/head";
-import {ReactNode} from "react";
-import {AboutUs, Form, OpenFormButton, OurProjectsBlock, Reviews, TextSlider, WeDo,} from "../../src/modules";
-import {BaseLayout} from "../../src/layouts";
-import {TEXT_SLIDER_BIZ} from "../../src/constatnts";
+import { ReactNode } from "react";
+import {
+	AboutUs,
+	Form,
+	OpenFormButton,
+	OurProjectsBlock,
+	Reviews,
+	TextSlider,
+	WeDo,
+} from "../../src/modules";
+import { BaseLayout } from "../../src/layouts";
+import { TEXT_SLIDER_BIZ } from "../../src/constatnts";
 
 export default function Home() {
-    return (
-        <main
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                // rowGap: 100,
-                // marginBottom: 90,
-                // marginTop: 50,
-            }}
-        >
-            <OpenFormButton/>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    rowGap: 100,
-                    marginBottom: 150,
-                }}
-            >
-                <AboutUs title={'Уникальные решения для бизнеса.\nСложные и логические.'}
-                         description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
+	return (
+		<main
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				// rowGap: 100,
+				// marginBottom: 90,
+				// marginTop: 50,
+			}}
+		>
+			<OpenFormButton />
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					rowGap: 100,
+					marginBottom: 150,
+				}}
+			>
+				<AboutUs
+					title={"Уникальные решения для бизнеса.\nСложные и логические."}
+					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
 уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-эффективнее`} imgPosition={'right'}/>
-                <WeDo/>
-                <OurProjectsBlock/>
-                <Reviews/>
-                <TextSlider slogans={TEXT_SLIDER_BIZ}/>
-            </div>
-            <Form/>
-        </main>
-    );
+эффективнее`}
+					imgPosition={"right"}
+				/>
+				<WeDo biz />
+				<OurProjectsBlock />
+				<Reviews />
+				<TextSlider slogans={TEXT_SLIDER_BIZ} />
+			</div>
+			<Form />
+		</main>
+	);
 }
 
 Home.getLayout = (page: ReactNode) => (
-    <BaseLayout>
-        <Head>
-            <title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
-            <meta
-                name="description"
-                content="Разработка и поддержка сайтов для стартапов и растущих компаний. Мы поможем вам сделать шаг к расширению вашего бизнеса - сделаем качественный сайт."
-            />
-            <meta
-                name="keywords"
-                content="piybeep,
+	<BaseLayout>
+		<Head>
+			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
+			<meta
+				name="description"
+				content="Разработка и поддержка сайтов для стартапов и растущих компаний. Мы поможем вам сделать шаг к расширению вашего бизнеса - сделаем качественный сайт."
+			/>
+			<meta
+				name="keywords"
+				content="piybeep,
   пиубип,
   веб студия,
   студия веб дизайна,
@@ -91,9 +102,9 @@ Home.getLayout = (page: ReactNode) => (
   создать сайт агентство,
   создать сайт под ключ цена,
   создать корпоративный сайт"
-            />
-            <link rel="icon" href="/favicon.ico"/>
-        </Head>
-        {page}
-    </BaseLayout>
+			/>
+			<link rel="icon" href="/favicon.ico" />
+		</Head>
+		{page}
+	</BaseLayout>
 );
