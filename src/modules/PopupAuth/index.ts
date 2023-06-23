@@ -1,1 +1,1 @@
-export { PopupAuth } from './PopupAuth'
+export {PopupAuth} from './PopupAuth'

@@ -1,11 +1,10 @@
 .slider {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	row-gap: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
 
-	.wrapper {
-		height: fit-content;
-	}
+  .wrapper {
+    height: fit-content;
+  }
 }
-

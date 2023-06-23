@@ -1,1 +1,1 @@
-export { AdvantagesBlock } from "./AdvantagesBlock";
+export {AdvantagesBlock} from "./AdvantagesBlock";

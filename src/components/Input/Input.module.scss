@@ -1,145 +1,145 @@
 @import '../../styles/variables.scss';
 
 .input {
-	position: relative;
+  position: relative;
 
-	&_top {
-		padding-top: 25px;
-		padding-bottom: 7px;
+  &_top {
+    padding-top: 25px;
+    padding-bottom: 7px;
 
-		border-bottom: 1px solid #E5E5E5;
-	}
+    border-bottom: 1px solid #E5E5E5;
+  }
 
-	&__text {
-		font-family: 'Inter';
-		font-style: normal;
-		font-weight: 400;
+  &__text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
 
-		outline: none;
-		background-color: transparent;
-		border: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
 
-		position: inherit;
+    position: inherit;
 
-		width: 100%;
+    width: 100%;
 
-		&_default {
-			font-size: 16px;
-			line-height: 19px;
+    &_default {
+      font-size: 16px;
+      line-height: 19px;
 
-			color: $white-color;
-		}
+      color: $white-color;
+    }
 
-		&_large {
-			font-size: 80px;
-			line-height: 97px;
-			letter-spacing: -0.04em;
+    &_large {
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: -0.04em;
 
-			color: $white-color;
-			
-			z-index: 1;
-			
-			&::placeholder{
-				color: $gray-color;
-			}
-		}
-	}
+      color: $white-color;
 
-	&__placeholder {
-		position: absolute;
-		left: 0px;
-		top: 0px;
+      z-index: 1;
 
-		z-index: 0;
+      &::placeholder {
+        color: $gray-color;
+      }
+    }
+  }
 
-		font-family: 'Inter';
-		font-style: normal;
+  &__placeholder {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    z-index: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
 
 
-		color: $gray-color;
+    color: $gray-color;
 
-		&_default {
-			font-weight: 500;
-			font-size: 13px;
-			line-height: 16px;
-		}
+    &_default {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+    }
 
-		&_large {
-			font-weight: 400;
-			font-size: 80px;
-			line-height: 97px;
-			letter-spacing: -0.04em;
-		}
+    &_large {
+      font-weight: 400;
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: -0.04em;
+    }
 
-		&_top {
-			opacity: 1;
-		}
+    &_top {
+      opacity: 1;
+    }
 
-		&_center {
-			opacity: 0;
-		}
-	}
+    &_center {
+      opacity: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
-	.input {
+  .input {
 
-		&__text {
+    &__text {
 
-			&_large {
-				font-size: 64px;
-				line-height: 77px;
-			}
-		}
+      &_large {
+        font-size: 64px;
+        line-height: 77px;
+      }
+    }
 
-		&__placeholder {
+    &__placeholder {
 
-			&_large {
-				font-size: 64px;
-				line-height: 77px;
-			}
-		}
-	}
+      &_large {
+        font-size: 64px;
+        line-height: 77px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 660px) {
-	.input {
+  .input {
 
-		&__text {
+    &__text {
 
-			&_large {
-				font-size: 40px;
-				line-height: 48px;
-			}
-		}
+      &_large {
+        font-size: 40px;
+        line-height: 48px;
+      }
+    }
 
-		&__placeholder {
+    &__placeholder {
 
-			&_large {
-				font-size: 40px;
-				line-height: 48px;
-			}
-		}
-	}
+      &_large {
+        font-size: 40px;
+        line-height: 48px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 420px) {
-	.input {
+  .input {
 
-		&__text {
+    &__text {
 
-			&_large {
-				font-size: 32px;
-				line-height: 39px;
-			}
-		}
+      &_large {
+        font-size: 32px;
+        line-height: 39px;
+      }
+    }
 
-		&__placeholder {
+    &__placeholder {
 
-			&_large {
-				font-size: 32px;
-				line-height: 39px;
-			}
-		}
-	}
+      &_large {
+        font-size: 32px;
+        line-height: 39px;
+      }
+    }
+  }
 }

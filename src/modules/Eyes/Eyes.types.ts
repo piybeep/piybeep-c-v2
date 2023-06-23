@@ -1,1 +1,2 @@
-export interface EyesProps {}
+export interface EyesProps {
+}

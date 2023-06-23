@@ -1,92 +1,92 @@
 @import '../../styles/variables.scss';
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
 }
 
 .list {
+  width: 100%;
+  max-width: 1266px;
+
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  column-gap: 36px;
+  row-gap: 50px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+
     width: 100%;
-    max-width: 1266px;
+    max-width: 150px;
+  }
 
-    display: grid;
-    grid-template-columns: repeat(7, auto);
-    column-gap: 36px;
-    row-gap: 50px;
+  &__img {
+    width: inherit;
 
-    &__item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 30px;
+    object-fit: contain;
+  }
 
-        width: 100%;
-        max-width: 150px;
-    }
+  &__title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
 
-    &__img {
-        width: inherit;
+    color: $white-color;
 
-        object-fit: contain;
-    }
+    margin: 0px;
 
-    &__title {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 130%;
-
-        color: $white-color;
-
-        margin: 0px;
-
-        text-align: center;
-    }
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 1550px) {
-    .list {
-        row-gap: 60px;
-    }
+  .list {
+    row-gap: 60px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .list {
-        grid-template-columns: repeat(5, auto);
-    }
+  .list {
+    grid-template-columns: repeat(5, auto);
+  }
 }
 
 @media screen and (max-width: 760px) {
-    .list {
-        column-gap: 30px;
+  .list {
+    column-gap: 30px;
 
-        grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, auto);
 
-        &__item {
-            max-width: 88px;
-        }
+    &__item {
+      max-width: 88px;
     }
+  }
 }
 
 @media screen and (max-width: 430px) {
-    .list {
-        row-gap: 30px;
-        column-gap: 16px;
-    }
+  .list {
+    row-gap: 30px;
+    column-gap: 16px;
+  }
 }
 
 @media screen and (max-width: 360px) {
-    .list {
-        column-gap: 32px;
+  .list {
+    column-gap: 32px;
 
-        grid-template-columns: repeat(3, auto);
-    }
+    grid-template-columns: repeat(3, auto);
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .list {
-        column-gap: 12px;
-    }
+  .list {
+    column-gap: 12px;
+  }
 }

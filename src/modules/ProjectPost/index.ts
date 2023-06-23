@@ -1,1 +1,1 @@
-export { ProjectPost } from "./ProjectPost";
+export {ProjectPost} from "./ProjectPost";

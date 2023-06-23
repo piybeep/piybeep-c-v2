@@ -1,1 +1,2 @@
-export interface TeamProps{}
+export interface TeamProps {
+}

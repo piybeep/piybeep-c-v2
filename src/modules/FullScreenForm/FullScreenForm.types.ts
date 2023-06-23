@@ -1,4 +1,4 @@
-export interface FullScreenFormProps{
+export interface FullScreenFormProps {
     isShow?: boolean,
     close: () => void
 }

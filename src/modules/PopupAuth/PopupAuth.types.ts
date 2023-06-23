@@ -1,1 +1,2 @@
-export interface PopupAuthProps {}
+export interface PopupAuthProps {
+}

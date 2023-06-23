@@ -1,1 +1,2 @@
-export interface NotFoundProps { }
+export interface NotFoundProps {
+}

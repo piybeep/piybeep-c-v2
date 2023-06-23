@@ -1,150 +1,158 @@
 .wrapper {
-	display: grid;
-	grid-template-areas:
+  display: grid;
+  grid-template-areas:
 		"head head"
 		"imgs text";
-	gap: 40px;
-	width: 100%;
-	// border: 1px solid green;
+  gap: 40px;
+  width: 100%;
+  // border: 1px solid green;
 
-	.titles {
-		grid-area: head;
+  .titles {
+    grid-area: head;
 
-		display: flex;
-		column-gap: 192px;
+    display: flex;
+    column-gap: 192px;
 
-		h2 {
-			width: fit-content;
+    h2 {
+      width: fit-content;
 
-			font-family: "Actay", Arial, Helvetica, sans-serif;
-			font-style: normal;
-			font-weight: 400;
-			font-size: 48px;
-			line-height: 60px;
+      font-family: "Actay", Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 60px;
 
-			margin: 0;
-		}
-	}
+      margin: 0;
+    }
+  }
 
-	.preview {
-		grid-area: imgs;
+  .preview {
+    grid-area: imgs;
 
-		display: flex;
-		flex-wrap: wrap;
-		width: fit-content;
-		flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    flex: 1;
 
-		.container {
-			overflow: hidden;
-			width: calc(100% / 4);
-			cursor: pointer;
+    .container {
+      overflow: hidden;
+      width: calc(100% / 4);
+      cursor: pointer;
 
-			img {
-				width: 100%;
-				height: 100%;
-				transition: 0.2s;
-			}
-			&:hover {
-				img {
-					scale: 1.1;
-				}
-			}
-		}
-	}
+      img {
+        width: 100%;
+        height: 100%;
+        transition: 0.2s;
+      }
 
-	.text {
-		grid-area: text;
-		align-self: center;
+      &:hover {
+        img {
+          scale: 1.1;
+        }
+      }
+    }
+  }
 
-		width: 520px;
-		margin: 0;
+  .text {
+    grid-area: text;
+    align-self: center;
 
-		font-family: "Inter";
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 150%;
-	}
+    width: 520px;
+    margin: 0;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
 }
 
 @media screen and (max-width: 1550px) {
-	.wrapper {
-		.text {
-			width: 100%;
-			max-width: 397px;
-		}
-		.titles {
-			column-gap: 133px;
-		}
-	}
+  .wrapper {
+    .text {
+      width: 100%;
+      max-width: 397px;
+    }
+
+    .titles {
+      column-gap: 133px;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
-	.wrapper {
-		gap: 42px 20px;
+  .wrapper {
+    gap: 42px 20px;
 
-		grid-template-areas:
+    grid-template-areas:
 			"head text"
 			"imgs imgs";
-		grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-		.titles {
-			column-gap: 42px;
-			h2 {
-				font-size: 24px;
-				line-height: 30px;
-			}
-		}
-		.text {
-			max-width: none;
-			font-size: 15px;
-			line-height: 130%;
-		}
-	}
+    .titles {
+      column-gap: 42px;
+
+      h2 {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+
+    .text {
+      max-width: none;
+      font-size: 15px;
+      line-height: 130%;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-	.wrapper {
-		gap: 30px 0;
+  .wrapper {
+    gap: 30px 0;
 
-		grid-template-areas:
+    grid-template-areas:
 			"head"
 			"text"
 			"imgs";
-		grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
 
-		.titles {
-			column-gap: 42px;
-			h2 {
-				font-size: 24px;
-				line-height: 30px;
-			}
-		}
-		.preview {
-			.container {
-				width: calc(100% / 3);
-			}
-		}
-		.text {
-			width: 100%;
+    .titles {
+      column-gap: 42px;
 
-			font-size: 15px;
-			line-height: 130%;
-		}
-	}
+      h2 {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+
+    .preview {
+      .container {
+        width: calc(100% / 3);
+      }
+    }
+
+    .text {
+      width: 100%;
+
+      font-size: 15px;
+      line-height: 130%;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-	.wrapper {
-		.titles {
-			h2 {
-				font-size: 20px;
-				line-height: 25px;
-			}
-		}
-		.text {
-			font-size: 13px;
-			line-height: 150%;
-		}
-	}
+  .wrapper {
+    .titles {
+      h2 {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+
+    .text {
+      font-size: 13px;
+      line-height: 150%;
+    }
+  }
 }

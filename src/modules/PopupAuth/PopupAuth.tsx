@@ -1,20 +1,20 @@
-import { useRouterQuery } from "../../hooks";
+import {useRouterQuery} from "../../hooks";
 
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import classNames from "classnames";
 
-import { useFormik } from "formik";
+import {useFormik} from "formik";
 
-import { Input, Title } from "../../components";
+import {Input, Title} from "../../components";
 
-import { PopupAuthProps } from "./PopupAuth.types";
+import {PopupAuthProps} from "./PopupAuth.types";
 import s from './PopupAuth.module.scss'
 
-export function PopupAuth({ }: PopupAuthProps) {
+export function PopupAuth({}: PopupAuthProps) {
     const [isOpen, setIsOpen] = useState(false)
 
-    const { isHas, query, mutate } = useRouterQuery()
+    const {isHas, query, mutate} = useRouterQuery()
 
     useEffect(() => {
         if (isHas('form') && query.form === 'auth') {
@@ -48,7 +48,7 @@ export function PopupAuth({ }: PopupAuthProps) {
 
     const handleCloseForm = () => {
         mutate({
-            query: { form: null },
+            query: {form: null},
         })
     }
 
@@ -58,7 +58,7 @@ export function PopupAuth({ }: PopupAuthProps) {
         })}>
             <form onSubmit={formik.handleSubmit} onClick={e => e.stopPropagation()} className={s.form}>
                 <div className={s.title}>
-                    <Title value="авторизация" />
+                    <Title value="авторизация"/>
                 </div>
                 <div className={s.inputs}>
                     <Input
@@ -77,7 +77,8 @@ export function PopupAuth({ }: PopupAuthProps) {
                     />
                 </div>
                 <div className={s.privacy}>
-                    Отправляя форму, вы принимаете <span className={s.privacy__link}>политику конфиденциальности</span> и <span className={s.privacy__link}>пользовательское соглашение</span>
+                    Отправляя форму, вы принимаете <span
+                    className={s.privacy__link}>политику конфиденциальности</span> и <span className={s.privacy__link}>пользовательское соглашение</span>
                 </div>
 
                 <div className={s.buttons}>
@@ -86,8 +87,11 @@ export function PopupAuth({ }: PopupAuthProps) {
                         type='submit'
                     >
                         Войти
-                        <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path className={s.buttons__svg} d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z" fill="#8E8E8E" />
+                        <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path className={s.buttons__svg}
+                                  d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z"
+                                  fill="#8E8E8E"/>
                         </svg>
                     </button>
                     <button
@@ -95,9 +99,10 @@ export function PopupAuth({ }: PopupAuthProps) {
                         type='button'
                         onClick={() => handleCloseForm()}
                     >
-                        Отмена</button>
+                        Отмена
+                    </button>
                 </div>
             </form>
         </div>
     );
-};
+}

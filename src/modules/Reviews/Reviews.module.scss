@@ -1,80 +1,79 @@
 .wrapper {
-	height: auto;
+  height: auto;
 }
 
 .slider {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	row-gap: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
 
-	.slide {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		row-gap: 15px;
-		height: auto;
+  .slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 15px;
+    height: auto;
 
-		.text {
-			font-family: "Inter";
-			font-style: normal;
-			font-weight: 400;
-			font-size: 16px;
-			line-height: 130%;
+    .text {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
 
-			margin-bottom: auto;
-		}
+      margin-bottom: auto;
+    }
 
-		.info {
-			width: fit-content;
+    .info {
+      width: fit-content;
 
-			font-family: "Inter";
-			font-style: normal;
-			font-weight: 400;
-			font-size: 14px;
-			line-height: 17px;
-		}
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
 
-		a {
-			color: inherit;
-			text-decoration: underline;
-			text-underline-position: under;
-		}
-	}
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+  }
 }
 
 @media screen and (max-width: 430px) {
-	.slider {
-		.slide {
-			p {
-				&.text {
-					font-size: 13px;
-					line-height: 130%;
-				}
+  .slider {
+    .slide {
+      p {
+        &.text {
+          font-size: 13px;
+          line-height: 130%;
+        }
 
-				&.info {
-					font-size: 12px;
-					line-height: 15px;
-				}
-			}
-		}
-	}
+        &.info {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 360px) {
-	.slider {
-		.slide {
-			p {
-				&.text {
-					font-size: 10px;
-				}
+  .slider {
+    .slide {
+      p {
+        &.text {
+          font-size: 10px;
+        }
 
-				&.info {
-					font-size: 10px;
-					line-height: 12px;
-				}
-			}
-		}
-	}
+        &.info {
+          font-size: 10px;
+          line-height: 12px;
+        }
+      }
+    }
+  }
 }
-

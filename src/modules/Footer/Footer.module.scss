@@ -1,197 +1,196 @@
 @import "../../styles/variables.scss";
 
 $media: (
-	1550px: (
-		links: 14px,
-		contacts: 48px,
-		copyright: 16px,
-		padding: 48px 0,
-		row-gap: 40px,
-		wrapper-row-gap: 40px,
-		fdir: row,
-		align-items: flex-start,
-	),
-	1024px: (
-		links: 14px,
-		contacts: 34px,
-		copyright: 16px,
-		padding: 34px 0,
-		row-gap: 40px,
-		wrapper-row-gap: 40px,
-		fdir: row,
-		align-items: flex-start,
-	),
-	768px: (
-		links: 12px,
-		contacts: 12px,
-		copyright: 12px,
-		padding: 15px 0,
-		row-gap: 35px,
-		wrapper-row-gap: 15px,
-		fdir: column,
-		align-items: center,
-	),
+        1550px: (
+                links: 14px,
+                contacts: 48px,
+                copyright: 16px,
+                padding: 48px 0,
+                row-gap: 40px,
+                wrapper-row-gap: 40px,
+                fdir: row,
+                align-items: flex-start,
+        ),
+        1024px: (
+                links: 14px,
+                contacts: 34px,
+                copyright: 16px,
+                padding: 34px 0,
+                row-gap: 40px,
+                wrapper-row-gap: 40px,
+                fdir: row,
+                align-items: flex-start,
+        ),
+        768px: (
+                links: 12px,
+                contacts: 12px,
+                copyright: 12px,
+                padding: 15px 0,
+                row-gap: 35px,
+                wrapper-row-gap: 15px,
+                fdir: column,
+                align-items: center,
+        ),
 );
 
 .footer {
-	background-color: $dark-color;
+  background-color: $dark-color;
 
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 400;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
 
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	padding: 48px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
 
-	* {
-		transition: all 0.2s;
-	}
+  * {
+    transition: all 0.2s;
+  }
 
-	.wrapper {
-		width: 100%;
-		max-width: 1688px;
-		padding: 0 24px;
+  .wrapper {
+    width: 100%;
+    max-width: 1688px;
+    padding: 0 24px;
 
-		display: flex;
-		justify-content: space-between;
-	}
+    display: flex;
+    justify-content: space-between;
+  }
 
-	.column {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		row-gap: 40px;
-	}
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 40px;
+  }
 
-	a {
-		font-size: 14px;
-		line-height: 17px;
+  a {
+    font-size: 14px;
+    line-height: 17px;
 
-		color: $white-color;
-		width: max-content;
+    color: $white-color;
+    width: max-content;
 
-		transition: all 0.2s;
+    transition: all 0.2s;
 
-		&:hover {
-			text-underline-position: under;
-			text-decoration: underline;
-		}
-	}
+    &:hover {
+      text-underline-position: under;
+      text-decoration: underline;
+    }
+  }
 
-	.links {
-		display: flex;
+  .links {
+    display: flex;
 
-		column-gap: 25px;
+    column-gap: 25px;
 
-		svg {
-			margin-left: 5px;
-		}
-	}
+    svg {
+      margin-left: 5px;
+    }
+  }
 
-	.contacts {
-		display: flex;
-		flex-wrap: wrap;
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
 
-		column-gap: 50px;
+    column-gap: 50px;
 
-		a {
-			font-family: "Actay", Arial, sans-serif;
-			font-size: 48px;
-			line-height: 150%;
+    a {
+      font-family: "Actay", Arial, sans-serif;
+      font-size: 48px;
+      line-height: 150%;
 
-			&:hover {
-				text-decoration: inherit;
+      &:hover {
+        text-decoration: inherit;
 
-				color: $main-color;
-			}
-		}
-	}
+        color: $main-color;
+      }
+    }
+  }
 
-	.copyright {
-		cursor: default;
-		line-height: 130%;
-		width: 100%;
+  .copyright {
+    cursor: default;
+    line-height: 130%;
+    width: 100%;
 
-		text-align: end;
-		justify-self: flex-end;
+    text-align: end;
+    justify-self: flex-end;
 
-		a {
-			text-decoration: underline;
-			text-underline-position: under;
-			font-size: inherit;
-		}
-	}
+    a {
+      text-decoration: underline;
+      text-underline-position: under;
+      font-size: inherit;
+    }
+  }
 }
 
 @media screen and (max-width: 1550px) {
-	.footer {
-		.wrapper {
-			max-width: 1214px;
-		}
-	}
+  .footer {
+    .wrapper {
+      max-width: 1214px;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-	.footer {
-		.contacts {
-			a {
-				font-family: "Inter";
-				font-style: normal;
-				font-weight: 400;
-				color: $main-color;
-			}
-		}
+  .footer {
+    .contacts {
+      a {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        color: $main-color;
+      }
+    }
 
-		// nav.links {
-		// 	margin-bottom: 35px;
-		// }
-	}
+    // nav.links {
+    // 	margin-bottom: 35px;
+    // }
+  }
 }
 
 @each $width, $params in $media {
-	@media screen and (max-width: #{$width}) {
-		.footer {
-			padding: map-get($map: $params, $key: "padding");
+  @media screen and (max-width: #{$width}) {
+    .footer {
+      padding: map-get($map: $params, $key: "padding");
 
-			a {
-				font-size: map-get($map: $params, $key: "links");
-			}
+      a {
+        font-size: map-get($map: $params, $key: "links");
+      }
 
-			.wrapper {
-				flex-direction: map-get($map: $params, $key: "fdir");
-				@if (map-get($map: $params, $key: "align-items") == flex-start) {
-					align-self: stretch;
-				} @else {
-					align-items: map-get($map: $params, $key: "align-items");
-				}
-				row-gap: map-get($map: $params, $key: "wrapper-row-gap");
-			}
+      .wrapper {
+        flex-direction: map-get($map: $params, $key: "fdir");
+        @if (map-get($map: $params, $key: "align-items") == flex-start) {
+          align-self: stretch;
+        } @else {
+          align-items: map-get($map: $params, $key: "align-items");
+        }
+        row-gap: map-get($map: $params, $key: "wrapper-row-gap");
+      }
 
-			.column {
-				align-items: map-get($map: $params, $key: "align-items");
-				row-gap: map-get($map: $params, $key: "row-gap");
-			}
+      .column {
+        align-items: map-get($map: $params, $key: "align-items");
+        row-gap: map-get($map: $params, $key: "row-gap");
+      }
 
-			.contacts {
-				justify-content: map-get($map: $params, $key: "align-items");
-				column-gap: map-get($map: $params, $key: "row-gap") + 10px;
+      .contacts {
+        justify-content: map-get($map: $params, $key: "align-items");
+        column-gap: map-get($map: $params, $key: "row-gap") + 10px;
 
-				a {
-					font-size: map-get($map: $params, $key: "contacts");
-				}
-			}
+        a {
+          font-size: map-get($map: $params, $key: "contacts");
+        }
+      }
 
-			.copyright {
-				@if (map-get($map: $params, $key: "align-items") == flex-start) {
-					text-align: flex-end;
-				} @else {
-					text-align: center;
-				}
-				font-size: map-get($map: $params, $key: "copyright");
-			}
-		}
-	}
+      .copyright {
+        @if (map-get($map: $params, $key: "align-items") == flex-start) {
+          text-align: flex-end;
+        } @else {
+          text-align: center;
+        }
+        font-size: map-get($map: $params, $key: "copyright");
+      }
+    }
+  }
 }
-

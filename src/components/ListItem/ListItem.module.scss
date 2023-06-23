@@ -1,57 +1,58 @@
 .wrapper {
-	width: 100%;
+  width: 100%;
 
-	.title {
-		font-family: "Inter";
-		font-style: italic;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 130%;
+  .title {
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
 
-		display: flex;
-		column-gap: 10px;
-		align-items: center;
-	}
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+  }
 
-	.text {
-		p {
-			font-family: "Inter";
-			font-style: normal;
-			font-weight: 400;
-			font-size: 15px;
-			line-height: 130%;
-			margin: 0;
-			padding: 0;
-		}
+  .text {
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 130%;
+      margin: 0;
+      padding: 0;
+    }
 
-		a {
-			color: inherit;
+    a {
+      color: inherit;
 
-			text-decoration: underline;
-			text-underline-position: under;
-		}
-	}
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+  }
 }
 
 @media screen and (max-width: 1550px) {
-	.wrapper {
-		.text {
-			p {
-				font-size: 13px;
-			}
-		}
-	}
+  .wrapper {
+    .text {
+      p {
+        font-size: 13px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 430px) {
-	.wrapper {
-		.title {
-			font-size: 14px;
-		}
-		.text {
-			p {
-				font-size: 12px;
-			}
-		}
-	}
+  .wrapper {
+    .title {
+      font-size: 14px;
+    }
+
+    .text {
+      p {
+        font-size: 12px;
+      }
+    }
+  }
 }

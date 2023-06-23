@@ -1,6 +1,6 @@
-import { ComponentProps } from "react"
+import {ComponentProps} from "react"
 
-export interface PrivacyProps 
-extends ComponentProps<'input'>{
+export interface PrivacyProps
+    extends ComponentProps<'input'> {
     title: string
 }

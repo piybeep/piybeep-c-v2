@@ -1,84 +1,83 @@
 @import "../../styles/variables.scss";
 
 .button {
-	cursor: pointer;
-	outline: none;
-	border: none;
-	color: #000;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #000;
 
-	font-family: var(--font-SourceCodePro);
-	font-style: normal;
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 128.9%;
+  font-family: var(--font-SourceCodePro);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 128.9%;
 
-	transition: 0.2s;
+  transition: 0.2s;
 
-	&:disabled {
-		cursor: not-allowed;
-	}
+  &:disabled {
+    cursor: not-allowed;
+  }
 
-	&__small {
-		font-size: 18px;
+  &__small {
+    font-size: 18px;
 
-		padding: 8px 42px;
+    padding: 8px 42px;
 
-		border-radius: 4px;
-	}
+    border-radius: 4px;
+  }
 
-	&__default {
-		font-weight: 500;
-		line-height: 30px;
+  &__default {
+    font-weight: 500;
+    line-height: 30px;
 
-		padding: 15px 57px;
+    padding: 15px 57px;
 
-		border-radius: 6px;
-	}
+    border-radius: 6px;
+  }
 
-	&__large {
-		padding: 32px 72px;
+  &__large {
+    padding: 32px 72px;
 
-		border-radius: 16px;
-	}
+    border-radius: 16px;
+  }
 
-	&__color_primary {
-		background-color: $main-color;
+  &__color_primary {
+    background-color: $main-color;
 
-		&.button__outline {
-			color: $main-color;
+    &.button__outline {
+      color: $main-color;
 
-			border: 1px solid $main-color;
+      border: 1px solid $main-color;
 
-			&.button__active {
-				background-color: #fff;
-				border: 1px solid #000;
-				color: #000;
-			}
-		}
-	}
+      &.button__active {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+    }
+  }
 
-	&__color_light {
-		background-color: #fff;
+  &__color_light {
+    background-color: #fff;
 
-		&.button__outline {
-			color: #fff;
+    &.button__outline {
+      color: #fff;
 
-			border: 1px solid #fff;
+      border: 1px solid #fff;
 
-			&.button__active {
-				background-color: #fff;
-				border: 1px solid #000;
-				color: #000;
-			}
-		}
-	}
+      &.button__active {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+    }
+  }
 
-	&__outline {
-		background: transparent;
-	}
+  &__outline {
+    background: transparent;
+  }
 
-	&__rounded {
-		border-radius: 100px;
-	}
+  &__rounded {
+    border-radius: 100px;
+  }
 }
-

@@ -1,1 +1,1 @@
-export { Technologies } from './Technologies'
+export {Technologies} from './Technologies'

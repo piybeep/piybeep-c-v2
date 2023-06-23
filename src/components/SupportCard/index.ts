@@ -1,1 +1,1 @@
-export { SupportCard } from "./SupportCard";
+export {SupportCard} from "./SupportCard";

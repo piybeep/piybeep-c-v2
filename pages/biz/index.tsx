@@ -1,18 +1,8 @@
 import Head from "next/head";
 import {ReactNode} from "react";
-import {
-    AboutUs,
-    AdvantagesBlock,
-    Form,
-    OpenFormButton,
-    OurProjectsBlock,
-    Reviews,
-    RojectsPreview,
-    TextSlider,
-    WeDo,
-} from "../src/modules";
-import {BaseLayout} from "../src/layouts";
-import {TEXT_SLIDER} from "../src/constatnts";
+import {AboutUs, Form, OpenFormButton, OurProjectsBlock, Reviews, TextSlider, WeDo,} from "../../src/modules";
+import {BaseLayout} from "../../src/layouts";
+import {TEXT_SLIDER_BIZ} from "../../src/constatnts";
 
 export default function Home() {
     return (
@@ -34,16 +24,14 @@ export default function Home() {
                     marginBottom: 150,
                 }}
             >
-                <AboutUs title={'Продающие сайты для ваших маркетинговых целей.'}
+                <AboutUs title={'Уникальные решения для бизнеса.\nСложные и логические.'}
                          description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
 уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-эффективнее`}/>
+эффективнее`} imgPosition={'right'}/>
                 <WeDo/>
                 <OurProjectsBlock/>
-                <AdvantagesBlock/>
-                <RojectsPreview/>
                 <Reviews/>
-                <TextSlider slogans={TEXT_SLIDER}/>
+                <TextSlider slogans={TEXT_SLIDER_BIZ}/>
             </div>
             <Form/>
         </main>

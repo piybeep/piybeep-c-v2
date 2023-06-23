@@ -1,43 +1,43 @@
 .list {
-	display: flex;
-	gap: 40px;
-	flex-wrap: wrap;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 
-	> * {
-		transition: 0.2s;
-		max-width: calc((100% - 40px * 2) / 3);
-		flex-grow: 1;
-	}
+  > * {
+    transition: 0.2s;
+    max-width: calc((100% - 40px * 2) / 3);
+    flex-grow: 1;
+  }
 
-	&_link {
-		color: inherit;
-		text-decoration: underline;
-		text-underline-position: under;
-	}
+  &_link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
 }
 
 @media screen and (max-width: 1550px) {
-	.list {
-		> * {
-			max-width: calc((100% - 40px) / 2);
-		}
-	}
+  .list {
+    > * {
+      max-width: calc((100% - 40px) / 2);
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
-	.list {
-		gap: 30px 20px;
+  .list {
+    gap: 30px 20px;
 
-		> * {
-			max-width: calc((100% - 20px) / 2);
-		}
-	}
+    > * {
+      max-width: calc((100% - 20px) / 2);
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-	.list {
-		> * {
-			max-width: 100%;
-		}
-	}
+  .list {
+    > * {
+      max-width: 100%;
+    }
+  }
 }
