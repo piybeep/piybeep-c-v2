@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-import { MENU_ITEMS } from "../../constatnts";
+import {MENU_ITEMS} from "../../constatnts";
 
-import { NotFoundProps } from "./NotFound.types";
+import {NotFoundProps} from "./NotFound.types";
 import s from './NotFound.module.scss'
 
 import cat from '../../../public/imgs/sleeping-cat.png'
 import Link from "next/link";
 
-export function NotFound({ }: NotFoundProps) {
+export function NotFound({}: NotFoundProps) {
     return (
         <div className={s.wrapper}>
             <div className={s.info}>
@@ -17,11 +17,12 @@ export function NotFound({ }: NotFoundProps) {
                     Тсс.. не разбуди!</h3>
                 <div className={s.info__list}>
                     {MENU_ITEMS.map(current => (
-                        <Link key={current.link} href={current.link} className={s.info__link}>{current.display_name}</Link>
+                        <Link key={current.link} href={current.link}
+                              className={s.info__link}>{current.display_name}</Link>
                     ))}
                 </div>
             </div>
-            <Image className={s.img} src={cat} alt="Котик" />
+            <Image className={s.img} src={cat} alt="Котик"/>
         </div>
     );
-};
+}

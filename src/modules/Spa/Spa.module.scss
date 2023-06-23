@@ -1,220 +1,220 @@
 @import '../../styles/variables.scss';
 
 .wrapper {
-    display: grid;
-    grid-template-areas:
+  display: grid;
+  grid-template-areas:
         'header block'
         'info block';
-    column-gap: 40px;
-    row-gap: 30px;
-    grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  row-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 
 .info {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 
-    width: 100%;
-    max-width: 800px;
+  width: 100%;
+  max-width: 800px;
 
-    grid-area: info;
+  grid-area: info;
 }
 
 .header {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 
-    font-family: 'Actay';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 60px;
+  font-family: 'Actay';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 60px;
+
+  color: $white-color;
+
+  margin: 0px;
+
+  white-space: break-spaces;
+
+  grid-area: header;
+
+  &__link {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    text-decoration-line: underline;
+    text-underline-position: under;
+    text-transform: uppercase;
 
     color: $white-color;
+  }
 
-    margin: 0px;
+  &::after {
+    content: '* это интересно';
+    display: inline-block;
 
-    white-space: break-spaces;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
 
-    grid-area: header;
-
-    &__link {
-        font-family: inherit;
-        font-style: inherit;
-        font-weight: inherit;
-        font-size: inherit;
-        line-height: inherit;
-
-        text-decoration-line: underline;
-        text-underline-position: under;
-        text-transform: uppercase;
-
-        color: $white-color;
-    }
-
-    &::after {
-        content: '* это интересно';
-        display: inline-block;
-
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 130%;
-
-        color: $main-color;
-    }
+    color: $main-color;
+  }
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 
-    width: 100%;
-    max-width: 520px;
+  width: 100%;
+  max-width: 520px;
 }
 
 .right {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title {
-    margin: 0px;
+  margin: 0px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
 
-    color: $white-color;
+  color: $white-color;
 }
 
 .description {
-    margin: 0px;
+  margin: 0px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
 
-    color: $gray-color;
+  color: $gray-color;
 }
 
 .block {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
 
-    grid-area: block;
+  grid-area: block;
 }
 
 @media screen and (max-width: 1550px) {
-    .wrapper {
-        grid-template-areas:
+  .wrapper {
+    grid-template-areas:
             'header .'
             'info block';
 
-        grid-template-columns: repeat(2, minmax(400px, 589px));
-        column-gap: 91px;
-        row-gap: 40px;
-    }
+    grid-template-columns: repeat(2, minmax(400px, 589px));
+    column-gap: 91px;
+    row-gap: 40px;
+  }
 
-    .header {
-        width: max-content;
-    }
+  .header {
+    width: max-content;
+  }
 
-    .info {
-        max-width: 589px;
-        row-gap: 40px;
-    }
+  .info {
+    max-width: 589px;
+    row-gap: 40px;
+  }
 
-    .description {
-        font-size: 13px;
-        line-height: 140%;
-    }
+  .description {
+    font-size: 13px;
+    line-height: 140%;
+  }
 
-    .block {
-        width: 100%;
-        max-width: 590px;
-        min-width: 447px;
+  .block {
+    width: 100%;
+    max-width: 590px;
+    min-width: 447px;
 
-        height: auto;
-    }
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        row-gap: 47px;
-    }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 47px;
+  }
 
-    .header {
-        font-size: 36px;
-        line-height: 45px;
-    }
+  .header {
+    font-size: 36px;
+    line-height: 45px;
+  }
 
-    .info {
-        row-gap: 47px;
+  .info {
+    row-gap: 47px;
 
-        max-width: unset;
-    }
+    max-width: unset;
+  }
 
-    .title {
-        font-size: 14px;
-        line-height: 17px;
-    }
+  .title {
+    font-size: 14px;
+    line-height: 17px;
+  }
 
-    .description {
-        font-size: 12px;
-    }
+  .description {
+    font-size: 12px;
+  }
 
-    .column {
-        max-width: unset;
-    }
+  .column {
+    max-width: unset;
+  }
 
-    .right {
-        justify-content: unset;
-    }
+  .right {
+    justify-content: unset;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .header {
-        padding-bottom: 19px;
+  .header {
+    padding-bottom: 19px;
 
-        font-size: 24px;
-        line-height: 30px;
+    font-size: 24px;
+    line-height: 30px;
 
-        position: relative;
+    position: relative;
 
-        &::after {
-            position: absolute;
-            bottom: 0px;
-        }
+    &::after {
+      position: absolute;
+      bottom: 0px;
     }
+  }
 
-    .wrapper {
-        row-gap: 30px;
-    }
+  .wrapper {
+    row-gap: 30px;
+  }
 
-    .info {
-        row-gap: 30px;
-    }
+  .info {
+    row-gap: 30px;
+  }
 
-    .block {
-        min-width: unset;
-    }
+  .block {
+    min-width: unset;
+  }
 }
 
 @media screen and (max-width: 360px) {
-    .header {
-        font-size: 22px;
-        line-height: 27px;
-    }
+  .header {
+    font-size: 22px;
+    line-height: 27px;
+  }
 }

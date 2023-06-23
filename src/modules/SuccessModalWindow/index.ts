@@ -1,2 +1,2 @@
 export * from "./SuccessModalWindow";
-export type { SuccessModalWindowProps } from "./SuccessModalWindow.types";
+export type {SuccessModalWindowProps} from "./SuccessModalWindow.types";

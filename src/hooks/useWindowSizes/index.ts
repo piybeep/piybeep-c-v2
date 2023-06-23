@@ -1,1 +1,1 @@
-export { useWindowSizes } from "./useWindowSizes";
+export {useWindowSizes} from "./useWindowSizes";

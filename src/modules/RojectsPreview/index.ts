@@ -1,1 +1,1 @@
-export { RojectsPreview } from "./RojectsPreview";
+export {RojectsPreview} from "./RojectsPreview";

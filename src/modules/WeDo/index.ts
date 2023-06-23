@@ -1,1 +1,1 @@
-export { WeDo } from './WeDo'
+export {WeDo} from './WeDo'

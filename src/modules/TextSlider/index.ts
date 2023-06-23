@@ -1,1 +1,1 @@
-export { TextSlider } from "./TextSlider";
+export {TextSlider} from "./TextSlider";

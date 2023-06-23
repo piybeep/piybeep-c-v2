@@ -1,1 +1,2 @@
-export interface AboutUsStudioProps {}
+export interface AboutUsStudioProps {
+}

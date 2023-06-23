@@ -1,1 +1,1 @@
-export { OurProjectsBlock } from "./OurProjectsBlock";
+export {OurProjectsBlock} from "./OurProjectsBlock";

@@ -1,2 +1,1 @@
-export { AboutUsStudio } from "./AboutUsStudio";
-
+export {AboutUsStudio} from "./AboutUsStudio";

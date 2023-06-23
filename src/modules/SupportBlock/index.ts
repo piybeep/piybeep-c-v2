@@ -1,1 +1,1 @@
-export { SupportBlock } from "./SupportBlock";
+export {SupportBlock} from "./SupportBlock";

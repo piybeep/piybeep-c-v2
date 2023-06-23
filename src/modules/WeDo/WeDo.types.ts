@@ -1,1 +1,2 @@
-export interface WeDoProps {}
+export interface WeDoProps {
+}

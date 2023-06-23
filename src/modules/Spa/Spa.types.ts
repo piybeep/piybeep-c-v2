@@ -1,1 +1,2 @@
-export interface SpaProps {}
+export interface SpaProps {
+}

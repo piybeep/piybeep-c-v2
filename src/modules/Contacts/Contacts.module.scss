@@ -1,166 +1,166 @@
 @import '../../styles/variables.scss';
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 }
 
 .contact {
-    display: flex;
-    column-gap: 30px;
+  display: flex;
+  column-gap: 30px;
 
-    &__link {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 48px;
-        text-decoration-line: underline;
+  &__link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-decoration-line: underline;
 
-        color: $white-color;
-    }
+    color: $white-color;
+  }
 }
 
 .slogan {
-    width: 100%;
-    max-width: 520px;
+  width: 100%;
+  max-width: 520px;
 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
+  color: $white-color;
+}
+
+.social {
+  display: flex;
+  column-gap: 30px;
+
+  &__link {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 130%;
+    text-decoration-line: underline;
 
     color: $white-color;
-}
 
-.social {
     display: flex;
-    column-gap: 30px;
+    align-items: center;
+    column-gap: 10px;
 
-    &__link {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 130%;
-        text-decoration-line: underline;
+    &::after {
+      content: '';
+      display: inline-block;
 
-        color: $white-color;
+      min-width: 10px;
+      height: 10px;
 
-        display: flex;
-        align-items: center;
-        column-gap: 10px;
-
-        &::after {
-            content: '';
-            display: inline-block;
-
-            min-width: 10px;
-            height: 10px;
-
-            background-image: url('../../../public/svg/Arrows/UpRight.svg');
-        }
+      background-image: url('../../../public/svg/Arrows/UpRight.svg');
     }
+  }
 
-    &__img {
-        width: 100%;
-        max-width: 30px;
-        height: auto;
-    }
+  &__img {
+    width: 100%;
+    max-width: 30px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 1110px) {
-    .contact {
+  .contact {
 
-        &__link {
-            font-size: 36px;
-            line-height: 44px;
-        }
+    &__link {
+      font-size: 36px;
+      line-height: 44px;
     }
+  }
 }
 
 @media screen and (max-width: 1024px) {
-    .contact {
+  .contact {
 
-        &__link {
-            font-size: 24px;
-            line-height: 29px;
-        }
+    &__link {
+      font-size: 24px;
+      line-height: 29px;
     }
+  }
 }
 
 @media screen and (max-width: 720px) {
-    .contact {
-        column-gap: 15px;
+  .contact {
+    column-gap: 15px;
 
-        &__link {
-            font-size: 14px;
-            line-height: 17px;
-        }
+    &__link {
+      font-size: 14px;
+      line-height: 17px;
     }
+  }
 }
 
 @media screen and (max-width: 530px) {
-    .social {
-        column-gap: 15px;
+  .social {
+    column-gap: 15px;
 
-        &__img {
-            max-width: 20px;
-        }
-
-        &__link {
-            font-size: 14px;
-            line-height: 130%;
-        }
+    &__img {
+      max-width: 20px;
     }
+
+    &__link {
+      font-size: 14px;
+      line-height: 130%;
+    }
+  }
 }
 
 @media screen and (max-width: 430px) {
 
-    .list {
-        display: grid;
-        grid-template-areas:
+  .list {
+    display: grid;
+    grid-template-areas:
             'contact social '
             'slogan slogan';
-        grid-template-columns: min-content;
+    grid-template-columns: min-content;
 
-        gap: 15px;
+    gap: 15px;
+  }
+
+  .social {
+    grid-area: social;
+
+    flex-direction: column;
+    row-gap: 5px;
+
+    &__link {
+      width: fit-content;
     }
+  }
 
-    .social {
-        grid-area: social;
+  .contact {
+    grid-area: contact;
 
-        flex-direction: column;
-        row-gap: 5px;
+    flex-direction: column;
+    row-gap: 7px;
 
-        &__link {
-            width: fit-content;
-        }
+    &__link {
+      width: fit-content;
     }
+  }
 
-    .contact {
-        grid-area: contact;
+  .slogan {
+    font-size: 13px;
+    line-height: 150%;
 
-        flex-direction: column;
-        row-gap: 7px;
-
-        &__link {
-            width: fit-content;
-        }
-    }
-
-    .slogan {
-        font-size: 13px;
-        line-height: 150%;
-
-        grid-area: slogan;
-    }
+    grid-area: slogan;
+  }
 }

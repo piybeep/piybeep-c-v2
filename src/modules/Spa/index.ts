@@ -1,1 +1,1 @@
-export { Spa } from './Spa'
+export {Spa} from './Spa'

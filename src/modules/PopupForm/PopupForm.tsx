@@ -1,21 +1,21 @@
 import * as Yup from "yup";
-import { useFormik } from "formik";
-import { useRouterQuery, useUserSelectForm } from "../../hooks";
+import {useFormik} from "formik";
+import {useRouterQuery, useUserSelectForm} from "../../hooks";
 
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-import { Input, Title } from "../../components";
-import { FORM__PRODUCTS } from "../../constatnts";
-import { toast } from "../../utils";
+import {Input, Title} from "../../components";
+import {FORM__PRODUCTS} from "../../constatnts";
+import {toast} from "../../utils";
 
-import { PopupFormProps } from "./PopupForm.types";
+import {PopupFormProps} from "./PopupForm.types";
 import s from './PopupForm.module.scss'
 
-export function PopupForm({ }: PopupFormProps) {
+export function PopupForm({}: PopupFormProps) {
     const [isOpen, setIsOpen] = useState(false)
 
-    const { isHas, query, mutate } = useRouterQuery()
+    const {isHas, query, mutate} = useRouterQuery()
 
     useEffect(() => {
         if (isHas('form') && query.form === 'request') {
@@ -35,7 +35,7 @@ export function PopupForm({ }: PopupFormProps) {
 
     const handleCloseForm = () => {
         mutate({
-            query: { form: null },
+            query: {form: null},
         })
     }
 
@@ -55,7 +55,7 @@ export function PopupForm({ }: PopupFormProps) {
         name: string;
         email: string;
         products: string[];
-    } = { name: "", email: "", products: [] };
+    } = {name: "", email: "", products: []};
 
     const formik = useFormik({
         initialValues,
@@ -70,7 +70,7 @@ export function PopupForm({ }: PopupFormProps) {
                 console.log('Продукты не заполнены')
 
                 toast('Выберите услуги')
-            }else{
+            } else {
                 mutate({
                     query: {form: 'success'}
                 })
@@ -94,7 +94,7 @@ export function PopupForm({ }: PopupFormProps) {
         })}>
 
             <form onSubmit={formik.handleSubmit} className={s.info} onClick={(e) => e.stopPropagation()}>
-                <Title value={"Оставьте заявку и мы с вами свяжемся"} />
+                <Title value={"Оставьте заявку и мы с вами свяжемся"}/>
                 <div className={s.inputs}>
                     <Input
                         text="Имя"
@@ -138,8 +138,11 @@ export function PopupForm({ }: PopupFormProps) {
                         className={s.buttons__sumbit}
                     >
                         Отправить
-                        <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path className={s.buttons__svg} d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z" fill="#8E8E8E" />
+                        <svg className={s.buttons__svg} width="12" height="11" viewBox="0 0 12 11" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path className={s.buttons__svg}
+                                  d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z"
+                                  fill="#8E8E8E"/>
                         </svg>
                     </button>
                     <button type="button" onClick={() => handleCloseForm()} className={s.buttons__close}>Отмена</button>
@@ -147,4 +150,4 @@ export function PopupForm({ }: PopupFormProps) {
             </form>
         </div>
     );
-};
+}

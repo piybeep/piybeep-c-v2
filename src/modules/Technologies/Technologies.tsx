@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-import { TECHNOLOGIES_LIST } from '../../constatnts';
-import { Title } from '../../components';
+import {TECHNOLOGIES_LIST} from '../../constatnts';
+import {Title} from '../../components';
 
-import { TechnologiesProps } from './Technologies.types';
+import {TechnologiesProps} from './Technologies.types';
 import s from './Technologies.module.scss'
 
-export function Technologies({ }: TechnologiesProps) {
+export function Technologies({}: TechnologiesProps) {
     return (
         <div className={s.wrapper}>
             <Title value={'Стек технологий'}/>
@@ -21,4 +21,4 @@ export function Technologies({ }: TechnologiesProps) {
             </div>
         </div>
     );
-};
+}
