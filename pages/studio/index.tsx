@@ -18,9 +18,6 @@ export default function Studio() {
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				// rowGap: 100,
-				// marginBottom: 90,
-				// marginTop: 50,
 			}}
 		>
 			<OpenFormButton />
