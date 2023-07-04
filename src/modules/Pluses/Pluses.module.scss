@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    width: 100%;
+    max-width: 800px;
+
+    &__slogan {
+        color: $white-color;
+        font-size: 16px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .wrapper {
+        max-width: 615px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        max-width: 642px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        max-width: 473px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .wrapper {
+
+        &__slogan {
+            font-size: 13px;
+            line-height: 130%;
+        }
+    }
+}
