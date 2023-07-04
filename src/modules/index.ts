@@ -16,4 +16,12 @@ export * from "./Form";
 export * from "./AboutUsStudio";
 export * from "./Spa";
 export * from "./SupportBlock";
+export * from './Eyes'
+export * from './PopupForm'
+export * from "./OpenFormButton";
+export * from "./Team";
+export * from "./Technologies";
+export * from "./Contacts";
+export * from "./NotFound";
+export * from "./ProjectPost";
 export * from './Steps'

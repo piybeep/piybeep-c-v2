@@ -8,7 +8,13 @@ import { useWindowSizes } from "../../hooks";
 
 import s from "./OurProjectsBlock.module.scss";
 
-export function OurProjectsBlock() {
+export function OurProjectsBlock({
+	title = "Наши проекты",
+	subtitle = "Скоро больше проектов",
+}: {
+	title?: string;
+	subtitle?: string;
+}) {
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 
@@ -17,7 +23,7 @@ export function OurProjectsBlock() {
 	}, [width]);
 
 	return (
-		<BlockLayout value="Наши проекты" subtitle="Скоро больше проектов">
+		<BlockLayout value={title} subtitle={subtitle}>
 			<Swiper
 				className={s.slider}
 				direction="horizontal"

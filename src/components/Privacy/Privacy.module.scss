@@ -7,7 +7,7 @@
 	&__checkbox {
 		display: none;
 
-		&:checked+.privacy__agree {
+		&:checked + .privacy__agree {
 			&::before {
 				opacity: 1;
 			}
@@ -15,7 +15,7 @@
 	}
 
 	&__agree {
-		background-color: #27262D;
+		background-color: #27262d;
 		border-radius: 50%;
 
 		min-width: 30px;
@@ -42,7 +42,7 @@
 
 			border-radius: 50%;
 
-			transition: 0.3s;
+			transition: 0.2s;
 
 			opacity: 0;
 		}
@@ -55,19 +55,18 @@
 
 		cursor: pointer;
 
-		font-family: 'Inter';
+		font-family: "Inter";
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 150%;
 
-		color: #ECECEC;
+		color: #ececec;
 	}
 }
 
 @media screen and (max-width: 360px) {
 	.privacy {
-
 		&__label {
 			font-size: 14px;
 		}

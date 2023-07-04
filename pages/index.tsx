@@ -3,6 +3,8 @@ import { ReactNode } from "react";
 import {
 	AboutUs,
 	AdvantagesBlock,
+	Form,
+	OpenFormButton,
 	OurProjectsBlock,
 	Reviews,
 	RojectsPreview,
@@ -17,18 +19,29 @@ export default function Home() {
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				rowGap: 100,
+				// rowGap: 100,
 				// marginBottom: 90,
 				// marginTop: 50,
 			}}
 		>
-			<AboutUs />
-			<WeDo />
-			<OurProjectsBlock />
-			<AdvantagesBlock />
-			<RojectsPreview />
-			<Reviews />
-			<TextSlider />
+			<OpenFormButton />
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					rowGap: 100,
+					marginBottom: 150,
+				}}
+			>
+				<AboutUs />
+				<WeDo />
+				<OurProjectsBlock />
+				<AdvantagesBlock />
+				<RojectsPreview />
+				<Reviews />
+				<TextSlider />
+			</div>
+			<Form />
 		</main>
 	);
 }

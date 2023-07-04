@@ -2,7 +2,7 @@ import Head from "next/head";
 import { ReactNode } from "react";
 
 import { BaseLayout } from "../../src/layouts";
-import { ProductsList, SupportBlock } from "../../src/modules";
+import { Form, ProductsList, SupportBlock } from "../../src/modules";
 
 export default function Services() {
 	return (
@@ -10,13 +10,23 @@ export default function Services() {
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				rowGap: 100,
-				marginBottom: 90,
-				marginTop: 50,
+				// rowGap: 100,
+				// marginBottom: 90,
+				// marginTop: 50,
 			}}
 		>
-			<ProductsList />
-			<SupportBlock />
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					rowGap: 100,
+					marginBottom: 150,
+				}}
+			>
+				<ProductsList />
+				<SupportBlock />
+			</div>
+			<Form />
 		</main>
 	);
 }
