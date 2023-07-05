@@ -43,8 +43,8 @@ export default function Home() {
 				/>
 				<WeDo biz />
 				<OurProjectsBlock />
-				<Pluses/>
-				<Business/>
+				<Business />
+				<Pluses />
 				<Reviews />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>
