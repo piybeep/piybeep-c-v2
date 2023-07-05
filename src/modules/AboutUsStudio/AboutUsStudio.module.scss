@@ -11,7 +11,7 @@
 }
 
 .title {
-  font-family: 'Actay';
+  font-family: 'Actay', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: flex-start;
 
-  margin: 0px;
+  margin: 0;
 
   width: 100%;
 
@@ -30,7 +30,7 @@
     display: inline;
     content: '(читается как пиубип)';
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -49,7 +49,7 @@
   max-width: 520px;
 
   &__slogan {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -57,7 +57,7 @@
 
     color: $white-color;
 
-    margin: 0px;
+    margin: 0;
 
   }
 }

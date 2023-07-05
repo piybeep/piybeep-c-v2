@@ -4,7 +4,7 @@ export * from "./FormRequest";
 export * from "./Footer";
 export * from "./OurProjectsBlock";
 export * from "./AdvantagesBlock";
-export * from "./RojectsPreview";
+export * from "./ProjectsPreview";
 export * from "./Header";
 export * from "./Reviews";
 export * from "./TextSlider";
@@ -16,12 +16,12 @@ export * from "./Form";
 export * from "./AboutUsStudio";
 export * from "./Spa";
 export * from "./SupportBlock";
-export * from './Eyes'
-export * from './PopupForm'
+export * from "./Eyes";
+export * from "./PopupForm";
 export * from "./OpenFormButton";
 export * from "./Team";
 export * from "./Technologies";
 export * from "./Contacts";
 export * from "./NotFound";
 export * from "./ProjectPost";
-export * from './Pluses'
+export * from "./Pluses";

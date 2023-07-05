@@ -36,7 +36,7 @@ $media: (
 .footer {
   background-color: $dark-color;
 
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
 
@@ -137,7 +137,7 @@ $media: (
   .footer {
     .contacts {
       a {
-        font-family: "Inter";
+        font-family: "Inter", sans-serif;
         font-style: normal;
         font-weight: 400;
         color: $main-color;
@@ -185,7 +185,7 @@ $media: (
 
       .copyright {
         @if (map-get($map: $params, $key: "align-items") == flex-start) {
-          text-align: flex-end;
+          text-align: end;
         } @else {
           text-align: center;
         }
