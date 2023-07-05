@@ -5,7 +5,7 @@ import { WE_DO_LIST, WE_DO_LIST_BIZ } from "../../constatnts/weDo";
 import s from "./WeDo.module.scss";
 import classNames from "classnames";
 
-export function WeDo({ biz = false, ...props }: WeDoProps) {
+export function WeDo({ biz = false }: WeDoProps) {
 	return (
 		<BlockLayout value="Мы делаем">
 			<div

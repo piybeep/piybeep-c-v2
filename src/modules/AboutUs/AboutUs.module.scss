@@ -7,7 +7,7 @@
 }
 
 .title {
-  font-family: 'Actay';
+  font-family: 'Actay', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
@@ -15,7 +15,7 @@
 
   color: $white-color;
 
-  margin: 0px;
+  margin: 0;
 
   white-space: pre-wrap;
 }
@@ -26,7 +26,7 @@
   column-gap: 39px;
 
   &__slogan {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -34,7 +34,7 @@
 
     color: $white-color;
 
-    margin: 0px;
+    margin: 0;
   }
 
   &__img {
