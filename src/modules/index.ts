@@ -24,4 +24,4 @@ export * from "./Technologies";
 export * from "./Contacts";
 export * from "./NotFound";
 export * from "./ProjectPost";
-
+export * from './Business'
