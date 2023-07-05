@@ -6,7 +6,7 @@
   min-width: 320px;
 
   position: fixed;
-  left: 0px;
+  left: 0;
 
   z-index: 99;
 
@@ -52,7 +52,7 @@
   }
 
   &__text {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -60,13 +60,13 @@
 
     color: $black-color;
 
-    margin: 0px;
+    margin: 0;
   }
 
   &__button {
     background-color: $black-color;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 11px;

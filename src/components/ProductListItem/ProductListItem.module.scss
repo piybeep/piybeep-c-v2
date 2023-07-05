@@ -15,7 +15,7 @@
   .title {
     grid-area: t;
 
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 38px;
@@ -30,7 +30,7 @@
   .description {
     grid-area: d;
 
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -40,7 +40,7 @@
   .prices {
     grid-area: p;
 
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 38px;
@@ -80,7 +80,7 @@
     background: #100f13;
     color: #ececec;
 
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

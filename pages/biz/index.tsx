@@ -6,6 +6,7 @@ import {
 	Form,
 	OpenFormButton,
 	OurProjectsBlock,
+	Pluses,
 	Reviews,
 	TextSlider,
 	WeDo,
@@ -42,6 +43,7 @@ export default function Home() {
 				/>
 				<WeDo biz />
 				<OurProjectsBlock />
+				<Pluses/>
 				<Business/>
 				<Reviews />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
