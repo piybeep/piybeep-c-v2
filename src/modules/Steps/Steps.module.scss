@@ -30,7 +30,7 @@
     &__number {
         color: $main-color;
         font-size: 20px;
-        font-family: Actay Wide;
+        font-family: "Inter", sans-serif;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -39,7 +39,7 @@
     }
 
     &__title {
-        margin: 0px;
+        margin: 0;
 
         display: flex;
         align-items: flex-start;
@@ -47,7 +47,7 @@
 
         color: $white-color;
         font-size: 48px;
-        font-family: Actay;
+        font-family: Actay, sans-serif;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -56,12 +56,12 @@
     }
 
     &__slogan {
-        margin: 0px;
+        margin: 0;
 
         color: $white-color;
-        text-shadow: 0px 4px rgba(0, 0, 0, 0.25);
+        text-shadow: 0 4px rgba(0, 0, 0, 0.25);
         font-size: 16px;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
@@ -99,22 +99,22 @@
     }
 
     &__title {
-        margin: 0px;
+        margin: 0;
 
         color: $white-color;
         font-size: 16px;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
     }
 
     &__text {
-        margin: 0px;
+        margin: 0;
 
         color: $gray-color;
         font-size: 16px;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-style: normal;
         font-weight: 400;
         line-height: 150%;
