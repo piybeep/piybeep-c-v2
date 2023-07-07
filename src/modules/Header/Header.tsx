@@ -72,18 +72,59 @@ export function Header() {
 						<p className={s.logo__text}>piybeep.</p>
 					</Link>
 
-					<div className={s.menu}>{links}</div>
+					<div className={s.menu}>
+						<div className={classNames(s.home_links)}>
+							<Link
+								className={classNames({
+									[s.active]: query.pathname == "/" || query.pathname == "/biz",
+								})}
+								href={"/"}
+							>
+								Главная
+							</Link>
+							<Link
+								className={classNames({
+									[s.active]: query.pathname == "/",
+								})}
+								href={"/"}
+							>
+								Для маркетинга
+							</Link>
+							<Link
+								className={classNames({
+									[s.active]: query.pathname == "/biz",
+								})}
+								href={"/biz"}
+							>
+								Для бизнеса
+							</Link>
+							<Link
+								className={classNames(s.alt, {
+									[s.active]: query.pathname == "/",
+								})}
+								href={"/"}
+							>
+								Маркетинг
+							</Link>
+							<Link
+								className={classNames(s.alt, {
+									[s.active]: query.pathname == "/biz",
+								})}
+								href={"/biz"}
+							>
+								Бизнес
+							</Link>
+						</div>
+						{links}
+					</div>
 
 					<div className={s.info}>
-						<div className={s.info__column}>
-							<Link
-								className={s.info__link}
-								href={`tel:${CONTACTS_DATA.get("phone")}`}
-							>
-								{CONTACTS_DATA.get("phone")}
-							</Link>
-							<button className={s.info__button}>Заказать звонок</button>
-						</div>
+						<Link
+							className={s.info__link}
+							href={`tel:${CONTACTS_DATA.get("phone")}`}
+						>
+							{CONTACTS_DATA.get("phone")}
+						</Link>
 						<Link
 							className={s.info__link}
 							href={`mailto:${CONTACTS_DATA.get("email")}`}

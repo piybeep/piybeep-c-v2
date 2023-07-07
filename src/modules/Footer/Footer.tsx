@@ -2,22 +2,54 @@ import Link from "next/link";
 import s from "./Footer.module.scss";
 
 import { CONTACTS_DATA, MENU_ITEMS, SOCIAL_LINKS } from "../../constatnts";
+import classNames from "classnames";
+import { useRouter } from "next/router";
 
 export function Footer() {
+	const query = useRouter();
+
 	return (
 		<footer className={s.footer}>
 			<div className={s.wrapper}>
 				<div className={s.column}>
 					<nav className={s.links}>
-						{MENU_ITEMS.map((link) => (
+						<div className={classNames(s.home_links)}>
 							<Link
-								key={link.display_name}
-								href={link.link}
-								title={link.display_name}
+								className={classNames({
+									[s.active]: query.pathname == "/" || query.pathname == "/biz",
+								})}
+								href={"/"}
 							>
-								{link.display_name}
+								Главная
 							</Link>
-						))}
+							<Link
+								className={classNames({
+									[s.active]: query.pathname == "/",
+								})}
+								href={"/"}
+							>
+								для маркетинга
+							</Link>
+							<Link
+								className={classNames({
+									[s.active]: query.pathname == "/biz",
+								})}
+								href={"/biz"}
+							>
+								для бизнеса
+							</Link>
+						</div>
+						<div className={classNames(s.pages)}>
+							{MENU_ITEMS.map((link) => (
+								<Link
+									key={link.display_name}
+									href={link.link}
+									title={link.display_name}
+								>
+									{link.display_name}
+								</Link>
+							))}
+						</div>
 					</nav>
 					<div className={s.contacts}>
 						<Link href={`tel:${CONTACTS_DATA.get("phone")}`}>

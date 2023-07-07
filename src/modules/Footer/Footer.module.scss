@@ -84,9 +84,53 @@ $media: (
     display: flex;
 
     column-gap: 25px;
+    row-gap: 15px;
+
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
     svg {
       margin-left: 5px;
+    }
+
+    .pages {
+      display: flex;
+
+      column-gap: 25px;
+
+    }
+
+    .home_links {
+      display: flex;
+      align-items: center;
+
+      background: rgba(231,236,255,.12);
+      border-radius: 60px;
+      padding: 0 4px;
+
+      a {
+        white-space: nowrap;
+
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        color: $gray-color;
+
+        transition: 0.2s;
+
+        padding: 3px 6px;
+
+        &.active {
+          color: $white-color;
+        }
+
+        &:hover {
+          color: $white-color;
+        }
+      }
     }
   }
 

@@ -25,6 +25,10 @@
   align-items: center;
   column-gap: 39px;
 
+  &.rtl {
+    flex-direction: row-reverse;
+  }
+
   &__slogan {
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -70,9 +74,9 @@
     row-gap: 30px;
   }
 
-  .title {
-    max-width: 585px;
-  }
+  //.title {
+  //  max-width: 585px;
+  //}
 
   .info {
     column-gap: 20px;
@@ -90,8 +94,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .info {
+  .title {
+    white-space: normal;
+  }
 
+  .info {
     &__slogan {
       max-width: 330px;
     }
@@ -107,6 +114,10 @@
     flex-direction: column;
     align-items: unset;
     row-gap: 30px;
+
+    &.rtl {
+      flex-direction: column;
+    }
 
     &__slogan {
       max-width: unset;

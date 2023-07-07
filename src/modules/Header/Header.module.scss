@@ -111,7 +111,49 @@
 .menu {
   display: flex;
   align-items: center;
-  column-gap: 54px;
+  column-gap: 20px;
+
+  .home_links {
+    display: flex;
+    align-items: center;
+
+    background: rgba(231,236,255,.12);
+    border-radius: 60px;
+
+    a {
+      text-underline-position: under;
+
+      white-space: nowrap;
+
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+
+      text-transform: uppercase;
+
+      color: $gray-color;
+
+      transition: 0.2s;
+
+      padding: 7px 14px;
+
+      &.alt {
+        display: none;
+      }
+
+      &.active {
+        color: $white-color;
+      }
+
+      &:hover {
+        color: $white-color;
+
+        text-decoration: underline;
+      }
+    }
+  }
 
   &__link {
     font-family: "Inter", sans-serif;
@@ -130,6 +172,8 @@
     border: 1px solid transparent;
 
     text-underline-position: under;
+
+    white-space: nowrap;
 
     &_active {
       border-color: $active-link-color;
@@ -151,12 +195,8 @@
 .info {
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   column-gap: 30px;
-
-  &__column {
-    display: flex;
-    flex-direction: column;
-  }
 
   &__link {
     font-family: "Inter", sans-serif;
@@ -167,29 +207,6 @@
     text-transform: uppercase;
 
     color: $white-color;
-  }
-
-  &__button {
-    display: flex;
-    align-items: center;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11.5px;
-    line-height: 14px;
-
-    color: $white-color;
-
-    background-color: transparent;
-    border: none;
-
-    padding: 0 15px 0 0;
-
-    cursor: pointer;
-
-    background-image: url(../../../public/svg/Arrows/Right.svg);
-    background-repeat: no-repeat;
-    background-position: right;
   }
 }
 
