@@ -5,6 +5,7 @@ import { AboutUsProps } from "./AboutUs.types";
 import aboutImg from "../../../public/imgs/about-us.png";
 
 import s from "./AboutUs.module.scss";
+import classNames from "classnames";
 
 export function AboutUs({
 	title,
@@ -15,10 +16,9 @@ export function AboutUs({
 		<div className={s.wrapper}>
 			<h2 className={s.title}>{title}</h2>
 			<div
-				className={s.info}
-				style={{
-					flexDirection: imgPosition === "left" ? "row" : "row-reverse",
-				}}
+				className={classNames(s.info, {
+					[s.rtl]: imgPosition === "right",
+				})}
 			>
 				<h3 className={s.info__slogan}>{description}</h3>
 				<Image

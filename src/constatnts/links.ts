@@ -5,8 +5,8 @@ import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
 import telegram from "../../public/imgs/contacts/Telegram.png";
 
 export const MENU_ITEMS = [
-	{ display_name: "Главная", link: "/" },
-	{ display_name: "Для бизнеса", link: "/biz" },
+	// { display_name: "Главная", link: "/" },
+	// { display_name: "Для бизнеса", link: "/biz" },
 	{ display_name: "Услуги", link: "/services" },
 	{ display_name: "Студия", link: "/studio" },
 	{ display_name: "Портфолио", link: "/portfolio" },
