@@ -1,7 +1,9 @@
 .project_card {
+  cursor: pointer;
+
   .image {
     // background-color: #ececec;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
 
     height: 100%;
     width: 100%;
@@ -31,6 +33,7 @@
   }
 
   p {
+    margin-top: 5px;
     color: #ececec;
   }
 }

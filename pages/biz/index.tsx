@@ -30,7 +30,7 @@ export default function Home() {
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					rowGap: 100,
+					rowGap: 200,
 					marginBottom: 150,
 				}}
 			>
