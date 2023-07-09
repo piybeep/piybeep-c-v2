@@ -68,7 +68,8 @@
   display: flex;
   justify-content: space-between;
 
-  background-color: $black-color;
+  //background-color: $black-color;
+  background: linear-gradient(to bottom, $black-color 0%, rgba(16,15,19,0.00) 100%);
 
   width: 100%;
   max-width: 1688px;
@@ -119,6 +120,7 @@
 
     background: rgba(231,236,255,.12);
     border-radius: 60px;
+    padding: 0 7px;
 
     a {
       text-underline-position: under;
@@ -137,7 +139,7 @@
 
       transition: 0.2s;
 
-      padding: 7px 14px;
+      padding: 7px;
 
       &.alt {
         display: none;

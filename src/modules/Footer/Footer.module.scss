@@ -88,7 +88,6 @@ $media: (
 
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
 
     svg {
       margin-left: 5px;
@@ -171,6 +170,10 @@ $media: (
 
 @media screen and (max-width: 1550px) {
   .footer {
+    .links {
+      justify-content: center;
+
+    }
     .wrapper {
       max-width: 1214px;
     }
