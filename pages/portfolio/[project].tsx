@@ -1,13 +1,13 @@
 import Head from "next/head";
-import {useRouter} from "next/router";
-import {ReactNode} from "react";
+import { useRouter } from "next/router";
+import { ReactNode } from "react";
 
-import {BaseLayout} from "../../src/layouts";
-import {Form, OpenFormButton, OurProjectsBlock, ProjectPost,} from "../../src/modules";
+import { BaseLayout } from "../../src/layouts";
+import { Form, OpenFormButton, OurProjectsBlock, PortfolioBack, ProjectPost, } from "../../src/modules";
 
 export default function PortfolioCase() {
     const router = useRouter();
-    const {project} = router.query;
+    const { project } = router.query;
     return (
         <main
             style={{
@@ -21,10 +21,10 @@ export default function PortfolioCase() {
                     name="description"
                     content={project ? `${project}` : "Наш проект"}
                 />
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <OpenFormButton/>
+            <PortfolioBack />
+            <OpenFormButton />
             <div
                 style={{
                     display: "flex",
@@ -54,9 +54,9 @@ ha*h****a***`,
                         updatedAt: new Date(),
                     }}
                 />
-                <OurProjectsBlock title="другие проекты" subtitle=""/>
+                <OurProjectsBlock title="другие проекты" subtitle="" />
             </div>
-            <Form/>
+            <Form />
         </main>
     );
 }

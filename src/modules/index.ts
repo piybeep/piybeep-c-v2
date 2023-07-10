@@ -27,3 +27,4 @@ export * from "./ProjectPost";
 export * from './Business'
 export * from "./Pluses";
 export * from "./Steps";
+export * from './PortfolioBack'
