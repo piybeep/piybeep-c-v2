@@ -23,6 +23,28 @@
 
     width: 100%;
 
+    z-index: 1;
+
+    &:not(:placeholder-shown)+.input__placeholder {
+      top: 0px;
+
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    &:focus+.input__placeholder {
+      top: 0px;
+
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    &_top {
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
     &_default {
       font-size: 16px;
       line-height: 19px;
@@ -55,6 +77,8 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
 
+    transition: .3s;
+
 
     color: $gray-color;
 
@@ -73,6 +97,13 @@
 
     &_top {
       opacity: 1;
+
+      top: 25px;
+
+      z-index: 0;
+
+      font-size: 16px;
+      line-height: 130%;
     }
 
     &_center {
