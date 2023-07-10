@@ -1,6 +1,5 @@
-import Image from "next/image";
-
-import img from "../../../public/imgs/spaImg.png";
+import { LottieAnimation } from "react-lottie-tools";
+import coder from '../../../public/animtate/coder.json'
 
 import s from "./Spa.module.scss";
 
@@ -42,13 +41,12 @@ export function Spa() {
 					</div>
 				</div>
 			</div>
-			<Image
-				width={800}
-				height={429}
-				className={s.block}
-				src={img}
-				alt={"Картинка"}
-			/>
+			<div className={s.block}>
+				<LottieAnimation
+					loop={true}
+					animation={coder}
+				/>
+			</div>
 		</div>
 	);
 }
