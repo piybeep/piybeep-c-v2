@@ -16,6 +16,9 @@ export function NotFound() {
 					Похоже, тут ничего нет, кроме спящего котика Тсс.. не разбуди!
 				</h3>
 				<div className={s.info__list}>
+					<Link href={"/"} className={s.info__link}>
+						Главная
+					</Link>
 					{MENU_ITEMS.map((current) => (
 						<Link
 							key={current.link}

@@ -1,6 +1,7 @@
 import { SupportCardProps } from "./SupportCard.types";
 import s from "./SupportCard.module.scss";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 export function SupportCard({
 	title,
@@ -10,6 +11,7 @@ export function SupportCard({
 	className,
 	...props
 }: SupportCardProps) {
+	const router = useRouter();
 	return (
 		<div {...props} className={classNames(s.card, className)}>
 			<div className={s.title}>
@@ -26,7 +28,20 @@ export function SupportCard({
 				))}
 			</div>
 			<div className={s.price}>{price.toLocaleString("ru-RU")} р./мес</div>
-			<button>
+			<button
+				onClick={() =>
+					router.push(
+						{
+							query: {
+								form: "request",
+								userSelect: "Поддержка",
+							},
+						},
+						undefined,
+						{ scroll: false },
+					)
+				}
+			>
 				Нужна поддержка{" "}
 				<svg
 					width="12"

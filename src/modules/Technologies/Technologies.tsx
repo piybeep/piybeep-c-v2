@@ -7,7 +7,7 @@ import s from "./Technologies.module.scss";
 
 export function Technologies() {
 	return (
-		<div className={s.wrapper}>
+		<div className={s.wrapper} id={"stacks"}>
 			<Title value={"Стек технологий"} />
 
 			<div className={s.list}>

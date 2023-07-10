@@ -33,7 +33,7 @@ export default function Portfolio() {
 Portfolio.getLayout = (page: ReactNode) => (
 	<BaseLayout>
 		<Head>
-			<title>Piybeep - Портфолио</title>
+			<title>Портфолио - piybeep.</title>
 			<meta name="description" content="Наше портфолио" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

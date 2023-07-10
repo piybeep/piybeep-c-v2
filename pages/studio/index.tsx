@@ -44,7 +44,7 @@ export default function Studio() {
 Studio.getLayout = (page: ReactNode) => (
 	<BaseLayout>
 		<Head>
-			<title>Piybeep - Студия</title>
+			<title>Студия - piybeep.</title>
 			<meta name="description" content="Наша студия" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

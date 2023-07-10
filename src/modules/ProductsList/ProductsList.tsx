@@ -13,7 +13,7 @@ export function ProductsList({ list }: { list: any[] }) {
 		<BlockLayout
 			value="Сделаем для вас"
 			subtitle={
-				<Link href={"/portfolio"}>
+				<Link href={"/studio#stacks"}>
 					Стек разработки <Image src={RightArrow} alt="" />
 				</Link>
 			}
