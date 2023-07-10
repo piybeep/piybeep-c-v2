@@ -2,6 +2,7 @@ import classNames from "classnames";
 
 import { ProductListItemProps } from "./ProductListItem.types";
 import s from "./ProductListItem.module.scss";
+import { useRouter } from "next/router";
 
 export function ProductListItem({
 	number,
@@ -14,6 +15,8 @@ export function ProductListItem({
 	disabled = false,
 	...props
 }: ProductListItemProps) {
+	const router = useRouter();
+
 	return (
 		<div className={classNames(s.wrapper, className)} {...props}>
 			<div className={s.title}>
@@ -40,7 +43,22 @@ export function ProductListItem({
 				)}
 				{status ? <span className={s.status}>{status}</span> : ""}
 			</div>
-			<button className={classNames(s.button, { [s.disabled]: disabled })}>
+			<button
+				className={classNames(s.button, { [s.disabled]: disabled })}
+				onClick={() =>
+					!disabled &&
+					router.push(
+						{
+							query: {
+								form: "request",
+								userSelect: title,
+							},
+						},
+						undefined,
+						{ scroll: false },
+					)
+				}
+			>
 				Заказать
 				<svg
 					width="12"

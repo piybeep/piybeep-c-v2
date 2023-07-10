@@ -35,7 +35,7 @@ export default function Services() {
 Services.getLayout = (page: ReactNode) => (
 	<BaseLayout>
 		<Head>
-			<title>Piybeep - Услуги</title>
+			<title>Услуги - piybeep.</title>
 			<meta name="description" content="Наши услуги" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

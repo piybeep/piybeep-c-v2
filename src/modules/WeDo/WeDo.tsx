@@ -4,6 +4,7 @@ import { WE_DO_LIST, WE_DO_LIST_BIZ } from "../../constatnts/weDo";
 
 import s from "./WeDo.module.scss";
 import classNames from "classnames";
+import Link from "next/link";
 
 export function WeDo({ biz = false }: WeDoProps) {
 	return (
@@ -15,14 +16,18 @@ export function WeDo({ biz = false }: WeDoProps) {
 			>
 				{(biz ? WE_DO_LIST_BIZ : WE_DO_LIST).map((current, index) => {
 					return (
-						<div
+						<Link
 							key={current.title}
 							className={s.info}
 							style={{ marginLeft: index * 8 + "%" }}
+							href={{
+								query: { form: "request", userSelect: current.name },
+							}}
+							scroll={false}
 						>
 							<h2 className={s.info__title}>{current.title}</h2>
 							<h3 className={s.info__subtitle}>{current.text}</h3>
-						</div>
+						</Link>
 					);
 				})}
 			</div>
