@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 @media screen and (max-width: 1550px) {
   .bar {
     max-width: 1300px;
@@ -43,6 +45,7 @@
         'menu menu';
     row-gap: 30px;
     align-items: center;
+    background-color: $black-color;
   }
 
   .logo {
