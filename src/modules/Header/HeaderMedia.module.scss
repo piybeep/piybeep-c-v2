@@ -1,17 +1,17 @@
+@import "../../styles/variables.scss";
+
 @media screen and (max-width: 1550px) {
   .bar {
     max-width: 1300px;
   }
 
   .menu {
-    column-gap: 19px;
+    column-gap: 5px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-
   .header {
-
     &__visible {
       transform: translateY(0px);
     }
@@ -26,7 +26,6 @@
   }
 
   .menu {
-
     &__link {
       font-size: 12px;
       line-height: 15px;
@@ -34,24 +33,19 @@
   }
 
   .info {
-
-    &__link {
-      text-decoration: underline;
-
-      &:last-child {
-        display: none;
-      }
-    }
+    justify-self: end;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .bar {
     display: grid;
     grid-template-areas:
         'logo info'
         'menu menu';
     row-gap: 30px;
+    align-items: center;
+    background-color: $black-color;
   }
 
   .logo {
@@ -60,20 +54,24 @@
 
   .info {
     grid-area: info;
-    justify-content: flex-end;
-
-    &__button {
-      display: none;
-    }
   }
 
   .menu {
     grid-area: menu;
+
+    .home_links {
+      a {
+        display: none;
+
+        &.alt {
+          display: inline;
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-
   .bar {
     padding: 15px 24px;
   }
@@ -91,5 +89,16 @@
 @media screen and (max-width: 430px) {
   .bar {
     padding: 15px 16px;
+
+    .logo__svg {
+      height: 24px;
+      width: 26px;
+    }
+  }
+
+  .info {
+    .info__link:nth-last-child(1) {
+      display: none;
+    }
   }
 }

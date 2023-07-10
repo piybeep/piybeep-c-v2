@@ -3,13 +3,13 @@ import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
 import {
 	AboutUsStudio,
-	Spa,
+	Contacts,
 	Form,
 	OpenFormButton,
-	Team,
-	Contacts,
-	Technologies,
+	Spa,
 	Steps,
+	Team,
+	Technologies,
 } from "../../src/modules";
 
 export default function Studio() {
@@ -25,14 +25,14 @@ export default function Studio() {
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					rowGap: 100,
+					rowGap: 200,
 					marginBottom: 150,
 				}}
 			>
 				<AboutUsStudio />
 				<Team />
 				<Spa />
-				<Steps/>
+				<Steps />
 				<Contacts />
 				<Technologies />
 			</div>
@@ -51,4 +51,3 @@ Studio.getLayout = (page: ReactNode) => (
 		{page}
 	</BaseLayout>
 );
-
