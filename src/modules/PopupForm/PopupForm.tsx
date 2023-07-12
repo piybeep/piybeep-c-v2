@@ -6,10 +6,11 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 
 import { Input, Title } from "../../components";
-import { FORM__PRODUCTS } from "../../constatnts";
+import { FORM__PRODUCTS, PRIVACY_LINK } from "../../constatnts";
 import { toast } from "../../utils";
 
 import s from "./PopupForm.module.scss";
+import Link from "next/link";
 
 export function PopupForm() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +84,7 @@ export function PopupForm() {
 	useEffect(() => {
 		formik.setFieldValue(
 			"products",
-			isHas("userSelect") ? (query.userSelect as string).split(",") : []
+			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
 
@@ -133,7 +134,9 @@ export function PopupForm() {
 				<div className={s.privacy}>
 					<h2 className={s.privacy__text}>
 						Отправляя форму, вы принимаете политику хранения и обработки{" "}
-						<span className={s.privacy__link}>персональных данных</span>
+						<Link href={PRIVACY_LINK} className={s.privacy__link}>
+							персональных данных
+						</Link>
 					</h2>
 				</div>
 

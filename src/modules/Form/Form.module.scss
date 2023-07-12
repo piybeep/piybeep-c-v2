@@ -48,6 +48,8 @@
   &__product {
     margin: 0;
 
+    user-select: none;
+
     cursor: pointer;
 
     font-family: "Inter", sans-serif;
@@ -60,7 +62,7 @@
 
     color: $gray-color;
 
-    transition: 0.2s;
+    //transition: 0.2s;
 
     &:hover {
       color: $white-color;

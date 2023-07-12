@@ -4,12 +4,13 @@ import { useFormik } from "formik";
 
 import { Button, Input, Privacy, Title } from "../../components";
 
-import { FORM__PRODUCTS } from "../../constatnts";
+import { FORM__PRODUCTS, PRIVACY_LINK } from "../../constatnts";
 
 import { useRouterQuery, useUserSelectForm } from "../../hooks";
 
 import s from "./Form.module.scss";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export function Form() {
 	const {
@@ -51,7 +52,7 @@ export function Form() {
 	useEffect(() => {
 		formik.setFieldValue(
 			"products",
-			isHas("userSelect") ? (query.userSelect as string).split(",") : []
+			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
 
@@ -102,7 +103,12 @@ export function Form() {
 						disabled={formik.isSubmitting || !formik.isValid}
 					/>
 					<Privacy
-						title="Я соглашаюсь на хранение и обработку персональных данных"
+						text={
+							<>
+								Я соглашаюсь на хранение и обработку{" "}
+								<Link href={PRIVACY_LINK}>персональных данных</Link>
+							</>
+						}
 						onClick={() =>
 							formik.setFieldValue("privacy", !formik.values.privacy)
 						}

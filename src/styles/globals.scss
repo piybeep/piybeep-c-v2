@@ -5,6 +5,10 @@ body {
   height: 100vh;
 }
 
+a {
+  color: inherit;
+}
+
 html,
 body {
   // Для блокировки скрол бара при открытии попапа

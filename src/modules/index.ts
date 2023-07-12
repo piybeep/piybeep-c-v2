@@ -1,6 +1,4 @@
 export * from "./SuccessModalWindow";
-export * from "./FullScreenForm";
-export * from "./FormRequest";
 export * from "./Footer";
 export * from "./OurProjectsBlock";
 export * from "./AdvantagesBlock";
@@ -24,7 +22,7 @@ export * from "./Technologies";
 export * from "./Contacts";
 export * from "./NotFound";
 export * from "./ProjectPost";
-export * from './Business'
+export * from "./Business";
 export * from "./Pluses";
 export * from "./Steps";
-export * from './PortfolioBack'
+export * from "./PortfolioBack";

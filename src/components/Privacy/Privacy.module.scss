@@ -61,6 +61,11 @@
 
     color: #ececec;
   }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 }
 
 @media screen and (max-width: 360px) {

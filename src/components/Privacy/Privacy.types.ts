@@ -1,6 +1,5 @@
-import {ComponentProps} from "react"
+import React, { ComponentProps } from "react";
 
-export interface PrivacyProps
-    extends ComponentProps<'input'> {
-    title: string
+export interface PrivacyProps extends ComponentProps<"input"> {
+	text: string | React.ReactNode;
 }

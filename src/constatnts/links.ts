@@ -1,8 +1,8 @@
-export const PRIVACY_LINK = "https://piybeep.com";
-
 import vk from "../../public/imgs/contacts/VK.png";
 import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
 import telegram from "../../public/imgs/contacts/Telegram.png";
+
+export const PRIVACY_LINK = "/privacy_policy.pdf";
 
 export const MENU_ITEMS = [
 	// { display_name: "Главная", link: "/" },
