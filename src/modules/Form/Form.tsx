@@ -109,6 +109,7 @@ export function Form() {
 								<Link href={PRIVACY_LINK}>персональных данных</Link>
 							</>
 						}
+						checked={formik.values.privacy}
 						onClick={() =>
 							formik.setFieldValue("privacy", !formik.values.privacy)
 						}

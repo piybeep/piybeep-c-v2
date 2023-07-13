@@ -49,10 +49,23 @@
 
       border: 1px solid $main-color;
 
+      &:hover:not(&:disabled) {
+        background: $main-color;
+        color: $dark-color;
+      }
+
+      &:active:not(&:disabled) {
+        opacity: 0.7;
+      }
+
       &.button__active {
         background-color: #fff;
         border: 1px solid #000;
         color: #000;
+      }
+
+      &:disabled {
+        opacity: 0.7;
       }
     }
   }

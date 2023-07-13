@@ -123,7 +123,7 @@
     font-size: 14px;
     line-height: 17px;
 
-    color: $gray-color;
+    color: $white-color;
 
     display: flex;
     align-items: center;
@@ -136,6 +136,30 @@
     border: 1px solid $gray-color;
 
     width: 100%;
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $gray-color;
+
+      path {
+        fill: $gray-color;
+      }
+    }
+
+    &:not(&:disabled) {
+      &:hover {
+        border-color: $white-color;
+      }
+
+      &:active {
+        background: $white-color;
+        color: $black-color;
+
+        path {
+          fill: $black-color;
+        }
+      }
+    }
   }
 
   &__close {

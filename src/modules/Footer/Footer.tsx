@@ -16,7 +16,10 @@ export function Footer() {
 						<div className={classNames(s.home_links)}>
 							<Link
 								className={classNames({
-									[s.active]: query.pathname == "/" || query.pathname == "/biz",
+									[s.active]:
+										query.pathname == "/" ||
+										query.pathname == "/biz" ||
+										(query.pathname !== "/" && query.pathname !== "/biz"),
 								})}
 								href={"/"}
 							>
@@ -24,7 +27,9 @@ export function Footer() {
 							</Link>
 							<Link
 								className={classNames({
-									[s.active]: query.pathname == "/",
+									[s.active]:
+										query.pathname == "/" ||
+										(query.pathname !== "/" && query.pathname !== "/biz"),
 								})}
 								href={"/"}
 							>
@@ -32,7 +37,9 @@ export function Footer() {
 							</Link>
 							<Link
 								className={classNames({
-									[s.active]: query.pathname == "/biz",
+									[s.active]:
+										query.pathname == "/biz" ||
+										(query.pathname !== "/" && query.pathname !== "/biz"),
 								})}
 								href={"/biz"}
 							>

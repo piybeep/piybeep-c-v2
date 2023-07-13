@@ -99,6 +99,25 @@ body {
   }
 }
 
+@media screen and (min-width: 920px) {
+  html {
+    .wrapper {
+      &::before {
+        content: "";
+        display: block;
+        background: linear-gradient(180deg, $black-color 0%, rgba(16, 15, 19, 0.00) 10%, rgba(16, 15, 19, 0.00) 90%, $black-color 100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1550px) {
   body {
     .wrapper {

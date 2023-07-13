@@ -141,7 +141,11 @@ export function PopupForm() {
 				</div>
 
 				<div className={s.buttons}>
-					<button type="submit" className={s.buttons__sumbit}>
+					<button
+						type="submit"
+						className={s.buttons__sumbit}
+						disabled={!formik.isValid}
+					>
 						Отправить
 						<svg
 							className={s.buttons__svg}
@@ -154,7 +158,7 @@ export function PopupForm() {
 							<path
 								className={s.buttons__svg}
 								d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z"
-								fill="#8E8E8E"
+								fill="#ECECEC"
 							/>
 						</svg>
 					</button>
