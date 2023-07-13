@@ -1,11 +1,11 @@
-import Image from "next/image";
-
 import { MENU_ITEMS } from "../../constatnts";
 
-import s from "./NotFound.module.scss";
-
-import cat from "../../../public/imgs/sleeping-cat.png";
 import Link from "next/link";
+import { LottieAnimation } from "react-lottie-tools";
+
+import cat from '../../../public/animtate/cat.json'
+
+import s from "./NotFound.module.scss";
 
 export function NotFound() {
 	return (
@@ -30,7 +30,13 @@ export function NotFound() {
 					))}
 				</div>
 			</div>
-			<Image className={s.img} src={cat} alt="Котик" />
+			{/* <Image className={s.img} src={cat} alt="Котик" /> */}
+			<div className={s.img}>
+				<LottieAnimation
+					loop={true} 
+					animation={cat}
+				/>
+			</div>
 		</div>
 	);
 }
