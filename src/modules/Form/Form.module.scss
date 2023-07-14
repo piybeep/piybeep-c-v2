@@ -79,8 +79,8 @@
   flex-direction: column;
   row-gap: 20px;
 
-  width: 100%;
-  max-width: 534px;
+  width: fit-content;
+  //max-width: 740px;
 
   button {
     font-family: "Inter", sans-serif;
@@ -88,6 +88,26 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .privacy {
+    &__text {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: $white-color;
+
+      margin: 0;
+    }
+
+    &__link {
+      text-decoration: underline;
+
+      cursor: pointer;
+    }
   }
 }
 

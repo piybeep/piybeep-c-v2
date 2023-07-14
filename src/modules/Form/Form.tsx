@@ -2,7 +2,7 @@ import classNames from "classnames";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-import { Button, Input, Privacy, Title } from "../../components";
+import { Button, Input, Title } from "../../components";
 
 import { FORM__PRODUCTS, PRIVACY_LINK } from "../../constatnts";
 
@@ -95,6 +95,14 @@ export function Form() {
 					))}
 				</div>
 				<div className={s.buttons}>
+					<div className={s.privacy}>
+						<h2 className={s.privacy__text}>
+							Отправляя форму, вы принимаете политику хранения и обработки{" "}
+							<Link href={PRIVACY_LINK} className={s.privacy__link}>
+								персональных данных
+							</Link>
+						</h2>
+					</div>
 					<Button
 						value="Отправить"
 						outline
@@ -102,7 +110,7 @@ export function Form() {
 						onClick={() => formik.submitForm()}
 						disabled={formik.isSubmitting || !formik.isValid}
 					/>
-					<Privacy
+					{/*<Privacy
 						text={
 							<>
 								Я соглашаюсь на хранение и обработку{" "}
@@ -113,7 +121,7 @@ export function Form() {
 						onClick={() =>
 							formik.setFieldValue("privacy", !formik.values.privacy)
 						}
-					/>
+					/>*/}
 				</div>
 			</form>
 		</main>

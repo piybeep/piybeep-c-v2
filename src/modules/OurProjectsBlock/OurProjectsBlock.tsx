@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ProjectCard, SwiperButtons } from "../../components";
 import { BlockLayout } from "../../layouts";
-import { PROJECTS } from "../../constatnts";
 import { useWindowSizes } from "../../hooks";
 
 import s from "./OurProjectsBlock.module.scss";
@@ -11,9 +10,13 @@ import s from "./OurProjectsBlock.module.scss";
 export function OurProjectsBlock({
 	title = "Наши проекты",
 	subtitle = "Скоро больше",
+	projects,
+	count = 0,
 }: {
 	title?: string;
 	subtitle?: string;
+	projects: any[];
+	count?: number;
 }) {
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
@@ -53,12 +56,16 @@ export function OurProjectsBlock({
 					},
 				}}
 			>
-				{PROJECTS.map((item) => (
+				{projects?.map((item) => (
 					<SwiperSlide key={item.id}>
-						<ProjectCard title={item.title} description={item.description} />
+						<ProjectCard
+							id={item.id}
+							title={item.title}
+							description={item.description}
+						/>
 					</SwiperSlide>
 				))}
-				<SwiperButtons groupCount={groupCount} />
+				<SwiperButtons groupCount={groupCount} count={count} />
 			</Swiper>
 		</BlockLayout>
 	);

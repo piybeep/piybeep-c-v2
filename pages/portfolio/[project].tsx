@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { ReactNode } from "react";
 
 import { BaseLayout } from "../../src/layouts";
@@ -13,10 +12,7 @@ import {
 import { GetServerSideProps } from "next";
 import axios from "axios";
 
-export default function PortfolioCase({ projects }: any) {
-	console.log(projects);
-	const router = useRouter();
-	const { project } = router.query;
+export default function PortfolioCase({ project, projects }: any) {
 	return (
 		<main
 			style={{
@@ -25,10 +21,10 @@ export default function PortfolioCase({ projects }: any) {
 			}}
 		>
 			<Head>
-				<title>{project} - piybeep.</title>
+				<title>{project.title} - piybeep.</title>
 				<meta
 					name="description"
-					content={project ? `${project}` : "Наш проект"}
+					content={project?.title ? `${project.title}` : "Наш проект"}
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
@@ -43,7 +39,9 @@ export default function PortfolioCase({ projects }: any) {
 				}}
 			>
 				<ProjectPost
-					project={{
+					project={
+						project
+						/*{
 						id: "test-project",
 						title: "Test project",
 						customer: "Test customer",
@@ -61,9 +59,15 @@ ha*h****a***`,
 						task: "Создать сервис для сотрудников компании для аналитики и контроля работников. Внешний вид календаря, где ячейка каждого дня будет содержать в себе проекты (профессиональные области, где находятся работники), в которых находятся объекты (места, где они трудятся). Рядом с объектами отображаются часы - сколько времени отработано на конкретном месте.\nДля наглядности дополнить диаграммой, сортировкой и картой.",
 						createdAt: new Date(),
 						updatedAt: new Date(),
-					}}
+					}*/
+					}
 				/>
-				<OurProjectsBlock title="другие проекты" subtitle="" />
+				<OurProjectsBlock
+					title="другие проекты"
+					subtitle=""
+					projects={projects[0]}
+					count={projects[1]}
+				/>
 			</div>
 			<Form />
 		</main>
@@ -71,15 +75,17 @@ ha*h****a***`,
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const response = await axios.get(
+	const project = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/projects/${ctx?.params?.project}`,
+	);
+	const projects = await axios.get(
 		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
 	);
 
-	console.log(ctx.params);
-
 	return {
 		props: {
-			projects: response.data,
+			project: project.data,
+			projects: projects.data,
 		},
 	};
 };

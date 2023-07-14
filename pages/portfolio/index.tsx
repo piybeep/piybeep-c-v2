@@ -5,8 +5,7 @@ import { Form, OpenFormButton, OurProjectsPortfolio } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 
-export default function Portfolio({ projects }: any) {
-	console.log(projects);
+export default function Portfolio({ projects, count: _count }: any) {
 	return (
 		<main
 			style={{
@@ -26,7 +25,7 @@ export default function Portfolio({ projects }: any) {
 					marginBottom: 150,
 				}}
 			>
-				<OurProjectsPortfolio />
+				<OurProjectsPortfolio projects={projects} />
 			</div>
 			<Form />
 		</main>
@@ -34,14 +33,16 @@ export default function Portfolio({ projects }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	console.log(process.env.NEXT_PUBLIC_API_URL);
 	const response = await axios.get(
 		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
 	);
 
+	const [projects, count] = response.data;
+
 	return {
 		props: {
-			projects: response.data,
+			projects,
+			count,
 		},
 	};
 };

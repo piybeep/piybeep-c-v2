@@ -46,7 +46,7 @@ export function Reviews() {
 						</div>
 					</SwiperSlide>
 				))}
-				<SwiperButtons groupCount={groupCount} />
+				<SwiperButtons groupCount={groupCount} count={REVIEWS_LIST.length} />
 			</Swiper>
 		</BlockLayout>
 	);

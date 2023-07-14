@@ -13,8 +13,10 @@ import {
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { TEXT_SLIDER } from "../src/constatnts";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-export default function Home() {
+export default function Home({ projects, count }: any) {
 	return (
 		<main
 			style={{
@@ -41,7 +43,7 @@ export default function Home() {
 эффективнее`}
 				/>
 				<WeDo />
-				<OurProjectsBlock />
+				<OurProjectsBlock projects={projects} count={count} />
 				<AdvantagesBlock />
 				<ProjectsPreview />
 				<Reviews />
@@ -51,6 +53,21 @@ export default function Home() {
 		</main>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+	const response = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
+	);
+
+	const [projects, count] = response.data;
+
+	return {
+		props: {
+			projects,
+			count,
+		},
+	};
+};
 
 Home.getLayout = (page: ReactNode) => (
 	<BaseLayout>

@@ -65,7 +65,6 @@ export function PopupForm() {
 			products: Yup.array().of(Yup.string()),
 		}),
 		onSubmit: (values) => {
-			// console.log(values);
 			if (!values.products.length) {
 				console.log("Продукты не заполнены");
 
