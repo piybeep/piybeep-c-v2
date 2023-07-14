@@ -6,7 +6,7 @@ export const PRIVACY_LINK = "/privacy_policy.pdf";
 
 export const MENU_ITEMS = [
 	// { display_name: "Главная", link: "/" },
-	// { display_name: "Для бизнеса", link: "/biz" },
+	// { display_name: "Для бизнеса", link: "/business" },
 	{ display_name: "Услуги", link: "/services" },
 	{ display_name: "Студия", link: "/studio" },
 	{ display_name: "Портфолио", link: "/portfolio" },

@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:lts-alpine
 WORKDIR /usr/src/client
 COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install -s

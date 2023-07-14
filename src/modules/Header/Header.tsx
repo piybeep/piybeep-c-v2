@@ -78,8 +78,8 @@ export function Header() {
 								className={classNames({
 									[s.active]:
 										query.pathname == "/" ||
-										query.pathname == "/biz" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										query.pathname == "/business" ||
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
 								href={"/"}
 							>
@@ -89,7 +89,7 @@ export function Header() {
 								className={classNames({
 									[s.active]:
 										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
 								href={"/"}
 							>
@@ -98,10 +98,10 @@ export function Header() {
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/biz" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										query.pathname == "/business" ||
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
-								href={"/biz"}
+								href={"/business"}
 							>
 								Для бизнеса
 							</Link>
@@ -109,7 +109,7 @@ export function Header() {
 								className={classNames(s.alt, {
 									[s.active]:
 										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
 								href={"/"}
 							>
@@ -118,10 +118,10 @@ export function Header() {
 							<Link
 								className={classNames(s.alt, {
 									[s.active]:
-										query.pathname == "/biz" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										query.pathname == "/business" ||
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
-								href={"/biz"}
+								href={"/business"}
 							>
 								Бизнес
 							</Link>

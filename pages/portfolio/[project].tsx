@@ -10,8 +10,11 @@ import {
 	PortfolioBack,
 	ProjectPost,
 } from "../../src/modules";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-export default function PortfolioCase() {
+export default function PortfolioCase({ projects }: any) {
+	console.log(projects);
 	const router = useRouter();
 	const { project } = router.query;
 	return (
@@ -41,7 +44,7 @@ export default function PortfolioCase() {
 			>
 				<ProjectPost
 					project={{
-						id: "test-prjct",
+						id: "test-project",
 						title: "Test project",
 						customer: "Test customer",
 						text: `**<u>Test</u> ~text~**
@@ -66,5 +69,19 @@ ha*h****a***`,
 		</main>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const response = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
+	);
+
+	console.log(ctx.params);
+
+	return {
+		props: {
+			projects: response.data,
+		},
+	};
+};
 
 PortfolioCase.getLayout = (page: ReactNode) => <BaseLayout>{page}</BaseLayout>;

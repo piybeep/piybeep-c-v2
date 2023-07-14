@@ -9,6 +9,10 @@
     position: relative;
     height: 400px;
   }
+
+  &:not(:hover) .person:first-child .person__info {
+    opacity: 1;
+  }
 }
 
 .person {
@@ -21,7 +25,7 @@
 
   position: absolute;
 
-  cursor: pointer;
+  //cursor: pointer;
 
   &:hover {
 

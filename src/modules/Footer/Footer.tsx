@@ -18,8 +18,8 @@ export function Footer() {
 								className={classNames({
 									[s.active]:
 										query.pathname == "/" ||
-										query.pathname == "/biz" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										query.pathname == "/business" ||
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
 								href={"/"}
 							>
@@ -29,7 +29,7 @@ export function Footer() {
 								className={classNames({
 									[s.active]:
 										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
 								href={"/"}
 							>
@@ -38,10 +38,10 @@ export function Footer() {
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/biz" ||
-										(query.pathname !== "/" && query.pathname !== "/biz"),
+										query.pathname == "/business" ||
+										(query.pathname !== "/" && query.pathname !== "/business"),
 								})}
-								href={"/biz"}
+								href={"/business"}
 							>
 								для бизнеса
 							</Link>

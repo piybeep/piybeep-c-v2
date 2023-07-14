@@ -2,8 +2,11 @@ import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
 import { Form, OpenFormButton, OurProjectsPortfolio } from "../../src/modules";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-export default function Portfolio() {
+export default function Portfolio({ projects }: any) {
+	console.log(projects);
 	return (
 		<main
 			style={{
@@ -29,6 +32,19 @@ export default function Portfolio() {
 		</main>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+	console.log(process.env.NEXT_PUBLIC_API_URL);
+	const response = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
+	);
+
+	return {
+		props: {
+			projects: response.data,
+		},
+	};
+};
 
 Portfolio.getLayout = (page: ReactNode) => (
 	<BaseLayout>
