@@ -7,13 +7,14 @@ import { ProductListItem } from "../../components";
 import s from "./ProductsList.module.scss";
 
 import RightArrow from "../../../public/svg/Arrows/RightGray.svg";
+import { PAGES_LINK } from "../../constatnts";
 
 export function ProductsList({ list }: { list: any[] }) {
 	return (
 		<BlockLayout
 			value="Сделаем для вас"
 			subtitle={
-				<Link href={"/studio#stacks"}>
+				<Link href={[PAGES_LINK.STUDIO, "#stacks"].join("")}>
 					Стек разработки <Image src={RightArrow} alt="" />
 				</Link>
 			}

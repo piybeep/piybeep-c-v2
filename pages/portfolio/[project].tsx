@@ -76,10 +76,10 @@ ha*h****a***`,
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const project = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/projects/${ctx?.params?.project}`,
+		`${process.env.API_URL}/projects/${ctx?.params?.project}`,
 	);
 	const projects = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
+		`${process.env.API_URL}/projects?take=12&skip=0`,
 	);
 
 	return {

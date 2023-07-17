@@ -1,9 +1,9 @@
-import { MENU_ITEMS } from "../../constatnts";
+import { MENU_ITEMS, PAGES_LINK } from "../../constatnts";
 
 import Link from "next/link";
 import { LottieAnimation } from "react-lottie-tools";
 
-import cat from '../../../public/animtate/cat.json'
+import cat from "../../../public/animtate/cat.json";
 
 import s from "./NotFound.module.scss";
 
@@ -16,7 +16,7 @@ export function NotFound() {
 					Похоже, тут ничего нет, кроме спящего котика Тсс.. не разбуди!
 				</h3>
 				<div className={s.info__list}>
-					<Link href={"/"} className={s.info__link}>
+					<Link href={PAGES_LINK.MAIN} className={s.info__link}>
 						Главная
 					</Link>
 					{MENU_ITEMS.map((current) => (
@@ -32,10 +32,7 @@ export function NotFound() {
 			</div>
 			{/* <Image className={s.img} src={cat} alt="Котик" /> */}
 			<div className={s.img}>
-				<LottieAnimation
-					loop={true} 
-					animation={cat}
-				/>
+				<LottieAnimation loop={true} animation={cat} />
 			</div>
 		</div>
 	);

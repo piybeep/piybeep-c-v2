@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useRouterQuery, useUserSelectForm } from "../../hooks";
+import createRequest from "../../api/createRequest";
 
 import classNames from "classnames";
 import { useEffect, useState } from "react";
@@ -53,26 +54,40 @@ export function PopupForm() {
 
 	const initialValues: {
 		name: string;
-		email: string;
-		products: string[];
-	} = { name: "", email: "", products: [] };
+		contact: string;
+		selects: string[];
+	} = { name: "", contact: "", selects: [] };
 
 	const formik = useFormik({
 		initialValues,
 		validationSchema: Yup.object({
 			name: Yup.string().required(),
-			email: Yup.string().email().required(),
-			products: Yup.array().of(Yup.string()),
+			contact: Yup.string().email().required(),
+			selects: Yup.array().of(Yup.string()),
 		}),
 		onSubmit: (values) => {
-			if (!values.products.length) {
+			console.log(values);
+			if (!values.selects.length) {
 				console.log("Продукты не заполнены");
 
 				toast("Выберите услуги");
 			} else {
-				mutate({
-					query: { form: "success" },
-				});
+				console.log(values);
+				createRequest(values)
+					.then((_data) => {
+						formik.resetForm();
+						removeUserSelect();
+						mutate({
+							query: { form: "success" },
+						});
+					})
+					.catch((reason) => {
+						console.error(reason);
+						toast("Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами");
+					})
+					.finally(() => {
+						formik.setSubmitting(false);
+					});
 			}
 			// formik.setSubmitting(false);
 			// formik.resetForm();
@@ -82,7 +97,7 @@ export function PopupForm() {
 
 	useEffect(() => {
 		formik.setFieldValue(
-			"products",
+			"selects",
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
@@ -110,9 +125,9 @@ export function PopupForm() {
 					/>
 					<Input
 						text="Почта или телефон"
-						name="email"
+						name="contact"
 						required
-						value={formik.values.email}
+						value={formik.values.contact}
 						onChange={formik.handleChange}
 					/>
 				</div>

@@ -1,7 +1,12 @@
 import Link from "next/link";
 import s from "./Footer.module.scss";
 
-import { CONTACTS_DATA, MENU_ITEMS, SOCIAL_LINKS } from "../../constatnts";
+import {
+	CONTACTS_DATA,
+	MENU_ITEMS,
+	PAGES_LINK,
+	SOCIAL_LINKS,
+} from "../../constatnts";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 
@@ -17,31 +22,34 @@ export function Footer() {
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/" ||
-										query.pathname == "/business" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.MAIN ||
+										query.pathname == PAGES_LINK.BUSINESS ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/"}
+								href={PAGES_LINK.MAIN}
 							>
 								Главная
 							</Link>
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.MAIN ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/"}
+								href={PAGES_LINK.MAIN}
 							>
 								для маркетинга
 							</Link>
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/business" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.BUSINESS ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/business"}
+								href={PAGES_LINK.BUSINESS}
 							>
 								для бизнеса
 							</Link>

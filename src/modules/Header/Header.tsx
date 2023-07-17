@@ -2,7 +2,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
+import { CONTACTS_DATA, MENU_ITEMS, PAGES_LINK } from "../../constatnts";
 
 import s from "./Header.module.scss";
 
@@ -67,7 +67,7 @@ export function Header() {
 			<PreviewHeader />
 			<header className={classNames(s.header)}>
 				<div className={s.bar}>
-					<Link href="/" className={s.logo}>
+					<Link href={PAGES_LINK.MAIN} className={s.logo}>
 						<Image className={s.logo__svg} src={logo} alt="Логотип" />
 						<p className={s.logo__text}>piybeep.</p>
 					</Link>
@@ -77,51 +77,56 @@ export function Header() {
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/" ||
-										query.pathname == "/business" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.MAIN ||
+										query.pathname == PAGES_LINK.BUSINESS ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/"}
+								href={PAGES_LINK.MAIN}
 							>
 								Главная
 							</Link>
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.MAIN ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/"}
+								href={PAGES_LINK.MAIN}
 							>
 								Для маркетинга
 							</Link>
 							<Link
 								className={classNames({
 									[s.active]:
-										query.pathname == "/business" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.BUSINESS ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/business"}
+								href={PAGES_LINK.BUSINESS}
 							>
 								Для бизнеса
 							</Link>
 							<Link
 								className={classNames(s.alt, {
 									[s.active]:
-										query.pathname == "/" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.MAIN ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/"}
+								href={PAGES_LINK.MAIN}
 							>
 								Маркетинг
 							</Link>
 							<Link
 								className={classNames(s.alt, {
 									[s.active]:
-										query.pathname == "/business" ||
-										(query.pathname !== "/" && query.pathname !== "/business"),
+										query.pathname == PAGES_LINK.BUSINESS ||
+										(query.pathname !== PAGES_LINK.MAIN &&
+											query.pathname !== PAGES_LINK.BUSINESS),
 								})}
-								href={"/business"}
+								href={PAGES_LINK.BUSINESS}
 							>
 								Бизнес
 							</Link>

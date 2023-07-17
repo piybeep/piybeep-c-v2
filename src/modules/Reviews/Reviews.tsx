@@ -7,7 +7,7 @@ import { useWindowSizes } from "../../hooks";
 
 import s from "./Reviews.module.scss";
 import { SwiperButtons } from "../../components";
-import { REVIEWS_LIST } from "../../constatnts";
+import { PAGES_LINK, REVIEWS_LIST } from "../../constatnts";
 
 export function Reviews() {
 	const { width } = useWindowSizes();
@@ -42,7 +42,9 @@ export function Reviews() {
 						<div className={s.text}>{i.text}</div>
 						<div className={s.info}>
 							{i.author} -{" "}
-							<Link href={"/projects/" + i.project.id}>{i.project.title}</Link>
+							<Link href={[PAGES_LINK.PORTFOLIO, i.project.id].join("/")}>
+								{i.project.title}
+							</Link>
 						</div>
 					</SwiperSlide>
 				))}

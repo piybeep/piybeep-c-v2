@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import s from "./Header.module.scss";
 import React from "react";
+import { PAGES_LINK } from "../../constatnts";
 
 export function PreviewHeader() {
 	const query = useRouter();
@@ -10,7 +11,8 @@ export function PreviewHeader() {
 		<header
 			className={classNames(s.preview, {
 				[s.preview__visible]:
-					query.pathname === "/" || query.pathname === "/business",
+					query.pathname === PAGES_LINK.MAIN ||
+					query.pathname === PAGES_LINK.BUSINESS,
 			})}
 		>
 			<div className={s.preview__info}>

@@ -11,6 +11,8 @@ import { useRouterQuery, useUserSelectForm } from "../../hooks";
 import s from "./Form.module.scss";
 import { useEffect } from "react";
 import Link from "next/link";
+import CreateRequest from "../../api/createRequest";
+import { toast } from "../../utils";
 
 export function Form() {
 	const {
@@ -19,7 +21,7 @@ export function Form() {
 		isHas: isHasUserSelect,
 	} = useUserSelectForm();
 
-	const { query, isHas } = useRouterQuery();
+	const { query, isHas, mutate } = useRouterQuery();
 
 	const handleProduct = (current: string) => {
 		isHasUserSelect(current)
@@ -29,29 +31,39 @@ export function Form() {
 
 	const initialValues: {
 		name: string;
-		email: string;
-		products: string[];
-		privacy: boolean;
-	} = { name: "", email: "", products: [], privacy: false };
+		contact: string;
+		selects: string[];
+	} = { name: "", contact: "", selects: [] };
 	const formik = useFormik({
 		initialValues,
 		validationSchema: Yup.object({
 			name: Yup.string().required(),
-			email: Yup.string().email().required(),
-			products: Yup.array().of(Yup.string()).min(1),
-			privacy: Yup.bool().required().isTrue(),
+			contact: Yup.string().email().required(),
+			selects: Yup.array().of(Yup.string()).min(1),
 		}),
 		onSubmit(values) {
 			console.log(values);
-			formik.setSubmitting(false);
-			formik.resetForm();
-			removeUserSelect();
+			CreateRequest(values)
+				.then((_value) => {
+					formik.resetForm();
+					removeUserSelect();
+					mutate({
+						query: { form: "success" },
+					});
+				})
+				.catch((reason) => {
+					console.error(reason);
+					toast("Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами");
+				})
+				.finally(() => {
+					formik.setSubmitting(false);
+				});
 		},
 	});
 
 	useEffect(() => {
 		formik.setFieldValue(
-			"products",
+			"selects",
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
@@ -59,7 +71,7 @@ export function Form() {
 	return (
 		<main className={s.wrapper}>
 			<Title value="Оставьте заявку и мы с вами свяжемся" />
-			<form className={s.form}>
+			<form className={s.form} onSubmit={formik.handleSubmit}>
 				<div className={s.info}>
 					<Input
 						name="name"
@@ -72,12 +84,12 @@ export function Form() {
 					/>
 
 					<Input
-						name="email"
+						name="contact"
 						autoComplete="off"
 						text="Почта или телефон"
 						position="center"
 						sizeInput="large"
-						value={formik.values.email}
+						value={formik.values.contact}
 						onChange={formik.handleChange}
 					/>
 				</div>
@@ -106,8 +118,7 @@ export function Form() {
 					<Button
 						value="Отправить"
 						outline
-						type="button"
-						onClick={() => formik.submitForm()}
+						type="submit"
 						disabled={formik.isSubmitting || !formik.isValid}
 					/>
 					{/*<Privacy
