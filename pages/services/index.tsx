@@ -11,19 +11,9 @@ export default function Services() {
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				// rowGap: 100,
-				// marginBottom: 90,
-				// marginTop: 50,
 			}}
 		>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					rowGap: 200,
-					marginBottom: 150,
-				}}
-			>
+			<div className="content-wrapper">
 				<ProductsList list={PRODUCTS} />
 				<SupportBlock />
 			</div>

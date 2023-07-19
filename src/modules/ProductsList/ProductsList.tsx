@@ -32,7 +32,7 @@ export function ProductsList({ list }: { list: any[] }) {
 						discount={i.discount}
 					/>
 				))}
-				<ProductListItem
+				{/*<ProductListItem
 					disabled={true}
 					className={s.item}
 					number={"0#"}
@@ -41,7 +41,7 @@ export function ProductsList({ list }: { list: any[] }) {
 						"Lorem ipsum dolor sit amet consectetur. Accumsan egestas gravida at mauris. Quis arcu urna gravida nisl sem aliquet est. Porttitor sed duis maecenas eu fusce egestas metus. Curabitur tortor quis metus id nulla id risus sed. Commodo aliquam faucibus sit mauris ut nisl. Ut neque ut urna urna facilisi. Tempor in eu justo eu pulvinar suscipit elit. Gravida eget bibendum in senectus volutpat pharetra in auctor. Suspendisse pretium tempor id."
 					}
 					status="Скоро откроектся"
-				/>
+				/>*/}
 			</div>
 		</BlockLayout>
 	);

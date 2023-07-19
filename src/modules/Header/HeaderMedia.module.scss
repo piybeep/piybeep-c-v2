@@ -96,9 +96,18 @@
     }
   }
 
+  .menu {
+    column-gap: 0;
+  }
+
   .info {
-    .info__link:nth-last-child(1) {
-      display: none;
+
+    &__link {
+      white-space: nowrap;
+
+      &:nth-last-child(1) {
+        display: none;
+      }
     }
   }
 }

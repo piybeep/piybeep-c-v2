@@ -22,7 +22,12 @@ export function Business() {
 						}
 					>
 						<h2 className={s.list__title}>{current.title}</h2>
-						<Image className={s.list__img} src={current.img} alt={"Картинка"} />
+						<Image
+							className={s.list__img}
+							src={current.img}
+							alt={"Картинка"}
+							quality={100}
+						/>
 					</div>
 				))}
 			</div>

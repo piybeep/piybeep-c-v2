@@ -1,10 +1,26 @@
 import Image from "next/image";
 import s from "./ProjectsPreview.module.scss";
+import RUB from "../../../public/svg/rub.svg";
 
 export function ProjectsPreview() {
 	const titles = [
-		{ text: "Сайты", price: "> 29 900 р." },
-		{ text: "Поддержка", price: "> 7 400 р./мес" },
+		{
+			text: "Сайты",
+			price: (
+				<>
+					{">"} 59 900 <Image src={RUB} alt={"р."} height={35} />
+				</>
+			),
+		},
+		{
+			text: "Поддержка",
+			price: (
+				<>
+					{">"} 9 900 <Image src={RUB} alt={"р."} height={35} />
+					/мес
+				</>
+			),
+		},
 	];
 	const images = [
 		{ id: "1", src: "/imgs/2-preview-template.png" },

@@ -16,7 +16,7 @@ body {
   // Стили скрола
   *::-webkit-scrollbar {
     width: 10px;
-    height: 12px;
+    height: 4px;
   }
 
   *::-webkit-scrollbar-track {
@@ -67,7 +67,12 @@ body {
         z-index: 1;
       }
 
-      //todo
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 200px;
+        margin-bottom: 150px;
+      }
     }
   }
 }
@@ -99,13 +104,25 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+  body {
+    .wrapper {
+      main {
+        .content-wrapper {
+          row-gap: 150px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 920px) {
   html {
     .wrapper {
       &::before {
         content: "";
         display: block;
-        background: linear-gradient(180deg, $black-color 0%, rgba(16, 15, 19, 0.00) 10%, rgba(16, 15, 19, 0.00) 90%, $black-color 100%);
+        background: linear-gradient(180deg, $black-color 0%, rgba(16, 15, 19, 0.00) 10%);
         position: fixed;
         top: 0;
         right: 0;
@@ -132,7 +149,11 @@ body {
   body {
     .wrapper {
       main {
-        padding: 0 16px 58px;
+        padding: 26px 16px 100px;
+
+        .content-wrapper {
+          row-gap: 120px;
+        }
       }
     }
   }

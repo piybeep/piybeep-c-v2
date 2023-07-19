@@ -123,6 +123,10 @@
     &__product {
       font-size: 28px;
       line-height: 34px;
+
+      &:hover {
+        color: $gray-color;
+      }
     }
   }
 }

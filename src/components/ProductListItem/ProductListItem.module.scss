@@ -35,6 +35,10 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 140%;
+
+    p {
+      margin: 0;
+    }
   }
 
   .prices {
@@ -48,6 +52,8 @@
 
     display: flex;
     justify-content: space-between;
+
+    white-space: nowrap;
 
     span {
       width: calc((100% - 8px) / 2);

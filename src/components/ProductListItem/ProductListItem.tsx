@@ -3,6 +3,11 @@ import classNames from "classnames";
 import { ProductListItemProps } from "./ProductListItem.types";
 import s from "./ProductListItem.module.scss";
 import { useRouter } from "next/router";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import ReactMarkdown from "react-markdown";
+
+const RUBCurrency = () => <span style={{ fontWeight: "500" }}>р.</span>;
 
 export function ProductListItem({
 	number,
@@ -18,25 +23,33 @@ export function ProductListItem({
 	const router = useRouter();
 
 	return (
-		<div className={classNames(s.wrapper, className)} {...props}>
+		<div className={classNames(s.wrapper, className)} id={title} {...props}>
 			<div className={s.title}>
 				<span>
 					{(typeof number == "number" && number < 10 ? "0" : "") + number}
 				</span>
 				<span>{title}</span>
 			</div>
-			<div className={s.description}>{description}</div>
+			<ReactMarkdown
+				className={s.description}
+				remarkPlugins={[remarkGfm]}
+				rehypePlugins={[rehypeRaw]}
+			>
+				{description}
+			</ReactMarkdown>
+			{/*<div className={s.description}>{description}</div>*/}
 			<div className={s.prices}>
 				{discount ? (
 					<span>
-						{">"} {discount.toLocaleString("ru-RU")} р.
+						{">"} {discount.toLocaleString("ru-RU")} <RUBCurrency />
 					</span>
 				) : (
 					""
 				)}
 				{price ? (
 					<span>
-						{discount ? "" : ">"} {price.toLocaleString("ru-RU")} р.
+						{discount ? "" : ">"} {price.toLocaleString("ru-RU")}{" "}
+						<RUBCurrency />
 					</span>
 				) : (
 					""

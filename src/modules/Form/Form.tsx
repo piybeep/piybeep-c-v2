@@ -53,7 +53,9 @@ export function Form() {
 				})
 				.catch((reason) => {
 					console.error(reason);
-					toast("Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами");
+					toast(
+						"Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами: 8 926 576-28-77, info@piybeep.com",
+					);
 				})
 				.finally(() => {
 					formik.setSubmitting(false);

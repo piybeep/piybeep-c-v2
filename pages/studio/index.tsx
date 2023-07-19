@@ -21,14 +21,7 @@ export default function Studio() {
 			}}
 		>
 			<OpenFormButton />
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					rowGap: 200,
-					marginBottom: 150,
-				}}
-			>
+			<div className="content-wrapper">
 				<AboutUsStudio />
 				<Team />
 				<Spa />

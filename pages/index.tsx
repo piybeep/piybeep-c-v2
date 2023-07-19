@@ -26,12 +26,13 @@ export default function Home({ projects, count }: any) {
 		>
 			<OpenFormButton />
 			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					rowGap: 200,
-					marginBottom: 150,
-				}}
+				className="content-wrapper"
+				// style={{
+				// 	display: "flex",
+				// 	flexDirection: "column",
+				// 	rowGap: 200,
+				// 	marginBottom: 150,
+				// }}
 			>
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}

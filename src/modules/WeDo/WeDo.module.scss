@@ -6,7 +6,7 @@
   row-gap: 30px;
 
   &.biz {
-    div:nth-child(1) {
+    a:nth-child(1) {
       h2, h3 {
         font-size: 24px;
       }
@@ -104,6 +104,16 @@
 }
 
 @media screen and (max-width: 430px) {
+  .list {
+    &.biz {
+      a:nth-child(1) {
+        h2, h3 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
   .info {
     &__title {
       font-size: 18px;

@@ -21,9 +21,9 @@ export function Contacts() {
 					</Link>
 					<Link
 						className={s.contact__link}
-						href={`tel:${CONTACTS_DATA.get("phone")}`}
+						href={`tel:${CONTACTS_DATA.get("sec-phone")}`}
 					>
-						{CONTACTS_DATA.get("phone")}
+						{CONTACTS_DATA.get("sec-phone")}
 					</Link>
 					<Link
 						className={s.contact__link}

@@ -17,14 +17,7 @@ export default function Portfolio({ projects, count: _count }: any) {
 			}}
 		>
 			<OpenFormButton />
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					rowGap: 200,
-					marginBottom: 150,
-				}}
-			>
+			<div className="content-wrapper">
 				<OurProjectsPortfolio projects={projects} />
 			</div>
 			<Form />

@@ -28,14 +28,7 @@ export default function Home({ projects, count }: any) {
 			}}
 		>
 			<OpenFormButton />
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					rowGap: 200,
-					marginBottom: 150,
-				}}
-			>
+			<div className="content-wrapper">
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
 					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
