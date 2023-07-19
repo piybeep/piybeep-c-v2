@@ -2,7 +2,6 @@ import originalToast from "react-hot-toast";
 
 export function toast(value: string) {
 	originalToast(value, {
-		duration: 60000,
 		style: {
 			borderRadius: "0px",
 			padding: "6px 5px",

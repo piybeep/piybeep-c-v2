@@ -56,7 +56,7 @@ export default function Home({ projects, count }: any) {
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const response = await axios.get(
-		`${process.env.API_URL}/projects?take=12&skip=0`,
+		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
 	);
 
 	const [projects, count] = response.data;
