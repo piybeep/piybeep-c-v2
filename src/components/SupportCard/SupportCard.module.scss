@@ -96,6 +96,8 @@
     line-height: 21px;
     color: #ececec;
 
+    border-radius: 3px;
+
     //&,
     //* {
     //  transition: 0.2s;
@@ -126,7 +128,7 @@
       flex-direction: column;
       row-gap: 15px;
 
-      > * {
+      >* {
         font-size: 14px;
       }
     }
