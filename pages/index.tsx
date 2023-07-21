@@ -27,12 +27,12 @@ export default function Home({ projects, count }: any) {
 			<OpenFormButton />
 			<div
 				className="content-wrapper"
-			// style={{
-			// 	display: "flex",
-			// 	flexDirection: "column",
-			// 	rowGap: 200,
-			// 	marginBottom: 150,
-			// }}
+				// style={{
+				// 	display: "flex",
+				// 	flexDirection: "column",
+				// 	rowGap: 200,
+				// 	marginBottom: 150,
+				// }}
 			>
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}
@@ -54,7 +54,7 @@ export default function Home({ projects, count }: any) {
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const response = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
+		`${process.env.NEXT_PUBLIC_API_URL}/projects`,
 	);
 
 	const [projects, count] = response.data;
