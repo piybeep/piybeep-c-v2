@@ -96,6 +96,8 @@
     line-height: 21px;
     color: #ececec;
 
+    border-radius: 3px;
+
     //&,
     //* {
     //  transition: 0.2s;
@@ -126,7 +128,7 @@
       flex-direction: column;
       row-gap: 15px;
 
-      > * {
+      >* {
         font-size: 14px;
       }
     }
@@ -174,6 +176,16 @@
 @media screen and (max-width: 720px) {
   .card {
     width: 100%;
+
+    .options {
+      .group {
+        &:not(.group:nth-child(1)) {
+          &::before {
+            left: 0px;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -8,17 +8,7 @@ import { PERSON_LIST } from "../../constatnts/person";
 import s from "./Team.module.scss";
 
 const PersonInfo = ({ current }: { current: any }) => {
-	const [windowSize, setWindowSize] = useState(11);
-
-	useEffect(() => {
-		if (window) {
-			if (window.screen.width > 1550) {
-				setWindowSize(11);
-			} else if (window.screen.width < 1551 && window.screen.width > 1270) {
-				setWindowSize(10.5);
-			}
-		}
-	}, []);
+	const [windowSize, setWindowSize] = useState(15);
 
 	return (
 		<div

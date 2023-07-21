@@ -5,8 +5,8 @@
   align-content: space-between;
 
   grid-template-areas:
-		"t d p"
-		"b d p";
+    "t d p"
+    "b d p";
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 55px;
 
@@ -98,6 +98,7 @@
     padding: 17px 20px;
 
     border: 1px solid #ececec;
+    border-radius: 3px;
 
     &.disabled {
       display: none;
@@ -154,9 +155,9 @@
 @media screen and (max-width: 1024px) {
   .wrapper {
     grid-template-areas:
-			"t d"
-			"p d"
-			"b .";
+      "t d"
+      "p d"
+      "b .";
     gap: 30px 20px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr 55px;
@@ -184,9 +185,9 @@
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-areas:
-			"t p p"
-			"d d d"
-			"b b .";
+      "t p p"
+      "d d d"
+      "b b .";
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: repeat(3, auto);
 
@@ -211,9 +212,9 @@
 @media screen and (max-width: 430px) {
   .wrapper {
     grid-template-areas:
-			"t p"
-			"d d"
-			"b b";
+      "t p"
+      "d d"
+      "b b";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
 
@@ -225,6 +226,8 @@
     .prices {
       font-size: 12px;
       line-height: 15px;
+
+      column-gap: 15px;
     }
 
     .button {
@@ -241,6 +244,10 @@
     .title {
       font-size: 10px;
       line-height: 12px;
+    }
+
+    .prices {
+      font-size: 10px;
     }
   }
 }

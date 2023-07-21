@@ -20,12 +20,12 @@ export function WeDo({ biz = false }: WeDoProps) {
 						<Link
 							key={current.title}
 							className={s.info}
-							style={{ marginLeft: index * 8 + "%" }}
+							style={{ marginLeft: index * 8.6 + "%" }}
 							href={{
 								pathname: PAGES_LINK.SERVICES,
 								hash: current.name,
 							}}
-							// scroll={false}
+						// scroll={false}
 						>
 							<h2 className={s.info__title}>{current.title}</h2>
 							<h3 className={s.info__subtitle}>{current.text}</h3>
