@@ -226,6 +226,8 @@
     .prices {
       font-size: 12px;
       line-height: 15px;
+
+      column-gap: 15px;
     }
 
     .button {
@@ -242,6 +244,10 @@
     .title {
       font-size: 10px;
       line-height: 12px;
+    }
+
+    .prices {
+      font-size: 10px;
     }
   }
 }
