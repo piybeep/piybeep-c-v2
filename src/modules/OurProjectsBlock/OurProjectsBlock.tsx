@@ -58,11 +58,7 @@ export function OurProjectsBlock({
 			>
 				{projects?.map((item) => (
 					<SwiperSlide key={item.id}>
-						<ProjectCard
-							id={item.id}
-							title={item.title}
-							description={item.description}
-						/>
+						<ProjectCard {...item} />
 					</SwiperSlide>
 				))}
 				<SwiperButtons groupCount={groupCount} count={count} />

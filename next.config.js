@@ -4,9 +4,8 @@ const nextConfig = {
 	reactStrictMode: false,
 	swcMinify: true,
 	images: {
-		domains: ["piybeep.com"],
+		domains: ["piybeep.com", "piybeep.ru"],
 	},
 };
 
 module.exports = nextConfig;
-

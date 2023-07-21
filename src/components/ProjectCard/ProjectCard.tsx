@@ -11,14 +11,14 @@ export function ProjectCard({ ...props }: /*ProjectCardProps*/ any) {
 		>
 			<div className={s.image}>
 				<Image
-					src={"/imgs/project-template.png"}
+					src={props.preview_image /*"/imgs/project-template.png"*/}
 					alt=""
-					width={800}
-					height={600}
+					width={520}
+					height={390}
 				/>
 			</div>
 			<h3 className={s.title}>{props.title}</h3>
-			<p className={s.description}>{props.description}</p>
+			<p className={s.description}>{props.subtitle}</p>
 		</Link>
 	);
 }

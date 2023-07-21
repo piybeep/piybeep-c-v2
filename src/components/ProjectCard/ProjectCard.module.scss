@@ -2,18 +2,16 @@
   cursor: pointer;
 
   .image {
-    // background-color: #ececec;
     margin-bottom: 15px;
 
     height: 100%;
     width: 100%;
 
     img {
-      // border: 1px inset red;
-      // max-height: 390px;
       height: 100%;
       width: 100%;
-      object-fit: contain;
+      aspect-ratio: 520/390;
+      object-fit: fill;
     }
   }
 
@@ -38,7 +36,7 @@
   }
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1500px) {
   .project_card {
     h3,
     p {
