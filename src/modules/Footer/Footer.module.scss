@@ -1,36 +1,33 @@
 @import "../../styles/variables.scss";
 
 $media: (
-        1550px: (
-                links: 14px,
-                contacts: 48px,
-                copyright: 16px,
-                padding: 48px 0,
-                row-gap: 40px,
-                wrapper-row-gap: 40px,
-                fdir: row,
-                align-items: flex-start,
-        ),
-        1024px: (
-                links: 14px,
-                contacts: 34px,
-                copyright: 16px,
-                padding: 34px 0,
-                row-gap: 40px,
-                wrapper-row-gap: 40px,
-                fdir: row,
-                align-items: flex-start,
-        ),
-        768px: (
-                links: 12px,
-                contacts: 12px,
-                copyright: 12px,
-                padding: 15px 0,
-                row-gap: 35px,
-                wrapper-row-gap: 15px,
-                fdir: column,
-                align-items: center,
-        ),
+  1550px: (links: 14px,
+    contacts: 48px,
+    copyright: 16px,
+    padding: 48px 0,
+    row-gap: 40px,
+    wrapper-row-gap: 40px,
+    fdir: row,
+    align-items: flex-start,
+  ),
+  1024px: (links: 14px,
+    contacts: 34px,
+    copyright: 16px,
+    padding: 34px 0,
+    row-gap: 40px,
+    wrapper-row-gap: 40px,
+    fdir: row,
+    align-items: flex-start,
+  ),
+  768px: (links: 12px,
+    contacts: 12px,
+    copyright: 12px,
+    padding: 15px 0,
+    row-gap: 35px,
+    wrapper-row-gap: 15px,
+    fdir: column,
+    align-items: center,
+  ),
 );
 
 .footer {
@@ -104,7 +101,7 @@ $media: (
       display: flex;
       align-items: center;
 
-      background: rgba(231,236,255,.12);
+      background: rgba(231, 236, 255, .12);
       border-radius: 60px;
       padding: 0 4px;
 
@@ -174,6 +171,7 @@ $media: (
       justify-content: center;
 
     }
+
     .wrapper {
       max-width: 1318px;
     }
@@ -197,7 +195,19 @@ $media: (
   }
 }
 
-@each $width, $params in $media {
+@media screen and (max-width: 540px) {
+  .footer {
+
+    .pages,
+    .contacts,
+    .links {
+      column-gap: 15px !important;
+    }
+  }
+}
+
+@each $width,
+$params in $media {
   @media screen and (max-width: #{$width}) {
     .footer {
       padding: map-get($map: $params, $key: "padding");
@@ -208,11 +218,15 @@ $media: (
 
       .wrapper {
         flex-direction: map-get($map: $params, $key: "fdir");
-        @if (map-get($map: $params, $key: "align-items") == flex-start) {
+
+        @if (map-get($map: $params, $key: "align-items")==flex-start) {
           align-self: stretch;
-        } @else {
+        }
+
+        @else {
           align-items: map-get($map: $params, $key: "align-items");
         }
+
         row-gap: map-get($map: $params, $key: "wrapper-row-gap");
       }
 
@@ -231,11 +245,14 @@ $media: (
       }
 
       .copyright {
-        @if (map-get($map: $params, $key: "align-items") == flex-start) {
+        @if (map-get($map: $params, $key: "align-items")==flex-start) {
           text-align: end;
-        } @else {
+        }
+
+        @else {
           text-align: center;
         }
+
         font-size: map-get($map: $params, $key: "copyright");
       }
     }
