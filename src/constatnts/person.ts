@@ -40,18 +40,6 @@ export const PERSON_LIST = [
 	},
 	{
 		id: 5,
-		title: "Иван Сафонов",
-		text: "Frontend-разработчик",
-		img: pr_6,
-	},
-	{
-		id: 6,
-		title: "Павел Коротков",
-		text: "Backend-разработчик",
-		img: pr_7,
-	},
-	{
-		id: 7,
 		title: "Данила Кулешов",
 		text: "Frontend-разработчик",
 		img: pr_unknown,
