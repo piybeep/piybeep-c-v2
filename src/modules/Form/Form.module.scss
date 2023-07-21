@@ -114,6 +114,10 @@
 @media screen and (max-width: 1024px) {
   .form {
     row-gap: 40px;
+
+    .info {
+      row-gap: 15px;
+    }
   }
 
   .products {

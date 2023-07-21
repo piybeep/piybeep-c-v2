@@ -20,7 +20,7 @@ export function WeDo({ biz = false }: WeDoProps) {
 						<Link
 							key={current.title}
 							className={s.info}
-							style={{ marginLeft: index * 9 + "%" }}
+							style={{ marginLeft: index * 8.6 + "%" }}
 							href={{
 								pathname: PAGES_LINK.SERVICES,
 								hash: current.name,

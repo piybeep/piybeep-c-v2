@@ -19,7 +19,7 @@ $media: (
     fdir: row,
     align-items: flex-start,
   ),
-  768px: (links: 12px,
+  980px: (links: 12px,
     contacts: 12px,
     copyright: 12px,
     padding: 15px 0,
@@ -178,7 +178,7 @@ $media: (
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .footer {
     .contacts {
       a {
@@ -192,11 +192,6 @@ $media: (
     // nav.links {
     // 	margin-bottom: 35px;
     // }
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .footer {
 
     .pages,
     .contacts,
