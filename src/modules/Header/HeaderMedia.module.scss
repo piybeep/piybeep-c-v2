@@ -15,6 +15,8 @@
     &__visible {
       transform: translateY(0px);
     }
+
+    top: -60px;
   }
 
   .preview {
@@ -41,8 +43,8 @@
   .bar {
     display: grid;
     grid-template-areas:
-        'logo info'
-        'menu menu';
+      'logo info'
+      'menu menu';
     row-gap: 30px;
     align-items: center;
     background-color: $black-color;
