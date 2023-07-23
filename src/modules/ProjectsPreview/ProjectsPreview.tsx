@@ -1,6 +1,5 @@
 import Image from "next/image";
 import s from "./ProjectsPreview.module.scss";
-import RUB from "../../../public/svg/rub.svg";
 import { Project } from "../../utils";
 import Link from "next/link";
 import { PAGES_LINK } from "../../constatnts";
@@ -9,20 +8,11 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 	const titles = [
 		{
 			text: "Сайты",
-			price: (
-				<>
-					{">"} 59 900 <Image src={RUB} alt={"р."} height={35} />
-				</>
-			),
+			price: <>{">"} 59 900 р.</>,
 		},
 		{
 			text: "Поддержка",
-			price: (
-				<>
-					{">"} 9 900 <Image src={RUB} alt={"р."} height={35} />
-					/мес
-				</>
-			),
+			price: <>{">"} 9 900 р./мес</>,
 		},
 	];
 
