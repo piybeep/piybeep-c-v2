@@ -132,4 +132,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-PortfolioCase.getLayout = (page: ReactNode) => <BaseLayout>{page}</BaseLayout>;
+PortfolioCase.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => <BaseLayout services={services}>{page}</BaseLayout>;

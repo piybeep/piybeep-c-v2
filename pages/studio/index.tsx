@@ -70,8 +70,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	};
 };
 
-Studio.getLayout = (page: ReactNode) => (
-	<BaseLayout>
+Studio.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => (
+	<BaseLayout services={services}>
 		<Head>
 			<title>Студия - piybeep.</title>
 			<meta name="description" content="Наша студия" />

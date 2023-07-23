@@ -76,8 +76,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	};
 };
 
-Portfolio.getLayout = (page: ReactNode) => (
-	<BaseLayout>
+Portfolio.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => (
+	<BaseLayout services={services}>
 		<Head>
 			<title>Портфолио - piybeep.</title>
 			<meta name="description" content="Наше портфолио" />

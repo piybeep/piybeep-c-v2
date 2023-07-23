@@ -59,8 +59,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	};
 };
 
-Services.getLayout = (page: ReactNode) => (
-	<BaseLayout>
+Services.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => (
+	<BaseLayout services={services}>
 		<Head>
 			<title>Услуги - piybeep.</title>
 			<meta name="description" content="Наши услуги" />

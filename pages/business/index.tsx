@@ -123,8 +123,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	};
 };
 
-BusinessPage.getLayout = (page: ReactNode) => (
-	<BaseLayout>
+BusinessPage.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => (
+	<BaseLayout services={services}>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta
