@@ -122,8 +122,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	};
 };
 
-Home.getLayout = (page: ReactNode) => (
-	<BaseLayout>
+Home.getLayout = (
+	page: ReactNode,
+	{
+		services,
+	}: {
+		services: EntityState<Service> & EntityActions<Service>;
+	},
+) => (
+	<BaseLayout services={services}>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta

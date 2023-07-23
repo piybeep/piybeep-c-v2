@@ -1,16 +1,22 @@
-import {Eyes, Footer, Header, PopupForm} from "../../modules";
-import {PopupAuth} from "../../modules/PopupAuth";
+import { Eyes, Footer, Header, PopupForm } from "../../modules";
 import React from "react";
+import { EntityActions, EntityState, Service } from "../../utils";
 
-export function BaseLayout({children}: { children: React.ReactNode }) {
-    return (
-        <>
-            <PopupForm/>
-            <PopupAuth/>
-            <Eyes/>
-            <Header/>
-            {children}
-            <Footer/>
-        </>
-    );
+export function BaseLayout({
+	children,
+	services,
+}: {
+	children: React.ReactNode;
+	services: EntityState<Service> & EntityActions<Service>;
+}) {
+	return (
+		<>
+			<PopupForm services={services.list} count={services.total_count} />
+			{/*<PopupAuth />*/}
+			<Eyes />
+			<Header />
+			{children}
+			<Footer />
+		</>
+	);
 }

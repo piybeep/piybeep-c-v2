@@ -7,13 +7,19 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 
 import { Input, Title } from "../../components";
-import { FORM__PRODUCTS, PRIVACY_LINK } from "../../constatnts";
-import { toast } from "../../utils";
+import { PRIVACY_LINK } from "../../constatnts";
+import { Service, toast } from "../../utils";
 
 import s from "./PopupForm.module.scss";
 import Link from "next/link";
 
-export function PopupForm() {
+export function PopupForm({
+	services,
+	count,
+}: {
+	services: Service[];
+	count: number;
+}) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const { isHas, query, mutate } = useRouterQuery();
@@ -134,15 +140,15 @@ export function PopupForm() {
 					/>
 				</div>
 				<div className={s.products}>
-					{FORM__PRODUCTS.map((current) => (
+					{services.map((current) => (
 						<h2
-							key={current}
+							key={current.id}
 							className={classNames(s.products__product, {
-								[s.products__product_active]: isHasUserSelect(current),
+								[s.products__product_active]: isHasUserSelect(current.name),
 							})}
-							onClick={() => handleProduct(current)}
+							onClick={() => handleProduct(current.name)}
 						>
-							{current}
+							{current.name}
 						</h2>
 					))}
 				</div>
