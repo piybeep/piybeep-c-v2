@@ -3,9 +3,16 @@ import { ReactNode } from "react";
 
 import { BaseLayout } from "../../src/layouts";
 import { Form, ProductsList, SupportBlock } from "../../src/modules";
-import { PRODUCTS } from "../../src/constatnts";
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import { EntityActions, EntityState, Service } from "../../src/utils";
+import { useServices } from "../../src/store";
 
-export default function Services() {
+export default function Services({
+	services,
+}: {
+	services: EntityState<Service> & EntityActions<Service>;
+}) {
 	return (
 		<main
 			style={{
@@ -14,13 +21,43 @@ export default function Services() {
 			}}
 		>
 			<div className="content-wrapper">
-				<ProductsList list={PRODUCTS} />
+				<ProductsList
+					list={services.list.filter((i) => i.type === "service")}
+				/>
 				<SupportBlock />
 			</div>
-			<Form />
+			<Form services={services.list} count={services.total_count} />
 		</main>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+	const URIs = ["services"];
+
+	const [services_response] = await Promise.allSettled(
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+	);
+
+	if (services_response.status === "fulfilled") {
+		useServices.setState(
+			{
+				list: services_response.value.data[0],
+				total_count: services_response.value.data[1],
+			},
+			true,
+		);
+	} else {
+		useServices.setState({
+			error: new Error(services_response.reason.response.data),
+		});
+	}
+
+	return {
+		props: {
+			services: useServices.getState(),
+		},
+	};
+};
 
 Services.getLayout = (page: ReactNode) => (
 	<BaseLayout>

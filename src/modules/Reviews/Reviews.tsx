@@ -7,9 +7,16 @@ import { useWindowSizes } from "../../hooks";
 
 import s from "./Reviews.module.scss";
 import { SwiperButtons } from "../../components";
-import { PAGES_LINK, REVIEWS_LIST } from "../../constatnts";
+import { PAGES_LINK } from "../../constatnts";
+import { Review } from "../../utils";
 
-export function Reviews() {
+export function Reviews({
+	reviews,
+	count = 0,
+}: {
+	reviews: Review[];
+	count: number;
+}) {
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 
@@ -37,18 +44,20 @@ export function Reviews() {
 					},
 				}}
 			>
-				{REVIEWS_LIST.map((i) => (
+				{reviews.map((i) => (
 					<SwiperSlide key={i.id} className={s.slide}>
 						<div className={s.text}>{i.text}</div>
 						<div className={s.info}>
 							{i.author} -{" "}
-							<Link href={[PAGES_LINK.PORTFOLIO, i.project.id].join("/")}>
-								{i.project.title}
-							</Link>
+							{i.project && (
+								<Link href={[PAGES_LINK.PORTFOLIO, i.project?.id].join("/")}>
+									{i.project?.title}
+								</Link>
+							)}
 						</div>
 					</SwiperSlide>
 				))}
-				<SwiperButtons groupCount={groupCount} count={REVIEWS_LIST.length} />
+				<SwiperButtons groupCount={groupCount} count={count} />
 			</Swiper>
 		</BlockLayout>
 	);

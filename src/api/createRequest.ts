@@ -12,8 +12,8 @@ export default function CreateRequest({
 	name,
 }: RequestPayload) {
 	return axios.post(`${process.env.NEXT_PUBLIC_API_URL}/requests`, {
-		contact,
-		selects,
 		name,
+		contact,
+		services: selects,
 	});
 }

@@ -15,16 +15,29 @@ import { BaseLayout } from "../../src/layouts";
 import { TEXT_SLIDER_BIZ } from "../../src/constatnts";
 import { GetServerSideProps } from "next";
 import axios from "axios";
+import {
+	EntityActions,
+	EntityState,
+	Project,
+	Review,
+	Service,
+} from "../../src/utils";
+import { useProjects, useReviews, useServices } from "../../src/store";
 
-export default function Home({ projects, count }: any) {
+export default function BusinessPage({
+	projects,
+	services,
+	reviews,
+}: {
+	projects: EntityState<Project> & EntityActions<Project>;
+	services: EntityState<Service> & EntityActions<Service>;
+	reviews: EntityState<Review> & EntityActions<Review>;
+}) {
 	return (
 		<main
 			style={{
 				display: "flex",
 				flexDirection: "column",
-				// rowGap: 100,
-				// marginBottom: 90,
-				// marginTop: 50,
 			}}
 		>
 			<OpenFormButton />
@@ -37,33 +50,80 @@ export default function Home({ projects, count }: any) {
 					imgPosition={"right"}
 				/>
 				<WeDo biz />
-				<OurProjectsBlock projects={projects} count={count} />
+				<OurProjectsBlock
+					projects={projects.list}
+					count={projects.total_count}
+				/>
 				<Business />
 				<Pluses />
-				<Reviews />
+				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>
-			<Form />
+			<Form services={services.list} count={services.total_count} />
 		</main>
 	);
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const response = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/projects?take=12&skip=0`,
-	);
+	const URIs = ["projects", "services", "reviews"];
 
-	const [projects, count] = response.data;
+	const [projects_response, services_response, reviews_response] =
+		await Promise.allSettled(
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+		);
+
+	if (projects_response.status === "fulfilled") {
+		useProjects.setState(
+			{
+				list: projects_response.value.data[0],
+				total_count: projects_response.value.data[1],
+			},
+			true,
+		);
+	} else {
+		useProjects.setState({
+			error: new Error(projects_response.reason.response.data),
+		});
+	}
+
+	if (services_response.status === "fulfilled") {
+		useServices.setState(
+			{
+				list: services_response.value.data[0],
+				total_count: services_response.value.data[1],
+			},
+			true,
+		);
+	} else {
+		useServices.setState({
+			error: new Error(services_response.reason.response.data),
+		});
+	}
+
+	if (reviews_response.status === "fulfilled") {
+		useReviews.setState(
+			{
+				list: reviews_response.value.data[0],
+				total_count: reviews_response.value.data[1],
+			},
+			true,
+		);
+	} else {
+		useReviews.setState({
+			error: new Error(reviews_response.reason.response.data),
+		});
+	}
 
 	return {
 		props: {
-			projects,
-			count,
+			projects: useProjects.getState(),
+			services: useServices.getState(),
+			reviews: useReviews.getState(),
 		},
 	};
 };
 
-Home.getLayout = (page: ReactNode) => (
+BusinessPage.getLayout = (page: ReactNode) => (
 	<BaseLayout>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>

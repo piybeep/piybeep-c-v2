@@ -2,23 +2,25 @@ import Image from "next/image";
 import s from "./ProjectCard.module.scss";
 import classNames from "classnames";
 import Link from "next/link";
+import { Project } from "../../utils";
+import { PAGES_LINK } from "../../constatnts";
 
-export function ProjectCard({ ...props }: /*ProjectCardProps*/ any) {
+export function ProjectCard({ project }: { project: Project }) {
 	return (
 		<Link
-			className={classNames(props?.className, s.project_card)}
-			href={`/portfolio/${props.id}`}
+			className={classNames(s.project_card)}
+			href={[PAGES_LINK.PORTFOLIO, project.id].join("/")}
 		>
 			<div className={s.image}>
 				<Image
-					src={props.preview_image /*"/imgs/project-template.png"*/}
-					alt=""
+					src={project.preview_image}
+					alt={project.title}
 					width={520}
 					height={390}
 				/>
 			</div>
-			<h3 className={s.title}>{props.title}</h3>
-			<p className={s.description}>{props.subtitle}</p>
+			<h3 className={s.title}>{project.title}</h3>
+			<p className={s.description}>{project.subtitle}</p>
 		</Link>
 	);
 }

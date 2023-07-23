@@ -3,6 +3,7 @@ import React from "react";
 
 import { Montserrat } from "@next/font/google";
 import { NotFound } from "../src/modules";
+import classNames from "classnames";
 
 const font = Montserrat({
 	preload: true,
@@ -17,7 +18,7 @@ export default function NotFoundPage() {
 				<title>{"Страница не найдена - piybeep."}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className={["not_found", font.className].join(" ")}>
+			<main className={classNames("not_found", font.className)}>
 				<NotFound />
 			</main>
 		</>

@@ -6,6 +6,7 @@ import { BlockLayout } from "../../layouts";
 import { useWindowSizes } from "../../hooks";
 
 import s from "./OurProjectsBlock.module.scss";
+import { Project } from "../../utils";
 
 export function OurProjectsBlock({
 	title = "Наши проекты",
@@ -15,7 +16,7 @@ export function OurProjectsBlock({
 }: {
 	title?: string;
 	subtitle?: string;
-	projects: any[];
+	projects: Project[];
 	count?: number;
 }) {
 	const { width } = useWindowSizes();
@@ -56,9 +57,9 @@ export function OurProjectsBlock({
 					},
 				}}
 			>
-				{projects?.map((item) => (
+				{projects.map((item) => (
 					<SwiperSlide key={item.id}>
-						<ProjectCard {...item} />
+						<ProjectCard project={item} />
 					</SwiperSlide>
 				))}
 				<SwiperButtons groupCount={groupCount} count={count} />

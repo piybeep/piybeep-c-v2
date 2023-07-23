@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 
 import { Button, Input, Title } from "../../components";
 
-import { FORM__PRODUCTS, PRIVACY_LINK } from "../../constatnts";
+import { PRIVACY_LINK } from "../../constatnts";
 
 import { useRouterQuery, useUserSelectForm } from "../../hooks";
 
@@ -12,9 +12,9 @@ import s from "./Form.module.scss";
 import { useEffect } from "react";
 import Link from "next/link";
 import CreateRequest from "../../api/createRequest";
-import { toast } from "../../utils";
+import { Service, toast } from "../../utils";
 
-export function Form() {
+export function Form({ services }: { services: Service[]; count: number }) {
 	const {
 		add: addUserSelect,
 		remove: removeUserSelect,
@@ -96,15 +96,15 @@ export function Form() {
 					/>
 				</div>
 				<div className={s.products}>
-					{FORM__PRODUCTS.map((current) => (
+					{services.map((current: any) => (
 						<h2
-							key={current}
+							key={current.id}
 							className={classNames(s.products__product, {
-								[s.products__product_active]: isHasUserSelect(current),
+								[s.products__product_active]: isHasUserSelect(current.name),
 							})}
-							onClick={() => handleProduct(current)}
+							onClick={() => handleProduct(current.name)}
 						>
-							{current}
+							{current.name}
 						</h2>
 					))}
 				</div>
@@ -123,18 +123,6 @@ export function Form() {
 						type="submit"
 						disabled={formik.isSubmitting || !formik.isValid}
 					/>
-					{/*<Privacy
-						text={
-							<>
-								Я соглашаюсь на хранение и обработку{" "}
-								<Link href={PRIVACY_LINK}>персональных данных</Link>
-							</>
-						}
-						checked={formik.values.privacy}
-						onClick={() =>
-							formik.setFieldValue("privacy", !formik.values.privacy)
-						}
-					/>*/}
 				</div>
 			</form>
 		</main>

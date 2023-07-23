@@ -1,8 +1,11 @@
 import Image from "next/image";
 import s from "./ProjectsPreview.module.scss";
 import RUB from "../../../public/svg/rub.svg";
+import { Project } from "../../utils";
+import Link from "next/link";
+import { PAGES_LINK } from "../../constatnts";
 
-export function ProjectsPreview() {
+export function ProjectsPreview({ projects }: { projects: Project[] }) {
 	const titles = [
 		{
 			text: "Сайты",
@@ -22,20 +25,6 @@ export function ProjectsPreview() {
 			),
 		},
 	];
-	const images = [
-		{ id: "1", src: "/imgs/2-preview-template.png" },
-		{ id: "2", src: "/imgs/2-preview-template.png" },
-		{ id: "3", src: "/imgs/preview-template.png" },
-		{ id: "4", src: "/imgs/preview-template.png" },
-		{ id: "5", src: "/imgs/preview-template.png" },
-		{ id: "6", src: "/imgs/preview-template.png" },
-		{ id: "7", src: "/imgs/2-preview-template.png" },
-		{ id: "8", src: "/imgs/preview-template.png" },
-		{ id: "9", src: "/imgs/preview-template.png" },
-		{ id: "10", src: "/imgs/preview-template.png" },
-		{ id: "11", src: "/imgs/2-preview-template.png" },
-		{ id: "12", src: "/imgs/preview-template.png" },
-	];
 
 	return (
 		<div className={s.wrapper}>
@@ -54,10 +43,19 @@ export function ProjectsPreview() {
 				приносит прибыль.
 			</p>
 			<div className={s.preview}>
-				{images.map((i) => (
-					<div key={i.id} className={s.container}>
-						<Image src={i.src} alt="" width={270} height={152} />
-					</div>
+				{projects.map((i) => (
+					<Link
+						key={i.id}
+						href={[PAGES_LINK.PORTFOLIO, i.id].join("/")}
+						className={s.container}
+					>
+						<Image
+							src={i.preview_image}
+							alt={i.title}
+							width={270}
+							height={152}
+						/>
+					</Link>
 				))}
 			</div>
 		</div>

@@ -5,10 +5,9 @@ import rehypeRaw from "rehype-raw";
 import ReactMarkdown from "react-markdown";
 
 import s from "./ProjectPost.module.scss";
+import { Project } from "../../utils";
 
-import { ProjectPostProps } from "./ProjectPost.d";
-
-export function ProjectPost({ project }: ProjectPostProps) {
+export function ProjectPost({ project }: { project: Project }) {
 	const ACCESS_DECODING: { [key: string]: ReactElement } = {
 		closed: <>Закрытый проект</>,
 		beta: <>Бета-проект</>,

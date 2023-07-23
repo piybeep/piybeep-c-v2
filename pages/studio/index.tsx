@@ -11,8 +11,16 @@ import {
 	Team,
 	Technologies,
 } from "../../src/modules";
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import { EntityActions, EntityState, Service } from "../../src/utils";
+import { useServices } from "../../src/store";
 
-export default function Studio() {
+export default function Studio({
+	services,
+}: {
+	services: EntityState<Service> & EntityActions<Service>;
+}) {
 	return (
 		<main
 			style={{
@@ -29,10 +37,38 @@ export default function Studio() {
 				<Contacts />
 				<Technologies />
 			</div>
-			<Form />
+			<Form services={services.list} count={services.total_count} />
 		</main>
 	);
 }
+
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+	const URIs = ["services"];
+
+	const [services_response] = await Promise.allSettled(
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+	);
+
+	if (services_response.status === "fulfilled") {
+		useServices.setState(
+			{
+				list: services_response.value.data[0],
+				total_count: services_response.value.data[1],
+			},
+			true,
+		);
+	} else {
+		useServices.setState({
+			error: new Error(services_response.reason.response.data),
+		});
+	}
+
+	return {
+		props: {
+			services: useServices.getState(),
+		},
+	};
+};
 
 Studio.getLayout = (page: ReactNode) => (
 	<BaseLayout>
