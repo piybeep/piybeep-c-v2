@@ -2,7 +2,8 @@ import Image from "next/image";
 
 import { AboutUsProps } from "./AboutUs.types";
 
-import aboutImg from "../../../public/imgs/about-us.png";
+import aboutImgBiz from "../../../public/imgs/about-us-biz.png";
+import aboutImgMarket from "../../../public/imgs/about-us-market.png";
 
 import s from "./AboutUs.module.scss";
 import classNames from "classnames";
@@ -25,7 +26,7 @@ export function AboutUs({
 					width={1080}
 					height={606}
 					className={s.info__img}
-					src={aboutImg.src}
+					src={(imgPosition === "right" ? aboutImgMarket : aboutImgBiz).src}
 					alt="Картинка"
 				/>
 			</div>
