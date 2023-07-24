@@ -10,7 +10,7 @@ export interface Service extends BaseEntity {
 	price: number;
 	discount: number;
 	isHide: boolean;
-	idAvailable: boolean;
+	isAvailable: boolean;
 	type: string;
 }
 
