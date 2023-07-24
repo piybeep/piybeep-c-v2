@@ -48,7 +48,8 @@ export function Reviews({
 					<SwiperSlide key={i.id} className={s.slide}>
 						<div className={s.text}>{i.text}</div>
 						<div className={s.info}>
-							{i.author} -{" "}
+							{i.author}
+							{i.project ? " - " : " "}
 							{i.project && (
 								<Link href={[PAGES_LINK.PORTFOLIO, i.project?.id].join("/")}>
 									{i.project?.title}
