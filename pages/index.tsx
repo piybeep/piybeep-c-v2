@@ -54,7 +54,7 @@ export default function Home({
 					count={projects.total_count}
 				/>
 				<AdvantagesBlock />
-				<ProjectsPreview projects={projects.list} />
+				<ProjectsPreview projects={projects.list.slice(0, 8)} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
 			</div>

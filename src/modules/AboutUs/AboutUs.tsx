@@ -26,7 +26,7 @@ export function AboutUs({
 					width={1080}
 					height={606}
 					className={s.info__img}
-					src={(imgPosition === "right" ? aboutImgMarket : aboutImgBiz).src}
+					src={(imgPosition === "left" ? aboutImgMarket : aboutImgBiz).src}
 					alt="Картинка"
 				/>
 			</div>
