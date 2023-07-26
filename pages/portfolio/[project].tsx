@@ -83,7 +83,11 @@ export default function PortfolioCase({
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const URIs = ["projects", "services", "projects/" + ctx?.params?.project];
+	const URIs = [
+		"projects?rand=true",
+		"services",
+		"projects/" + ctx?.params?.project,
+	];
 
 	const [projects_response, services_response, project_response] =
 		await Promise.allSettled(
