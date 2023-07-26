@@ -8,7 +8,7 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 	const titles = [
 		{
 			text: "Сайты",
-			price: <>{">"} 59 900 р.</>,
+			price: <>{">"} 65 900 р.</>,
 		},
 		{
 			text: "Поддержка",

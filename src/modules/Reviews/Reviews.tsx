@@ -52,7 +52,7 @@ export function Reviews({
 							{i.project && " - "}
 							{i.project && (
 								<Link href={[PAGES_LINK.PORTFOLIO, i.project?.id].join("/")}>
-									{i.project?.title}
+									{i.project?.subtitle}
 								</Link>
 							)}
 						</div>

@@ -17,10 +17,11 @@ export function ProjectCard({ project }: { project: Project }) {
 					alt={project.title}
 					width={520}
 					height={390}
+					quality={85}
 				/>
 			</div>
-			<h3 className={s.title}>{project.title}</h3>
-			<p className={s.description}>{project.subtitle}</p>
+			<h3 className={s.title}>{project.subtitle}</h3>
+			<p className={s.description}>{project.title}</p>
 		</Link>
 	);
 }

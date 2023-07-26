@@ -28,6 +28,7 @@ export function AboutUs({
 					className={s.info__img}
 					src={(imgPosition === "left" ? aboutImgMarket : aboutImgBiz).src}
 					alt="Картинка"
+					quality={85}
 				/>
 			</div>
 		</div>
