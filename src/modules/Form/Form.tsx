@@ -38,7 +38,8 @@ export function Form({ services }: { services: Service[]; count: number }) {
 		initialValues,
 		validationSchema: Yup.object({
 			name: Yup.string().required(),
-			contact: Yup.string().email().required(),
+			contact: Yup.string() /*.email()*/
+				.required(),
 			selects: Yup.array().of(Yup.string()).min(1),
 		}),
 		onSubmit(values) {

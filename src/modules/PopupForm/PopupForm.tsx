@@ -68,7 +68,8 @@ export function PopupForm({
 		initialValues,
 		validationSchema: Yup.object({
 			name: Yup.string().required(),
-			contact: Yup.string().email().required(),
+			contact: Yup.string() /*.email()*/
+				.required(),
 			selects: Yup.array().of(Yup.string()),
 		}),
 		onSubmit: (values) => {
