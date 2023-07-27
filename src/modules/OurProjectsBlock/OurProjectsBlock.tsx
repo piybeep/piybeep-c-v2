@@ -1,10 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { ProjectCard, SwiperButtons } from "../../components";
 import { BlockLayout } from "../../layouts";
 import { useWindowSizes } from "../../hooks";
-
 import s from "./OurProjectsBlock.module.scss";
 import { Project } from "../../utils";
 
@@ -31,7 +29,7 @@ export function OurProjectsBlock({
 			<Swiper
 				className={s.slider}
 				direction="horizontal"
-				spaceBetween={40}
+				spaceBetween={20}
 				slidesPerView={1.4}
 				slidesPerGroup={1}
 				wrapperClass={s.wrapper}
@@ -44,6 +42,7 @@ export function OurProjectsBlock({
 						allowTouchMove: false,
 						slidesPerGroup: 3,
 						slidesPerView: 3,
+						spaceBetween: 40,
 					},
 					768: {
 						slidesPerGroup: 2,
@@ -54,6 +53,7 @@ export function OurProjectsBlock({
 					},
 					360: {
 						slidesPerView: 1.6,
+						spaceBetween: 20,
 					},
 				}}
 			>

@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 import CreateRequest from "../../api/createRequest";
 import { Service, toast } from "../../utils";
+import { useApp } from "../../store";
+import { useInView } from "react-intersection-observer";
 
 export function Form({ services }: { services: Service[]; count: number }) {
 	const {
@@ -28,6 +30,13 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			? removeUserSelect(current)
 			: addUserSelect(current);
 	};
+
+	const toggleShowFormButton = useApp((state) => state.toggleShowFormButton);
+	const { ref } = useInView({
+		onChange: (inView) => {
+			toggleShowFormButton(!inView);
+		},
+	});
 
 	const initialValues: {
 		name: string;
@@ -72,7 +81,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 	}, [query.userSelect]);
 
 	return (
-		<main className={s.wrapper}>
+		<main className={s.wrapper} ref={ref}>
 			<Title value="Оставьте заявку и мы с вами свяжемся" />
 			<form className={s.form} onSubmit={formik.handleSubmit}>
 				<div className={s.info}>

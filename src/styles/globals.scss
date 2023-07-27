@@ -77,7 +77,8 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+// полосы на фоне
+@media screen and (min-width: 1270px) {
   html {
     .wrapper {
       &::after {
@@ -116,6 +117,7 @@ body {
   }
 }
 
+// тень в шапке
 @media screen and (min-width: 920px) {
   html {
     .wrapper {
