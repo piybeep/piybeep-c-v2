@@ -31,10 +31,12 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			: addUserSelect(current);
 	};
 
-	const toggleShowFormButton = useApp((state) => state.toggleShowFormButton);
+	const toggleIsFooterFormInView = useApp(
+		(state) => state.toggleIsFooterFormInView,
+	);
 	const { ref } = useInView({
 		onChange: (inView) => {
-			toggleShowFormButton(!inView);
+			toggleIsFooterFormInView(inView);
 		},
 	});
 

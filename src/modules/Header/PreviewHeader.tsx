@@ -11,11 +11,12 @@ import { useApp } from "../../store";
 
 export function PreviewHeader() {
 	const query = useRouter();
-	const toggleShowFormButton = useApp((state) => state.toggleShowFormButton);
+	const toggleIsPreviewHeaderInView = useApp(
+		(state) => state.toggleIsPreviewHeaderInView,
+	);
 	const { ref } = useInView({
 		onChange: (inView) => {
-			console.log(`onChange: `, inView);
-			toggleShowFormButton(!inView);
+			toggleIsPreviewHeaderInView(inView);
 		},
 	});
 

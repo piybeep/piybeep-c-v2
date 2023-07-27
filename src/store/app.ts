@@ -1,14 +1,19 @@
 import { create } from "zustand";
 
 interface AppState {
-	showFormButton: boolean;
-	toggleShowFormButton: (flag?: boolean) => void;
+	isPreviewHeaderInView: boolean;
+	isFooterFormInView: boolean;
+	toggleIsPreviewHeaderInView: (flag: boolean) => void;
+	toggleIsFooterFormInView: (flag: boolean) => void;
 }
 
 export const useApp = create<AppState>()((set) => ({
-	showFormButton: false,
-	toggleShowFormButton: (flag?: boolean) =>
+	isPreviewHeaderInView: true,
+	isFooterFormInView: false,
+	toggleIsPreviewHeaderInView: (flag) =>
 		set((state) => ({
-			showFormButton: flag ?? !state.showFormButton,
+			isPreviewHeaderInView: flag ?? !state.isPreviewHeaderInView,
 		})),
+	toggleIsFooterFormInView: (flag) =>
+		set((state) => ({ isFooterFormInView: flag ?? !state.isFooterFormInView })),
 }));
