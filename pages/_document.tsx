@@ -23,11 +23,6 @@ export default function Document() {
             trackLinks:true,
             accurateTrackBounce:true,
             webvisor:true});
-
-				window.dataLayer = window.dataLayer || [];
-				function gtag() {dataLayer.push(arguments); }
-				gtag('js', new Date());
-				gtag('config', 'G-X9R96DCG15');
 				`
                     }
                 </Script>
@@ -42,6 +37,14 @@ export default function Document() {
                 </noscript>
 
                 <Script async src="https://www.googletagmanager.com/gtag/js?id=G-X9R96DCG15"></Script>
+                <Script id="google-analytics">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag() {dataLayer.push(arguments); }
+                        gtag('js', new Date());
+                        gtag('config', 'G-X9R96DCG15');
+                    `}
+                </Script>
             </body>
         </Html>
     )
