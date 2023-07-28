@@ -41,7 +41,7 @@ export default function Document() {
                     </div>
                 </noscript>
 
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9R96DCG15"></script>
+                <Script async src="https://www.googletagmanager.com/gtag/js?id=G-X9R96DCG15"></Script>
             </body>
         </Html>
     )
