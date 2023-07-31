@@ -14,7 +14,7 @@
   background-size: 611px;
   background-repeat: no-repeat;
 
-  padding: 350px 0px;
+  padding: 350px 0;
 
   .title {
     width: fit-content;
@@ -35,7 +35,7 @@
 
 @media screen and (min-width: 0px){
   .wrapper{
-    padding: 120px 0px;
+    padding: 120px 0;
 
     background-size: contain;
   }
@@ -45,7 +45,7 @@
   .wrapper {
     font-size: 32px;
 
-    padding: 150px 0px;
+    padding: 150px 0;
 
     background-size: contain;
   }
@@ -59,7 +59,7 @@
 
     background-size: 288px;
 
-    padding: 150px 0px;
+    padding: 150px 0;
 
     .text {
       height: 70px;
@@ -73,7 +73,7 @@
 
     background-size: 435px;
 
-    padding: 300px 0px;
+    padding: 300px 0;
 
     .text {
       height: 88px;
