@@ -38,7 +38,11 @@ export default function PortfolioCase({
 				<OpenFormButton />
 				<div className="content-wrapper">
 					<p
-						style={{ fontFamily: "inherit", textAlign: "center", padding: 12 }}
+						style={{
+							fontFamily: '"Inter", sans-serif',
+							textAlign: "center",
+							padding: 12,
+						}}
 					>
 						Произошла ошибка. Возможно запрашеваемый проект не найден или был
 						удалён
