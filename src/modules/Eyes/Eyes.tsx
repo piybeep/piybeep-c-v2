@@ -51,7 +51,11 @@ export function Eyes() {
 						Скоро мы напишем вам на почту и обговорим проект подробнее.
 					</h2>
 				</div>
-				<button onClick={() => closeEyes()} className={s.info__button}>
+				<button
+					type={"button"}
+					onClick={() => closeEyes()}
+					className={s.info__button}
+				>
 					Хорошо
 				</button>
 				<Image className={s.info__img} src={imageEye} alt={"Глазки"} />

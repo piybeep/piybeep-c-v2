@@ -23,7 +23,7 @@ export function OpenFormButton() {
 				[s.hide]: isFooterFormInView || isPreviewHeaderInView,
 			})}
 		>
-			<button onClick={() => handleOpenForm()}>
+			<button type={"button"} onClick={() => handleOpenForm()}>
 				<span>Заказать сайт</span>
 			</button>
 		</div>
