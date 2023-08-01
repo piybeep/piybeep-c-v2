@@ -22,6 +22,7 @@ const nextConfig = {
 					{ key: "X-XSS-Protection", value: "1; mode=block" },
 					{ key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
 					{ key: "Referrer-Policy", value: "no-referrer" },
+					{ key: "Cross-Origin-Resource-Policy", value: "same-site" },
 				],
 			},
 		];
