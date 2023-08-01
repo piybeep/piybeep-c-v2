@@ -123,7 +123,9 @@ export function Form({ services }: { services: Service[]; count: number }) {
 				<div className={s.buttons}>
 					<div className={s.privacy}>
 						<h2 className={s.privacy__text}>
-							Отправляя форму, вы принимаете политику хранения и обработки{" "}
+							{
+								'Нажимая "Отправить", вы принимаете политику хранения и обработки '
+							}
 							<Link href={PRIVACY_LINK} className={s.privacy__link}>
 								персональных данных
 							</Link>

@@ -9,6 +9,10 @@ a {
   color: inherit;
 }
 
+.not_found {
+  z-index: 5;
+}
+
 html,
 body {
   // Для блокировки скрол бара при открытии попапа
