@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 /.idea
+
+sitemap.xml
+sitemap-0.xml
+robots.txt
