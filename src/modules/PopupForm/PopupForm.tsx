@@ -15,7 +15,6 @@ import Link from "next/link";
 
 export function PopupForm({
 	services,
-	count,
 }: {
 	services: Service[];
 	count: number;
@@ -159,7 +158,11 @@ export function PopupForm({
 						{
 							'Нажимая "Отправить", вы принимаете политику хранения и обработки '
 						}
-						<Link href={PRIVACY_LINK} className={s.privacy__link}>
+						<Link
+							href={PRIVACY_LINK}
+							target={"_blank"}
+							className={s.privacy__link}
+						>
 							персональных данных
 						</Link>
 					</h2>
