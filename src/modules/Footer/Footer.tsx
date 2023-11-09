@@ -78,7 +78,7 @@ export function Footer() {
 				<div className={s.column}>
 					<div className={s.links}>
 						{SOCIAL_LINKS.map((link) => (
-							<Link key={link.display_name} href={link.link} title={link.link}>
+							<Link key={link.display_name} href={link.link} title={link.link} target={'_blank'}>
 								{link.display_name}
 								<svg
 									width="10"

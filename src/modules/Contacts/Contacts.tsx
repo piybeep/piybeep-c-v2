@@ -43,6 +43,7 @@ export function Contacts() {
 							key={current.display_name}
 							href={current.link}
 							className={s.social__link}
+							target={'_blank'}
 						>
 							<Image
 								className={s.social__img}
