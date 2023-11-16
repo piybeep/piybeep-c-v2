@@ -1,35 +1,35 @@
 @import '../../styles/variables.scss';
 
 .button {
-    width: fit-content;
+  width: fit-content;
 
-    position: sticky;
-    top: 174px;
+  position: sticky;
+  top: 174px;
 
-    color: $white-color;
-    font-size: 12px;
+  color: $white-color;
+  font-size: 12px;
   font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
 
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 
-    z-index: 10 !important;
+  z-index: 10 !important;
 
-    mix-blend-mode: difference;
+  mix-blend-mode: difference;
 
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    column-gap: 6px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 6px;
 
-    &__svg {
-        width: 100%;
-        max-width: 18px;
-    }
+  &__svg {
+    width: 100%;
+    max-width: 18px;
+  }
 }
 
 @media screen and (max-width: 768px) {

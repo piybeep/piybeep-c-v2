@@ -5,13 +5,13 @@ import {
 	Form,
 	OpenFormButton,
 	OurProjectsBlock,
-	PortfolioBack,
 	ProjectPost,
 } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
+import { ButtonBack } from "../../src/_components";
 
 export default function PortfolioCase({
 	project,
@@ -34,7 +34,7 @@ export default function PortfolioCase({
 					<title>Проект не найден - piybeep.</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<PortfolioBack />
+				<ButtonBack />
 				<OpenFormButton />
 				<div className="content-wrapper">
 					<p
@@ -70,7 +70,7 @@ export default function PortfolioCase({
 					<meta name="description" content={project?.title ?? "Наш проект"} />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<PortfolioBack />
+				<ButtonBack />
 				<OpenFormButton />
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
