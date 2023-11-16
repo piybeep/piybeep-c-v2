@@ -59,55 +59,6 @@
 
   width: 100%;
   max-width: 410px;
-
-  &__product {
-    margin: 0;
-
-    user-select: none;
-
-    cursor: pointer;
-
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: underline;
-
-    color: $gray-color;
-
-
-    //transition: 0.3s;
-
-    &:hover {
-      color: $white-color;
-    }
-
-    &_active {
-      color: $main-color !important;
-    }
-  }
-}
-
-.privacy {
-
-  &__text {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-
-    color: $white-color;
-
-    margin: 0;
-  }
-
-  &__link {
-    text-decoration: underline;
-
-    cursor: pointer;
-  }
 }
 
 .buttons {
@@ -177,17 +128,6 @@
 
     border: none;
   }
-}
-
-@media screen and (max-width: 1024px) {
-  .products {
-    &__product {
-      &:hover {
-        color: $gray-color;
-      }
-    }
-  }
-
 }
 
 @media screen and (max-width: 430px) {

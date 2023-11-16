@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    color: $white-color;
+
+    margin: 0;
+
+    &__md {
+        font-size: 16px;
+    }
+
+    &__sm {
+        font-size: 14px;
+    }
+
+
+    &__link {
+        text-decoration: underline;
+
+        cursor: pointer;
+    }
+}

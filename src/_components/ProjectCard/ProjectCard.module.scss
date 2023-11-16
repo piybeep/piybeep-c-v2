@@ -1,0 +1,47 @@
+.project_card {
+  cursor: pointer;
+
+  .image {
+    margin-bottom: 15px;
+
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      aspect-ratio: 520/390;
+      object-fit: fill;
+    }
+  }
+
+  h3,
+  p {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  h3 {
+    color: #8e8e8e;
+  }
+
+  p {
+    margin-top: 5px;
+    color: #ececec;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .project_card {
+    h3,
+    p {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+}
