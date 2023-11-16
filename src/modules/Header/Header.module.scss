@@ -114,49 +114,6 @@
   align-items: center;
   column-gap: 20px;
 
-  .home_links {
-    display: flex;
-    align-items: center;
-
-    background: rgba(231, 236, 255, .12);
-    border-radius: 60px;
-    padding: 0 7px;
-
-    a {
-      text-underline-position: under;
-
-      white-space: nowrap;
-
-      font-family: "Inter", sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 16px;
-
-      text-transform: uppercase;
-
-      color: $gray-color;
-
-      transition: 0.2s;
-
-      padding: 7px;
-
-      &.alt {
-        display: none;
-      }
-
-      &.active {
-        color: $white-color;
-      }
-
-      &:hover {
-        color: $white-color;
-
-        text-decoration: underline;
-      }
-    }
-  }
-
   &__link {
     font-family: "Inter", sans-serif;
     font-style: normal;

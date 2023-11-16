@@ -9,6 +9,7 @@ import s from "./Header.module.scss";
 import logo from "../../../public/svg/logo.svg";
 import Image from "next/image";
 import { PreviewHeader } from "./PreviewHeader";
+import { ButtonHome } from "../../_components";
 
 export function Header() {
 	const query = useRouter();
@@ -73,64 +74,7 @@ export function Header() {
 					</Link>
 
 					<div className={s.menu}>
-						<div className={classNames(s.home_links)}>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Главная
-							</Link>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Для маркетинга
-							</Link>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.BUSINESS}
-							>
-								Для бизнеса
-							</Link>
-							<Link
-								className={classNames(s.alt, {
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Маркетинг
-							</Link>
-							<Link
-								className={classNames(s.alt, {
-									[s.active]:
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.BUSINESS}
-							>
-								Бизнес
-							</Link>
-						</div>
+						<ButtonHome pathname={query.pathname} />
 						{links}
 					</div>
 

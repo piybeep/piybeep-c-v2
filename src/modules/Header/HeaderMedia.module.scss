@@ -60,16 +60,6 @@
 
   .menu {
     grid-area: menu;
-
-    .home_links {
-      a {
-        display: none;
-
-        &.alt {
-          display: inline;
-        }
-      }
-    }
   }
 }
 

@@ -23,7 +23,6 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { ProjectCard } from "../src/_components";
 
 export default function Home({
 	projects,
