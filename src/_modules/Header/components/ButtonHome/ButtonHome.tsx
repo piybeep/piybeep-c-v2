@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Link from "next/link";
 
 import s from './ButtonHome.module.scss'
-import { PAGES_LINK } from "../../constatnts";
+import { PAGES_LINK } from "../../../../constatnts";
 import { ButtonHomeProps } from "./ButtonHome.types";
 
 export function ButtonHome({ pathname }: ButtonHomeProps) {

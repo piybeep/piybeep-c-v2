@@ -1,0 +1,24 @@
+@import '../../../../styles/variables.scss';
+
+.link {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    color: $white-color;
+}
+
+
+@media screen and (max-width: 430px) {
+
+    .link {
+        white-space: nowrap;
+
+        &:nth-last-child(1) {
+            display: none;
+        }
+    }
+}

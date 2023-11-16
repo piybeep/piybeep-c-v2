@@ -1,1 +1,0 @@
-export { ButtonHome } from './ButtonHome'

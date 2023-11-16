@@ -1,0 +1,77 @@
+import classNames from "classnames";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
+
+import s from "./Header.module.scss";
+
+import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
+
+export function Header() {
+	const query = useRouter();
+
+	// Появление менюшки и её скрытие и открытие при помощи мыши, пока тест
+	useEffect(() => {
+		let elY = 0;
+		let scrollY = 0;
+		const scrollTop = () => {
+			const el = document.querySelector<HTMLElement>("." + s.bar);
+			if (el != null) {
+				const height = el.offsetHeight;
+				const pos = window.scrollX;
+				const diff = scrollY - pos;
+
+				elY = Math.min(0, Math.max(-height, elY + diff));
+				el.style.position =
+					pos >= height ? "sticky" : pos === 0 ? "sticky" : el.style.position;
+				el.style.transform = `translateY(${pos > 50 ? elY : -2}px)`;
+
+				scrollY = pos;
+			}
+		};
+
+		window.addEventListener("scroll", scrollTop);
+
+		const mouseCord = (mouse: { clientY: any }) => {
+			const offsetY = mouse.clientY;
+
+			const el = document.querySelector<HTMLElement>("." + s.bar);
+
+			if (offsetY < 50 && el) {
+				el.style.transform = `translateY(-2px)`;
+			}
+		};
+
+		window.addEventListener("mousemove", mouseCord);
+	}, []);
+
+	return (
+		<>
+			<Preview />
+			<header className={classNames(s.header)}>
+				<div className={s.bar}>
+					<div className={s.logo}>
+						<Logo />
+					</div>
+					<div className={s.menu}>
+						<ButtonHome pathname={query.pathname} />
+						{
+							MENU_ITEMS.map(current => (
+								<NavLink
+									key={current.display_name}
+									value={current.display_name}
+									href={current.link}
+									active={query.pathname === current.link} />
+							))
+						}
+					</div>
+
+					<div className={s.info}>
+						<Contact value={CONTACTS_DATA.get('phone')!} prefix={"tel:"} />
+						<Contact value={CONTACTS_DATA.get('email')!} prefix={'mailto:'} />
+					</div>
+				</div>
+			</header>
+		</>
+	);
+}
