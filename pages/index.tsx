@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import {
 	Form,
 	OpenFormButton,
-	ProjectsPreview,
 	Reviews,
 	TextSlider,
 	// WeDo,
@@ -20,7 +19,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Advantages, OurProjects, WeDo } from "../src/_modules";
+import { AboutUs, Advantages, OurProjects, ProjectsPreview, WeDo } from "../src/_modules";
 
 export default function Home({
 	projects,
