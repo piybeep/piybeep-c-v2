@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	AboutUs,
 	Business,
 	Form,
 	OpenFormButton,
@@ -23,6 +22,7 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
+import { AboutUs } from "../../src/_modules";
 
 export default function BusinessPage({
 	projects,
@@ -45,7 +45,7 @@ export default function BusinessPage({
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
 					description={`piybeep. разрабатывает уникальные решения (веб-вервисы) для автоматизации бизнес-процессов, которые сделают работу команды эффективнее и сократят время на выполнение рутинных задач.`}
-					imgPosition={"right"}
+					imgPosition="right"
 				/>
 				<WeDo biz />
 				<OurProjectsBlock

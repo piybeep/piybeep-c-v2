@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	AboutUs,
 	AdvantagesBlock,
 	Form,
 	OpenFormButton,
@@ -23,6 +22,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
+import { AboutUs } from "../src/_modules";
 
 export default function Home({
 	projects,
@@ -45,8 +45,8 @@ export default function Home({
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}
 					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
-уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-эффективнее.`}
+				уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
+				эффективнее.`}
 				/>
 				<WeDo />
 				<OurProjectsBlock
