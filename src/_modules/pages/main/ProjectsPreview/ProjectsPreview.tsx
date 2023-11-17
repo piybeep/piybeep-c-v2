@@ -1,6 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
-
 import { Project } from "../../../../utils";
 import { PAGES_LINK } from "../../../../constatnts";
 
