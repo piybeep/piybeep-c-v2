@@ -8,7 +8,6 @@ import {
 	Pluses,
 	Reviews,
 	TextSlider,
-	WeDo,
 } from "../../src/modules";
 import { BaseLayout } from "../../src/layouts";
 import { TEXT_SLIDER_BIZ } from "../../src/constatnts";
@@ -22,7 +21,7 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs } from "../../src/_modules";
+import { AboutUs, WeDo } from "../../src/_modules";
 
 export default function BusinessPage({
 	projects,
