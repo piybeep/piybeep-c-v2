@@ -4,7 +4,6 @@ import {
 	AdvantagesBlock,
 	Form,
 	OpenFormButton,
-	OurProjectsBlock,
 	ProjectsPreview,
 	Reviews,
 	TextSlider,
@@ -22,7 +21,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, WeDo } from "../src/_modules";
+import { AboutUs, OurProjects, WeDo } from "../src/_modules";
 
 export default function Home({
 	projects,
@@ -49,10 +48,7 @@ export default function Home({
 				эффективнее.`}
 				/>
 				<WeDo />
-				<OurProjectsBlock
-					projects={projects.list}
-					count={projects.total_count}
-				/>
+				<OurProjects projects={projects.list} count={projects.total_count} />
 				<AdvantagesBlock />
 				<ProjectsPreview projects={projects.list.slice(0, 12)} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
