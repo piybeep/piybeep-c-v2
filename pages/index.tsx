@@ -3,9 +3,7 @@ import { ReactNode } from "react";
 import {
 	Form,
 	OpenFormButton,
-	Reviews,
 	TextSlider,
-	// WeDo,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { TEXT_SLIDER } from "../src/constatnts";
@@ -19,7 +17,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Advantages, OurProjects, ProjectsPreview, WeDo } from "../src/_modules";
+import { AboutUs, Advantages, OurProjects, ProjectsPreview, Reviews, WeDo } from "../src/_modules";
 
 export default function Home({
 	projects,

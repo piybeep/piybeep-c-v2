@@ -1,0 +1,48 @@
+.text {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+
+    margin-bottom: auto;
+}
+
+.info {
+    width: fit-content;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    &__link {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-position: under;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .text {
+        font-size: 13px;
+        line-height: 130%;
+    }
+
+    .info {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .text {
+        font-size: 10px;
+    }
+
+    .info {
+        font-size: 10px;
+        line-height: 12px;
+    }
+}

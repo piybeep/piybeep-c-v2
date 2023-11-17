@@ -20,7 +20,7 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 		<div className={s.wrapper}>
 			<div className={s.titles}>
 				{titles.map((title) => (
-					<Title text={title.text} price={title.price} />
+					<Title key={title.text} text={title.text} price={title.price} />
 				))}
 			</div>
 			<p className={s.text}>

@@ -1,11 +1,14 @@
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { ProjectCard } from "../../_components";
+import { SwiperButtons } from "../../components";
+
+import { Project } from "../../utils";
 import { BlockLayout } from "../../layouts";
 import { useWindowSizes } from "../../hooks";
-import { Project } from "../../utils";
+
 import s from "./OurProjects.module.scss";
-import { ProjectCard } from "../../_components";
-import { SwiperButtons } from "./components";
 
 export function OurProjects({
 	title = "Наши проекты",
