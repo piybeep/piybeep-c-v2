@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	AdvantagesBlock,
 	Form,
 	OpenFormButton,
 	ProjectsPreview,
@@ -21,7 +20,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, OurProjects, WeDo } from "../src/_modules";
+import { AboutUs, Advantages, OurProjects, WeDo } from "../src/_modules";
 
 export default function Home({
 	projects,
@@ -49,7 +48,7 @@ export default function Home({
 				/>
 				<WeDo />
 				<OurProjects projects={projects.list} count={projects.total_count} />
-				<AdvantagesBlock />
+				<Advantages />
 				<ProjectsPreview projects={projects.list.slice(0, 12)} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
