@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.scss';
+
+.copyright {
+    color: $white-color;
+    text-align: right;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+
+    &__link {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .copyright {
+        font-size: 12px;
+    }
+}

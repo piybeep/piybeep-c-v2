@@ -1,0 +1,44 @@
+@import '../../../../styles/variables.scss';
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+
+    column-gap: 50px;
+
+    &__link {
+        color: $white-color;
+        font-family: Actay, sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        transition: .2s;
+
+        &:hover {
+            text-decoration: inherit;
+            color: $main-color;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .contacts {
+        column-gap: 30px;
+
+        &__link {
+            font-size: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contacts {
+        column-gap: 15px;
+
+        &__link {
+            font-size: 12px;
+        }
+    }
+}

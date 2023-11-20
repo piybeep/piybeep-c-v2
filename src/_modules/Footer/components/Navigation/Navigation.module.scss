@@ -1,0 +1,72 @@
+@import '../../../../styles/variables.scss';
+
+.navigation {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+}
+
+.home {
+    display: flex;
+    column-gap: 12px;
+    border-radius: 30px;
+    background: #36353E;
+    padding: 3px 10px;
+
+    &__link {
+        color: $gray-color;
+
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        transition: .2s;
+    }
+
+    &__active {
+        color: $white-color;
+    }
+}
+
+.pages {
+    display: flex;
+    column-gap: 25px;
+
+    &__link {
+        color: $white-color;
+
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .navigation {
+        column-gap: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .home {
+
+        &__link {
+            font-size: 12px;
+        }
+    }
+
+    .pages {
+        &__link {
+            font-size: 12px;
+        }
+    }
+}

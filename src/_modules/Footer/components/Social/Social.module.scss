@@ -1,0 +1,35 @@
+@import '../../../../styles/variables.scss';
+
+.social {
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+
+    &__link {
+        color: $white-color;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+    }
+
+    &__svg {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .social {
+        column-gap: 15px;
+
+        &__link {
+            font-size: 12px;
+        }
+    }
+}
