@@ -1,0 +1,204 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: calc((100% - 70px * 2) / 3);
+
+  .title {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+
+    text-transform: uppercase;
+
+    display: flex;
+    column-gap: 15px;
+
+    h4 {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 21px;
+
+      padding: 0;
+      margin: 0;
+    }
+
+    span {
+      color: #98ec65;
+    }
+  }
+
+  .options {
+    display: flex;
+
+    flex-direction: column;
+    row-gap: 80px;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    .group {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      max-width: 490px;
+
+      &:not(.group:nth-child(1)) {
+        &::before {
+          content: "+";
+          display: block;
+
+          font-family: "Courier New", Courier, monospace;
+          font-weight: 100;
+          font-size: 64px;
+          line-height: 1px;
+          color: #ececec;
+
+          position: absolute;
+          top: -40px;
+          left: -20px;
+        }
+      }
+    }
+  }
+
+  .price {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+  }
+
+  button {
+    width: fit-content;
+
+    padding: 17px 20px;
+    background: #100f13;
+    border: 1px solid #ececec;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ececec;
+
+    border-radius: 3px;
+
+    //&,
+    //* {
+    //  transition: 0.2s;
+    //}
+
+    &:hover {
+      background: #ececec;
+      color: #100f13;
+
+      svg {
+        path {
+          fill: #100f13;
+        }
+      }
+    }
+
+    &:active {
+      background: #cacaca;
+    }
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .card {
+    width: calc((100% - 40px * 2) / 3);
+
+    .title {
+      flex-direction: column;
+      row-gap: 15px;
+
+      >* {
+        font-size: 14px;
+      }
+    }
+
+    .options {
+      font-size: 13px;
+
+      .group {
+        &:not(.group:nth-child(1)) {
+          &::before {
+            font-size: 48px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 50%;
+
+    .title {
+      row-gap: 5px;
+
+      h4 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 130%;
+      }
+
+      span {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 130%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card {
+    width: 100%;
+
+    .options {
+      .group {
+        &:not(.group:nth-child(1)) {
+          &::before {
+            left: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    .title {
+      h4 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+  }
+}
