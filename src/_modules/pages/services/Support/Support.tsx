@@ -4,7 +4,7 @@ import { BlockLayout } from "../../../../layouts";
 
 import { Card } from "./components";
 
-import s from "./SupportBlock.module.scss";
+import s from "./Support.module.scss";
 
 export function Support() {
 	const DESCRIPTION = [

@@ -1,11 +1,9 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	Business,
 	Form,
 	OpenFormButton,
 	OurProjectsBlock,
-	Pluses,
 	Reviews,
 	TextSlider,
 } from "../../src/modules";
@@ -21,7 +19,7 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, Automation, WeDo } from "../../src/_modules";
+import { AboutUs, Automation, Text, WeDo } from "../../src/_modules";
 
 export default function BusinessPage({
 	projects,
@@ -52,7 +50,7 @@ export default function BusinessPage({
 					count={projects.total_count}
 				/>
 				<Automation />
-				<Pluses />
+				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>

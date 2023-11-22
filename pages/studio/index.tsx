@@ -8,13 +8,14 @@ import {
 	OpenFormButton,
 	Spa,
 	Steps,
-	Team,
+	// Team,
 	Technologies,
 } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
+import { AboutUs, Team } from "../../src/_modules/pages";
 
 export default function Studio({
 	services,
@@ -30,7 +31,8 @@ export default function Studio({
 		>
 			<OpenFormButton />
 			<div className="content-wrapper">
-				<AboutUsStudio />
+				<AboutUs />
+				{/* <Team /> */}
 				<Team />
 				<Spa />
 				<Steps />

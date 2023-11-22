@@ -1,5 +1,5 @@
 import { CardProps } from "./Card.types";
-import s from "./SupportCard.module.scss";
+import s from "./Card.module.scss";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 

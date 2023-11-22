@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    row-gap: 15px;
+
+    width: 100%;
+    max-width: 800px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    max-width: 520px;
+}
+
+@media screen and (max-width: 660px) {
+    .wrapper {
+        align-items: unset;
+    }
+}
