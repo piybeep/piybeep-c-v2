@@ -2,20 +2,17 @@ import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
 import {
-	AboutUsStudio,
 	Contacts,
 	Form,
 	OpenFormButton,
-	Spa,
 	Steps,
-	// Team,
 	Technologies,
 } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { AboutUs, Team } from "../../src/_modules/pages";
+import { AboutUs, Spa, Team } from "../../src/_modules/pages";
 
 export default function Studio({
 	services,
@@ -32,7 +29,6 @@ export default function Studio({
 			<OpenFormButton />
 			<div className="content-wrapper">
 				<AboutUs />
-				{/* <Team /> */}
 				<Team />
 				<Spa />
 				<Steps />
