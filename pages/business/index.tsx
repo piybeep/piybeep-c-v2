@@ -21,7 +21,7 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, WeDo } from "../../src/_modules";
+import { AboutUs, Automation, WeDo } from "../../src/_modules";
 
 export default function BusinessPage({
 	projects,
@@ -51,7 +51,7 @@ export default function BusinessPage({
 					projects={projects.list}
 					count={projects.total_count}
 				/>
-				<Business />
+				<Automation />
 				<Pluses />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
