@@ -1,10 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	Form,
-	OpenFormButton,
-	OurProjectsBlock,
-	Reviews,
 	TextSlider,
 } from "../../src/modules";
 import { BaseLayout } from "../../src/layouts";
@@ -19,8 +15,9 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, WeDo } from "../../src/_modules";
+import { AboutUs, Form, OurProjects, Reviews, WeDo } from "../../src/_modules";
 import { Automation, Text } from "../../src/_modules/pages/business";
+import { ButtonOpenForm } from "../../src/_components";
 
 export default function BusinessPage({
 	projects,
@@ -38,7 +35,7 @@ export default function BusinessPage({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
@@ -47,10 +44,7 @@ export default function BusinessPage({
 				/>
 				<WeDo biz />
 				<Automation />
-				<OurProjectsBlock
-					projects={projects.list}
-					count={projects.total_count}
-				/>
+				<OurProjects projects={projects.list} />
 				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />

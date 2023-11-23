@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import {
-	Form,
-	OpenFormButton,
 	TextSlider,
 } from "../src/modules";
 import { BaseLayout } from "../src/layouts";
@@ -17,9 +15,9 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, OurProjects, Reviews, WeDo } from "../src/_modules";
+import { AboutUs, Form, OurProjects, Reviews, WeDo } from "../src/_modules";
 import { Advantages, ProjectsPreview } from "../src/_modules/pages/main";
-// import { AboutUs, Advantages, OurProjects, ProjectsPreview, Reviews, WeDo } from "../src/_modules";
+import { ButtonOpenForm } from "../src/_components";
 
 export default function Home({
 	projects,
@@ -37,7 +35,7 @@ export default function Home({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}

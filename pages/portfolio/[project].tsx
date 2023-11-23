@@ -1,17 +1,12 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import {
-	Form,
-	OpenFormButton,
-	OurProjectsBlock,
-	ProjectPost,
-} from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
-import { ButtonBack } from "../../src/_components";
+import { ButtonBack, ButtonOpenForm } from "../../src/_components";
+import { Form, OurProjects, ProjectPost } from "../../src/_modules";
 
 export default function PortfolioCase({
 	project,
@@ -35,7 +30,7 @@ export default function PortfolioCase({
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
-				<OpenFormButton />
+				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<p
 						style={{
@@ -47,12 +42,10 @@ export default function PortfolioCase({
 						Произошла ошибка. Возможно запрашеваемый проект не найден или был
 						удалён
 					</p>
-					<OurProjectsBlock
-						title="другие проекты"
-						subtitle=""
+					<OurProjects
 						projects={projects.list}
-						count={projects.total_count}
-					/>
+						title="другие проекты"
+						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
 			</main>
@@ -71,15 +64,13 @@ export default function PortfolioCase({
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
-				<OpenFormButton />
+				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
-					<OurProjectsBlock
-						title="другие проекты"
-						subtitle=""
+					<OurProjects
 						projects={projects.list}
-						count={projects.total_count}
-					/>
+						title="другие проекты"
+						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
 			</main>

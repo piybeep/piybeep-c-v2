@@ -1,0 +1,66 @@
+.btn_wrapper {
+    align-self: flex-end;
+    position: fixed;
+    bottom: 40px;
+    z-index: 5 !important;
+    width: fit-content;
+
+    &.hide {
+        button {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    button {
+        z-index: 1;
+        cursor: pointer;
+
+        background: #100f13;
+        border-radius: 3px;
+        border: 1px solid #ececec;
+        padding: 22px 44px;
+
+        visibility: visible;
+        opacity: 1;
+
+        span {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+
+            color: #ececec;
+        }
+
+        &,
+        * {
+            transition: 0.2s;
+        }
+
+        &:hover {
+            background: #ececec;
+            box-shadow: 0 0 10px #100f131f;
+
+            span {
+                color: #100f13;
+            }
+        }
+
+        &:active {
+            background: #cacaca;
+            border-color: #cacaca;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .btn_wrapper {
+        bottom: 20px;
+
+        button {
+            padding: 14px 32px;
+        }
+    }
+}

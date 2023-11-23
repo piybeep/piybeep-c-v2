@@ -1,18 +1,13 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import {
-	// Contacts,
-	Form,
-	OpenFormButton,
-	// Steps,
-	// Technologies,
-} from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
 import { AboutUs, Contacts, Spa, Steps, Team, Technologies } from "../../src/_modules/pages/studio";
+import { Form } from "../../src/_modules";
+import { ButtonOpenForm } from "../../src/_components";
 
 export default function Studio({
 	services,
@@ -26,7 +21,7 @@ export default function Studio({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs />
 				<Team />

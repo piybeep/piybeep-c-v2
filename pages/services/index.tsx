@@ -2,12 +2,12 @@ import Head from "next/head";
 import { ReactNode } from "react";
 
 import { BaseLayout } from "../../src/layouts";
-import { Form, SupportBlock } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { Products } from "../../src/_modules/pages/services";
+import { Products, Support } from "../../src/_modules/pages/services";
+import { Form } from "../../src/_modules";
 
 export default function Services({
 	services,
@@ -25,7 +25,7 @@ export default function Services({
 				<Products
 					list={services.list.filter((i) => i.type === "service")}
 				/>
-				<SupportBlock />
+				<Support />
 			</div>
 			<Form services={services.list} count={services.total_count} />
 		</main>

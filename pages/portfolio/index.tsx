@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import { Form, OpenFormButton, OurProjectsPortfolio } from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
 import { Projects } from "../../src/_modules/pages/portfolio";
+import { Form } from "../../src/_modules";
+import { ButtonOpenForm } from "../../src/_components";
 
 export default function Portfolio({
 	projects,
@@ -22,7 +23,7 @@ export default function Portfolio({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<Projects projects={projects.list} />
 			</div>

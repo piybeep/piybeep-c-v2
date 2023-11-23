@@ -1,0 +1,97 @@
+@import "../../styles/variables.scss";
+
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #000;
+
+  font-family: var(--font-SourceCodePro);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+
+  transition: 0.2s;
+
+  border-radius: 3px;
+
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &__small {
+    font-size: 18px;
+
+    padding: 8px 42px;
+  }
+
+  &__default {
+    font-weight: 500;
+    line-height: 30px;
+
+    padding: 22px 57px;
+
+    //border-radius: 6px;
+  }
+
+  &__large {
+    padding: 32px 72px;
+
+    //border-radius: 16px;
+  }
+
+  &__color_primary {
+    background-color: $main-color;
+
+    &.button__outline {
+      color: $main-color;
+
+      border: 1px solid $main-color;
+
+      &:hover:not(&:disabled) {
+        background: $main-color;
+        color: $dark-color;
+      }
+
+      &:active:not(&:disabled) {
+        opacity: 0.7;
+      }
+
+      &.button__active {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+
+      &:disabled {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__color_light {
+    background-color: #fff;
+
+    &.button__outline {
+      color: #fff;
+
+      border: 1px solid #fff;
+
+      &.button__active {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+      }
+    }
+  }
+
+  &__outline {
+    background: transparent;
+  }
+
+  &__rounded {
+    border-radius: 100px;
+  }
+}
