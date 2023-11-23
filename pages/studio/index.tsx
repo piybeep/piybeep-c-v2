@@ -12,7 +12,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { AboutUs, Spa, Team } from "../../src/_modules/pages";
+import { AboutUs, Spa, Team } from "../../src/_modules/pages/studio";
 
 export default function Studio({
 	services,

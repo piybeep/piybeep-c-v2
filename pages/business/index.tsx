@@ -19,7 +19,8 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, Automation, Text, WeDo } from "../../src/_modules";
+import { AboutUs, WeDo } from "../../src/_modules";
+import { Automation, Text } from "../../src/_modules/pages/business";
 
 export default function BusinessPage({
 	projects,

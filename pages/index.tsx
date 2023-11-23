@@ -17,7 +17,9 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Advantages, OurProjects, ProjectsPreview, Reviews, WeDo } from "../src/_modules";
+import { AboutUs, OurProjects, Reviews, WeDo } from "../src/_modules";
+import { Advantages, ProjectsPreview } from "../src/_modules/pages/main";
+// import { AboutUs, Advantages, OurProjects, ProjectsPreview, Reviews, WeDo } from "../src/_modules";
 
 export default function Home({
 	projects,

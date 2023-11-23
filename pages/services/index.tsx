@@ -7,7 +7,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { Products } from "../../src/_modules";
+import { Products } from "../../src/_modules/pages/services";
 
 export default function Services({
 	services,
