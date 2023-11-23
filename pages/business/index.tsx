@@ -46,11 +46,11 @@ export default function BusinessPage({
 					imgPosition="right"
 				/>
 				<WeDo biz />
+				<Automation />
 				<OurProjectsBlock
 					projects={projects.list}
 					count={projects.total_count}
 				/>
-				<Automation />
 				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
