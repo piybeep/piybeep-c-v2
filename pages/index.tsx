@@ -1,8 +1,5 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import {
-	TextSlider,
-} from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { TEXT_SLIDER } from "../src/constatnts";
 import { GetServerSideProps } from "next";
@@ -15,7 +12,7 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, OurProjects, Reviews, WeDo } from "../src/_modules";
+import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../src/_modules";
 import { Advantages, ProjectsPreview } from "../src/_modules/pages/main";
 import { ButtonOpenForm } from "../src/_components";
 

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-
 import { BaseLayout } from "../../src/layouts";
 import { GetServerSideProps } from "next";
 import axios from "axios";
