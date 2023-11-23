@@ -6,6 +6,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
+import { Projects } from "../../src/_modules/pages/portfolio";
 
 export default function Portfolio({
 	projects,
@@ -23,10 +24,7 @@ export default function Portfolio({
 		>
 			<OpenFormButton />
 			<div className="content-wrapper">
-				<OurProjectsPortfolio
-					projects={projects.list}
-					count={projects.total_count}
-				/>
+				<Projects projects={projects.list} />
 			</div>
 			<Form services={services.list} count={services.total_count} />
 		</main>

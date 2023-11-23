@@ -1,3 +1,6 @@
 export * from './AboutUs'
 export * from './Team'
 export * from './Spa'
+export * from './Steps'
+export * from './Contacts'
+export * from './Technologies'
