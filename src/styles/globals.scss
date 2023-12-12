@@ -70,7 +70,8 @@ body {
       position: relative;
 
       >* {
-        z-index: 1;
+        // Это не нужно, по крайней мере оно криво работает с popup-ом
+        // z-index: 1;
       }
 
       .content-wrapper {

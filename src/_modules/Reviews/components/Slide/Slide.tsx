@@ -3,10 +3,10 @@ import { SlideProps } from "./Slide.types";
 import s from './Slide.module.scss'
 import Link from "next/link";
 
-export function Slide({ text, href, project, author }: SlideProps) {
+export function Slide({ text, href, project, author, id }: SlideProps) {
     return (
         <>
-            <div className={s.text}>{text}</div>
+            <Link href={{ query: { 'form': 'review', 'id': id } }} scroll={false} className={s.text}>{text}</Link>
             <div className={s.info}>
                 {author}
                 {project && " - "}
@@ -16,6 +16,6 @@ export function Slide({ text, href, project, author }: SlideProps) {
                     </Link>
                 )}
             </div>
-        </ >
+        </>
     );
 };
