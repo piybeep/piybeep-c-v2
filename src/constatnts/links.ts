@@ -1,5 +1,5 @@
 import vk from "../../public/imgs/contacts/VK.png";
-import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
+// import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
 import telegram from "../../public/imgs/contacts/Telegram.png";
 
 export const PRIVACY_LINK = "/privacy_policy.pdf";
@@ -25,10 +25,10 @@ export const MENU_ITEMS = [
 
 export const SOCIAL_LINKS = [
 	{ display_name: "Вконтакте", link: "https://vk.com/piybeep", icon: vk },
-	{
-		display_name: "WhatsApp",
-		link: "https://wa.me/79265762877",
-		icon: whatsApp,
-	},
+	// {
+	// 	display_name: "WhatsApp",
+	// 	link: "https://wa.me/79265762877",
+	// 	icon: whatsApp,
+	// },
 	{ display_name: "Телеграм", link: "https://t.me/piybeep", icon: telegram },
 ];

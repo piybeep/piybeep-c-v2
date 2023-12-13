@@ -1,15 +1,22 @@
-.btn_wrapper {
+div.btn_wrapper {
   align-self: flex-end;
   position: fixed;
   bottom: 40px;
   z-index: 5 !important;
   width: fit-content;
 
+  &,
+  * {
+    transition: 0.2s;
+  }
+
   &.hide {
     button {
       visibility: hidden;
       opacity: 0;
     }
+
+    z-index: 0 !important;
   }
 
   button {
@@ -34,10 +41,6 @@
       color: #ececec;
     }
 
-    &,
-    * {
-      transition: 0.2s;
-    }
 
     &:hover {
       background: #ececec;

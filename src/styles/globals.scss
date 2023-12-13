@@ -46,16 +46,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    // min-width: 320px;
+    min-width: 320px;
 
     header,
     footer {
       flex: 0 0 auto;
 
-      &,
-      * {
-        z-index: 5;
-      }
+      z-index: 1; // без этого свойства линии на фоне будут поверх контента
+
     }
 
     main {
@@ -67,9 +65,8 @@ body {
       padding: 120px 24px;
       position: relative;
 
-      > * {
-        z-index: 1;
-      }
+      z-index: 1; // без этого свойства линии на фоне будут поверх контента
+
 
       .content-wrapper {
         display: flex;
