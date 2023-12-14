@@ -114,11 +114,13 @@ BusinessPage.getLayout = (
 	page: ReactNode,
 	{
 		services,
+		reviews
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		reviews: EntityState<Review> & EntityActions<Review>;
 	},
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout reviews={reviews} services={services}>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta

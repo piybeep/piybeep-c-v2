@@ -1,12 +1,11 @@
 import { useRouter } from 'next/router';
 
-import { useReviews } from '../../../../store';
 import classNames from 'classnames';
 
 import s from './PopupReview.module.scss'
-import { Review } from '../../../../utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import { Review } from '../../utils';
 
 export function PopupReview({ reviews }: { reviews: Review[] }) {
     const router = useRouter()

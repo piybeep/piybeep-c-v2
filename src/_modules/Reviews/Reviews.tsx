@@ -9,7 +9,6 @@ import { Review } from "../../utils";
 import s from "./Reviews.module.scss";
 import { SwiperButtons } from "../../components";
 import { Slide } from "./components";
-import { PopupReview } from "./modules";
 
 export function Reviews({
 	reviews,
@@ -27,7 +26,6 @@ export function Reviews({
 
 	return (
 		<BlockLayout value="Отзывы">
-			<PopupReview reviews={reviews} />
 			<Swiper
 				className={s.slider}
 				direction="horizontal"

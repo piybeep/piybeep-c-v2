@@ -6,6 +6,11 @@
     line-height: 130%;
 
     margin-bottom: auto;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .info {
