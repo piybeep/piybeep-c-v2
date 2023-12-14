@@ -18,6 +18,8 @@ body {
   min-width: 320px;
   // Для блокировки скрол бара при открытии попапа
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: $dark-color $black-color;
 
   // Стили скрола
   *::-webkit-scrollbar {
