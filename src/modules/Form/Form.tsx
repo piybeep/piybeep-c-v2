@@ -48,8 +48,10 @@ export function Form({ services }: { services: Service[]; count: number }) {
 	const formik = useFormik({
 		initialValues,
 		validationSchema: Yup.object({
-			name: Yup.string().required(),
-			contact: Yup.string() /*.email()*/
+			name: Yup.string().trim().min(1).required(),
+			contact: Yup.string()
+				.trim()
+				.min(1) /*.email()*/
 				.required(),
 			selects: Yup.array().of(Yup.string()).min(1),
 		}),
