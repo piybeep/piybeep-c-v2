@@ -1,5 +1,5 @@
 import vk from "../../public/imgs/contacts/VK.png";
-import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
+// import whatsApp from "../../public/imgs/contacts/WhatsApp.png";
 import telegram from "../../public/imgs/contacts/Telegram.png";
 
 export const PRIVACY_LINK = "/privacy_policy.pdf";
