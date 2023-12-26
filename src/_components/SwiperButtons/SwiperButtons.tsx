@@ -4,8 +4,8 @@ import React from "react";
 import { SwiperButtonsProps } from "./SwiperButtons.types";
 import { useSwiper } from "swiper/react";
 
-import LeftLong from "../../../../../public/svg/Arrows/LeftLong.svg";
-import RightLong from "../../../../../public/svg/Arrows/RightLong.svg";
+import LeftLong from "../../../public/svg/Arrows/LeftLong.svg";
+import RightLong from "../../../public/svg/Arrows/RightLong.svg";
 
 import s from "./SwiperButtons.module.scss";
 

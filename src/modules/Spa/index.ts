@@ -1,1 +1,0 @@
-export {Spa} from './Spa'

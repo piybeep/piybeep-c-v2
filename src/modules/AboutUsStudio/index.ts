@@ -1,1 +1,0 @@
-export {AboutUsStudio} from "./AboutUsStudio";

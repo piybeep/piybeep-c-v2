@@ -1,1 +1,0 @@
-export {TextSlider} from "./TextSlider";

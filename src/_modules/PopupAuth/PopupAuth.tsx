@@ -6,9 +6,8 @@ import classNames from "classnames";
 
 import { useFormik } from "formik";
 
-import { Input, Title } from "../../components";
-
 import s from "./PopupAuth.module.scss";
+import { Input, Title } from "../../_components";
 
 export function PopupAuth() {
 	const [isOpen, setIsOpen] = useState(false);

@@ -1,1 +1,0 @@
-export {WeDo} from './WeDo'

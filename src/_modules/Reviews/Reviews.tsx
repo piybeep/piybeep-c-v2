@@ -7,8 +7,8 @@ import { PAGES_LINK } from "../../constatnts";
 import { Review } from "../../utils";
 
 import s from "./Reviews.module.scss";
-import { SwiperButtons } from "../../components";
 import { Slide } from "./components";
+import { SwiperButtons } from "../../_components";
 
 export function Reviews({
 	reviews,

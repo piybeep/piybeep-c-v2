@@ -1,9 +1,6 @@
-import {
-	Eyes,
-} from "../../modules";
 import React from "react";
 import { EntityActions, EntityState, Review, Service } from "../../utils";
-import { Footer, Header, PopupForm, PopupReview } from "../../_modules";
+import { Eyes, Footer, Header, PopupForm, PopupReview } from "../../_modules";
 
 export function BaseLayout({
 	children,
