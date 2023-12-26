@@ -9,7 +9,7 @@ import CreateRequest from "../../api/createRequest";
 import { Service, toast } from "../../utils";
 import { useApp } from "../../store";
 import { useInView } from "react-intersection-observer";
-import { Button, Input, Privacy, SelectItem, Title } from "../../_components";
+import { Button, Input, Privacy, SelectItem, Title } from "../../components";
 
 export function Form({ services }: { services: Service[]; count: number }) {
 	const {

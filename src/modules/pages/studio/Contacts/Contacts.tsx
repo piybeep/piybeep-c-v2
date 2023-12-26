@@ -1,4 +1,4 @@
-import { Title } from "../../../../_components";
+import { Title } from "../../../../components";
 import { Links, Slogan, Social } from "./components";
 
 import s from "./Contacts.module.scss";

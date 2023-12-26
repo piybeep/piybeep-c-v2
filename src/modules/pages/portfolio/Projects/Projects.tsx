@@ -1,4 +1,4 @@
-import { ProjectCard } from "../../../../_components";
+import { ProjectCard } from "../../../../components";
 import { BlockLayout } from "../../../../layouts";
 import { Project } from "../../../../utils";
 

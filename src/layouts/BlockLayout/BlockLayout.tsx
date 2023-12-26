@@ -1,4 +1,4 @@
-import { Title } from "../../_components";
+import { Title } from "../../components";
 import { BlockLayoutProps } from "./BlockLayout.types";
 
 import s from "./BlockLayout.module.scss";

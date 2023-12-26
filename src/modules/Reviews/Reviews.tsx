@@ -8,7 +8,7 @@ import { Review } from "../../utils";
 
 import s from "./Reviews.module.scss";
 import { Slide } from "./components";
-import { SwiperButtons } from "../../_components";
+import { SwiperButtons } from "../../components";
 
 export function Reviews({
 	reviews,

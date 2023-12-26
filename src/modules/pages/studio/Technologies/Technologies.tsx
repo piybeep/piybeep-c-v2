@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { TECHNOLOGIES_LIST } from "../../../../constatnts";
-import { Title } from "../../../../_components";
+import { Title } from "../../../../components";
 
 import s from "./Technologies.module.scss";
 import { Item } from "./components";

@@ -12,9 +12,9 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/_modules";
-import { Automation, Text } from "../../src/_modules/pages/business";
-import { ButtonOpenForm } from "../../src/_components";
+import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
+import { Automation, Text } from "../../src/modules/pages/business";
+import { ButtonOpenForm } from "../../src/components";
 
 export default function BusinessPage({
 	projects,

@@ -1,6 +1,6 @@
 import { PERSON_LIST } from "../../../../constatnts/person";
 
-import { Title } from "../../../../_components";
+import { Title } from "../../../../components";
 import { Person } from "./components";
 
 import s from "./Team.module.scss";

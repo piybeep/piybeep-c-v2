@@ -5,8 +5,8 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
-import { ButtonBack, ButtonOpenForm } from "../../src/_components";
-import { Form, OurProjects, ProjectPost } from "../../src/_modules";
+import { ButtonBack, ButtonOpenForm } from "../../src/components";
+import { Form, OurProjects, ProjectPost } from "../../src/modules";
 
 export default function PortfolioCase({
 	project,

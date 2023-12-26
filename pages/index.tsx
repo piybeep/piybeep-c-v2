@@ -12,9 +12,9 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../src/_modules";
-import { Advantages, ProjectsPreview } from "../src/_modules/pages/main";
-import { ButtonOpenForm } from "../src/_components";
+import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../src/modules";
+import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
+import { ButtonOpenForm } from "../src/components";
 
 export default function Home({
 	projects,

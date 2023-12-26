@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 import { Service, toast } from "../../utils";
 
-import { Input, Privacy, SelectItem, Title } from "../../_components";
+import { Input, Privacy, SelectItem, Title } from "../../components";
 
 import s from "./PopupForm.module.scss";
 

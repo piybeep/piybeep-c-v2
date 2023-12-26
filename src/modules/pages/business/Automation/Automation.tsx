@@ -4,7 +4,7 @@ import { BUSINESS_DATA } from "../../../../constatnts/business";
 
 import s from "./Automation.module.scss";
 import { Item } from "./components";
-import { Title } from "../../../../_components";
+import { Title } from "../../../../components";
 
 export function Automation() {
 	return (
