@@ -9,8 +9,9 @@ import { PAGES_LINK } from "../../../../constatnts";
 import { Item } from "./components";
 
 import s from "./Products.module.scss";
+import { ProductType } from "../../../../utils";
 
-export function Products({ list }: { list: any[] }) {
+export function Products({ list }: { list: ProductType[] }) {
 	return (
 		<BlockLayout
 			value="Сделаем для вас"
@@ -30,7 +31,7 @@ export function Products({ list }: { list: any[] }) {
 						title={i.name}
 						description={i.description}
 						price={i.price}
-						discount={i.discount}
+						discount={i.discount!}
 					/>
 				))}
 			</div>

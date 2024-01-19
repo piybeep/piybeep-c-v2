@@ -44,3 +44,13 @@ export interface EntityActions<T> {
 	setList: (list: T[], total_count: number) => void;
 	setError: (error: Error | null) => void;
 }
+
+export interface ProductType {
+	id: string;
+	name: string;
+	description: string;
+	price: number;
+	discount: number | null;
+	isAvailable: boolean;
+	type: string;
+}
