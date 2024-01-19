@@ -51,7 +51,6 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			selects: Yup.array().of(Yup.string()).min(1),
 		}),
 		onSubmit(values) {
-			console.log(values);
 			CreateRequest(values)
 				.then((_value) => {
 					formik.resetForm();
@@ -60,8 +59,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 						query: { form: "success" },
 					});
 				})
-				.catch((reason) => {
-					console.error(reason);
+				.catch(() => {
 					toast(
 						"Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами: 8 926 576-28-77, info@piybeep.com",
 					);

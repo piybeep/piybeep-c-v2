@@ -68,18 +68,14 @@ export function PopupForm({
 			name: Yup.string().trim().min(1).required(),
 			contact: Yup.string()
 				.trim()
-				.min(1) /*.email()*/
+				.min(1)
 				.required(),
 			selects: Yup.array().of(Yup.string()),
 		}),
 		onSubmit: (values) => {
-			console.log(values);
 			if (!values.selects.length) {
-				console.log("Продукты не заполнены");
-
 				toast("Выберите услуги");
 			} else {
-				console.log(values);
 				createRequest(values)
 					.then((_data) => {
 						formik.resetForm();
@@ -88,8 +84,7 @@ export function PopupForm({
 							query: { form: "success" },
 						});
 					})
-					.catch((reason) => {
-						console.error(reason);
+					.catch(() => {
 						toast(
 							"Произошла ошибка. Попробуйте ещё раз или свяжитесь с нами: 8 926 576-28-77, info@piybeep.com",
 						);
@@ -98,9 +93,6 @@ export function PopupForm({
 						formik.setSubmitting(false);
 					});
 			}
-			// formik.setSubmitting(false);
-			// formik.resetForm();
-			// removeUserSelect();
 		},
 	});
 
