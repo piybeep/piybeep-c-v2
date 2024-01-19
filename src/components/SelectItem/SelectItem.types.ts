@@ -1,5 +1,5 @@
 export interface SelectItemProps {
-    active: boolean;
+    isActive: boolean;
     value: string;
     onClick: (value: string) => void;
     size?: 'lg' | 'md'

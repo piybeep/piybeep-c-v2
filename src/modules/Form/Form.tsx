@@ -108,7 +108,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 					{services.map((current: any) => (
 						<SelectItem
 							key={current.id}
-							active={isHasUserSelect(current.name)}
+							isActive={isHasUserSelect(current.name)}
 							value={current.name}
 							onClick={() => handleProduct(current.name)} />
 					))}

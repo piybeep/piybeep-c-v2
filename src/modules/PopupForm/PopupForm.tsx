@@ -145,7 +145,7 @@ export function PopupForm({
 						<SelectItem
 							size='md'
 							key={current.id}
-							active={isHasUserSelect(current.name)}
+							isActive={isHasUserSelect(current.name)}
 							value={current.name}
 							onClick={() => handleProduct(current.name)} />
 					))}

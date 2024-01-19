@@ -39,8 +39,7 @@ export default function PortfolioCase({
 							padding: 12,
 						}}
 					>
-						Произошла ошибка. Возможно запрашеваемый проект не найден или был
-						удалён
+						Произошла ошибка. Возможно запрашиваемый проект не существует или был удалён
 					</p>
 					<OurProjects
 						projects={projects.list}

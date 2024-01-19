@@ -9,7 +9,7 @@ import { Title } from "../../../../components";
 export function Automation() {
 	return (
 		<div className={s.wrapper}>
-			<Title value="Автоматизация бизнес-процессов" position='center' dot={false} />
+			<Title value="Автоматизация бизнес-процессов" position='center' withDot={false} />
 			<div className={s.list}>
 				{BUSINESS_DATA.map((current, index) => (
 					<Item
