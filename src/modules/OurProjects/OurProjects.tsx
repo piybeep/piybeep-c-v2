@@ -2,7 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ProjectCard, SwiperButtons } from "../../components";
-// import { SwiperButtons } from "../../components";
 
 import { Project } from "../../utils";
 import { BlockLayout } from "../../layouts";

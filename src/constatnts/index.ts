@@ -4,3 +4,4 @@ export * from "./advantages";
 export * from "./textslider";
 export * from "./support";
 export * from "./technologies";
+export * from './spa'

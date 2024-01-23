@@ -14,7 +14,6 @@ export function BaseLayout({
 	return (
 		<>
 			<PopupForm services={services.list} count={services.total_count} />
-			{/*<PopupAuth />*/}
 			{
 				reviews &&
 				<PopupReview reviews={reviews?.list} />
