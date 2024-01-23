@@ -1,0 +1,23 @@
+@import '../../../../../../styles/variables.scss';
+
+.slogan {
+    width: 100%;
+    max-width: 520px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: $white-color;
+}
+
+@media screen and (max-width: 440px) {
+    .slogan {
+        font-size: 13px;
+        line-height: 150%;
+
+        grid-area: slogan;
+    }
+}

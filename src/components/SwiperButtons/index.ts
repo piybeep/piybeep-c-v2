@@ -1,1 +1,1 @@
-export {SwiperButtons} from "./SwiperButtons";
+export { SwiperButtons } from './SwiperButtons'

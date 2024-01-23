@@ -1,0 +1,41 @@
+@import '../../../../../../styles/variables.scss';
+
+.title {
+    font-family: 'Actay', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: $white-color;
+
+    display: flex;
+    align-items: flex-start;
+
+    margin: 0;
+
+    width: 100%;
+
+    &::after {
+        display: inline;
+        content: '(читается как пиубип)';
+
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        // Цвета такого не нашёл в variables
+        color: #2E2B35;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .title {
+        flex-direction: column;
+
+        font-size: 32px;
+        line-height: 40px;
+    }
+}

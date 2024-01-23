@@ -1,16 +1,5 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import {
-	AboutUs,
-	AdvantagesBlock,
-	Form,
-	OpenFormButton,
-	OurProjectsBlock,
-	ProjectsPreview,
-	Reviews,
-	TextSlider,
-	WeDo,
-} from "../src/modules";
 import { BaseLayout } from "../src/layouts";
 import { TEXT_SLIDER } from "../src/constatnts";
 import { GetServerSideProps } from "next";
@@ -23,6 +12,9 @@ import {
 	Service,
 } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
+import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../src/modules";
+import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
+import { ButtonOpenForm } from "../src/components";
 
 export default function Home({
 	projects,
@@ -40,20 +32,17 @@ export default function Home({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}
 					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
-уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-эффективнее.`}
+				уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
+				эффективнее.`}
 				/>
 				<WeDo />
-				<OurProjectsBlock
-					projects={projects.list}
-					count={projects.total_count}
-				/>
-				<AdvantagesBlock />
+				<OurProjects projects={projects.list} count={projects.total_count} />
+				<Advantages />
 				<ProjectsPreview projects={projects.list.slice(0, 12)} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
@@ -126,11 +115,13 @@ Home.getLayout = (
 	page: ReactNode,
 	{
 		services,
+		reviews
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		reviews: EntityState<Review> & EntityActions<Review>;
 	},
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout reviews={reviews} services={services}>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta

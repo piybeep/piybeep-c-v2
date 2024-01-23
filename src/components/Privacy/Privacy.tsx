@@ -1,22 +1,22 @@
-import { PrivacyProps } from "./Privacy.types";
+import Link from 'next/link';
 
-// Style
-import s from "./Privacy.module.scss";
+import s from './Privacy.module.scss'
 
-export function Privacy({ text, ...props }: PrivacyProps) {
+import { PrivacyProps } from './Privacy.types';
+import { PRIVACY_LINK } from '../../constatnts';
+import classNames from 'classnames';
+
+export function Privacy({ size = 'md' }: PrivacyProps) {
 	return (
-		<div className={s.privacy}>
-			<input
-				{...props}
-				className={s.privacy__checkbox}
-				readOnly
-				type="checkbox"
-				id="check"
-			/>
-			<label htmlFor="check" className={s.privacy__agree}></label>
-			<label htmlFor="check" className={s.privacy__label}>
-				{text}
-			</label>
-		</div>
+		<h2 className={classNames(s.text, s[`text__${size}`])}>
+			{`Нажимая "Отправить", вы принимаете политику хранения и обработки `}
+			<Link
+				href={PRIVACY_LINK}
+				target={"_blank"}
+				className={s.text__link}
+			>
+				персональных данных
+			</Link>
+		</h2>
 	);
-}
+};

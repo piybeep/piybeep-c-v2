@@ -6,12 +6,11 @@ import createRequest from "../../api/createRequest";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 
-import { Input, Title } from "../../components";
-import { PRIVACY_LINK } from "../../constatnts";
 import { Service, toast } from "../../utils";
 
+import { Input, Privacy, SelectItem, Title } from "../../components";
+
 import s from "./PopupForm.module.scss";
-import Link from "next/link";
 
 export function PopupForm({
 	services,
@@ -124,7 +123,7 @@ export function PopupForm({
 				className={s.info}
 				onClick={(e) => e.stopPropagation()}
 			>
-				<Title value={"Оставьте заявку и мы с вами свяжемся"} />
+				<Title value={"Оставьте заявку и мы с вами свяжемся"} size="md" />
 				<div className={s.inputs}>
 					<Input
 						text="Имя"
@@ -143,32 +142,16 @@ export function PopupForm({
 				</div>
 				<div className={s.products}>
 					{services.map((current) => (
-						<h2
+						<SelectItem
+							size='md'
 							key={current.id}
-							className={classNames(s.products__product, {
-								[s.products__product_active]: isHasUserSelect(current.name),
-							})}
-							onClick={() => handleProduct(current.name)}
-						>
-							{current.name}
-						</h2>
+							active={isHasUserSelect(current.name)}
+							value={current.name}
+							onClick={() => handleProduct(current.name)} />
 					))}
 				</div>
 
-				<div className={s.privacy}>
-					<h2 className={s.privacy__text}>
-						{
-							'Нажимая "Отправить", вы принимаете политику хранения и обработки '
-						}
-						<Link
-							href={PRIVACY_LINK}
-							target={"_blank"}
-							className={s.privacy__link}
-						>
-							персональных данных
-						</Link>
-					</h2>
-				</div>
+				<Privacy size="sm" />
 
 				<div className={s.buttons}>
 					<button

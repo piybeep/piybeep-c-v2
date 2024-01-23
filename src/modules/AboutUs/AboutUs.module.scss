@@ -25,7 +25,7 @@
   align-items: center;
   column-gap: 39px;
 
-  &.rtl {
+  &__reverse {
     flex-direction: row-reverse;
   }
 
@@ -115,8 +115,8 @@
     align-items: unset;
     row-gap: 30px;
 
-    &.rtl {
-      flex-direction: column;
+    &__reverse {
+      // flex-direction: column;
     }
 
     &__slogan {

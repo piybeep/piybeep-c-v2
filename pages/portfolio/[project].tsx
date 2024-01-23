@@ -1,17 +1,12 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import { BaseLayout } from "../../src/layouts";
-import {
-	Form,
-	OpenFormButton,
-	OurProjectsBlock,
-	PortfolioBack,
-	ProjectPost,
-} from "../../src/modules";
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
+import { ButtonBack, ButtonOpenForm } from "../../src/components";
+import { Form, OurProjects, ProjectPost } from "../../src/modules";
 
 export default function PortfolioCase({
 	project,
@@ -34,8 +29,8 @@ export default function PortfolioCase({
 					<title>Проект не найден - piybeep.</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<PortfolioBack />
-				<OpenFormButton />
+				<ButtonBack />
+				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<p
 						style={{
@@ -47,12 +42,10 @@ export default function PortfolioCase({
 						Произошла ошибка. Возможно запрашеваемый проект не найден или был
 						удалён
 					</p>
-					<OurProjectsBlock
-						title="другие проекты"
-						subtitle=""
+					<OurProjects
 						projects={projects.list}
-						count={projects.total_count}
-					/>
+						title="другие проекты"
+						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
 			</main>
@@ -70,16 +63,14 @@ export default function PortfolioCase({
 					<meta name="description" content={project?.title ?? "Наш проект"} />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<PortfolioBack />
-				<OpenFormButton />
+				<ButtonBack />
+				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
-					<OurProjectsBlock
-						title="другие проекты"
-						subtitle=""
+					<OurProjects
 						projects={projects.list}
-						count={projects.total_count}
-					/>
+						title="другие проекты"
+						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
 			</main>

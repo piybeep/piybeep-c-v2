@@ -2,8 +2,8 @@ import Head from "next/head";
 import React from "react";
 
 import { Montserrat } from "next/font/google";
-import { NotFound } from "../src/modules";
 import classNames from "classnames";
+import { NotFound } from "../src/modules/pages/notFound";
 
 const font = Montserrat({
 	preload: true,

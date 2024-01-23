@@ -1,0 +1,83 @@
+@import '../../../../../../styles/variables.scss';
+
+.header {
+    display: flex;
+    align-items: flex-start;
+
+    font-family: 'Actay', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: $white-color;
+
+    margin: 0;
+
+    white-space: break-spaces;
+
+    grid-area: header;
+
+    &__link {
+        font-family: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+
+        text-decoration-line: underline;
+        text-underline-position: under;
+        text-transform: uppercase;
+
+        color: $white-color;
+    }
+
+    &::after {
+        content: '* это интересно';
+        display: inline-block;
+
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 130%;
+
+        color: $main-color;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .header {
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        font-size: 36px;
+        line-height: 45px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding-bottom: 19px;
+
+        font-size: 24px;
+        line-height: 30px;
+
+        position: relative;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .header {
+        font-size: 22px;
+        line-height: 27px;
+    }
+}

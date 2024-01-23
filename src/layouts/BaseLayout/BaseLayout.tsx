@@ -1,18 +1,24 @@
-import { Eyes, Footer, Header, PopupForm } from "../../modules";
 import React from "react";
-import { EntityActions, EntityState, Service } from "../../utils";
+import { EntityActions, EntityState, Review, Service } from "../../utils";
+import { Eyes, Footer, Header, PopupForm, PopupReview } from "../../modules";
 
 export function BaseLayout({
 	children,
 	services,
+	reviews
 }: {
 	children: React.ReactNode;
 	services: EntityState<Service> & EntityActions<Service>;
+	reviews?: EntityState<Review> & EntityActions<Review>
 }) {
 	return (
 		<>
 			<PopupForm services={services.list} count={services.total_count} />
 			{/*<PopupAuth />*/}
+			{
+				reviews &&
+				<PopupReview reviews={reviews?.list} />
+			}
 			<Eyes />
 			<Header />
 			{children}

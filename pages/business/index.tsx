@@ -1,16 +1,5 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import {
-	AboutUs,
-	Business,
-	Form,
-	OpenFormButton,
-	OurProjectsBlock,
-	Pluses,
-	Reviews,
-	TextSlider,
-	WeDo,
-} from "../../src/modules";
 import { BaseLayout } from "../../src/layouts";
 import { TEXT_SLIDER_BIZ } from "../../src/constatnts";
 import { GetServerSideProps } from "next";
@@ -23,6 +12,9 @@ import {
 	Service,
 } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
+import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
+import { Automation, Text } from "../../src/modules/pages/business";
+import { ButtonOpenForm } from "../../src/components";
 
 export default function BusinessPage({
 	projects,
@@ -40,20 +32,17 @@ export default function BusinessPage({
 				flexDirection: "column",
 			}}
 		>
-			<OpenFormButton />
+			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
 					description={`piybeep. разрабатывает уникальные решения (веб-сервисы) для автоматизации бизнес-процессов, которые сделают работу команды эффективнее и сократят время на выполнение рутинных задач.`}
-					imgPosition={"right"}
+					imgPosition="right"
 				/>
 				<WeDo biz />
-				<Business />
-				<OurProjectsBlock
-					projects={projects.list}
-					count={projects.total_count}
-				/>
-				<Pluses />
+				<Automation />
+				<OurProjects projects={projects.list} />
+				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>
@@ -125,11 +114,13 @@ BusinessPage.getLayout = (
 	page: ReactNode,
 	{
 		services,
+		reviews
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		reviews: EntityState<Review> & EntityActions<Review>;
 	},
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout reviews={reviews} services={services}>
 		<Head>
 			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
 			<meta

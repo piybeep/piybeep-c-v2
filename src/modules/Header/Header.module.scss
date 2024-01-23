@@ -6,70 +6,14 @@
 
   z-index: 2;
 
-  // Тест вариант
   position: sticky;
   top: 0;
   width: 100%;
-  // тест вариант
-
-  //transition: 0.5s;
-}
-
-.preview {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: calc(100vh - 82px);
-
-  transition: 1s;
-
-  &__visible {
-    display: flex;
-  }
-
-  &__title {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-
-    color: $main-color;
-
-    margin: 0;
-  }
-
-  &__subtitle {
-    font-family: "Actay", sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 144px;
-    line-height: 100%;
-
-    letter-spacing: 0.1em;
-
-    color: $white-color;
-
-    margin: 0;
-
-    >span {
-      color: $main-color;
-    }
-  }
 }
 
 .bar {
   display: flex;
   justify-content: space-between;
-
-  //background-color: $black-color;
-  //background: linear-gradient(to bottom, $black-color 0%, rgba(16,15,19,0.00) 100%);
 
   width: 100%;
   max-width: 1688px;
@@ -81,117 +25,10 @@
   transition: 0.2s;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  column-gap: 15px;
-
-  width: fit-content;
-
-  cursor: pointer;
-
-  &__svg {
-    width: 100%;
-    max-width: 36px;
-    height: auto;
-  }
-
-  &__text {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-
-    color: $white-color;
-
-    margin: 0;
-  }
-}
-
 .menu {
   display: flex;
   align-items: center;
   column-gap: 20px;
-
-  .home_links {
-    display: flex;
-    align-items: center;
-
-    background: rgba(231, 236, 255, .12);
-    border-radius: 60px;
-    padding: 0 7px;
-
-    a {
-      text-underline-position: under;
-
-      white-space: nowrap;
-
-      font-family: "Inter", sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 16px;
-
-      text-transform: uppercase;
-
-      color: $gray-color;
-
-      transition: 0.2s;
-
-      padding: 7px;
-
-      &.alt {
-        display: none;
-      }
-
-      &.active {
-        color: $white-color;
-      }
-
-      &:hover {
-        color: $white-color;
-
-        text-decoration: underline;
-      }
-    }
-  }
-
-  &__link {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    text-transform: uppercase;
-
-    color: $white-color;
-
-    transition: 0.2s;
-
-    padding: 7px 14px;
-
-    border: 1px solid transparent;
-
-    text-underline-position: under;
-
-    white-space: nowrap;
-
-    &_active {
-      border-color: $active-link-color;
-      border-radius: 59px;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active {
-      text-decoration: underline;
-
-      color: $gray-color;
-    }
-  }
 }
 
 .info {
@@ -199,17 +36,86 @@
   align-items: flex-start;
   flex-direction: column;
   column-gap: 30px;
+}
 
-  &__link {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    text-transform: uppercase;
 
-    color: $white-color;
+@media screen and (max-width: 1550px) {
+  .bar {
+    max-width: 1300px;
+  }
+
+  .menu {
+    column-gap: 5px;
   }
 }
 
-@import "./HeaderMedia.module.scss";
+@media screen and (max-width: 1024px) {
+  .header {
+    &__visible {
+      transform: translateY(0px);
+    }
+
+    top: -60px;
+  }
+
+  .bar {
+    padding: 12px 24px;
+  }
+
+  .info {
+    justify-self: end;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .bar {
+    display: grid;
+    grid-template-areas:
+      'logo info'
+      'menu menu';
+    row-gap: 30px;
+    align-items: center;
+    background-color: $black-color;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .info {
+    grid-area: info;
+  }
+
+  .menu {
+    grid-area: menu;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bar {
+    padding: 15px 24px 0;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .menu {
+    min-width: 100%;
+    overflow-x: scroll;
+
+    padding: 6.5px 0;
+  }
+
+  .bar {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .bar {
+    padding: 15px 16px 0;
+  }
+
+  .menu {
+    column-gap: 0;
+  }
+}

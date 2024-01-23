@@ -1,14 +1,11 @@
-import Link from "next/link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { CONTACTS_DATA, MENU_ITEMS, PAGES_LINK } from "../../constatnts";
+import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
 
 import s from "./Header.module.scss";
 
-import logo from "../../../public/svg/logo.svg";
-import Image from "next/image";
-import { PreviewHeader } from "./PreviewHeader";
+import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
 
 export function Header() {
 	const query = useRouter();
@@ -48,105 +45,30 @@ export function Header() {
 		window.addEventListener("mousemove", mouseCord);
 	}, []);
 
-	const links = MENU_ITEMS.map((current) => {
-		return (
-			<Link
-				className={classNames(s.menu__link, {
-					[s.menu__link_active]: query.pathname == current.link,
-				})}
-				href={current.link}
-				key={current.display_name}
-			>
-				{current.display_name}
-			</Link>
-		);
-	});
-
 	return (
 		<>
-			<PreviewHeader />
+			<Preview />
 			<header className={classNames(s.header)}>
 				<div className={s.bar}>
-					<Link href={PAGES_LINK.MAIN} className={s.logo}>
-						<Image className={s.logo__svg} src={logo} alt="Логотип" />
-						<p className={s.logo__text}>piybeep.</p>
-					</Link>
-
+					<div className={s.logo}>
+						<Logo />
+					</div>
 					<div className={s.menu}>
-						<div className={classNames(s.home_links)}>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Главная
-							</Link>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Для маркетинга
-							</Link>
-							<Link
-								className={classNames({
-									[s.active]:
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.BUSINESS}
-							>
-								Для бизнеса
-							</Link>
-							<Link
-								className={classNames(s.alt, {
-									[s.active]:
-										query.pathname == PAGES_LINK.MAIN ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.MAIN}
-							>
-								Маркетинг
-							</Link>
-							<Link
-								className={classNames(s.alt, {
-									[s.active]:
-										query.pathname == PAGES_LINK.BUSINESS ||
-										(query.pathname !== PAGES_LINK.MAIN &&
-											query.pathname !== PAGES_LINK.BUSINESS),
-								})}
-								href={PAGES_LINK.BUSINESS}
-							>
-								Бизнес
-							</Link>
-						</div>
-						{links}
+						<ButtonHome pathname={query.pathname} />
+						{
+							MENU_ITEMS.map(current => (
+								<NavLink
+									key={current.display_name}
+									value={current.display_name}
+									href={current.link}
+									active={query.pathname === current.link} />
+							))
+						}
 					</div>
 
 					<div className={s.info}>
-						<Link
-							className={s.info__link}
-							href={`tel:${CONTACTS_DATA.get("phone")}`}
-						>
-							{CONTACTS_DATA.get("phone")}
-						</Link>
-						<Link
-							className={s.info__link}
-							href={`mailto:${CONTACTS_DATA.get("email")}`}
-						>
-							{CONTACTS_DATA.get("email")}
-						</Link>
+						<Contact value={CONTACTS_DATA.get('phone')!} prefix={"tel:"} />
+						<Contact value={CONTACTS_DATA.get('email')!} prefix={'mailto:'} />
 					</div>
 				</div>
 			</header>

@@ -1,0 +1,44 @@
+@import '../../../../styles/variables.scss';
+
+.link {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    color: $white-color;
+
+    transition: 0.2s;
+
+    padding: 7px 14px;
+
+    border: 1px solid transparent;
+
+    text-underline-position: under;
+
+    white-space: nowrap;
+
+    &_active {
+        border-color: $active-link-color;
+        border-radius: 59px;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:active {
+        text-decoration: underline;
+
+        color: $gray-color;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

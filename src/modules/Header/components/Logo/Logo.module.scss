@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.scss';
+
+.logo {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    width: fit-content;
+
+    cursor: pointer;
+
+    &__svg {
+        width: 100%;
+        max-width: 36px;
+        height: auto;
+    }
+
+    &__text {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+
+        color: $white-color;
+
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .logo {
+
+        &__svg {
+            height: 24px;
+            width: 26px;
+        }
+    }
+}

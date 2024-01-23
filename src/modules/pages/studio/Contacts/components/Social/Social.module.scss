@@ -1,0 +1,65 @@
+@import '../../../../../../styles/variables.scss';
+
+.social {
+    display: flex;
+    column-gap: 30px;
+
+    &__link {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+        text-decoration-line: underline;
+
+        color: $white-color;
+
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+
+            min-width: 10px;
+            height: 10px;
+
+            background-image: url('../../../../../../../public/svg/Arrows/UpRight.svg');
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 30px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .social {
+        column-gap: 15px;
+
+        &__img {
+            max-width: 20px;
+        }
+
+        &__link {
+            font-size: 14px;
+            line-height: 130%;
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .social {
+        grid-area: social;
+
+        flex-direction: column;
+        row-gap: 5px;
+
+        &__link {
+            width: fit-content;
+        }
+    }
+}

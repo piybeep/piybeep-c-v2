@@ -1,0 +1,47 @@
+@import '../../../../styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+
+  &__list {
+    position: relative;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .wrapper {
+    row-gap: 54px;
+
+    &__list {
+      height: 380px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+
+    &__list {
+      height: fit-content;
+
+      display: grid;
+      row-gap: 30px;
+      column-gap: 20px;
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+
+    &__list {
+      grid-template-columns: repeat(2, auto);
+      column-gap: 16px;
+    }
+  }
+
+}

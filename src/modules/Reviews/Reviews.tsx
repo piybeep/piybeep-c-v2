@@ -1,14 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
-import Link from "next/link";
 
 import { BlockLayout } from "../../layouts";
 import { useWindowSizes } from "../../hooks";
-
-import s from "./Reviews.module.scss";
-import { SwiperButtons } from "../../components";
 import { PAGES_LINK } from "../../constatnts";
 import { Review } from "../../utils";
+
+import s from "./Reviews.module.scss";
+import { Slide } from "./components";
+import { SwiperButtons } from "../../components";
 
 export function Reviews({
 	reviews,
@@ -44,18 +44,15 @@ export function Reviews({
 					},
 				}}
 			>
-				{reviews.map((i) => (
-					<SwiperSlide key={i.id} className={s.slide}>
-						<div className={s.text}>{i.text}</div>
-						<div className={s.info}>
-							{i.author}
-							{i.project && " - "}
-							{i.project && (
-								<Link href={[PAGES_LINK.PORTFOLIO, i.project?.id].join("/")}>
-									{i.project?.subtitle}
-								</Link>
-							)}
-						</div>
+				{reviews.map((item) => (
+					<SwiperSlide key={item.id} className={s.slide}>
+						<Slide
+							id={item.id}
+							text={item.text}
+							href={PAGES_LINK.PORTFOLIO}
+							author={item.author}
+							project={item.project!}
+						/>
 					</SwiperSlide>
 				))}
 				<SwiperButtons groupCount={groupCount} count={count} />

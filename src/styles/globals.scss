@@ -15,8 +15,12 @@ a {
 
 html,
 body {
+  min-width: 320px;
   // Для блокировки скрол бара при открытии попапа
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: $dark-color $black-color;
+
   // Стили скрола
   *::-webkit-scrollbar {
     width: 10px;
@@ -52,7 +56,7 @@ body {
     footer {
       flex: 0 0 auto;
 
-      z-index: 5; // без этого свойства линии на фоне и содержимое страниц будут поверх контента
+      z-index: 5;
     }
 
     main {
@@ -64,8 +68,7 @@ body {
       padding: 120px 24px;
       position: relative;
 
-      z-index: 1; // без этого свойства линии на фоне будут поверх контента
-
+      z-index: 1;
 
       .content-wrapper {
         display: flex;
@@ -92,12 +95,11 @@ body {
         transform: translateX(-50%);
 
         background-color: transparent;
-        background-image: linear-gradient(
-                        90deg,
-                        #1c1c1c /* $main-color */
-                        1px,
-                        transparent 1px
-        );
+        background-image: linear-gradient(90deg,
+            #1c1c1c
+            /* $main-color */
+            1px,
+            transparent 1px);
         background-size: 280px;
         background-position: left;
       }

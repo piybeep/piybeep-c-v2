@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss';
+
+.select {
+    margin: 0;
+
+    user-select: none;
+
+    cursor: pointer;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-underline-position: under;
+
+    color: $gray-color;
+
+    &__lg {
+        font-size: 40px;
+    }
+
+    &__md {
+        font-size: 16px;
+    }
+
+    &:hover {
+        color: $white-color;
+    }
+
+    &_active {
+        color: $main-color !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .select {
+        &__lg {
+            font-size: 28px;
+        }
+
+        &:hover {
+            color: $gray-color;
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .select {
+
+        &__lg {
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .select {
+
+        &__lg {
+            font-size: 16px;
+        }
+    }
+}

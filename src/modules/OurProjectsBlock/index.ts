@@ -1,1 +1,0 @@
-export {OurProjectsBlock} from "./OurProjectsBlock";

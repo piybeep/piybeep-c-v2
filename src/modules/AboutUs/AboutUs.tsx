@@ -18,7 +18,7 @@ export function AboutUs({
 			<h2 className={s.title}>{title}</h2>
 			<div
 				className={classNames(s.info, {
-					[s.rtl]: imgPosition === "right",
+					[s.info__reverse]: imgPosition === "right",
 				})}
 			>
 				<h3 className={s.info__slogan}>{description}</h3>
