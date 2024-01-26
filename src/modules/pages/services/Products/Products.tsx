@@ -14,6 +14,7 @@ import { ProductType } from "../../../../utils";
 export function Products({ list }: { list: ProductType[] }) {
 	return (
 		<BlockLayout
+			size='lg'
 			value="Сделаем для вас"
 			subtitle={
 				<Link href={[PAGES_LINK.STUDIO, "#stacks"].join("")}>

@@ -13,7 +13,7 @@ export function Support() {
 	];
 
 	return (
-		<BlockLayout value="Поддержка" position="center">
+		<BlockLayout value="Поддержка" position="center" size='lg'>
 			<div className={s.container} id={"Поддержка"}>
 				<div className={s.description}>
 					{DESCRIPTION.map((i, index) => (
