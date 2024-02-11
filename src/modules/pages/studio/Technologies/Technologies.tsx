@@ -9,7 +9,7 @@ import { Item } from "./components";
 export function Technologies() {
 	return (
 		<div className={s.wrapper} id={"stacks"}>
-			<Title value={"Стек технологий"} />
+			<Title value={"Стек технологий"} size='md' />
 
 			<div className={s.list}>
 				{TECHNOLOGIES_LIST.map((current) => (

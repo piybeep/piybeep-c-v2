@@ -8,7 +8,7 @@ import s from "./Team.module.scss";
 export function Team() {
 	return (
 		<div className={s.wrapper}>
-			<Title value={"Команда"} />
+			<Title value={"Команда"} size='md' />
 			<div className={s.wrapper__list}>
 				{PERSON_LIST.map((current) => (
 					<Person
