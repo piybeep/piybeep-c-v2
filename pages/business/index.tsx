@@ -41,7 +41,7 @@ export default function BusinessPage({
 				/>
 				<WeDo biz />
 				<Automation />
-				<OurProjects projects={projects.list} />
+				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />

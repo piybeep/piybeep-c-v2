@@ -2,7 +2,7 @@ div.btn_wrapper {
     align-self: flex-end;
     position: fixed;
     bottom: 40px;
-    z-index: 5;
+    z-index: 99;
     width: fit-content;
 
     &.hide {

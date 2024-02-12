@@ -13,12 +13,12 @@ export function OurProjects({
 	title = "Наши проекты",
 	subtitle = "Скоро больше",
 	projects,
-	count = 0,
+	count,
 }: {
 	title?: string;
 	subtitle?: string;
 	projects: Project[];
-	count?: number;
+	count: number;
 }) {
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
