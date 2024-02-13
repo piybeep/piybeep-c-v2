@@ -9,10 +9,10 @@ import { ButtonBack, ButtonOpenForm } from "../../src/components";
 import { Form, OurProjects, ProjectPost } from "../../src/modules";
 
 export default function PortfolioCase({
-	project,
-	projects,
-	services,
-}: {
+																				project,
+																				projects,
+																				services
+																			}: {
 	project: Project | { error: any };
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
@@ -22,7 +22,7 @@ export default function PortfolioCase({
 			<main
 				style={{
 					display: "flex",
-					flexDirection: "column",
+					flexDirection: "column"
 				}}
 			>
 				<Head>
@@ -30,13 +30,12 @@ export default function PortfolioCase({
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
-				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<p
 						style={{
-							fontFamily: '"Inter", sans-serif',
+							fontFamily: "\"Inter\", sans-serif",
 							textAlign: "center",
-							padding: 12,
+							padding: 12
 						}}
 					>
 						Произошла ошибка. Возможно запрашиваемый проект не существует или был удалён
@@ -47,6 +46,7 @@ export default function PortfolioCase({
 						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
+				<ButtonOpenForm />
 			</main>
 		);
 	} else {
@@ -54,7 +54,7 @@ export default function PortfolioCase({
 			<main
 				style={{
 					display: "flex",
-					flexDirection: "column",
+					flexDirection: "column"
 				}}
 			>
 				<Head>
@@ -63,7 +63,6 @@ export default function PortfolioCase({
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
-				<ButtonOpenForm />
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
 					<OurProjects
@@ -72,6 +71,7 @@ export default function PortfolioCase({
 						count={projects.total_count} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
+				<ButtonOpenForm />
 			</main>
 		);
 	}
@@ -81,12 +81,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const URIs = [
 		"projects?rand=true",
 		"services",
-		"projects/" + ctx?.params?.project,
+		"projects/" + ctx?.params?.project
 	];
 
 	const [projects_response, services_response, project_response] =
 		await Promise.allSettled(
-			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
 		);
 
 	const project =
@@ -98,13 +98,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		useProjects.setState(
 			{
 				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1],
+				total_count: projects_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data),
+			error: new Error(projects_response.reason.response.data)
 		});
 	}
 
@@ -112,13 +112,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		useServices.setState(
 			{
 				list: services_response.value.data[0],
-				total_count: services_response.value.data[1],
+				total_count: services_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data),
+			error: new Error(services_response.reason.response.data)
 		});
 	}
 
@@ -126,16 +126,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		props: {
 			project,
 			projects: useProjects.getState(),
-			services: useServices.getState(),
-		},
+			services: useServices.getState()
+		}
 	};
 };
 
 PortfolioCase.getLayout = (
 	page: ReactNode,
 	{
-		services,
+		services
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
-	},
+	}
 ) => <BaseLayout services={services}>{page}</BaseLayout>;

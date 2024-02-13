@@ -10,9 +10,9 @@ import { Form } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
 
 export default function Portfolio({
-	projects,
-	services,
-}: {
+																		projects,
+																		services
+																	}: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 }) {
@@ -20,14 +20,14 @@ export default function Portfolio({
 		<main
 			style={{
 				display: "flex",
-				flexDirection: "column",
+				flexDirection: "column"
 			}}
 		>
-			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<Projects projects={projects.list} />
 			</div>
 			<Form services={services.list} count={services.total_count} />
+			<ButtonOpenForm />
 		</main>
 	);
 }
@@ -36,20 +36,20 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const URIs = ["projects", "services"];
 
 	const [projects_response, services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
 	);
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
 				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1],
+				total_count: projects_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data),
+			error: new Error(projects_response.reason.response.data)
 		});
 	}
 
@@ -57,31 +57,31 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		useServices.setState(
 			{
 				list: services_response.value.data[0],
-				total_count: services_response.value.data[1],
+				total_count: services_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data),
+			error: new Error(services_response.reason.response.data)
 		});
 	}
 
 	return {
 		props: {
 			projects: useProjects.getState(),
-			services: useServices.getState(),
-		},
+			services: useServices.getState()
+		}
 	};
 };
 
 Portfolio.getLayout = (
 	page: ReactNode,
 	{
-		services,
+		services
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
-	},
+	}
 ) => (
 	<BaseLayout services={services}>
 		<Head>

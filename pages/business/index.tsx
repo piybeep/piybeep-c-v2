@@ -4,23 +4,17 @@ import { BaseLayout } from "../../src/layouts";
 import { TEXT_SLIDER_BIZ } from "../../src/constatnts";
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import {
-	EntityActions,
-	EntityState,
-	Project,
-	Review,
-	Service,
-} from "../../src/utils";
+import { EntityActions, EntityState, Project, Review, Service } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
 import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
 import { Automation, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
 
 export default function BusinessPage({
-	projects,
-	services,
-	reviews,
-}: {
+																			 projects,
+																			 services,
+																			 reviews
+																		 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
@@ -29,10 +23,9 @@ export default function BusinessPage({
 		<main
 			style={{
 				display: "flex",
-				flexDirection: "column",
+				flexDirection: "column"
 			}}
 		>
-			<ButtonOpenForm />
 			<div className="content-wrapper">
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
@@ -47,6 +40,7 @@ export default function BusinessPage({
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>
 			<Form services={services.list} count={services.total_count} />
+			<ButtonOpenForm />
 		</main>
 	);
 }
@@ -56,20 +50,20 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 
 	const [projects_response, services_response, reviews_response] =
 		await Promise.allSettled(
-			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`)),
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
 		);
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
 				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1],
+				total_count: projects_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data),
+			error: new Error(projects_response.reason.response.data)
 		});
 	}
 
@@ -77,13 +71,13 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		useServices.setState(
 			{
 				list: services_response.value.data[0],
-				total_count: services_response.value.data[1],
+				total_count: services_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data),
+			error: new Error(services_response.reason.response.data)
 		});
 	}
 
@@ -91,13 +85,13 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		useReviews.setState(
 			{
 				list: reviews_response.value.data[0],
-				total_count: reviews_response.value.data[1],
+				total_count: reviews_response.value.data[1]
 			},
-			true,
+			true
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data),
+			error: new Error(reviews_response.reason.response.data)
 		});
 	}
 
@@ -105,8 +99,8 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		props: {
 			projects: useProjects.getState(),
 			services: useServices.getState(),
-			reviews: useReviews.getState(),
-		},
+			reviews: useReviews.getState()
+		}
 	};
 };
 
@@ -118,7 +112,7 @@ BusinessPage.getLayout = (
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
 		reviews: EntityState<Review> & EntityActions<Review>;
-	},
+	}
 ) => (
 	<BaseLayout reviews={reviews} services={services}>
 		<Head>
