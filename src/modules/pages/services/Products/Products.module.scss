@@ -2,6 +2,8 @@
   .item {
     border-bottom: 1px solid #8e8e8e;
 
+    scroll-margin-top: 20dvh;
+
     &:nth-last-child(1) {
       border-bottom: none;
     }
