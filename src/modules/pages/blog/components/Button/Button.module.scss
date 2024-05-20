@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables.scss';
+
+.button {
+    color: $white-color;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    background-color: transparent;
+    border: none;
+    border: 1px solid rgba(231, 236, 255, 0.20);
+    border-radius: 59px;
+
+    padding: 7px 14px;
+
+    transition: .2s;
+
+    &__active {
+        color: $black-color;
+        background-color: $white-color;
+        border: 1px solid $white-color;
+    }
+}

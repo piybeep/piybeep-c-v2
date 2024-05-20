@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 interface BaseEntity {
 	id: string;
 	createdAt: Date;
@@ -53,4 +55,15 @@ export interface ProductType {
 	discount: number | null;
 	isAvailable: boolean;
 	type: string;
+}
+
+export interface PostType {
+	id: number,
+	markers: string[],
+	slogan: string,
+	img: StaticImageData
+	info: {
+		type: 'text' | 'img',
+		content: string
+	}[]
 }

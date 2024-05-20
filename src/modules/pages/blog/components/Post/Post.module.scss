@@ -1,0 +1,17 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &__markers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+    }
+}
