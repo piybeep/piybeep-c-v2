@@ -6,11 +6,11 @@ export function Header({ markers }: { markers: string[] }) {
     const {
         add: addUserSelect,
         remove: removeUserSelect,
-        isHas: isHasUserSelect,
+        isHas: isHasBlockSelect,
     } = useBlockSelect();
 
     const handleFilterPost = (text: string) => {
-        isHasUserSelect(text)
+        isHasBlockSelect(text)
             ? removeUserSelect(text)
             : addUserSelect(text);
     }
@@ -22,7 +22,7 @@ export function Header({ markers }: { markers: string[] }) {
                 <Search placeholder={'Хочу найти...'} />
                 <div className={s.wrapper__list}>
                     {
-                        markers?.map(i => <Button key={i} text={i} isActive={isHasUserSelect(i)} onClick={() => handleFilterPost(i)} />)
+                        markers?.map(i => <Button key={i} text={i} isActive={isHasBlockSelect(i)} onClick={() => handleFilterPost(i)} />)
                     }
                 </div>
             </div>
