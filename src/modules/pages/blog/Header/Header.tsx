@@ -1,13 +1,13 @@
+import { useBlockSelect } from '../../../../hooks/useBlockSelect';
 import { Button, Search, Title } from '../components';
 import s from './Header.module.scss'
-import { useUserSelectForm } from '../../../../hooks';
 
 export function Header({ markers }: { markers: string[] }) {
     const {
         add: addUserSelect,
         remove: removeUserSelect,
         isHas: isHasUserSelect,
-    } = useUserSelectForm();
+    } = useBlockSelect();
 
     const handleFilterPost = (text: string) => {
         isHasUserSelect(text)
