@@ -1,6 +1,7 @@
 import img from '../../public/imgs/blog/postImagePlug.png'
+import { PostType } from '../utils'
 
-export const BLOG_DATA = [
+export const BLOG_DATA: PostType[] = [
     {
         id: 1,
         markers: ['Сайт', 'backend'],
@@ -13,7 +14,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -25,7 +26,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -45,7 +46,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -57,7 +58,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -77,7 +78,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -89,7 +90,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -109,7 +110,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -121,7 +122,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -141,7 +142,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',
@@ -153,7 +154,7 @@ export const BLOG_DATA = [
             },
             {
                 type: 'img',
-                content: img
+                content: img.src
             },
             {
                 type: 'text',

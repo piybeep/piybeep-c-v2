@@ -16,7 +16,6 @@ export default function PostPage() {
         <>
             <ButtonBack />
             {
-                //  Не понимаю как пофиксить типы
                 resPost && <PostInfo post={resPost} />
             }
         </>

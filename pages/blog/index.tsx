@@ -14,7 +14,6 @@ export default function BlogPage() {
     return (
         <div className={s.blog}>
             <Header markers={resMarkers} />
-            {/* Не понимаю как пофиксить типы */}
             <List posts={res} />
         </div>
     );

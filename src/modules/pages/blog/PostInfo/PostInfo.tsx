@@ -21,9 +21,9 @@ export function PostInfo({ post }: { post: PostType }) {
 
             <div className={s.info}>
                 {
-                    post.info.map(i => i.type === 'text'
-                        ? <p className={s.info__text} >{i.content}</p>
-                        : <Image className={s.info__img} src={i.content} alt={""} width={834} height={346} />
+                    post.info.map(i =>
+                        i.type === 'text' && <p className={s.info__text} >{i.content}</p>
+                        || i.type === 'img' && <Image className={s.info__img} src={i.content} alt={""} width={834} height={346} />
                     )
                 }
             </div>
