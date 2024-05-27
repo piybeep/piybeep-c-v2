@@ -6,15 +6,15 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../src/modules";
+import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
 import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 
 export default function Home({
-															 projects,
-															 services,
-															 reviews
-														 }: {
+	projects,
+	services,
+	reviews
+}: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
@@ -36,7 +36,9 @@ export default function Home({
 				<WeDo />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Advantages />
+				<Steps />
 				<ProjectsPreview projects={projects.list.slice(0, 12)} />
+				<Technologies />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
 			</div>
