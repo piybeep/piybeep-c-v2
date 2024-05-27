@@ -6,10 +6,9 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
+import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../../src/modules";
 import { Automation, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
-import { Steps, Technologies } from "../../src/modules/pages/studio";
 
 export default function BusinessPage({
 	projects,
