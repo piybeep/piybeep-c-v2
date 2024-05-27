@@ -9,12 +9,13 @@ import { useProjects, useReviews, useServices } from "../../src/store";
 import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
 import { Automation, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
+import { Steps, Technologies } from "../../src/modules/pages/studio";
 
 export default function BusinessPage({
-																			 projects,
-																			 services,
-																			 reviews
-																		 }: {
+	projects,
+	services,
+	reviews
+}: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
@@ -34,7 +35,9 @@ export default function BusinessPage({
 				/>
 				<WeDo biz />
 				<Automation />
+				<Steps />
 				<OurProjects projects={projects.list} count={projects.total_count} />
+				<Technologies />
 				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
