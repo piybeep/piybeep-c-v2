@@ -5,9 +5,10 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { AboutUs, Contacts, Spa, Team } from "../../src/modules/pages/studio";
+import { AboutUs, Contacts, Team } from "../../src/modules/pages/studio";
 import { Form, Steps, Technologies } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
+import { Spa } from "../../src/modules/pages/studio/Spa";
 
 export default function Studio({
 	services

@@ -1,3 +1,5 @@
+'use client'
+
 import { LottieAnimation } from "react-lottie-tools";
 import coder from '../../../../../public/animtate/coder.json'
 
