@@ -69,7 +69,7 @@ Services.getLayout = (
 ) => (
 	<BaseLayout services={services}>
 		<Head>
-			<title>Услуги - piybeep.</title>
+			<title>Разнообразные услуги: дизайн, разработка, продвижение и многое другое для вашего успешного онлайн-проекта | Piybeep</title>
 			<meta name="description" content="Наши услуги" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

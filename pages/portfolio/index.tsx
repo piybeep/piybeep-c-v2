@@ -10,9 +10,9 @@ import { Form } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
 
 export default function Portfolio({
-																		projects,
-																		services
-																	}: {
+	projects,
+	services
+}: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 }) {
@@ -85,7 +85,7 @@ Portfolio.getLayout = (
 ) => (
 	<BaseLayout services={services}>
 		<Head>
-			<title>Портфолио - piybeep.</title>
+			<title>Портфолио: лучшие проекты и работы | Piybeep</title>
 			<meta name="description" content="Наше портфолио" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

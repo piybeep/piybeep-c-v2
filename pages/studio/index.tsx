@@ -74,7 +74,7 @@ Studio.getLayout = (
 ) => (
 	<BaseLayout services={services}>
 		<Head>
-			<title>Студия - piybeep.</title>
+			<title>Веб-студия – команда, процесс разработки | Piybeep</title>
 			<meta name="description" content="Наша студия" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
