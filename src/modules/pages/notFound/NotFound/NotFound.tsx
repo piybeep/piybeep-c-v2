@@ -1,3 +1,5 @@
+'use client'
+
 import { MENU_ITEMS, PAGES_LINK } from "../../../../constatnts";
 
 import Link from "next/link";
