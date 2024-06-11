@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
 					quality={85}
 				/>
 			</div>
-			<h3 className={s.title}>{project.subtitle}</h3>
+			<h2 className={s.title}>{project.subtitle}</h2>
 			<p className={s.description}>{project.title}</p>
 		</Link>
 	);

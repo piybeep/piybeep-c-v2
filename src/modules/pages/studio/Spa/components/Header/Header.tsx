@@ -12,6 +12,7 @@ export function Header({ title, text }: { title: string, text: string }) {
             >
                 {text}
             </a>
+            <span>* это интересно</span>
         </h2>
     );
 };

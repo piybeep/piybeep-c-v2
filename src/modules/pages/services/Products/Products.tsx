@@ -16,6 +16,7 @@ export function Products({ list }: { list: ProductType[] }) {
 		<BlockLayout
 			size='lg'
 			value="Сделаем для вас"
+			tag="h1"
 			subtitle={
 				<Link href={[PAGES_LINK.STUDIO, "#stacks"].join("")}>
 					Стек разработки <Image src={RightArrow} alt="" />

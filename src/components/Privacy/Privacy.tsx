@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 export function Privacy({ size = 'md' }: PrivacyProps) {
 	return (
-		<h2 className={classNames(s.text, s[`text__${size}`])}>
+		<span className={classNames(s.text, s[`text__${size}`])}>
 			{`Нажимая "Отправить", вы принимаете политику хранения и обработки `}
 			<Link
 				href={PRIVACY_LINK}
@@ -17,6 +17,6 @@ export function Privacy({ size = 'md' }: PrivacyProps) {
 			>
 				персональных данных
 			</Link>
-		</h2>
+		</span>
 	);
 };
