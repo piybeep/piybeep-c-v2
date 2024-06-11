@@ -1,32 +1,27 @@
 import Image from "next/image";
-import { PostType } from "../../../../utils";
 import { Marker, Title } from "../components";
 
 import s from './PostInfo.module.scss'
+import { BlogsTypes } from "../../../../types";
 
-export function PostInfo({ post }: { post: PostType }) {
+export function PostInfo({ post }: { post: BlogsTypes }) {
+
+    console.log(post)
 
     return (
         <div className={s.wrapper}>
             <div className={s.header}>
-                <Title text={post.slogan} />
+                <Title text={post.title} />
                 <div className={s.header__list}>
                     {
-                        post.markers.map(marker =>
+                        post.themes.map(marker =>
                             <Marker key={marker} text={marker} />
                         )
                     }
                 </div>
             </div>
 
-            <div className={s.info}>
-                {
-                    post.info.map(i =>
-                        i.type === 'text' && <p className={s.info__text} >{i.content}</p>
-                        || i.type === 'img' && <Image className={s.info__img} src={i.content} alt={""} width={834} height={346} />
-                    )
-                }
-            </div>
+            <div className={s.info} dangerouslySetInnerHTML={{ __html: post.text }} />
         </div>
     );
 }

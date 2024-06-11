@@ -1,21 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import postImagePlug from '../../../../../../public/imgs/blog/postImagePlug.png';
-import { PostType } from '../../../../../utils';
 import { Marker } from '../Marker';
 import { Slogan } from '../Slogan';
 import s from './Post.module.scss';
+import { BlogsTypes } from '../../../../../types';
 
-export function Post({ post }: { post: PostType }) {
+export function Post({ post }: { post: BlogsTypes }) {
     return (
         <Link className={s.post} href={`/blog/${post.id}`}>
             <div className={s.post__markers}>
                 {
-                    post?.markers?.map(marker => <Marker key={marker} text={marker} />)
+                    post.themes.map(marker => <Marker key={marker} text={marker} />)
                 }
             </div>
-            <Slogan text={post.slogan} />
-            <Image className={s.post__img} src={post?.img ?? postImagePlug} alt={''} width={520} height={346} />
+            <Slogan text={post.title} />
+            <Image className={s.post__img} src={process.env.NEXT_PUBLIC_STRAPI_URL + post?.previewImage} alt={''} width={520} height={346} />
         </Link>
     );
 }
