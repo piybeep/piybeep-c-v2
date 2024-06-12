@@ -9,12 +9,10 @@ export function BlockLayout({
     subtitle,
     position,
     size = 'md',
-    tag = 'h2'
 }: BlockLayoutProps) {
     return (
         <section className={s.wrapper}>
             <Title
-                tag={tag}
                 size={size}
                 value={value}
                 position={position}

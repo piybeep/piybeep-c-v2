@@ -6,7 +6,7 @@ import s from './Projects.module.scss'
 
 export function Projects({ projects }: { projects: Project[] }) {
     return (
-        <BlockLayout value="Наши проекты" position="center" size='lg' tag="h1">
+        <BlockLayout value="Наши проекты" position="center" size='lg'>
             <div className={s.wrapper}>
                 {
                     projects?.map(project => (
