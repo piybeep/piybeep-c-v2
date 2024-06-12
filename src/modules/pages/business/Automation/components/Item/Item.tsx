@@ -4,7 +4,7 @@ import { ItemProps } from "./Item.types";
 
 import s from './Item.module.scss'
 
-export function Item({ index, title, img }: ItemProps) {
+export function Item({ index, title, img, alt }: ItemProps) {
     return (
         <div
             key={index}
@@ -17,11 +17,11 @@ export function Item({ index, title, img }: ItemProps) {
                         : { marginTop: `${index * 80 - 240}px` }
             }
         >
-            <h2 className={s.item__title}>{title}</h2>
+            <p className={s.item__title}>{title}</p>
             <Image
                 className={s.item__img}
                 src={img}
-                alt={"Картинка"}
+                alt={alt}
                 quality={100}
             />
         </div>

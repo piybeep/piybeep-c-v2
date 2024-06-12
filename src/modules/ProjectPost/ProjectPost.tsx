@@ -34,19 +34,19 @@ export function ProjectPost({ project }: { project: Project }) {
 			<p>{project.access && ACCESS_DECODING[project.access]}</p>
 			{project.task && (
 				<div className={s.info}>
-					<h5>Задача.</h5>
+					<h2>Задача.</h2>
 					<p>{project.task}</p>
 				</div>
 			)}
 			{project.about_company && (
 				<div className={s.info}>
-					<h5>О компании.</h5>
+					<h2>О компании.</h2>
 					<p>{project.about_company}</p>
 				</div>
 			)}
 			{project.about_service && (
 				<div className={s.info}>
-					<h5>О сервисе.</h5>
+					<h2>О сервисе.</h2>
 					<p>{project.about_service}</p>
 				</div>
 			)}
@@ -54,21 +54,21 @@ export function ProjectPost({ project }: { project: Project }) {
 				<ReactMarkdown
 					remarkPlugins={[remarkGfm]}
 					rehypePlugins={[rehypeRaw]}
-					// TODO: make optimization imgs
-					// components={{
-					// 	img: ({ node, ...props }) => {
-					// 		return (
-					// 			<Image
-					// 				alt={props.alt ?? ""}
-					// 				src={props.src ?? ""}
-					// 				quality={100}
-					// 				width={1000}
-					// 				height={600}
-					// 				{...props}
-					// 			/>
-					// 		);
-					// 	},
-					// }}
+				// TODO: make optimization imgs
+				// components={{
+				// 	img: ({ node, ...props }) => {
+				// 		return (
+				// 			<Image
+				// 				alt={props.alt ?? ""}
+				// 				src={props.src ?? ""}
+				// 				quality={100}
+				// 				width={1000}
+				// 				height={600}
+				// 				{...props}
+				// 			/>
+				// 		);
+				// 	},
+				// }}
 				>
 					{project.text}
 				</ReactMarkdown>

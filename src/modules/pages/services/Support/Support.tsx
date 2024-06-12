@@ -17,9 +17,9 @@ export function Support() {
 			<div className={s.container} id={"Поддержка"}>
 				<div className={s.description}>
 					{DESCRIPTION.map((i, index) => (
-						<div key={index} className={s.col}>
+						<p style={{ margin: '0px' }} key={index} className={s.col}>
 							{i}
-						</div>
+						</p>
 					))}
 				</div>
 				<div className={s.cards}>

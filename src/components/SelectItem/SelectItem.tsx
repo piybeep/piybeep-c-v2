@@ -6,13 +6,13 @@ import s from './SelectItem.module.scss'
 
 export function SelectItem({ isActive, value, onClick, size = 'lg' }: SelectItemProps) {
     return (
-        <h2
+        <p
             className={classNames(s.select, s[`select__${size}`], {
                 [s.select_active]: isActive,
             })}
             onClick={() => onClick(value)}
         >
             {value}
-        </h2>
+        </p>
     );
 };

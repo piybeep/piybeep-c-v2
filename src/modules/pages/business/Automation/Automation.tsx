@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { BUSINESS_DATA } from "../../../../constatnts/business";
 
 import s from "./Automation.module.scss";
@@ -17,6 +15,7 @@ export function Automation() {
 						index={index}
 						title={current.title}
 						img={current.img}
+						alt={current.alt}
 					/>
 				))}
 			</div>

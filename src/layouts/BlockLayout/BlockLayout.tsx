@@ -8,7 +8,7 @@ export function BlockLayout({
     value,
     subtitle,
     position,
-    size = 'md'
+    size = 'md',
 }: BlockLayoutProps) {
     return (
         <section className={s.wrapper}>

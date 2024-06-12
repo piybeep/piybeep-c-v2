@@ -14,7 +14,7 @@ export function Person({ length, id, windowSize, title, text, img }: PersonProps
             <Image
                 className={s.person__img}
                 src={img}
-                alt={"Картинка"}
+                alt={text}
                 quality={100}
             />
             <div className={s.person__info}>

@@ -15,7 +15,7 @@ export function Card({
 	return (
 		<div {...props} className={classNames(s.card, className)}>
 			<div className={s.title}>
-				<h4>{title}</h4>
+				<h3 style={{ margin: '0px' }}>{title}</h3>
 				<span className={s.description}>{description}</span>
 			</div>
 			<div className={s.options}>

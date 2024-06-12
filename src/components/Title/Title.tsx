@@ -9,15 +9,21 @@ export function Title({
     subtitle,
     position = "left",
     withDot = true,
-    size = 'lg'
+    size = 'lg',
 }: TitleProps) {
     return (
         <div className={style.wrapper}>
             <div className={classNames(style.title, style[position], style[`title__${size}`])}>
-                <h3>
-                    {value} {withDot && '.'}
-                </h3>
-                {subtitle && <h4>{subtitle}</h4>}
+                {
+                    size === 'md'
+                        ? <h2>
+                            {value} {withDot && '.'}
+                        </h2>
+                        : <h1>
+                            {value} {withDot && '.'}
+                        </h1>
+                }
+                {subtitle && <span>{subtitle}</span>}
             </div>
         </div>
     );
