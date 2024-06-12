@@ -7,17 +7,27 @@ import s from './index.module.scss'
 import { BlogsResTypes, BlogsTypes, ThemeTypes } from "../../src/types";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useThrottle } from "../../src/hooks";
 export default function BlogPage() {
     const router = useRouter()
 
     const qs = require('qs')
     const query = qs.stringify({
         filters: {
-            themes: {
-                Theme: {
-                    $in: router.query.blockSelect && String(router.query.blockSelect).split(',')
+            $and: [
+                {
+                    themes: {
+                        Theme: {
+                            $in: router.query.blockSelect && String(router.query.blockSelect).split(',')
+                        }
+                    },
+                },
+                {
+                    Title: {
+                        $containsi: router.query.search && String(router.query.search)
+                    },
                 }
-            },
+            ]
         },
     }, {
         encodeValuesOnly: true,
@@ -26,6 +36,8 @@ export default function BlogPage() {
     const [blogsRes, setBlogsRes] = useState<BlogsTypes[] | null>(null)
     const [themesRes, setThemesRes] = useState<string[] | null>(null)
     const [error, setError] = useState<any>()
+
+    const throttledValue = useThrottle(router.query.search?.toString())
 
     useEffect(() => {
         (function () {
@@ -39,7 +51,7 @@ export default function BlogPage() {
                 }))))
                 .catch(error => setError(error))
         }())
-    }, [router.query.blockSelect])
+    }, [router.query.blockSelect, throttledValue])
 
     useEffect(() => {
         (function () {

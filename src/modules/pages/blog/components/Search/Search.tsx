@@ -1,8 +1,13 @@
-import { InputProps } from '../../../../../components';
 import s from './Search.module.scss'
 
-export function Search({ placeholder }: { placeholder: string }) {
+interface SearchTypes {
+    placeholder: string
+    onChange: any
+    value: string
+}
+
+export function Search({ placeholder, onChange, value }: SearchTypes) {
     return (
-        <input placeholder={placeholder} type='text' className={s.search} />
+        <input onChange={onChange} value={value} placeholder={placeholder} type='text' className={s.search} />
     );
 };
