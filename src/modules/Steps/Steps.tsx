@@ -1,5 +1,4 @@
-import classNames from "classnames";
-import { STEPS_INFO } from "../../../../constatnts/steps";
+import { STEPS_INFO } from "../../constatnts/steps";
 import s from "./Steps.module.scss";
 import { Header, Item } from "./components";
 

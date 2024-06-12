@@ -6,15 +6,15 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
-import { AboutUs, Form, OurProjects, Reviews, TextSlider, WeDo } from "../../src/modules";
+import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../../src/modules";
 import { Automation, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
 
 export default function BusinessPage({
-																			 projects,
-																			 services,
-																			 reviews
-																		 }: {
+	projects,
+	services,
+	reviews
+}: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
@@ -34,7 +34,9 @@ export default function BusinessPage({
 				/>
 				<WeDo biz />
 				<Automation />
+				<Steps />
 				<OurProjects projects={projects.list} count={projects.total_count} />
+				<Technologies />
 				<Text />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
@@ -116,7 +118,7 @@ BusinessPage.getLayout = (
 ) => (
 	<BaseLayout reviews={reviews} services={services}>
 		<Head>
-			<title>Создаем продающие сайты. Веб-студия Piybeep. Для вас.</title>
+			<title>Профессиональная разработка сайтов для вашего бизнеса: предлагаем высококачественные услуги по созданию сайтов | Piybeep</title>
 			<meta
 				name="description"
 				content="Разработка и поддержка сайтов для стартапов и растущих компаний. Мы поможем вам сделать шаг к расширению вашего бизнеса - сделаем качественный сайт."

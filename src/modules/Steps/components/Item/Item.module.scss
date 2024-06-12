@@ -1,0 +1,59 @@
+@import '../../../../styles/variables';
+
+.item {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  &__right {
+    align-items: flex-end;
+  }
+
+  &__title {
+    margin: 0;
+
+    color: $white-color;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  &__text {
+    margin: 0;
+
+    color: $gray-color;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .item {
+    max-width: 520px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .item {
+    &__text {
+      font-size: 13px;
+    }
+  }
+}

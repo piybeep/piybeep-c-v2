@@ -1,15 +1,12 @@
-import Image from "next/image";
-
-import { TECHNOLOGIES_LIST } from "../../../../constatnts";
-import { Title } from "../../../../components";
-
 import s from "./Technologies.module.scss";
 import { Item } from "./components";
+import { TECHNOLOGIES_LIST } from "../../constatnts";
+import { Title } from "../../components";
 
 export function Technologies() {
 	return (
 		<div className={s.wrapper} id={"stacks"}>
-			<Title value={"Стек технологий"} size='md' />
+			<Title value={"Стек технологий"} size="md" />
 
 			<div className={s.list}>
 				{TECHNOLOGIES_LIST.map((current) => (

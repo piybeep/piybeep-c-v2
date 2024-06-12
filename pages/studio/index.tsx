@@ -5,13 +5,14 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
-import { AboutUs, Contacts, Spa, Steps, Team, Technologies } from "../../src/modules/pages/studio";
-import { Form } from "../../src/modules";
+import { AboutUs, Contacts, Team } from "../../src/modules/pages/studio";
+import { Form, Steps, Technologies } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
+import { Spa } from "../../src/modules/pages/studio/Spa";
 
 export default function Studio({
-																 services
-															 }: {
+	services
+}: {
 	services: EntityState<Service> & EntityActions<Service>;
 }) {
 	return (
@@ -73,7 +74,7 @@ Studio.getLayout = (
 ) => (
 	<BaseLayout services={services}>
 		<Head>
-			<title>Студия - piybeep.</title>
+			<title>Веб-студия – команда, процесс разработки | Piybeep</title>
 			<meta name="description" content="Наша студия" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

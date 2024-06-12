@@ -1,3 +1,5 @@
+'use client'
+
 import coder from '../../../../../public/animtate/coder.json'
 
 import s from "./Spa.module.scss";
