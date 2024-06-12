@@ -8,6 +8,16 @@ import { GetServerSideProps } from "next";
 import { PostInfo } from "../../src/modules/pages/blog";
 
 export default function PostPage({ blogsRes }: { blogsRes: BlogsTypes }) {
+
+    if (!blogsRes) {
+        return (
+            // Сюда заглушку для ошибок
+            <>
+                Произошла ошибка
+            </>
+        )
+    }
+
     return (
         <>
             <ButtonBack />
@@ -19,7 +29,7 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsTypes }) {
 };
 
 export const getServerSideProps: GetServerSideProps = (async (ctx) => {
-    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs/${ctx?.query?.post}?populate=*`, {
+    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs1/${ctx?.query?.post}?populate=*`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -30,13 +40,15 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 
     return {
         props: {
-            blogsRes: {
-                id: blogsRes.id,
-                title: blogsRes.Title,
-                themes: blogsRes.themes.map((theme: ThemeTypes) => theme.Theme),
-                previewImage: blogsRes.ImagePreview.url,
-                text: blogsRes.Text
-            },
+            blogsRes: blogsRes
+                ? {
+                    id: blogsRes.id,
+                    title: blogsRes.Title,
+                    themes: blogsRes.themes.map((theme: ThemeTypes) => theme.Theme),
+                    previewImage: blogsRes.ImagePreview.url,
+                    text: blogsRes.Text
+                }
+                : null,
         }
     }
 

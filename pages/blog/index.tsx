@@ -10,6 +10,15 @@ import { GetServerSideProps } from "next";
 
 export default function BlogPage({ blogsRes, themesRes }: { blogsRes: BlogsTypes[], themesRes: string[] }) {
 
+    if (!blogsRes || !themesRes) {
+        return (
+            // Сюда заглушку для ошибок
+            <>
+                Возможно данных пока нет
+            </>
+        )
+    }
+
     return (
         <div className={s.blog}>
             <Header markers={themesRes} />
@@ -58,8 +67,8 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 
     return {
         props: {
-            blogsRes: blogsRes,
-            themesRes: themesRes
+            blogsRes: blogsRes ?? null,
+            themesRes: themesRes ?? null
         }
     }
 })
