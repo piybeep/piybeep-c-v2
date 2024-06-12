@@ -29,7 +29,7 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsTypes }) {
 };
 
 export const getServerSideProps: GetServerSideProps = (async (ctx) => {
-    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs1/${ctx?.query?.post}?populate=*`, {
+    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs/${ctx?.query?.post}?populate=*`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
