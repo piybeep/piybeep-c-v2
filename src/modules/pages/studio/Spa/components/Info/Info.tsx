@@ -5,7 +5,7 @@ export function Info({ title, text, pos = 'left' }: { title: string, text: strin
     return (
         <div className={classNames(s.wrapper, s[`wrapper__${pos}`])}>
             <div className={s.info}>
-                <h2 className={s.info__title}>{title}</h2>
+                <h3 className={s.info__title}>{title}</h3>
                 <p className={s.info__description}>{text}</p>
             </div>
         </div>

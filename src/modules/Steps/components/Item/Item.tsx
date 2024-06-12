@@ -11,7 +11,7 @@ export function Item({ index, title, text }: ItemProps) {
         >
             <div className={s.item__info}>
                 <h3 className={s.item__title}>{title}</h3>
-                <h4 className={s.item__text}>{text}</h4>
+                <p className={s.item__text}>{text}</p>
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ export function Item({
 				<span>
 					{(typeof number == "number" && number < 10 ? "0" : "") + number}
 				</span>
-				<span>{title}</span>
+				<h2 style={{ margin: '0px' }}>{title}</h2>
 			</div>
 			<ReactMarkdown
 				className={s.description}

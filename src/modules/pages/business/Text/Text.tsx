@@ -6,9 +6,9 @@ export function Text() {
     return (
         <div className={s.text}>
             {PLUSES_INFO.map((current) => (
-                <h2 key={current.id} className={s.text__slogan}>
+                <p key={current.id} className={s.text__slogan}>
                     {current.text}
-                </h2>
+                </p>
             ))}
         </div>
     );

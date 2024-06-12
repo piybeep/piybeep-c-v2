@@ -8,7 +8,7 @@ export function Item({ icon, title }: ItemProps) {
             <Image
                 className={s.item__img}
                 src={icon}
-                alt={"Картинка"}
+                alt={title}
             />
             <h2 className={s.item__title}>{title}</h2>
         </div>

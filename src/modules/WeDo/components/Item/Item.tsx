@@ -14,8 +14,8 @@ export function Item({ name, href, index, title, text }: ItemProps) {
                 hash: name,
             }}
         >
-            <h2 className={s.info__title}>{title}</h2>
-            <h3 className={s.info__subtitle}>{text}</h3>
+            <h3 className={s.info__title}>{title}</h3>
+            <p className={s.info__subtitle}>{text}</p>
         </Link>
     );
 };
