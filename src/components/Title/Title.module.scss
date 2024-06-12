@@ -9,8 +9,9 @@
 
     width: fit-content;
 
-    h3,
-    h4 {
+    h2,
+    h1,
+    span {
       color: inherit;
       font-family: "Inter", sans-serif;
       font-style: normal;
@@ -24,33 +25,37 @@
       }
     }
 
-    h4 {
+    span {
       padding: 7px 14px;
       border: 1px solid #4b4951;
       border-radius: 59px;
     }
 
     &__md {
-      h3 {
+
+      h2,
+      h1 {
         font-size: 16px;
         line-height: normal;
       }
 
-      h4 {
+      span {
         font-size: 13px;
         line-height: 14px;
       }
     }
 
     &__lg {
-      h3 {
+
+      h1,
+      h2 {
         font-family: "Actay", sans-serif;
         font-size: 48px;
         line-height: 60px;
         text-transform: none;
       }
 
-      h4 {
+      span {
         font-family: "Inter", sans-serif;
         font-size: 16px;
         line-height: 150%;
@@ -77,12 +82,14 @@
   .wrapper {
     .title {
       &__lg {
-        h3 {
+
+        h1,
+        h2 {
           font-size: 28px;
           line-height: 35px;
         }
 
-        h4 {
+        span {
           font-size: 14px;
           line-height: 17px;
         }
@@ -100,11 +107,13 @@
   .wrapper {
     .title {
       &__md {
-        h3 {
+
+        h1,
+        h2 {
           font-size: 12px;
         }
 
-        h4 {
+        span {
           font-size: 11px;
 
           padding: 5px 12px;
