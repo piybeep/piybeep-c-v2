@@ -1,16 +1,56 @@
 import Head from "next/head";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { DefalutLayout } from "../../src/layouts";
 import { Header, List } from "../../src/modules/pages/blog";
 
 import s from './index.module.scss'
 import { BlogsResTypes, BlogsTypes, ThemeTypes } from "../../src/types";
 import axios from "axios";
-import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+export default function BlogPage() {
+    const router = useRouter()
 
-export default function BlogPage({ blogsRes, themesRes }: { blogsRes: BlogsTypes[], themesRes: string[] }) {
+    const qs = require('qs')
+    const query = qs.stringify({
+        filters: {
+            themes: {
+                Theme: {
+                    $in: router.query.blockSelect && String(router.query.blockSelect).split(',')
+                }
+            },
+        },
+    }, {
+        encodeValuesOnly: true,
+    });
 
-    if (!blogsRes || !themesRes) {
+    const [blogsRes, setBlogsRes] = useState<BlogsTypes[] | null>(null)
+    const [themesRes, setThemesRes] = useState<string[] | null>(null)
+    const [error, setError] = useState<any>()
+
+    useEffect(() => {
+        (function () {
+            axios.get(`/api/blogs?populate=*&${query}`)
+                .then(res => setBlogsRes(res.data.map((data: BlogsResTypes) => ({
+                    id: data.id,
+                    title: data.Title,
+                    themes: data.themes.map(theme => theme.Theme),
+                    previewImage: data.ImagePreview.url,
+                    text: data.Text
+                }))))
+                .catch(error => setError(error))
+        }())
+    }, [router.query.blockSelect])
+
+    useEffect(() => {
+        (function () {
+            axios.get(`/api/themes?populate=*`)
+                .then(res => setThemesRes(res.data.map((theme: ThemeTypes) => theme.Theme)))
+                .catch(error => setError(error))
+        }())
+    }, [])
+
+
+    if (error) {
         return (
             // Сюда заглушку для ошибок
             <>
@@ -21,57 +61,11 @@ export default function BlogPage({ blogsRes, themesRes }: { blogsRes: BlogsTypes
 
     return (
         <div className={s.blog}>
-            <Header markers={themesRes} />
-            <List posts={blogsRes} />
+            <Header markers={themesRes ?? null} />
+            <List posts={blogsRes ?? null} />
         </div>
     );
 };
-
-export const getServerSideProps: GetServerSideProps = (async (ctx) => {
-    const qs = require('qs')
-    const query = qs.stringify({
-        filters: {
-            themes: {
-                Theme: {
-                    $in: ctx.query.blockSelect && String(ctx.query.blockSelect).split(',')
-                }
-            },
-        },
-    }, {
-        encodeValuesOnly: true,
-    });
-
-    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?populate=*&${query}`, {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
-        }
-    })
-        .then(res => res.data.data.map((data: BlogsResTypes) => ({
-            id: data.id,
-            title: data.Title,
-            themes: data.themes.map(theme => theme.Theme),
-            previewImage: data.ImagePreview.url,
-            text: data.Text
-        })))
-        .catch(error => console.error(error))
-
-    const themesRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/themes`, {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
-        }
-    })
-        .then(res => res.data.data.map((data: ThemeTypes) => data.Theme))
-        .catch(error => console.error(error))
-
-    return {
-        props: {
-            blogsRes: blogsRes ?? null,
-            themesRes: themesRes ?? null
-        }
-    }
-})
 
 BlogPage.getLayout = (
     page: ReactNode,

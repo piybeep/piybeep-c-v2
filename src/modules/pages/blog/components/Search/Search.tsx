@@ -1,3 +1,4 @@
+import { InputProps } from '../../../../../components';
 import s from './Search.module.scss'
 
 export function Search({ placeholder }: { placeholder: string }) {
