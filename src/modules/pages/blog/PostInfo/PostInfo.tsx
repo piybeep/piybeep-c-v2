@@ -6,8 +6,6 @@ import { BlogsTypes } from "../../../../types";
 
 export function PostInfo({ post }: { post: BlogsTypes }) {
 
-    console.log(post)
-
     return (
         <div className={s.wrapper}>
             <div className={s.header}>

@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
 import { useBlockSelect } from '../../../../hooks/useBlockSelect';
 import { Button, Search, Title } from '../components';
 import s from './Header.module.scss'
 
 export function Header({ markers }: { markers: string[] }) {
-
-    const router = useRouter()
 
     const {
         add: addUserSelect,
