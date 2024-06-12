@@ -21,7 +21,7 @@ export function AboutUs({
 					[s.info__reverse]: imgPosition === "right",
 				})}
 			>
-				<h3 className={s.info__slogan}>{description}</h3>
+				<p className={s.info__slogan}>{description}</p>
 				<Image
 					width={1080}
 					height={606}
