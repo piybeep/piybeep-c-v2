@@ -80,7 +80,6 @@ export default function BlogPage() {
         }())
     }, [])
 
-
     if (error) {
         return (
             // Сюда заглушку для ошибок
