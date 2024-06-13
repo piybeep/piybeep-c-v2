@@ -1,8 +1,8 @@
 import s from './Marker.module.scss'
 
-export function Marker({ text }: { text: string }) {
+export function Marker({ text, borderColor }: { text: string, borderColor?: string }) {
     return (
-        <p className={s.marker}>
+        <p className={s.marker} style={{ borderColor: borderColor ?? '' }}>
             {text}
         </p>
     );

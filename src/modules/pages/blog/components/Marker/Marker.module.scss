@@ -3,16 +3,15 @@
 .marker {
     color: $white-color;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 13px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
 
-    padding: 3px 5px 3px 8px;
+    padding: 4px 5px 5px 5px;
 
-    border: 1px solid $gray-color;
-    border-radius: 4px;
+    border: 1px solid $white-color;
 
     display: flex;
     align-items: center;
@@ -20,18 +19,13 @@
 
     width: fit-content;
 
-    opacity: .7;
-
     margin: 0px;
+}
 
-    &::before {
-        content: '';
-        display: inline-block;
+@media screen and (max-width: 1550px) {
+    .marker {
+        font-size: 12px;
 
-        width: 4px;
-        height: 4px;
-
-        background-color: $white-color;
-        border-radius: 50%;
+        padding: 3px 5px;
     }
 }

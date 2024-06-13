@@ -23,9 +23,18 @@ export default function BlogPage() {
                     },
                 },
                 {
-                    Title: {
-                        $containsi: router.query.search && String(router.query.search)
-                    },
+                    $or: [
+                        {
+                            Title: {
+                                $containsi: router.query.search && String(router.query.search)
+                            }
+                        },
+                        {
+                            Title: {
+                                $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1))
+                            }
+                        }
+                    ]
                 }
             ]
         },
