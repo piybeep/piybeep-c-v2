@@ -31,7 +31,17 @@ export default function BlogPage() {
                         },
                         {
                             Title: {
+                                $containsi: router.query.search && String(router.query.search).toLowerCase()
+                            }
+                        },
+                        {
+                            Title: {
                                 $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1))
+                            }
+                        },
+                        {
+                            Title: {
+                                $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1).toLowerCase())
                             }
                         }
                     ]
