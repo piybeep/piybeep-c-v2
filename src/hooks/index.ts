@@ -3,4 +3,3 @@ export * from "./useRouterQuery";
 export * from "./useUserSelectForm";
 export * from "./useWindowSizes";
 export * from "./useScroll";
-export * from './useThrottle'

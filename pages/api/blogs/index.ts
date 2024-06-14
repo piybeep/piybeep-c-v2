@@ -11,5 +11,5 @@ export default async function GetBlogs(req: NextApiRequest, res: NextApiResponse
         }
     })
 
-    res.status(200).json(blogRes.data.data)
+    res.status(200).json({ data: blogRes.data.data, meta: blogRes.data.meta })
 }
