@@ -5,7 +5,7 @@ module.exports = {
 	exclude: ["/404"],
 	robotsTxtOptions: {
 		policies: [
-			{ userAgent: "*", disallow: ["/404", "/api/*", "/*?*"] },
+			{ userAgent: "*", disallow: ["/404", "/api/*", "/*?form*"] },
 			{ userAgent: "*", allow: ["/"] }
 		]
 	},
