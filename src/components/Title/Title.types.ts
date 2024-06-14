@@ -6,4 +6,5 @@ export interface TitleProps {
     position?: "left" | "center";
     withDot?: boolean;
     size?: 'lg' | 'md'
+    tag?: 'h1' | 'h2'
 }

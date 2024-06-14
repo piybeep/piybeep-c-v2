@@ -10,12 +10,13 @@ export function Title({
     position = "left",
     withDot = true,
     size = 'lg',
+    tag = 'h2'
 }: TitleProps) {
     return (
         <div className={style.wrapper}>
             <div className={classNames(style.title, style[position], style[`title__${size}`])}>
                 {
-                    size === 'md'
+                    tag === 'h2'
                         ? <h2>
                             {value} {withDot && '.'}
                         </h2>
