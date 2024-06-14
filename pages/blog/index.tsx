@@ -126,7 +126,7 @@ export default function BlogPage() {
                 })} ref={ref} />
             }
             {
-                isLoading && !isFetching && <span className={classNames(s.preloader, s.preloader__isView, s.preloader__delay)} />
+                isLoading && !isFetching && !blogs && <span className={classNames(s.preloader, s.preloader__isView, s.preloader__delay)} />
             }
         </div>
     );
