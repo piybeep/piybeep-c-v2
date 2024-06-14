@@ -30,7 +30,7 @@ export const useFetchBlogs = (query: string) => {
                 .catch(error => setError(error))
                 .finally(() => setLoading(false))
 
-        }, 25750);
+        }, 2000);
 
     }, [query])
 

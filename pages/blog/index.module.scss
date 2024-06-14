@@ -1,3 +1,5 @@
+@import '../../src/styles/variables.scss';
+
 .blog {
     display: flex;
     align-items: center;
@@ -9,4 +11,47 @@
 
 }
 
-.preloader {}
+.preloader {
+    width: 200px;
+    height: 2px;
+
+    background-color: $very-dark-color;
+
+    position: relative;
+
+    &::before {
+        content: '';
+        display: inline-block;
+
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        width: 25%;
+        height: 2px;
+        background-color: $main-color;
+
+    }
+
+    &__isView::before {
+        animation-name: lineGo;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+
+    &__delay::before {
+        animation-delay: .2s;
+    }
+}
+
+@keyframes lineGo {
+    0% {
+        width: 10%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

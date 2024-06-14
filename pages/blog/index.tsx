@@ -9,6 +9,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
 import { useFetchBlogs } from "./useFetchBlogs";
+import classNames from "classnames";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -68,6 +69,8 @@ export default function BlogPage() {
         threshold: 1,
     });
 
+    console.log(inView)
+
     const { data: resData, isLoading, totalCount, error: errorBlogs } = useFetchBlogs(query)
 
     const isFetching = useMemo<boolean>(
@@ -118,9 +121,12 @@ export default function BlogPage() {
             <Header markers={themesRes ?? null} />
             <List posts={blogs ?? null} />
             {
-                !isLoading && isFetching && <span className={s.preloader} ref={ref}>
-                    Загрузка
-                </span>
+                !isLoading && isFetching && <span className={classNames(s.preloader, {
+                    [s.preloader__isView]: inView
+                })} ref={ref} />
+            }
+            {
+                isLoading && !isFetching && <span className={classNames(s.preloader, s.preloader__isView, s.preloader__delay)} />
             }
         </div>
     );
