@@ -15,7 +15,7 @@ export function AboutUs({
 }: AboutUsProps) {
 	return (
 		<div className={s.wrapper}>
-			<h1 className={s.title}>{title}</h1>
+			<h2 className={s.title}>{title}</h2>
 			<div
 				className={classNames(s.info, {
 					[s.info__reverse]: imgPosition === "right",
