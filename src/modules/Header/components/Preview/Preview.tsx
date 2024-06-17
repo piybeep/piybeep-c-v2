@@ -29,7 +29,7 @@ export function Preview() {
 			})}
 		>
 			<div className={s.preview__info} ref={ref}>
-				<h2 className={s.preview__title}>web-studio</h2>
+				<p className={s.preview__title}>Веб-студия</p>
 				<p className={s.preview__subtitle}>
 					PIYBEEP<span>.</span>
 				</p>

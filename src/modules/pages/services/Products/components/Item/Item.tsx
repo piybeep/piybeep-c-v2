@@ -26,10 +26,10 @@ export function Item({
 	return (
 		<div className={classNames(s.wrapper, className)} id={title} {...props}>
 			<div className={s.title}>
-				<span>
+				<span className={s.title}>
 					{(typeof number == "number" && number < 10 ? "0" : "") + number}
 				</span>
-				<h2 style={{ margin: '0px' }}>{title}</h2>
+				<h2 className={s.title} style={{ margin: '0px' }}>{title}</h2>
 			</div>
 			<ReactMarkdown
 				className={s.description}
