@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
 import { useFetchBlogs } from "./useFetchBlogs";
 import classNames from "classnames";
+import { ErrorText } from "../../src/modules/pages/blog/components";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -108,16 +109,20 @@ export default function BlogPage() {
     if (error || errorBlogs) {
         return (
             // Сюда заглушку для ошибок
-            <>
-                Возможно данных пока нет
-            </>
+            <div className={s.blog}>
+                <ErrorText value={"Не смогли выполнить запрос,\nпопробуйте позже..."} />
+            </div>
         )
     }
 
     return (
         <div className={s.blog}>
             <Header markers={themesRes ?? null} />
-            <List posts={blogs ?? null} />
+            {
+                blogs.length > 0
+                    ? <List posts={blogs ?? null} />
+                    : !isLoading && !isFetching && <ErrorText value={"Ничего не нашлось по запросу..."} />
+            }
             {
                 !isLoading && isFetching && <span className={classNames(s.preloader, {
                     [s.preloader__isView]: inView
