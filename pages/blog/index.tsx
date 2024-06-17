@@ -69,8 +69,6 @@ export default function BlogPage() {
         threshold: 1,
     });
 
-    console.log(inView)
-
     const { data: resData, isLoading, totalCount, error: errorBlogs } = useFetchBlogs(query)
 
     const isFetching = useMemo<boolean>(
