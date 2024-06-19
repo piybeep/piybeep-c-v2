@@ -9,9 +9,7 @@ export const useFetchBlogs = (query: string) => {
     const [totalCount, setTotalCount] = useState(0)
 
     useEffect(() => {
-
-        setTimeout(() => {
-
+        const timeout = setTimeout(() => {
             setLoading(true)
 
             axios.get(`/api/blogs?populate=*&${query}`)
@@ -31,6 +29,8 @@ export const useFetchBlogs = (query: string) => {
                 .finally(() => setLoading(false))
 
         }, 750);
+
+        return () => clearTimeout(timeout)
 
     }, [query])
 
