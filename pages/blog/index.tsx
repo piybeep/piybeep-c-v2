@@ -8,9 +8,9 @@ import { BlogsTypes, ThemeTypes } from "../../src/types";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
-import { useFetchBlogs } from "./useFetchBlogs";
 import classNames from "classnames";
 import { ErrorText } from "../../src/modules/pages/blog/components";
+import { useFetchBlogs } from "../../src/hooks";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 

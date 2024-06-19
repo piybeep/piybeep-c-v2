@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BlogsResTypes } from "../../src/types"
+import { BlogsResTypes } from "../../types"
 
 export const useFetchBlogs = (query: string) => {
     const [data, setData] = useState()
