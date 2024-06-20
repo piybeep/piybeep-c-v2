@@ -1,11 +1,11 @@
 'use client'
 
-import { LottieAnimation } from "react-lottie-tools";
 import coder from '../../../../../public/animtate/coder.json'
 
 import s from "./Spa.module.scss";
 import { Header, Info } from "./components";
 import { SPA_INFO } from "../../../../constatnts";
+import { LottieAnimation } from 'react-lottie-tools';
 
 export function Spa() {
 	return (

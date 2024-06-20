@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        min-height: 100dvh;
+
+        width: 100%;
+        max-width: 1688px;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 136px;
+
+        padding: 0px 24px;
+    }
+}

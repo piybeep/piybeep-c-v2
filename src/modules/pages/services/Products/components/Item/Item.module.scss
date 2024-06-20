@@ -223,7 +223,7 @@
     grid-template-rows: repeat(3, auto);
 
     .title {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 15px;
     }
 
@@ -239,6 +239,15 @@
 
       font-size: 14px;
       line-height: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .wrapper {
+
+    .title {
+      font-size: 12px;
     }
   }
 }

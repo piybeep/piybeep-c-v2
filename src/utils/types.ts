@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 interface BaseEntity {
 	id: string;
 	createdAt: Date;

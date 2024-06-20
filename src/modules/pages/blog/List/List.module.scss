@@ -1,0 +1,21 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .list {
+        display: flex;
+        flex-direction: column;
+    }
+}

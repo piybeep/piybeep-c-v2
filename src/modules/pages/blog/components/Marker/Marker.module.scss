@@ -1,0 +1,31 @@
+@import '../../../../../styles/variables.scss';
+
+.marker {
+    color: $white-color;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+
+    padding: 4px 5px 5px 5px;
+
+    border: 1px solid $white-color;
+
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    width: fit-content;
+
+    margin: 0px;
+}
+
+@media screen and (max-width: 1550px) {
+    .marker {
+        font-size: 12px;
+
+        padding: 3px 5px;
+    }
+}
