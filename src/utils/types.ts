@@ -28,6 +28,8 @@ export interface Project extends BaseEntity {
 	about_service: string;
 	text: string;
 	review: Review | null;
+	meta_title: string
+	meta_description: string
 }
 
 export interface Review extends BaseEntity {

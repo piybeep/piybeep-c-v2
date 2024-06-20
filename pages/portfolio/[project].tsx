@@ -58,8 +58,8 @@ export default function PortfolioCase({
 				}}
 			>
 				<Head>
-					<title>{project.title} - piybeep.</title>
-					<meta name="description" content={project?.title ?? "Наш проект"} />
+					<title>{project.meta_title} - piybeep.</title>
+					<meta name="description" content={project.meta_description} />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
