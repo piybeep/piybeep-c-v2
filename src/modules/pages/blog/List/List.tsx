@@ -1,12 +1,12 @@
-import { BlogsTypes } from '../../../../types';
+import { BlogsResTypes } from '../../../../types';
 import { Post } from '../components';
 import s from './List.module.scss'
 
-export function List({ posts }: { posts: BlogsTypes[] | null }) {
+export function List({ posts }: { posts: BlogsResTypes[] | null }) {
     return (
         <div className={s.list}>
             {
-                posts?.map((post: BlogsTypes) => <Post key={post.id} post={post} />)
+                posts?.map((post: BlogsResTypes) => <Post key={post.id} post={post} />)
             }
         </div>
     );

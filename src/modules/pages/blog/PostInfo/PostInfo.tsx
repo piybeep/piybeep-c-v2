@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { Marker, Title } from "../components";
 
 import s from './PostInfo.module.scss'
-import { BlogsTypes } from "../../../../types";
+import { BlogsResTypes } from "../../../../types";
 
-export function PostInfo({ post }: { post: BlogsTypes }) {
+export function PostInfo({ post }: { post: BlogsResTypes }) {
 
     return (
         <div className={s.wrapper}>
@@ -13,7 +12,7 @@ export function PostInfo({ post }: { post: BlogsTypes }) {
                 <div className={s.header__list}>
                     {
                         post.themes.map(marker =>
-                            <Marker key={marker} text={marker} />
+                            <Marker key={marker.id} text={marker.theme} />
                         )
                     }
                 </div>
