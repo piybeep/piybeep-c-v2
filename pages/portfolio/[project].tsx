@@ -9,10 +9,10 @@ import { ButtonBack, ButtonOpenForm } from "../../src/components";
 import { Form, OurProjects, ProjectPost } from "../../src/modules";
 
 export default function PortfolioCase({
-																				project,
-																				projects,
-																				services
-																			}: {
+	project,
+	projects,
+	services
+}: {
 	project: Project | { error: any };
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
@@ -79,26 +79,31 @@ export default function PortfolioCase({
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const URIs = [
-		"projects?rand=true",
+		"projects",
 		"services",
 		"projects/" + ctx?.params?.project
 	];
 
 	const [projects_response, services_response, project_response] =
 		await Promise.allSettled(
-			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*`, {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+				}
+			}))
 		);
 
 	const project =
 		project_response.status === "fulfilled"
-			? project_response.value.data
+			? project_response.value.data.data
 			: { error: project_response.reason.response.data };
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
-				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1]
+				list: projects_response.value.data.data,
+				total_count: projects_response.value.data.meta.pagination.total
 			},
 			true
 		);
@@ -111,8 +116,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	if (services_response.status === "fulfilled") {
 		useServices.setState(
 			{
-				list: services_response.value.data[0],
-				total_count: services_response.value.data[1]
+				list: services_response.value.data.data,
+				total_count: services_response.value.data.meta.pagination.total
 			},
 			true
 		);

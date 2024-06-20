@@ -36,14 +36,19 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const URIs = ["projects", "services"];
 
 	const [projects_response, services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*`, {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+			}
+		}))
 	);
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
-				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1]
+				list: projects_response.value.data.data,
+				total_count: projects_response.value.data.meta.pagination.total
 			},
 			true
 		);
@@ -56,8 +61,8 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	if (services_response.status === "fulfilled") {
 		useServices.setState(
 			{
-				list: services_response.value.data[0],
-				total_count: services_response.value.data[1]
+				list: services_response.value.data.data,
+				total_count: services_response.value.data.meta.pagination.total
 			},
 			true
 		);

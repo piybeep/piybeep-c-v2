@@ -50,29 +50,7 @@ export function ProjectPost({ project }: { project: Project }) {
 					<p>{project.about_service}</p>
 				</div>
 			)}
-			<div className={s.text}>
-				<ReactMarkdown
-					remarkPlugins={[remarkGfm]}
-					rehypePlugins={[rehypeRaw]}
-				// TODO: make optimization imgs
-				// components={{
-				// 	img: ({ node, ...props }) => {
-				// 		return (
-				// 			<Image
-				// 				alt={props.alt ?? ""}
-				// 				src={props.src ?? ""}
-				// 				quality={100}
-				// 				width={1000}
-				// 				height={600}
-				// 				{...props}
-				// 			/>
-				// 		);
-				// 	},
-				// }}
-				>
-					{project.text}
-				</ReactMarkdown>
-			</div>
+			<div className={s.text} dangerouslySetInnerHTML={{ __html: project.text }} />
 		</div>
 	);
 }
