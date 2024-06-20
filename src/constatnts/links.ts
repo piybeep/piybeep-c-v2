@@ -19,7 +19,7 @@ export const MENU_ITEMS = [
 	{ display_name: "Услуги", link: PAGES_LINK.SERVICES },
 	{ display_name: "Студия", link: PAGES_LINK.STUDIO },
 	{ display_name: "Портфолио", link: PAGES_LINK.PORTFOLIO },
-	{ display_name: "Блог", link: PAGES_LINK.BLOG },
+	// { display_name: "Блог", link: PAGES_LINK.BLOG },
 	// { display_name: "Войти", link: "/lk/sign " },
 ];
 
