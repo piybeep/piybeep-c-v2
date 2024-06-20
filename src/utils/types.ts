@@ -19,7 +19,7 @@ export interface Service extends BaseEntity {
 export interface Project extends BaseEntity {
 	title: string;
 	subtitle: string;
-	preview_image: string;
+	preview_image: { url: string };
 	customer: string;
 	access: string;
 	link: string;

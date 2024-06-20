@@ -40,14 +40,19 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const URIs = ["services"];
 
 	const [services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}`, {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+			}
+		}))
 	);
 
 	if (services_response.status === "fulfilled") {
 		useServices.setState(
 			{
-				list: services_response.value.data[0],
-				total_count: services_response.value.data[1]
+				list: services_response.value.data.data,
+				total_count: services_response.value.data.meta.pagination.total
 			},
 			true
 		);
