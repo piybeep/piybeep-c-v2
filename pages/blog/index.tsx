@@ -57,6 +57,7 @@ export default function BlogPage() {
             page: currentPage,
             pageSize: 12,
         },
+        sort: 'createdAt:desc'
     }, {
         encodeValuesOnly: true,
     });
@@ -100,7 +101,7 @@ export default function BlogPage() {
 
     useEffect(() => {
         (function () {
-            axios.get(`/api/themes?populate=*`)
+            axios.get(`/api/themes?populate=*&sort=createdAt:desc`)
                 .then(res => setThemesRes(res.data.map((theme: ThemeTypes) => theme.theme)))
                 .catch(error => setError(error))
         }())

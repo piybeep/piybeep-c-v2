@@ -51,7 +51,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			selects: Yup.array().of(Yup.string()).min(1),
 		}),
 		onSubmit(values) {
-			CreateRequest(values)
+			CreateRequest({ ...values, servicesList: services })
 				.then((_value) => {
 					formik.resetForm();
 					removeUserSelect();
@@ -108,7 +108,8 @@ export function Form({ services }: { services: Service[]; count: number }) {
 							key={current.id}
 							isActive={isHasUserSelect(current.name)}
 							value={current.name}
-							onClick={() => handleProduct(current.name)} />
+							onClick={() => handleProduct(current.name)}
+						/>
 					))}
 				</div>
 				<div className={s.buttons}>

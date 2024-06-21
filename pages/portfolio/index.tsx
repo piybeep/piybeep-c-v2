@@ -8,6 +8,7 @@ import { useProjects, useServices } from "../../src/store";
 import { Projects } from "../../src/modules/pages/portfolio";
 import { Form } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
+import qs from "qs";
 
 export default function Portfolio({
 	projects,
@@ -36,7 +37,14 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const URIs = ["projects", "services"];
 
 	const [projects_response, services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*`, {
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+			i === 'services'
+				? undefined
+				: {
+					sort: 'createdAt:desc'
+				}
+		))
+			}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`

@@ -76,7 +76,7 @@ export function PopupForm({
 			if (!values.selects.length) {
 				toast("Выберите услуги");
 			} else {
-				createRequest(values)
+				createRequest({ ...values, servicesList: services })
 					.then((_data) => {
 						formik.resetForm();
 						removeUserSelect();
