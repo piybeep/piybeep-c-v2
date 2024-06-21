@@ -58,13 +58,13 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
-			services: useServices.getState()
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
 		}
 	};
 };

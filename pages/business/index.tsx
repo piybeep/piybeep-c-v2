@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data)
+			error: new Error(projects_response.reason.response.data.error.message)
 		});
 	}
 
@@ -92,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
@@ -106,15 +106,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data)
+			error: new Error(reviews_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
-			projects: useProjects.getState(),
-			services: useServices.getState(),
-			reviews: useReviews.getState()
+			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState()
 		}
 	};
 };

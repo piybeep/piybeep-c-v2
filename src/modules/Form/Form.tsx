@@ -12,6 +12,12 @@ import { useInView } from "react-intersection-observer";
 import { Button, Input, Privacy, SelectItem, Title } from "../../components";
 
 export function Form({ services }: { services: Service[]; count: number }) {
+
+	// Заглушка для сбоя по данным
+	if (!services) {
+		return <></>
+	}
+
 	const {
 		add: addUserSelect,
 		remove: removeUserSelect,
@@ -103,7 +109,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 					/>
 				</div>
 				<div className={s.products}>
-					{services.map((current: any) => (
+					{services?.map((current: any) => (
 						<SelectItem
 							key={current.id}
 							isActive={isHasUserSelect(current.name)}

@@ -20,6 +20,12 @@ export function OurProjects({
 	projects: Project[];
 	count: number;
 }) {
+
+	// Заглушка для сбоя по данным
+	if (!projects) {
+		return <></>
+	}
+
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 
@@ -60,7 +66,7 @@ export function OurProjects({
 					},
 				}}
 			>
-				{projects.map((item) => (
+				{projects?.map((item) => (
 					<SwiperSlide key={item.id}>
 						<ProjectCard project={item} />
 					</SwiperSlide>

@@ -67,7 +67,7 @@ export default function PortfolioCase({
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
 					<OurProjects
-						projects={projects.list.filter(p => p.id != project.id)}
+						projects={projects?.list?.filter(p => p.id != project.id)}
 						title="другие проекты"
 						count={projects.total_count - 1} />
 				</div>
@@ -106,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const project =
 		project_response.status === "fulfilled"
 			? project_response.value.data.data
-			: { error: project_response.reason.response.data.error };
+			: { error: project_response.reason.response.data.error.message };
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
@@ -132,15 +132,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
 			project,
-			projects: useProjects.getState(),
-			services: useServices.getState()
+			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
 		}
 	};
 };

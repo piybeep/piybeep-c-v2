@@ -38,7 +38,7 @@ export default function Home({
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Advantages />
 				<Steps />
-				<ProjectsPreview projects={projects.list.slice(0, 12)} />
+				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
 				<Technologies />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
@@ -79,7 +79,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data)
+			error: new Error(projects_response.reason.response.data.error.message)
 		});
 	}
 
@@ -93,7 +93,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data)
+			error: new Error(reviews_response.reason.response.data.error.message)
 		});
 	}
 
@@ -107,15 +107,15 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
-			projects: useProjects.getState(),
-			services: useServices.getState(),
-			reviews: useReviews.getState()
+			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState()
 		}
 	};
 };

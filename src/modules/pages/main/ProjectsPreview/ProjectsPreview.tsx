@@ -5,6 +5,10 @@ import s from "./ProjectsPreview.module.scss";
 import { NavLink, Title } from "./components";
 
 export function ProjectsPreview({ projects }: { projects: Project[] }) {
+	if (!projects) {
+		return <></>
+	}
+
 	const titles = [
 		{
 			text: "Сайты",

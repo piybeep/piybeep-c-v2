@@ -17,6 +17,11 @@ export function Reviews({
 	reviews: Review[];
 	count: number;
 }) {
+
+	if (!reviews) {
+		return <></>
+	}
+
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 

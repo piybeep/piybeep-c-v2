@@ -133,7 +133,7 @@ export function PopupForm({
 					/>
 				</div>
 				<div className={s.products}>
-					{services.map((current) => (
+					{services?.map((current) => (
 						<SelectItem
 							size='md'
 							key={current.id}
