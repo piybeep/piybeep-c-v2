@@ -9,8 +9,6 @@ import { PostInfo } from "../../src/modules/pages/blog";
 
 export default function PostPage({ blogsRes }: { blogsRes: BlogsResTypes }) {
 
-    console.log(blogsRes)
-
     if (!blogsRes) {
         return (
             // Сюда заглушку для ошибок
