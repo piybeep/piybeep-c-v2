@@ -17,17 +17,16 @@ export function Reviews({
 	reviews: Review[];
 	count: number;
 }) {
-
-	if (!reviews) {
-		return <></>
-	}
-
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 
 	React.useEffect(() => {
 		setGroupCount(() => (width >= 1024 ? 2 : 1));
 	}, [width]);
+
+	if (!reviews?.length) {
+		return <></>
+	}
 
 	return (
 		<BlockLayout value="Отзывы">

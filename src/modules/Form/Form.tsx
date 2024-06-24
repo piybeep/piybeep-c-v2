@@ -13,11 +13,6 @@ import { Button, Input, Privacy, SelectItem, Title } from "../../components";
 
 export function Form({ services }: { services: Service[]; count: number }) {
 
-	// Заглушка для сбоя по данным
-	if (!services) {
-		return <></>
-	}
-
 	const {
 		add: addUserSelect,
 		remove: removeUserSelect,
@@ -82,6 +77,11 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
+
+	// Заглушка для сбоя по данным
+	if (!services?.length) {
+		return <></>
+	}
 
 	return (
 		<main className={s.wrapper} ref={ref}>

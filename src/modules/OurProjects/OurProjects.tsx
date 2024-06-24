@@ -20,18 +20,17 @@ export function OurProjects({
 	projects: Project[];
 	count: number;
 }) {
-
-	// Заглушка для сбоя по данным
-	if (!projects) {
-		return <></>
-	}
-
 	const { width } = useWindowSizes();
 	const [groupCount, setGroupCount] = React.useState(1);
 
 	React.useEffect(() => {
 		setGroupCount(() => (width >= 1024 ? 3 : width >= 768 ? 2 : width >= 360 ? 2 : 1));
 	}, [width]);
+
+	// Заглушка для сбоя по данным
+	if (!projects?.length) {
+		return <></>
+	}
 
 	return (
 		<BlockLayout value={title} subtitle={subtitle}>
