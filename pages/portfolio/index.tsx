@@ -38,11 +38,9 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 
 	const [projects_response, services_response] = await Promise.allSettled(
 		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
-			i === 'services'
-				? undefined
-				: {
-					sort: 'createdAt:desc'
-				}
+			{
+				sort: 'rank:asc'
+			}
 		))
 			}`, {
 			headers: {
