@@ -9,6 +9,8 @@ import { PostInfo } from "../../src/modules/pages/blog";
 
 export default function PostPage({ blogsRes }: { blogsRes: BlogsResTypes }) {
 
+    console.log(blogsRes)
+
     if (!blogsRes) {
         return (
             // Сюда заглушку для ошибок
@@ -49,11 +51,16 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 
 PostPage.getLayout = (
     page: ReactNode,
+    {
+        blogsRes
+    }: {
+        blogsRes: BlogsResTypes
+    }
 ) => (
     <DefalutLayout>
         <Head>
-            <title>Блог - piybeep.</title>
-            <meta name="description" content="Наша студия" />
+            <title>{blogsRes.meta_title} - piybeep.</title>
+            <meta name="description" content={blogsRes.meta_description} />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}

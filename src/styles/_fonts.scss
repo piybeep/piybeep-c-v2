@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Actay";
   src: url("../../public/fonts/subset-Actay-Regular.woff2") format("woff2"),
-  url("../../public/fonts/subset-Actay-Regular.woff") format("woff"),
-  url("../../public/fonts/subset-Actay-Regular.ttf") format("truetype");
+    url("../../public/fonts/subset-Actay-Regular.woff") format("woff"),
+    url("../../public/fonts/subset-Actay-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11,8 +11,8 @@
 @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/subset-Inter-Regular.woff2") format("woff2"),
-  url("../../public/fonts/subset-Inter-Regular.woff") format("woff"),
-  url("../../public/fonts/subset-Inter-Regular.ttf") format("truetype");
+    url("../../public/fonts/subset-Inter-Regular.woff") format("woff"),
+    url("../../public/fonts/subset-Inter-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -21,8 +21,8 @@
 @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/subset-Inter-Light.woff2") format("woff2"),
-  url("../../public/fonts/subset-Inter-Light.woff") format("woff"),
-  url("../../public/fonts/subset-Inter-Light.ttf") format("truetype");
+    url("../../public/fonts/subset-Inter-Light.woff") format("woff"),
+    url("../../public/fonts/subset-Inter-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -31,8 +31,8 @@
 @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/subset-Inter-Medium.woff2") format("woff2"),
-  url("../../public/fonts/subset-Inter-Medium.woff") format("woff"),
-  url("../../public/fonts/subset-Inter-Medium.ttf") format("truetype");
+    url("../../public/fonts/subset-Inter-Medium.woff") format("woff"),
+    url("../../public/fonts/subset-Inter-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -41,8 +41,8 @@
 @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/subset-Inter-Bold.woff2") format("woff2"),
-  url("../../public/fonts/subset-Inter-Bold.woff") format("woff"),
-  url("../../public/fonts/subset-Inter-Bold.ttf") format("truetype");
+    url("../../public/fonts/subset-Inter-Bold.woff") format("woff"),
+    url("../../public/fonts/subset-Inter-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -51,8 +51,8 @@
 @font-face {
   font-family: "Inter";
   src: url("../../public/fonts/subset-Inter-SemiBold.woff2") format("woff2"),
-  url("../../public/fonts/subset-Inter-SemiBold.woff") format("woff"),
-  url("../../public/fonts/subset-Inter-SemiBold.ttf") format("truetype");
+    url("../../public/fonts/subset-Inter-SemiBold.woff") format("woff"),
+    url("../../public/fonts/subset-Inter-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -61,9 +61,100 @@
 @font-face {
   font-family: "Inter Tight";
   src: url("../../public/fonts/subset-InterTight-Italic.woff2") format("woff2"),
-  url("../../public/fonts/subset-InterTight-Italic.woff") format("woff"),
-  url("../../public/fonts/subset-InterTight-Italic.ttf") format("truetype");
+    url("../../public/fonts/subset-InterTight-Italic.woff") format("woff"),
+    url("../../public/fonts/subset-InterTight-Italic.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
+}
+
+// Относительно новые шрифты
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-Black.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-Black.woff') format('woff'),
+    url('../../public/fonts/Merriweather-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-Regular.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-Regular.woff') format('woff'),
+    url('../../public/fonts/Merriweather-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-Bold.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-Bold.woff') format('woff'),
+    url('../../public/fonts/Merriweather-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-Light.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-Light.woff') format('woff'),
+    url('../../public/fonts/Merriweather-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-LightItalic.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-LightItalic.woff') format('woff'),
+    url('../../public/fonts/Merriweather-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-Italic.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-Italic.woff') format('woff'),
+    url('../../public/fonts/Merriweather-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-BlackItalic.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-BlackItalic.woff') format('woff'),
+    url('../../public/fonts/Merriweather-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../public/fonts/Merriweather-BoldItalic.woff2') format('woff2'),
+    url('../../public/fonts/Merriweather-BoldItalic.woff') format('woff'),
+    url('../../public/fonts/Merriweather-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url('../../public/fonts/RobotoFlex-Regular.woff2') format('woff2'),
+    url('../../public/fonts/RobotoFlex-Regular.woff') format('woff'),
+    url('../../public/fonts/RobotoFlex-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }

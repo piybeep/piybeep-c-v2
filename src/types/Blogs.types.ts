@@ -6,6 +6,8 @@ export interface BlogsResTypes {
         url: string
     }
     text: string
+    meta_description: string
+    meta_title: string
 }
 
 export interface ThemeTypes {
