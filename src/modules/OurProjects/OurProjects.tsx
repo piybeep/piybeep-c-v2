@@ -27,6 +27,11 @@ export function OurProjects({
 		setGroupCount(() => (width >= 1024 ? 3 : width >= 768 ? 2 : width >= 360 ? 2 : 1));
 	}, [width]);
 
+	// Заглушка для сбоя по данным
+	if (!projects?.length) {
+		return <></>
+	}
+
 	return (
 		<BlockLayout value={title} subtitle={subtitle}>
 			<Swiper
@@ -60,7 +65,7 @@ export function OurProjects({
 					},
 				}}
 			>
-				{projects.map((item) => (
+				{projects?.map((item) => (
 					<SwiperSlide key={item.id}>
 						<ProjectCard project={item} />
 					</SwiperSlide>

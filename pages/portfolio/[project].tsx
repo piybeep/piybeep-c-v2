@@ -7,12 +7,13 @@ import { EntityActions, EntityState, Project, Service } from "../../src/utils";
 import { useProjects, useServices } from "../../src/store";
 import { ButtonBack, ButtonOpenForm } from "../../src/components";
 import { Form, OurProjects, ProjectPost } from "../../src/modules";
+import qs from 'qs'
 
 export default function PortfolioCase({
-																				project,
-																				projects,
-																				services
-																			}: {
+	project,
+	projects,
+	services
+}: {
 	project: Project | { error: any };
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
@@ -58,17 +59,17 @@ export default function PortfolioCase({
 				}}
 			>
 				<Head>
-					<title>{project.title} - piybeep.</title>
-					<meta name="description" content={project?.title ?? "Наш проект"} />
+					<title>{project?.meta_title ?? 'Наш проект'} - piybeep.</title>
+					<meta name="description" content={project?.meta_description ?? 'Наш проект'} />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
 				<div className="content-wrapper">
 					<ProjectPost project={project} />
 					<OurProjects
-						projects={projects.list}
+						projects={projects?.list?.filter(p => p.id != project.id)}
 						title="другие проекты"
-						count={projects.total_count} />
+						count={projects.total_count - 1} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
 				<ButtonOpenForm />
@@ -79,54 +80,67 @@ export default function PortfolioCase({
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const URIs = [
-		"projects?rand=true",
+		"projects",
 		"services",
 		"projects/" + ctx?.params?.project
 	];
 
 	const [projects_response, services_response, project_response] =
 		await Promise.allSettled(
-			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+				i === 'services'
+					? undefined
+					: {
+						sort: 'createdAt:desc'
+					}
+			))
+				}`, {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+				}
+			}))
 		);
+
 
 	const project =
 		project_response.status === "fulfilled"
-			? project_response.value.data
-			: { error: project_response.reason.response.data };
+			? project_response.value.data.data
+			: { error: project_response.reason.response.data.error.message };
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
-				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1]
+				list: projects_response.value.data.data.sort(() => 0.5 - Math.random()),
+				total_count: projects_response.value.data.meta.pagination.total
 			},
 			true
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data)
+			error: new Error(projects_response.reason.response.data.error.message)
 		});
 	}
 
 	if (services_response.status === "fulfilled") {
 		useServices.setState(
 			{
-				list: services_response.value.data[0],
-				total_count: services_response.value.data[1]
+				list: services_response.value.data.data,
+				total_count: services_response.value.data.meta.pagination.total
 			},
 			true
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
 			project,
-			projects: useProjects.getState(),
-			services: useServices.getState()
+			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
 		}
 	};
 };

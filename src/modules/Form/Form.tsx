@@ -12,6 +12,7 @@ import { useInView } from "react-intersection-observer";
 import { Button, Input, Privacy, SelectItem, Title } from "../../components";
 
 export function Form({ services }: { services: Service[]; count: number }) {
+
 	const {
 		add: addUserSelect,
 		remove: removeUserSelect,
@@ -51,7 +52,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			selects: Yup.array().of(Yup.string()).min(1),
 		}),
 		onSubmit(values) {
-			CreateRequest(values)
+			CreateRequest({ ...values, servicesList: services })
 				.then((_value) => {
 					formik.resetForm();
 					removeUserSelect();
@@ -76,6 +77,11 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
 	}, [query.userSelect]);
+
+	// Заглушка для сбоя по данным
+	if (!services?.length) {
+		return <></>
+	}
 
 	return (
 		<main className={s.wrapper} ref={ref}>
@@ -103,12 +109,13 @@ export function Form({ services }: { services: Service[]; count: number }) {
 					/>
 				</div>
 				<div className={s.products}>
-					{services.map((current: any) => (
+					{services?.map((current: any) => (
 						<SelectItem
 							key={current.id}
 							isActive={isHasUserSelect(current.name)}
 							value={current.name}
-							onClick={() => handleProduct(current.name)} />
+							onClick={() => handleProduct(current.name)}
+						/>
 					))}
 				</div>
 				<div className={s.buttons}>

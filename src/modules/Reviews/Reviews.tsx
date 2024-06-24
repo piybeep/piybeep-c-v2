@@ -24,6 +24,10 @@ export function Reviews({
 		setGroupCount(() => (width >= 1024 ? 2 : 1));
 	}, [width]);
 
+	if (!reviews?.length) {
+		return <></>
+	}
+
 	return (
 		<BlockLayout value="Отзывы">
 			<Swiper

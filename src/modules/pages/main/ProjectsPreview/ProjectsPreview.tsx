@@ -5,6 +5,10 @@ import s from "./ProjectsPreview.module.scss";
 import { NavLink, Title } from "./components";
 
 export function ProjectsPreview({ projects }: { projects: Project[] }) {
+	if (!projects) {
+		return <></>
+	}
+
 	const titles = [
 		{
 			text: "Сайты",
@@ -36,7 +40,7 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 						id={link.id}
 						title={link.title}
 						href={PAGES_LINK.PORTFOLIO}
-						preview_image={link.preview_image}
+						preview_image={process.env.NEXT_PUBLIC_STRAPI_URL + link.preview_image.url}
 					/>
 				))}
 			</div>

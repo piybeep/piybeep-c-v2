@@ -76,7 +76,7 @@ export function PopupForm({
 			if (!values.selects.length) {
 				toast("Выберите услуги");
 			} else {
-				createRequest(values)
+				createRequest({ ...values, servicesList: services })
 					.then((_data) => {
 						formik.resetForm();
 						removeUserSelect();
@@ -133,7 +133,7 @@ export function PopupForm({
 					/>
 				</div>
 				<div className={s.products}>
-					{services.map((current) => (
+					{services?.map((current) => (
 						<SelectItem
 							size='md'
 							key={current.id}

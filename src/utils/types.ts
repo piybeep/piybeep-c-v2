@@ -19,7 +19,7 @@ export interface Service extends BaseEntity {
 export interface Project extends BaseEntity {
 	title: string;
 	subtitle: string;
-	preview_image: string;
+	preview_image: { url: string };
 	customer: string;
 	access: string;
 	link: string;
@@ -28,6 +28,8 @@ export interface Project extends BaseEntity {
 	about_service: string;
 	text: string;
 	review: Review | null;
+	meta_title: string
+	meta_description: string
 }
 
 export interface Review extends BaseEntity {

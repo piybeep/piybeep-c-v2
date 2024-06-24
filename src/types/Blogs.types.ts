@@ -1,22 +1,14 @@
-export interface BlogsTypes {
-    id: number
-    title: string
-    themes: string[]
-    previewImage: string
-    text: string
-}
-
 export interface BlogsResTypes {
     id: number
-    Title: string
+    title: string
     themes: ThemeTypes[]
-    ImagePreview: {
+    image_preview: {
         url: string
     }
-    Text: string
+    text: string
 }
 
 export interface ThemeTypes {
     id: number
-    Theme: string
+    theme: string
 }

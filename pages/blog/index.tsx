@@ -4,7 +4,7 @@ import { DefalutLayout } from "../../src/layouts";
 import { Header, List } from "../../src/modules/pages/blog";
 
 import s from './index.module.scss'
-import { BlogsTypes, ThemeTypes } from "../../src/types";
+import { BlogsResTypes, ThemeTypes } from "../../src/types";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
@@ -22,7 +22,7 @@ export default function BlogPage() {
             $and: [
                 {
                     themes: {
-                        Theme: {
+                        theme: {
                             $in: router.query.blockSelect && String(router.query.blockSelect).split(',')
                         }
                     },
@@ -30,22 +30,22 @@ export default function BlogPage() {
                 {
                     $or: [
                         {
-                            Title: {
+                            title: {
                                 $containsi: router.query.search && String(router.query.search)
                             }
                         },
                         {
-                            Title: {
+                            title: {
                                 $containsi: router.query.search && String(router.query.search).toLowerCase()
                             }
                         },
                         {
-                            Title: {
+                            title: {
                                 $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1))
                             }
                         },
                         {
-                            Title: {
+                            title: {
                                 $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1).toLowerCase())
                             }
                         }
@@ -55,13 +55,14 @@ export default function BlogPage() {
         },
         pagination: {
             page: currentPage,
-            pageSize: 3,
+            pageSize: 12,
         },
+        sort: 'createdAt:desc'
     }, {
         encodeValuesOnly: true,
     });
 
-    const [blogs, setBlogs] = useState<BlogsTypes[]>([])
+    const [blogs, setBlogs] = useState<BlogsResTypes[]>([])
     const [themesRes, setThemesRes] = useState<string[] | null>(null)
     const [error, setError] = useState<any>()
 
@@ -100,8 +101,8 @@ export default function BlogPage() {
 
     useEffect(() => {
         (function () {
-            axios.get(`/api/themes?populate=*`)
-                .then(res => setThemesRes(res.data.map((theme: ThemeTypes) => theme.Theme)))
+            axios.get(`/api/themes?populate=*&sort=createdAt:desc`)
+                .then(res => setThemesRes(res.data.map((theme: ThemeTypes) => theme.theme)))
                 .catch(error => setError(error))
         }())
     }, [])

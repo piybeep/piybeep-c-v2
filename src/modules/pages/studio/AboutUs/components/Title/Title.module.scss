@@ -1,5 +1,12 @@
 @import '../../../../../../styles/variables.scss';
 
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+}
+
 .title {
     font-family: 'Actay', sans-serif;
     font-style: normal;
@@ -9,12 +16,7 @@
 
     color: $white-color;
 
-    display: flex;
-    align-items: flex-start;
-
     margin: 0;
-
-    width: 100%;
 }
 
 .subtitle {
@@ -31,6 +33,10 @@
 }
 
 @media screen and (max-width: 660px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
     .title {
         flex-direction: column;
 

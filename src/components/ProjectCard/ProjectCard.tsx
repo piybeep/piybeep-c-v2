@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
 		>
 			<div className={s.image}>
 				<Image
-					src={project.preview_image}
+					src={process.env.NEXT_PUBLIC_STRAPI_URL + project.preview_image.url}
 					alt={project.title}
 					width={520}
 					height={390}

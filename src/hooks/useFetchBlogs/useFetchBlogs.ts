@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BlogsResTypes } from "../../types"
 
 export const useFetchBlogs = (query: string) => {
     const [data, setData] = useState()
@@ -14,15 +13,7 @@ export const useFetchBlogs = (query: string) => {
 
             axios.get(`/api/blogs?populate=*&${query}`)
                 .then(res => {
-                    setData(
-                        res.data.data.map((data: BlogsResTypes) => ({
-                            id: data.id,
-                            title: data.Title,
-                            themes: data.themes.map(theme => theme.Theme),
-                            previewImage: data.ImagePreview.url,
-                            text: data.Text
-                        }))
-                    )
+                    setData(res.data.data)
                     setTotalCount(res.data.meta.pagination.total)
                 })
                 .catch(error => setError(error))

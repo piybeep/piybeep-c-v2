@@ -9,6 +9,7 @@ import { useProjects, useReviews, useServices } from "../src/store";
 import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
 import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
+import qs from "qs";
 
 export default function Home({
 	projects,
@@ -37,7 +38,7 @@ export default function Home({
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Advantages />
 				<Steps />
-				<ProjectsPreview projects={projects.list.slice(0, 12)} />
+				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
 				<Technologies />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
@@ -53,56 +54,68 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 
 	const [projects_response, services_response, reviews_response] =
 		await Promise.allSettled(
-			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${i}`))
+			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+				i === 'services'
+					? undefined
+					: {
+						sort: 'createdAt:desc'
+					}
+			))
+				}`, {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+				}
+			}))
 		);
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
 			{
-				list: projects_response.value.data[0],
-				total_count: projects_response.value.data[1]
+				list: projects_response.value.data.data,
+				total_count: projects_response.value.data.meta.pagination.total
 			},
 			true
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data)
+			error: new Error(projects_response.reason.response.data.error.message)
 		});
 	}
 
 	if (reviews_response.status === "fulfilled") {
 		useReviews.setState(
 			{
-				list: reviews_response.value.data[0],
-				total_count: reviews_response.value.data[1]
+				list: reviews_response.value.data.data,
+				total_count: reviews_response.value.data.meta.pagination.total
 			},
 			true
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data)
+			error: new Error(reviews_response.reason.response.data.error.message)
 		});
 	}
 
 	if (services_response.status === "fulfilled") {
 		useServices.setState(
 			{
-				list: services_response.value.data[0],
-				total_count: services_response.value.data[1]
+				list: services_response.value.data.data,
+				total_count: services_response.value.data.meta.pagination.total
 			},
 			true
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data)
+			error: new Error(services_response.reason.response.data.error.message)
 		});
 	}
 
 	return {
 		props: {
-			projects: useProjects.getState(),
-			services: useServices.getState(),
-			reviews: useReviews.getState()
+			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState()
 		}
 	};
 };

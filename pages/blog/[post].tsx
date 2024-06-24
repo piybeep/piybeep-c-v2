@@ -3,11 +3,11 @@ import { DefalutLayout } from "../../src/layouts";
 import { ReactNode } from "react";
 import { ButtonBack } from "../../src/components";
 import axios from "axios";
-import { BlogsTypes, ThemeTypes } from "../../src/types";
+import { BlogsResTypes, ThemeTypes } from "../../src/types";
 import { GetServerSideProps } from "next";
 import { PostInfo } from "../../src/modules/pages/blog";
 
-export default function PostPage({ blogsRes }: { blogsRes: BlogsTypes }) {
+export default function PostPage({ blogsRes }: { blogsRes: BlogsResTypes }) {
 
     if (!blogsRes) {
         return (
@@ -40,15 +40,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 
     return {
         props: {
-            blogsRes: blogsRes
-                ? {
-                    id: blogsRes.id,
-                    title: blogsRes.Title,
-                    themes: blogsRes.themes.map((theme: ThemeTypes) => theme.Theme),
-                    previewImage: blogsRes.ImagePreview.url,
-                    text: blogsRes.Text
-                }
-                : null,
+            blogsRes: blogsRes ?? null
         }
     }
 
