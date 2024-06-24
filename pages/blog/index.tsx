@@ -57,7 +57,7 @@ export default function BlogPage() {
             page: currentPage,
             pageSize: 12,
         },
-        sort: 'createdAt:desc'
+        sort: 'rank:asc'
     }, {
         encodeValuesOnly: true,
     });

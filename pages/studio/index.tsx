@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 	const URIs = ["services"];
 
 	const [services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}`, {
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?sort=rank:asc`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`

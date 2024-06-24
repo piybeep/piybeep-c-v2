@@ -3,9 +3,9 @@ import s from './Slogan.module.scss'
 export function Slogan({ text }: { text: string }) {
     return (
         <div className={s.slogan}>
-            <p className={s.slogan__text}>
+            <h2 className={s.slogan__text}>
                 {text}
-            </p>
+            </h2>
         </div>
     );
 }

@@ -13,7 +13,7 @@ export function Post({ post }: { post: BlogsResTypes }) {
                 <Slogan text={post.title} />
                 <div className={s.post__markers}>
                     {
-                        post?.themes.map(marker => <Marker key={marker.id} text={marker.theme} borderColor='#ecec' />)
+                        post?.themes.map(marker => <Marker key={marker.id} text={marker.theme} borderColor='#8E8E8E' />)
                     }
                 </div>
             </div>
