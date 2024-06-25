@@ -56,7 +56,7 @@ export default function BlogPage() {
         },
         pagination: {
             page: currentPage,
-            pageSize: 3,
+            pageSize: 12,
         },
         sort: 'rank:asc'
     }, {
