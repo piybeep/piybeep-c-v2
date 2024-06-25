@@ -9,7 +9,7 @@ export function ProjectCard({ project }: { project: Project }) {
 	return (
 		<Link
 			className={classNames(s.project_card)}
-			href={[PAGES_LINK.PORTFOLIO, project.id].join("/")}
+			href={[PAGES_LINK.PORTFOLIO, project.slug].join("/")}
 		>
 			<div className={s.image}>
 				<Image
