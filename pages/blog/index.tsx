@@ -15,6 +15,7 @@ export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
     const router = useRouter()
+    const throttleValue = useThrottle(router.query.search)
 
     const qs = require('qs')
     const query = qs.stringify({
@@ -31,22 +32,22 @@ export default function BlogPage() {
                     $or: [
                         {
                             title: {
-                                $containsi: router.query.search && String(router.query.search)
+                                $containsi: throttleValue && String(throttleValue)
                             }
                         },
                         {
                             title: {
-                                $containsi: router.query.search && String(router.query.search).toLowerCase()
+                                $containsi: throttleValue && String(throttleValue).toLowerCase()
                             }
                         },
                         {
                             title: {
-                                $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1))
+                                $containsi: throttleValue && (String(throttleValue).charAt(0).toUpperCase() + String(throttleValue).slice(1))
                             }
                         },
                         {
                             title: {
-                                $containsi: router.query.search && (String(router.query.search).charAt(0).toUpperCase() + String(router.query.search).slice(1).toLowerCase())
+                                $containsi: throttleValue && (String(throttleValue).charAt(0).toUpperCase() + String(throttleValue).slice(1).toLowerCase())
                             }
                         }
                     ]
