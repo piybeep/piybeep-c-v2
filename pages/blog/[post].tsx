@@ -29,14 +29,16 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsResTypes }) {
 };
 
 export const getServerSideProps: GetServerSideProps = (async (ctx) => {
-    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs/${ctx?.query?.post}?populate=*`, {
+    const blogsRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/slugify/slugs/blog/${ctx?.query?.post}?populate=*`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error))
+        .catch(error => console.error(error.response.data.error))
+
+    console.log(blogsRes)
 
     return {
         props: {
@@ -57,8 +59,8 @@ PostPage.getLayout = (
 ) => (
     <DefalutLayout>
         <Head>
-            <title>{blogsRes.meta_title} - piybeep.</title>
-            <meta name="description" content={blogsRes.meta_description} />
+            <title>{blogsRes?.meta_title ?? ''} - piybeep.</title>
+            <meta name="description" content={blogsRes?.meta_description ?? ''} />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
