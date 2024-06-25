@@ -136,8 +136,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		});
 	}
 
-	console.log(fetchProject)
-
 	return {
 		props: {
 			project: fetchProject,

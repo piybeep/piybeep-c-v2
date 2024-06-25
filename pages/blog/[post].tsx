@@ -38,8 +38,6 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data.data)
         .catch(error => console.error(error.response.data.error))
 
-    console.log(blogsRes)
-
     return {
         props: {
             blogsRes: blogsRes ?? null
