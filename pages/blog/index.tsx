@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
 import { ErrorText } from "../../src/modules/pages/blog/components";
-import { useFetchBlogs } from "../../src/hooks";
+import { useFetchBlogs, useThrottle } from "../../src/hooks";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -55,7 +55,7 @@ export default function BlogPage() {
         },
         pagination: {
             page: currentPage,
-            pageSize: 12,
+            pageSize: 3,
         },
         sort: 'rank:asc'
     }, {
@@ -71,26 +71,17 @@ export default function BlogPage() {
         threshold: 1,
     });
 
-    const { data: resData, isLoading, totalCount, error: errorBlogs } = useFetchBlogs(query)
-
-    const isFetching = useMemo<boolean>(
-        () => +totalCount > blogs.length,
-        [totalCount, blogs]
-    )
+    const { data: resData, isLoading, totalPageCount, error: errorBlogs, currentPage: fetchCurrentPage } = useFetchBlogs(query)
 
     useEffect(() => {
-        if (resData && isFetching) {
-            setBlogs(prev => [...prev, ...resData])
-        }
-
-        if (currentPage === 1 && resData) {
-            setBlogs(resData)
+        if (resData) {
+            setBlogs(prev => currentPage != 1 ? [...prev, ...resData] : resData)
         }
     }, [resData])
 
     useEffect(() => {
-        if (blogs && inView && isFetching) {
-            setCurrentPage(page => (page += 1))
+        if (inView && (fetchCurrentPage) < totalPageCount) {
+            setCurrentPage(fetchCurrentPage + 1)
         }
     }, [inView])
 
@@ -122,15 +113,12 @@ export default function BlogPage() {
             {
                 blogs.length > 0
                     ? <List posts={blogs ?? null} />
-                    : !isLoading && !isFetching && <ErrorText value={"Ничего не нашлось по запросу..."} />
+                    : !isLoading && <ErrorText value={"Ничего не нашлось по запросу..."} />
             }
             {
-                !isLoading && isFetching && <span className={classNames(s.preloader, {
+                currentPage < totalPageCount && blogs.length != 0 && <span className={classNames(s.preloader, {
                     [s.preloader__isView]: inView
                 })} ref={ref} />
-            }
-            {
-                isLoading && !isFetching && !blogs && <span className={classNames(s.preloader, s.preloader__isView, s.preloader__delay)} />
             }
         </div>
     );
