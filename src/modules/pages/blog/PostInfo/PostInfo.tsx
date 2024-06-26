@@ -2,6 +2,7 @@ import { Marker, Title } from "../components";
 
 import s from './PostInfo.module.scss'
 import { ThemeTypes } from "../../../../types";
+import { RichTextEditor } from "../../../../components";
 
 export function PostInfo({ post }: { post: any }) {
     const postRemoveAttr = post.attributes.themes.data.map((marker: any) => ({ id: marker.id, theme: marker.attributes.theme }))
@@ -18,7 +19,7 @@ export function PostInfo({ post }: { post: any }) {
                 </div>
             </div>
 
-            <div className={s.info} dangerouslySetInnerHTML={{ __html: post.attributes.text }} />
+            <RichTextEditor html={post.attributes.text} />
         </div>
     );
 }

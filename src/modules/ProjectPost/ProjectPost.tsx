@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 
 import s from "./ProjectPost.module.scss";
 import { Project } from "../../utils";
+import { RichTextEditor } from "../../components";
 
 export function ProjectPost({ project }: { project: Project }) {
 	const ACCESS_DECODING: { [key: string]: ReactElement } = {
@@ -17,6 +18,7 @@ export function ProjectPost({ project }: { project: Project }) {
 				Посмотреть:{" "}
 				<Link
 					target="_blank"
+					className={s.container__link}
 					href={
 						project.link?.startsWith("http")
 							? project.link
@@ -30,27 +32,27 @@ export function ProjectPost({ project }: { project: Project }) {
 	};
 	return (
 		<div className={s.container}>
-			<h1>{project.title}</h1>
-			<p>{project.access && ACCESS_DECODING[project.access]}</p>
+			<h1 className={s.container__title}>{project.title}</h1>
+			<p className={s.container__text}>{project.access && ACCESS_DECODING[project.access]}</p>
 			{project.task && (
 				<div className={s.info}>
-					<h2>Задача.</h2>
-					<p>{project.task}</p>
+					<h2 className={s.info__title}>Задача.</h2>
+					<p className={s.info__text}>{project.task}</p>
 				</div>
 			)}
 			{project.about_company && (
 				<div className={s.info}>
-					<h2>О компании.</h2>
-					<p>{project.about_company}</p>
+					<h2 className={s.info__title}>О компании.</h2>
+					<p className={s.info__text}>{project.about_company}</p>
 				</div>
 			)}
 			{project.about_service && (
 				<div className={s.info}>
-					<h2>О сервисе.</h2>
-					<p>{project.about_service}</p>
+					<h2 className={s.info__title}>О сервисе.</h2>
+					<p className={s.info__text}>{project.about_service}</p>
 				</div>
 			)}
-			<div className={s.text} dangerouslySetInnerHTML={{ __html: project.text }} />
+			<RichTextEditor html={project.text} />
 		</div>
 	);
 }
