@@ -19,7 +19,14 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
 	const getLayout = Component.getLayout ?? ((page) => page);
-
+	if (process.env.NODE_ENV != 'production') {
+		return (
+			<div className={classNames("wrapper")}>
+				<Toaster position="top-center" reverseOrder={false} />
+				{getLayout(<Component {...pageProps} />, pageProps)}
+			</div>
+		)
+	}
 	return (
 		<YandexMetricaProvider
 			initParameters={{

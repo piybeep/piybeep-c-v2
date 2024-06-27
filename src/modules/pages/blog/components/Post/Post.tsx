@@ -7,7 +7,8 @@ import { BlogsResTypes } from '../../../../../types';
 
 export function Post({ post }: { post: BlogsResTypes }) {
     return (
-        <Link className={s.post} href={`/blog/${post.id}`}>
+        <Link className={s.post} href={`/blog/${post.slug}`}>
+            {post.id}
             <Image className={s.post__img} src={process.env.NEXT_PUBLIC_STRAPI_URL! + post?.image_preview.url} alt={''} width={520} height={346} />
             <div className={s.post__info}>
                 <Slogan text={post.title} />

@@ -14,7 +14,7 @@ export default function PortfolioCase({
 	projects,
 	services
 }: {
-	project: Project | { error: any };
+	project: { attributes: Project } | { error: any };
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 }) {
@@ -59,15 +59,15 @@ export default function PortfolioCase({
 				}}
 			>
 				<Head>
-					<title>{project?.meta_title ?? 'Наш проект'} - piybeep.</title>
-					<meta name="description" content={project?.meta_description ?? 'Наш проект'} />
+					<title>{project.attributes?.meta_title ?? 'Наш проект'} - piybeep.</title>
+					<meta name="description" content={project?.attributes?.meta_description ?? 'Наш проект'} />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ButtonBack />
 				<div className="content-wrapper">
-					<ProjectPost project={project} />
+					<ProjectPost project={project.attributes} />
 					<OurProjects
-						projects={projects?.list?.filter(p => p.id != project.id)}
+						projects={projects?.list?.filter(p => p.id != project.attributes.id)}
 						title="другие проекты"
 						count={projects.total_count - 1} />
 				</div>
@@ -82,10 +82,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const URIs = [
 		"projects",
 		"services",
-		"projects/" + ctx?.params?.project
 	];
 
-	const [projects_response, services_response, project_response] =
+	const [projects_response, services_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
 				{
@@ -100,11 +99,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			}))
 		);
 
-
-	const project =
-		project_response.status === "fulfilled"
-			? project_response.value.data.data
-			: { error: project_response.reason.response.data.error.message };
+	const fetchProject = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/slugify/slugs/project/${ctx?.params?.project}?populate=*`, {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+		}
+	})
+		.then(res => res.data.data)
+		.catch(error => ({ error: error.response.data.error.message }))
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
@@ -136,7 +138,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	return {
 		props: {
-			project,
+			project: fetchProject,
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
 		}

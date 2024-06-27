@@ -22,6 +22,7 @@ export function Header({ markers }: { markers: string[] | null }) {
     }
 
     const { mutate } = useRouterQuery()
+
     useEffect(() => {
         router.query.search !== undefined && router.query.search.toString().trim() === '' && mutate({ query: { search: null } })
     }, [router.query.search])

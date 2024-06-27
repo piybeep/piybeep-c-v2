@@ -1,27 +1,26 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BlogsResTypes } from "../../types"
 
 export const useFetchBlogs = (query: string) => {
-    const [data, setData] = useState()
+    const [data, setData] = useState<BlogsResTypes[]>([])
     const [isLoading, setLoading] = useState(true)
     const [error, setError] = useState(false)
-    const [totalCount, setTotalCount] = useState(0)
+    const [totalPageCount, setTotalPageCount] = useState(0)
+    const [currentPage, setCurrentPage] = useState(0)
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            setLoading(true)
+        setLoading(true)
 
-            axios.get(`/api/blogs?populate=*&${query}`)
-                .then(res => {
-                    setData(res.data.data)
-                    setTotalCount(res.data.meta.pagination.total)
-                })
-                .catch(error => setError(error))
-                .finally(() => setLoading(false))
+        axios.get(`/api/blogs?populate=*&${query}`)
+            .then(res => {
+                setData(res.data.data)
+                setTotalPageCount(res.data.meta.pagination.pageCount)
+                setCurrentPage(res.data.meta.pagination.page)
 
-        }, 750);
-
-        return () => clearTimeout(timeout)
+            })
+            .catch(error => setError(error))
+            .finally(() => setLoading(false))
 
     }, [query])
 
@@ -29,6 +28,7 @@ export const useFetchBlogs = (query: string) => {
         data,
         isLoading,
         error,
-        totalCount,
+        totalPageCount,
+        currentPage
     }
 }
