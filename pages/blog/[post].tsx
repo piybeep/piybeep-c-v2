@@ -52,13 +52,13 @@ PostPage.getLayout = (
     {
         blogsRes
     }: {
-        blogsRes: BlogsResTypes
+        blogsRes: { attributes: BlogsResTypes }
     }
 ) => (
     <DefalutLayout>
         <Head>
-            <title>{blogsRes?.meta_title ?? ''} - piybeep.</title>
-            <meta name="description" content={blogsRes?.meta_description ?? ''} />
+            <title>{blogsRes.attributes?.meta_title ?? ''} - piybeep.</title>
+            <meta name="description" content={blogsRes.attributes?.meta_description ?? ''} />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
