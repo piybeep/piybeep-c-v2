@@ -3,11 +3,11 @@ import { DefalutLayout } from "../../src/layouts";
 import { ReactNode } from "react";
 import { ButtonBack } from "../../src/components";
 import axios from "axios";
-import { BlogsResTypes, ThemeTypes } from "../../src/types";
+import { BlogsResTypes } from "../../src/types";
 import { GetServerSideProps } from "next";
 import { PostInfo } from "../../src/modules/pages/blog";
 
-export default function PostPage({ blogsRes }: { blogsRes: BlogsResTypes }) {
+export default function PostPage({ blogsRes }: { blogsRes: { attributes: BlogsResTypes } }) {
 
     if (!blogsRes) {
         return (
