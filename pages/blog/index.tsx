@@ -131,7 +131,7 @@ BlogPage.getLayout = (
     <DefalutLayout>
         <Head>
             <title>Блог - piybeep.</title>
-            <meta name="description" content="Наша студия" />
+            <meta name="description" content="Наш блог" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
