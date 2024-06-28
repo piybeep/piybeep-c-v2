@@ -1,19 +1,18 @@
 import { Marker, Title } from "../components";
 
 import s from './PostInfo.module.scss'
-import { ThemeTypes } from "../../../../types";
+import { BlogsSlugTypes } from "../../../../types";
 import { RichTextEditor } from "../../../../components";
 
-export function PostInfo({ post }: { post: any }) {
-    const postRemoveAttr = post.attributes.themes.data.map((marker: any) => ({ id: marker.id, theme: marker.attributes.theme }))
+export function PostInfo({ post }: { post: BlogsSlugTypes }) {
     return (
         <div className={s.wrapper}>
             <div className={s.header}>
-                <Title text={post.title} />
+                <Title text={post.attributes.title} />
                 <div className={s.header__list}>
                     {
-                        postRemoveAttr.map((marker: ThemeTypes) =>
-                            <Marker key={marker.id} text={marker.theme} />
+                        post.attributes.themes.data.map(marker =>
+                            <Marker key={marker.attributes.theme} text={marker.attributes.theme} />
                         )
                     }
                 </div>
