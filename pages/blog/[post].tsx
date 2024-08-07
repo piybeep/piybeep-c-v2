@@ -3,7 +3,7 @@ import { DefalutLayout } from "../../src/layouts";
 import { ReactNode } from "react";
 import { ButtonBack } from "../../src/components";
 import axios from "axios";
-import { BlogsResTypes, BlogsSlugTypes } from "../../src/types";
+import { BlogsResTypes, BlogsSlugTypes, ContactsType } from "../../src/types";
 import { GetServerSideProps } from "next";
 import { PostInfo } from "../../src/modules/pages/blog";
 
@@ -38,9 +38,19 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data.data)
         .catch(error => console.error(error.response.data.error))
 
+    const contacts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contacts?populate=*`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+    })
+        .then(res => res.data.data)
+        .catch(error => console.error(error.response.data.error))
+
     return {
         props: {
-            blogsRes: blogsRes ?? null
+            blogsRes: blogsRes ?? null,
+            contacts: contacts ?? null
         }
     }
 
@@ -50,12 +60,14 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 PostPage.getLayout = (
     page: ReactNode,
     {
-        blogsRes
+        blogsRes,
+        contacts
     }: {
         blogsRes: { attributes: BlogsResTypes }
+        contacts: ContactsType[]
     }
 ) => (
-    <DefalutLayout>
+    <DefalutLayout contacts={contacts}>
         <Head>
             <title>{blogsRes?.attributes?.meta_title ?? ''} - piybeep.</title>
             <meta name="description" content={blogsRes?.attributes?.meta_description ?? ''} />

@@ -1,19 +1,18 @@
 import Link from 'next/link';
 import s from './Contacts.module.scss'
-import { CONTACTS_DATA } from '../../../../constatnts';
 
-export function Contacts() {
+export function Contacts({ phone, email }: { phone: string, email: string }) {
     return (
         <div className={s.contacts}>
             <Link
                 className={s.contacts__link}
-                href={`tel:${CONTACTS_DATA.get("phone")}`}>
-                {CONTACTS_DATA.get("phone")}
+                href={`tel:${phone}`}>
+                {phone}
             </Link>
             <Link
                 className={s.contacts__link}
-                href={`mailto:${CONTACTS_DATA.get("email")}`}>
-                {CONTACTS_DATA.get("email")}
+                href={`mailto:${email}`}>
+                {email}
             </Link>
         </div>
     );

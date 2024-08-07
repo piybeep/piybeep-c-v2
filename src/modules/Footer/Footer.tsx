@@ -1,16 +1,19 @@
+import { ContactsType } from "../../types";
 import s from "./Footer.module.scss";
 import { Contacts, Copyright, Navigation, Social } from "./components";
 
-export function Footer() {
+export function Footer({ contacts }: { contacts: ContactsType[] }) {
 	return (
 		<footer className={s.footer}>
 			<div className={s.info}>
 				<div className={s.info__column}>
 					<Navigation />
-					<Contacts />
+					<Contacts
+						phone={contacts.find(i => i.type === 'phone')?.text!}
+						email={contacts.find(i => i.type === 'email')?.text!} />
 				</div>
 				<div className={s.info__column}>
-					<Social />
+					<Social social={contacts.filter(i => i.type === 'tg' || i.type === 'vk')} />
 					<Copyright />
 				</div>
 			</div>

@@ -9,6 +9,7 @@ import { Projects } from "../../src/modules/pages/portfolio";
 import { Form } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
 import qs from "qs";
+import { ContactsType } from "../../src/types";
 
 export default function Portfolio({
 	projects,
@@ -34,10 +35,11 @@ export default function Portfolio({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["projects", "services"];
+	const URIs = ["projects", "services", "contacts"];
 
-	const [projects_response, services_response] = await Promise.allSettled(
+	const [projects_response, services_response, contacts_response] = await Promise.allSettled(
 		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+			i != "contacts" &&
 			{
 				sort: 'rank:asc'
 			}
@@ -78,10 +80,17 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		});
 	}
 
+	let contacts = []
+
+	if (contacts_response.status === 'fulfilled') {
+		contacts = contacts_response.value.data.data
+	}
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
-			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			contacts: contacts
 		}
 	};
 };
@@ -89,12 +98,14 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 Portfolio.getLayout = (
 	page: ReactNode,
 	{
-		services
+		services,
+		contacts
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		contacts: ContactsType[]
 	}
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout services={services} contacts={contacts}>
 		<Head>
 			<title>Портфолио: проекты и работы под ключ качественно и в срок | Piybeep</title>
 			<meta name="description" content="Портфолио Piybeep с креативными проектами под ключ: мы специализируемся на разработке уникальных сайтов, интернет-визиток, лендингов, интернет-магазинов и веб-приложений." />

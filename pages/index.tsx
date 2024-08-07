@@ -10,6 +10,7 @@ import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, W
 import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
+import { ContactsType } from "../src/types";
 
 export default function Home({
 	projects,
@@ -50,11 +51,12 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["projects", "services", "reviews"];
+	const URIs = ["projects", "services", "reviews", "contacts"];
 
-	const [projects_response, services_response, reviews_response] =
+	const [projects_response, services_response, reviews_response, contacts_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+				i != "contacts" &&
 				{
 					sort: 'rank:asc'
 				}
@@ -109,11 +111,18 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		});
 	}
 
+	let contacts = []
+
+	if (contacts_response.status === 'fulfilled') {
+		contacts = contacts_response.value.data.data
+	}
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
-			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState()
+			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
+			contacts: contacts
 		}
 	};
 };
@@ -122,13 +131,15 @@ Home.getLayout = (
 	page: ReactNode,
 	{
 		services,
-		reviews
+		reviews,
+		contacts
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
 		reviews: EntityState<Review> & EntityActions<Review>;
+		contacts: ContactsType[]
 	}
 ) => (
-	<BaseLayout reviews={reviews} services={services}>
+	<BaseLayout reviews={reviews} services={services} contacts={contacts}>
 		<Head>
 			<title>
 				Веб-студия разработки, дизайна и продвижения. Разработка сайтов под ключ |Piybeep

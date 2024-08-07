@@ -4,13 +4,15 @@ import { DefalutLayout } from "../../src/layouts";
 import { Header, List } from "../../src/modules/pages/blog";
 
 import s from './index.module.scss'
-import { BlogsResTypes, ThemeTypes } from "../../src/types";
+import { BlogsResTypes, ContactsType, ThemeTypes } from "../../src/types";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
 import { ErrorText } from "../../src/modules/pages/blog/components";
 import { useFetchBlogs, useThrottle } from "../../src/hooks";
+import { GetServerSideProps } from "next";
+import qs from "qs";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -125,10 +127,47 @@ export default function BlogPage() {
     );
 };
 
+export const getServerSideProps: GetServerSideProps = async (_ctx) => {
+    const URIs = ["contacts"];
+    const [contacts_response] =
+        await Promise.allSettled(
+            URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+                i != "contacts" &&
+                {
+                    sort: 'rank:asc'
+                }
+            ))
+                }`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+                }
+            }))
+        );
+
+    let contacts = []
+
+    if (contacts_response.status === 'fulfilled') {
+        contacts = contacts_response.value.data.data
+    }
+
+    return {
+        props: {
+            contacts: contacts
+        }
+    };
+};
+
 BlogPage.getLayout = (
     page: ReactNode,
+    {
+        contacts
+    }:
+        {
+            contacts: ContactsType[]
+        }
 ) => (
-    <DefalutLayout>
+    <DefalutLayout contacts={contacts}>
         <Head>
             <title>Блог - piybeep.</title>
             <meta name="description" content="Наш блог" />
