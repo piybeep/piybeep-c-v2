@@ -7,6 +7,7 @@ import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
 import { Products, Support } from "../../src/modules/pages/services";
 import { Form } from "../../src/modules";
+import { ContactsType } from "../../src/types";
 
 export default function Services({
 	services,
@@ -32,10 +33,10 @@ export default function Services({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["services"];
+	const URIs = ["services", "contacts"];
 
-	const [services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*&sort=rank:asc`, {
+	const [services_response, contacts_response] = await Promise.allSettled(
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*&${i != 'contacts' && 'sort=rank:asc'}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -57,9 +58,16 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		});
 	}
 
+	let contacts = []
+
+	if (contacts_response.status === 'fulfilled') {
+		contacts = contacts_response.value.data.data
+	}
+
 	return {
 		props: {
-			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			contacts: contacts
 		},
 	};
 };
@@ -68,11 +76,13 @@ Services.getLayout = (
 	page: ReactNode,
 	{
 		services,
+		contacts
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		contacts: ContactsType[]
 	},
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout services={services} contacts={contacts}>
 		<Head>
 			<title>Услуги веб-студии: разработка, дизайн и поддержка сайтов под ключ |Piybeep</title>
 			<meta name="description" content="Мы предлагаем индивидуальный подход к созданию проектов под ключ. Наша команда ориентирована на создание адаптивных сайтов с оптимизацией для поисковых систем." />

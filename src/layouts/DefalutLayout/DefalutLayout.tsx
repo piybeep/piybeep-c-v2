@@ -1,14 +1,15 @@
 import { Footer, Header } from '../../modules'
+import { ContactsType } from '../../types';
 import s from './DefaultLayout.module.scss'
 
-export function DefalutLayout({ children }: { children: React.ReactNode }) {
+export function DefalutLayout({ children, contacts }: { children: React.ReactNode, contacts: ContactsType[] }) {
     return (
         <div className={s.wrapper}>
-            <Header />
+            <Header contacts={contacts} />
             <div className={s.wrapper__content}>
                 {children}
             </div>
-            <Footer />
+            <Footer contacts={contacts} />
         </div>
     );
 };

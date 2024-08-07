@@ -6,8 +6,9 @@ import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
 import s from "./Header.module.scss";
 
 import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
+import { ContactsType } from "../../types";
 
-export function Header() {
+export function Header({ contacts }: { contacts: ContactsType[] }) {
 	const query = useRouter();
 
 	// Появление менюшки и её скрытие и открытие при помощи мыши, пока тест
@@ -67,8 +68,8 @@ export function Header() {
 					</div>
 
 					<div className={s.info}>
-						<Contact value={CONTACTS_DATA.get('phone')!} prefix={"tel:"} />
-						<Contact value={CONTACTS_DATA.get('email')!} prefix={'mailto:'} />
+						<Contact value={contacts?.find(i => i.type === 'phone')?.text!} prefix="tel:" />
+						<Contact value={contacts?.find(i => i.type === 'email')?.text!} prefix="mailto:" />
 					</div>
 				</div>
 			</header>

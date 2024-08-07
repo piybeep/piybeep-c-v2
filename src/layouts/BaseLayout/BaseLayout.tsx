@@ -1,15 +1,18 @@
 import React from "react";
 import { EntityActions, EntityState, Portal, Review, Service } from "../../utils";
 import { Eyes, Footer, Header, PopupForm, PopupReview } from "../../modules";
+import { ContactsType } from "../../types";
 
 export function BaseLayout({
-														 children,
-														 services,
-														 reviews
-													 }: {
+	children,
+	services,
+	reviews,
+	contacts
+}: {
 	children: React.ReactNode;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews?: EntityState<Review> & EntityActions<Review>
+	contacts: ContactsType[]
 }) {
 	return (
 		<>
@@ -21,7 +24,7 @@ export function BaseLayout({
 				}
 			</Portal>
 			<Portal> <Eyes /> </Portal>
-			<Header /> {children} <Footer />
+			<Header contacts={contacts} /> {children} <Footer contacts={contacts} />
 		</>
 	);
 }

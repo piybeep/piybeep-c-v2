@@ -9,11 +9,14 @@ import { AboutUs, Contacts, Team } from "../../src/modules/pages/studio";
 import { Form, Steps, Technologies } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
 import { Spa } from "../../src/modules/pages/studio/Spa";
+import { ContactsType } from "../../src/types";
 
 export default function Studio({
-	services
+	services,
+	contacts
 }: {
 	services: EntityState<Service> & EntityActions<Service>;
+	contacts: ContactsType[]
 }) {
 	return (
 		<main
@@ -27,7 +30,7 @@ export default function Studio({
 				<Team />
 				<Spa />
 				<Steps />
-				<Contacts />
+				<Contacts contacts={contacts} />
 				<Technologies />
 			</div>
 			<Form services={services.list} count={services.total_count} />
@@ -37,10 +40,10 @@ export default function Studio({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["services"];
+	const URIs = ["services", "contacts"];
 
-	const [services_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?sort=rank:asc`, {
+	const [services_response, contacts_response] = await Promise.allSettled(
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${i != 'contacts' && 'sort=rank:asc'}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -62,9 +65,16 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		});
 	}
 
+	let contacts = []
+
+	if (contacts_response.status === 'fulfilled') {
+		contacts = contacts_response.value.data.data
+	}
+
 	return {
 		props: {
-			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			contacts: contacts
 		}
 	};
 };
@@ -72,12 +82,14 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 Studio.getLayout = (
 	page: ReactNode,
 	{
-		services
+		services,
+		contacts
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		contacts: ContactsType[]
 	}
 ) => (
-	<BaseLayout services={services}>
+	<BaseLayout services={services} contacts={contacts}>
 		<Head>
 			<title>Веб-студия – команда, процесс разработки, заказать сайт под ключ | Piybeep</title>
 			<meta name="description" content="Узнайте о нашей команде: веб-разработчики, дизайнеры и аналитики. Мы предоставляем разработку сайтов, уникальный дизайн, мобильную адаптивность и техническую поддержку." />

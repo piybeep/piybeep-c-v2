@@ -1,19 +1,19 @@
 import Link from "next/link";
-import { SOCIAL_LINKS } from "../../../../constatnts";
 
 import s from './Social.module.scss'
+import { ContactsType } from "../../../../types";
 
-export function Social() {
+export function Social({ social }: { social: ContactsType[] }) {
     return (
         <div className={s.social}>
-            {SOCIAL_LINKS.map((link) => (
+            {social.map((link) => (
                 <Link
                     className={s.social__link}
-                    key={link.display_name}
-                    href={link.link}
-                    title={link.link}
+                    key={link.type}
+                    href={link.text}
+                    title={link.type === 'vk' ? "Вконтакте" : "Телеграм"}
                     target={'_blank'}>
-                    {link.display_name}
+                    {link.type === 'vk' ? "Вконтакте" : "Телеграм"}
                     <svg
                         className={s.social__svg}
                         width="10"

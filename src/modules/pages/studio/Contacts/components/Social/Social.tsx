@@ -1,26 +1,28 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { SOCIAL_LINKS } from '../../../../../../constatnts';
+import telegram from "../../../../../../../public/imgs/contacts/Telegram.png"
+import vk from "../../../../../../../public/imgs/contacts/VK.png"
 
 import s from './Social.module.scss'
+import { ContactsType } from '../../../../../../types';
 
-export function Social() {
+export function Social({ social }: { social: ContactsType[] }) {
     return (
         <div className={s.social}>
-            {SOCIAL_LINKS.map((current) => (
+            {social.map((current) => (
                 <Link
-                    key={current.display_name}
-                    href={current.link}
+                    key={current.type}
+                    href={current.text}
                     className={s.social__link}
                     target={'_blank'}
                 >
                     <Image
                         className={s.social__img}
-                        src={current.icon}
+                        src={current.type === 'vk' ? vk : telegram}
                         alt={"Картинка"}
                     />
-                    {current.display_name}
+                    {current.type === 'vk' ? "Вконтакте" : "Телеграм"}
                 </Link>
             ))}
         </div>

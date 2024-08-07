@@ -8,6 +8,7 @@ import { useProjects, useServices } from "../../src/store";
 import { ButtonBack, ButtonOpenForm } from "../../src/components";
 import { Form, OurProjects, ProjectPost } from "../../src/modules";
 import qs from 'qs'
+import { ContactsType } from "../../src/types";
 
 export default function PortfolioCase({
 	project,
@@ -82,11 +83,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const URIs = [
 		"projects",
 		"services",
+		"contacts"
 	];
 
-	const [projects_response, services_response] =
+	const [projects_response, services_response, contacts_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
+				i != 'contacts' &&
 				{
 					sort: 'rank:asc'
 				}
@@ -136,11 +139,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		});
 	}
 
+	let contacts = []
+
+	if (contacts_response.status === 'fulfilled') {
+		contacts = contacts_response.value.data.data
+	}
+
 	return {
 		props: {
 			project: fetchProject,
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
-			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState()
+			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
+			contacts: contacts
 		}
 	};
 };
@@ -148,8 +158,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 PortfolioCase.getLayout = (
 	page: ReactNode,
 	{
-		services
+		services,
+		contacts
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
+		contacts: ContactsType[]
 	}
-) => <BaseLayout services={services}>{page}</BaseLayout>;
+) => <BaseLayout contacts={contacts} services={services}>{page}</BaseLayout>;
