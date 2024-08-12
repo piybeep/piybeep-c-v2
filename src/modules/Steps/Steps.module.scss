@@ -54,7 +54,7 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
     .wrapper {
         padding-bottom: 0px;
     }
@@ -64,6 +64,10 @@
 
         &__img {
             position: unset;
+
+            margin: 0 auto;
+
+            z-index: 1;
         }
     }
 }
@@ -79,12 +83,6 @@
 
     .list {
         row-gap: 50px;
-
-        &__img {
-            margin: 0 auto;
-
-            z-index: 1;
-        }
     }
 }
 
