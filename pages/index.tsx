@@ -6,7 +6,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
+import { AboutUs, Form, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
 import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
@@ -29,12 +29,15 @@ export default function Home({
 			}}
 		>
 			<div className="content-wrapper">
+				<Preview />
+				{/* 
 				<AboutUs
 					title={"Продающие сайты для ваших маркетинговых целей."}
 					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
 				уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
 				эффективнее.`}
-				/>
+				/> 
+				*/}
 				<WeDo />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Advantages />

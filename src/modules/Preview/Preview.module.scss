@@ -1,0 +1,210 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    width: 100%;
+    max-width: 1120px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 224px;
+
+    padding: 0px 10px;
+}
+
+.text {
+    color: $white-color;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+
+    margin: 0px;
+    margin-left: 63px;
+    width: 100%;
+    max-width: 808px;
+
+    position: relative;
+
+    &__bold {
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    &::after {
+        content: ' которые хотят сделать интернет-маркетинг эффективнее';
+        display: inline-block;
+
+        position: absolute;
+        margin-left: 15px;
+
+        width: 100%;
+        max-width: 520px;
+
+        color: $gray-color;
+    }
+}
+
+.button {
+    color: $white-color;
+    font-family: "Roboto Flex";
+    font-size: 116px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    align-items: center;
+    column-gap: 60px;
+
+    background-color: $dark-gray-color;
+
+    border-radius: 200px;
+    border: none;
+
+    padding: 40px 80px;
+}
+
+@media screen and (max-width: 1550px) {
+    .wrapper {
+        row-gap: 194px;
+
+        padding: 0px;
+
+        max-width: 880px;
+    }
+
+    .text {
+        font-size: 36px;
+
+        max-width: 615px;
+
+        margin-left: 68px;
+
+        &::after {
+            max-width: 393px;
+        }
+    }
+
+    .button {
+        font-size: 83px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        row-gap: 174px;
+    }
+
+    .text {
+        margin: 0px;
+    }
+
+    .button {
+        font-size: 64px;
+
+        width: fit-content;
+
+        margin: 0 auto;
+
+        padding: 25px 50px;
+
+        column-gap: 40px;
+
+        &__svg {
+            width: 57px;
+            height: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 795px) {
+    .wrapper {
+        row-gap: 116px;
+
+        max-width: fit-content;
+    }
+
+    .text {
+        font-size: 24px;
+
+        max-width: 417px;
+
+        margin-left: 49px;
+
+        &::after {
+            max-width: 259px;
+        }
+    }
+}
+
+
+@media screen and (max-width:680px) {
+    .wrapper {
+        row-gap: 92px;
+
+        max-width: 358px;
+    }
+
+    .text {
+        font-size: 20px;
+
+        max-width: 233px;
+        margin-left: 0px;
+
+        &::after {
+            max-width: 219px;
+
+            margin-left: 4px;
+        }
+    }
+
+    .button {
+        font-size: 28px;
+
+        padding: 15px 25px;
+
+        column-gap: 15px;
+
+        &__svg {
+            width: 23px;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .wrapper {
+        max-width: 324px;
+        row-gap: 86px;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .wrapper {
+        row-gap: 80px;
+
+        max-width: 271px;
+    }
+
+    .text {
+        font-size: 15px;
+
+        max-width: 177px;
+
+        &::after {
+            max-width: 166px;
+        }
+    }
+
+    .button {
+        padding: 15px 25px;
+        white-space: nowrap;
+    }
+}

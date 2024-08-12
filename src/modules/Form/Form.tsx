@@ -86,7 +86,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 	return (
 		<main className={s.wrapper} ref={ref}>
 			<Title value="Оставьте заявку и мы с вами свяжемся" size='md' />
-			<form className={s.form} onSubmit={formik.handleSubmit}>
+			<form className={s.form} id="form" onSubmit={formik.handleSubmit}>
 				<div className={s.info}>
 					<Input
 						name="name"
