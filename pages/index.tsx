@@ -7,19 +7,21 @@ import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
 import { AboutUs, Form, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
-import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
+import { Advantages, IncludeDevelopment, ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
-import { ContactsType } from "../src/types";
+import { ContactsType, IncludesDevelopmentTypes } from "../src/types";
 
 export default function Home({
 	projects,
 	services,
-	reviews
+	reviews,
+	includesDevelopment
 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
+	includesDevelopment: IncludesDevelopmentTypes[]
 }) {
 	return (
 		<main
@@ -40,7 +42,8 @@ export default function Home({
 				*/}
 				<WeDo />
 				<OurProjects projects={projects.list} count={projects.total_count} />
-				<Advantages />
+				{/* <Advantages /> */}
+				<IncludeDevelopment list={includesDevelopment} />
 				<Steps />
 				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
 				<Technologies />
@@ -54,12 +57,12 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["projects", "services", "reviews", "contacts"];
+	const URIs = ["projects", "services", "reviews", "contacts", "includes-in-the-developments"];
 
-	const [projects_response, services_response, reviews_response, contacts_response] =
+	const [projects_response, services_response, reviews_response, contacts_response, includesDevelopment_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
-				i != "contacts" &&
+				(i != "contacts" && i != "includes-in-the-developments") &&
 				{
 					sort: 'rank:asc'
 				}
@@ -120,12 +123,19 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		contacts = contacts_response.value.data.data
 	}
 
+	let includesDevelopment = []
+
+	if (includesDevelopment_response.status === 'fulfilled') {
+		includesDevelopment = includesDevelopment_response.value.data.data
+	}
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
 			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
-			contacts: contacts
+			contacts: contacts,
+			includesDevelopment
 		}
 	};
 };
@@ -135,11 +145,11 @@ Home.getLayout = (
 	{
 		services,
 		reviews,
-		contacts
+		contacts,
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
 		reviews: EntityState<Review> & EntityActions<Review>;
-		contacts: ContactsType[]
+		contacts: ContactsType[],
 	}
 ) => (
 	<BaseLayout reviews={reviews} services={services} contacts={contacts}>
