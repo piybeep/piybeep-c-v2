@@ -14,8 +14,6 @@ export function Slider({ data }: { data: SliderDataType[] }) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { width } = useWindowSizes()
 
-    console.log(width)
-
     return (
         <div className={s.wrapper}>
             <h2 className={s.wrapper__title}>Они оптимизируют работу компании во многих сферах...</h2>
