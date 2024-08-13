@@ -7,6 +7,7 @@ import s from "./Header.module.scss";
 
 import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
 import { ContactsType } from "../../types";
+import transformPhoneNumber from "../../utils/transformPhoneNumber";
 
 export function Header({ contacts }: { contacts: ContactsType[] }) {
 	const query = useRouter();
@@ -68,7 +69,7 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 					</div>
 
 					<div className={s.info}>
-						<Contact value={contacts?.find(i => i.type === 'phone')?.text!} prefix="tel:" />
+						<Contact value={transformPhoneNumber(contacts?.find(i => i.type === 'phone')?.text!)} prefix="tel:" />
 						<Contact value={contacts?.find(i => i.type === 'email')?.text!} prefix="mailto:" />
 					</div>
 				</div>
