@@ -2,6 +2,7 @@ import Image from "next/image";
 import { STEPS_INFO } from "../../constatnts/steps";
 import s from "./Steps.module.scss";
 import { Header, Item } from "./components";
+import { Fragment } from "react";
 
 export function Steps() {
 	return (
@@ -14,10 +15,10 @@ export function Steps() {
 							current.list.map((item, index) => {
 								if (index === 0) {
 									return (
-										<>
+										<Fragment key={item.id}>
 											<Item key={item.title} index={index} title={item.title} text={item.text} />
 											<Image className={s.list__img} src={current.image} alt="" width={450} height={450} />
-										</>
+										</Fragment>
 									)
 								} else {
 									return (

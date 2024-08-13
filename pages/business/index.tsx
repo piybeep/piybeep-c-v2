@@ -7,19 +7,21 @@ import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../../src/utils";
 import { useProjects, useReviews, useServices } from "../../src/store";
 import { AboutUs, Form, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../../src/modules";
-import { Automation, Text } from "../../src/modules/pages/business";
+import { Automation, Slider, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
 import qs from "qs";
-import { ContactsType } from "../../src/types";
+import { ContactsType, SliderDataType } from "../../src/types";
 
 export default function BusinessPage({
 	projects,
 	services,
 	reviews,
+	sliderData
 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
+	sliderData: SliderDataType[]
 }) {
 	return (
 		<main
@@ -44,6 +46,7 @@ export default function BusinessPage({
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Technologies />
 				<Text />
+				<Slider data={sliderData} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
 			</div>
@@ -54,9 +57,9 @@ export default function BusinessPage({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["projects", "services", "reviews", "contacts"];
+	const URIs = ["projects", "services", "reviews", "contacts", "slider-businesses"];
 
-	const [projects_response, services_response, reviews_response, contacts_response] =
+	const [projects_response, services_response, reviews_response, contacts_response, slider_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
 				i != "contacts" &&
@@ -120,12 +123,19 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		contacts = contacts_response.value.data.data
 	}
 
+	let sliderData = []
+
+	if (slider_response.status === 'fulfilled') {
+		sliderData = slider_response.value.data.data
+	}
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
 			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
-			contacts: contacts
+			contacts: contacts,
+			sliderData: sliderData
 		}
 	};
 };
