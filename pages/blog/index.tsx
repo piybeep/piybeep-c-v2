@@ -169,8 +169,8 @@ BlogPage.getLayout = (
 ) => (
     <DefalutLayout contacts={contacts}>
         <Head>
-            <title>Блог - piybeep.</title>
-            <meta name="description" content="Наш блог" />
+            <title>Блог веб-студии: технологии, SEO, командная работа | Piybeep</title>
+            <meta name="description" content="Исследуйте последние технологические тренды, лучшие практики SEO и секреты эффективной командной работы в блоге нашей веб-студии. Оставайтесь в курсе инноваций и улучшайте свои навыки вместе с экспертами отрасли." />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
