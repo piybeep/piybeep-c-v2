@@ -8,7 +8,7 @@ export function Title({ text, price, isLink }: TitleProps) {
         <div className={s.title}>
             {
                 isLink
-                    ? <Link className={s.title__text} href='/'>
+                    ? <Link className={s.title__text} href='/services'>
                         {text}
                         <svg className={s.title__svg} width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="1" width="17" height="17" rx="8.5" stroke="#8E8E8E" />
