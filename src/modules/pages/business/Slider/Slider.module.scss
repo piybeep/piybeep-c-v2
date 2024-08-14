@@ -27,20 +27,20 @@
         height: 569px;
         position: relative;
 
-        // &::after {
-        //     display: inline-block;
-        //     content: '';
+        &::after {
+            display: inline-block;
+            content: '';
 
-        //     position: absolute;
-        //     top: 0px;
-        //     left: 0px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
 
-        //     width: 100%;
-        //     height: -webkit-fill-available;
+            width: 100%;
+            height: -webkit-fill-available;
 
-        //     background: linear-gradient(180deg, rgba(16, 15, 19, 0.00) 0%, #100F13 93%);
-        //     z-index: 1;
-        // }
+            background: linear-gradient(180deg, rgba(16, 15, 19, 0.00) 0%, #100F13 93%);
+            z-index: 1;
+        }
     }
 
     &__slide {
