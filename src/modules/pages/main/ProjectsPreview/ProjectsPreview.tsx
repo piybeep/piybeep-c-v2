@@ -37,7 +37,7 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 				{projects.map((link) => (
 					<NavLink
 						key={link.id}
-						id={link.id}
+						slug={link.slug}
 						title={link.title}
 						href={PAGES_LINK.PORTFOLIO}
 						preview_image={process.env.NEXT_PUBLIC_STRAPI_URL + link.preview_image.url}
