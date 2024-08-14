@@ -14,7 +14,7 @@ export function Contacts({ contacts }: { contacts: ContactsType[] }) {
 				<Slogan text="Мы всегда на связи! Оставляйте заявку на сайте, звоните по телефону,
             пишите нам на почту, в телеграм, ватсап или вконтакте, и мы обсудим
             ваш проект!" />
-				<Social social={contacts.filter(i => i.type === 'vk' || i.type === 'tg')} />
+				<Social social={contacts.filter(i => i.type === 'vk' || i.type === 'tg' || i.type === 'wa')} />
 			</div>
 		</div>
 	);
