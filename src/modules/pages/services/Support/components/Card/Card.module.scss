@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 50px;
   width: calc((100% - 70px * 2) / 3);
 
   .title {
@@ -27,8 +27,9 @@
       margin: 0;
     }
 
-    span {
-      color: #98ec65;
+    h3 {
+      font-size: 32px;
+      line-height: normal;
     }
   }
 
@@ -80,12 +81,14 @@
     font-size: 16px;
     line-height: 21px;
     text-transform: uppercase;
+
+    color: #98ec65;
   }
 
   button {
     width: fit-content;
 
-    padding: 17px 20px;
+    padding: 7px 12px;
     background: #100f13;
     border: 1px solid #ececec;
 
@@ -96,12 +99,11 @@
     line-height: 21px;
     color: #ececec;
 
-    border-radius: 3px;
+    border-radius: 100px;
 
-    //&,
-    //* {
-    //  transition: 0.2s;
-    //}
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
 
     &:hover {
       background: #ececec;
@@ -109,7 +111,8 @@
 
       svg {
         path {
-          fill: #100f13;
+          stroke: #100f13;
+          border: 1px solid red;
         }
       }
     }
@@ -147,9 +150,40 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .card {
+
+    .title {
+      h3 {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .card {
-    width: 50%;
+    // width: 50%;
+    width: 100%;
+
+    max-width: 331px;
+
+    align-items: center;
+
+    .group {
+      li {
+        text-align: center;
+      }
+
+      &::before {
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+    }
+
+    .options {
+      align-items: center;
+    }
 
     .title {
       row-gap: 5px;
@@ -176,14 +210,14 @@
 @media screen and (max-width: 720px) {
   .card {
     width: 100%;
+  }
+}
 
-    .options {
-      .group {
-        &:not(.group:nth-child(1)) {
-          &::before {
-            left: 0px;
-          }
-        }
+@media screen and (max-width: 430px) {
+  .card {
+    .title {
+      h3 {
+        font-size: 20px;
       }
     }
   }

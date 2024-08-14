@@ -16,7 +16,6 @@ export function Card({
 		<div {...props} className={classNames(s.card, className)}>
 			<div className={s.title}>
 				<h3 style={{ margin: '0px' }}>{title}</h3>
-				<span className={s.description}>{description}</span>
 			</div>
 			<div className={s.options}>
 				{options.map((i, index) => (
@@ -27,7 +26,7 @@ export function Card({
 					</ul>
 				))}
 			</div>
-			<div className={s.price}>{price.toLocaleString("ru-RU")} р./мес</div>
+			<div className={s.price}>{price.toLocaleString("ru-RU")} р./мес ({description})</div>
 			<button
 				onClick={() =>
 					router.push(
@@ -42,18 +41,9 @@ export function Card({
 					)
 				}
 			>
-				Нужна поддержка{" "}
-				<svg
-					width="12"
-					height="11"
-					viewBox="0 0 12 11"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M6.60227 11L5.72727 10.1364L9.32955 6.53409H0V5.28409H9.32955L5.72727 1.69318L6.60227 0.818182L11.6932 5.90909L6.60227 11Z"
-						fill="#ECECEC"
-					/>
+				Выбрать
+				<svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
+					<path d="M8.38817 1.18359L14.704 7.49938M14.704 7.49938L8.38817 13.8152M14.704 7.49938H2.5" stroke="#ECECEC" strokeLinecap="square" strokeLinejoin="round" />
 				</svg>
 			</button>
 		</div>

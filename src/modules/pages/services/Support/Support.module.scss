@@ -37,16 +37,9 @@
 @media screen and (max-width: 768px) {
   .container {
     .cards {
-      row-gap: 50px;
+      row-gap: 70px;
       flex-direction: column;
-
-      > div:nth-of-type(2) {
-        align-self: center;
-      }
-
-      > div:nth-of-type(3) {
-        align-self: flex-end;
-      }
+      align-items: center;
     }
   }
 }
@@ -57,14 +50,13 @@
       flex-direction: column;
       row-gap: 30px;
     }
+  }
+}
 
+@media screen and (max-width: 430px) {
+  .container {
     .cards {
-      row-gap: 50px;
-      flex-direction: column;
-
-      > div {
-        align-self: flex-start !important;
-      }
+      row-gap: 60px;
     }
   }
 }

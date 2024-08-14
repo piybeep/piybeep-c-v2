@@ -37,8 +37,8 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 			<div className={s.preview}>
 				{projects.map((link) => (
 					<NavLink
+						slug={link.slug}
 						key={link.id}
-						id={link.id}
 						title={link.title}
 						href={PAGES_LINK.PORTFOLIO}
 						preview_image={process.env.NEXT_PUBLIC_STRAPI_URL + link.preview_image.url}
