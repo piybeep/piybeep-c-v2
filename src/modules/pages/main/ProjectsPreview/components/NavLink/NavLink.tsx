@@ -4,10 +4,10 @@ import s from './NavLink.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 
-export function NavLink({ title, href, preview_image, id }: NavLinkProps) {
+export function NavLink({ title, href, preview_image, slug }: NavLinkProps) {
     return (
         <Link
-            href={[href, id].join("/")}
+            href={[href, slug].join("/")}
             className={s.link}
         >
             <Image

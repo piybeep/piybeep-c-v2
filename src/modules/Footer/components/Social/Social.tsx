@@ -11,9 +11,9 @@ export function Social({ social }: { social: ContactsType[] }) {
                     className={s.social__link}
                     key={link.type}
                     href={link.text}
-                    title={link.type === 'vk' ? "Вконтакте" : "Телеграм"}
+                    title={link.type === 'vk' ? "Вконтакте" : link.type === 'wa' ? "WhatsApp" : "Телеграм"}
                     target={'_blank'}>
-                    {link.type === 'vk' ? "Вконтакте" : "Телеграм"}
+                    {link.type === 'vk' ? "Вконтакте" : link.type === 'wa' ? "WhatsApp" : "Телеграм"}
                     <svg
                         className={s.social__svg}
                         width="10"
