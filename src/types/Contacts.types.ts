@@ -1,4 +1,4 @@
 export interface ContactsType{
-    type: string,
+    type: 'phone' | 'email' | 'tg' | 'wa' | 'vk',
     text: string
 }
