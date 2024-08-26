@@ -22,6 +22,7 @@
 
       a {
         color: inherit;
+        text-decoration: underline;
       }
     }
 
@@ -49,7 +50,7 @@
 
       h1,
       h2 {
-        font-family: "Actay", sans-serif;
+        font-family: "Roboto Flex";
         font-size: 48px;
         line-height: 60px;
         text-transform: none;
@@ -72,7 +73,7 @@
     &.center {
       flex-direction: column;
       margin: 0 auto;
-      align-items: flex-end;
+      align-items: center;
       gap: 0;
     }
   }

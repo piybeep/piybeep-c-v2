@@ -19,7 +19,7 @@ export function Products({ list }: { list: ProductType[] }) {
 			value="Сделаем для вас"
 			subtitle={
 				<Link href={[PAGES_LINK.STUDIO, "#stacks"].join("")}>
-					Стек разработки <Image src={RightArrow} alt="" />
+					Стек разработки
 				</Link>
 			}
 			position="center"
