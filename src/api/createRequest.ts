@@ -14,13 +14,6 @@ export default function CreateRequest({
 	name,
 	servicesList
 }: RequestPayload) {
-	// axios.post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/telegram-bot-strapi/send-message`, {
-	// 	message: `
-	// 	У вас новая заявка от ${name}.
-	// 	\n Контакты: ${contact}.
-	// 	\n Услуги: ${selects.map(i => i).join(', ')}
-	// 	`
-	// }).catch(err => console.log(err))
 	return axios.post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/requests`, {
 		data: {
 			client_name: name,
