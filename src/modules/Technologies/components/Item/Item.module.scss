@@ -39,5 +39,7 @@
 @media screen and (max-width: 430px) {
   .item {
     row-gap: 15px;
+
+    max-width: 60px;
   }
 }

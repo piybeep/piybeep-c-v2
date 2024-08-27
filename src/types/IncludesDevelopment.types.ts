@@ -9,4 +9,8 @@ export interface IncludesDevelopmentTypes{
       },
     title: string,
     text: string
+
+    uslugi?:{
+      id: number
+    }
 }

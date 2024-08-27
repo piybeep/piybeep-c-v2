@@ -1,15 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
-
 import { BlockLayout } from "../../../../layouts";
-
-import RightArrow from "../../../../../public/svg/Arrows/RightGray.svg";
 import { PAGES_LINK } from "../../../../constatnts";
-
-import { Item } from "./components";
-
-import s from "./Products.module.scss";
 import { ProductType } from "../../../../utils";
+import { ServicesList } from "../../../ServicesList";
 
 export function Products({ list }: { list: ProductType[] }) {
 	return (
@@ -24,19 +17,7 @@ export function Products({ list }: { list: ProductType[] }) {
 			}
 			position="center"
 		>
-			<div className={s.wrapper}>
-				{list?.map((i, index) => (
-					<Item
-						className={s.item}
-						key={i.id}
-						number={index + 1}
-						title={i.name}
-						description={i.description}
-						price={i.price}
-						discount={i.discount!}
-					/>
-				))}
-			</div>
+			<ServicesList list={list} />
 		</BlockLayout>
 	);
 }

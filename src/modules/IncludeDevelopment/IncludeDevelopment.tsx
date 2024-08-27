@@ -1,16 +1,16 @@
 import Image from 'next/image';
-import { IncludesDevelopmentTypes } from '../../../../types';
+import { IncludesDevelopmentTypes } from '../../types';
 import s from './IncludeDevelopment.module.scss'
-import { Title } from '../../../../components';
+import { Title } from '../../components';
 
-export function IncludeDevelopment({ list }: { list: IncludesDevelopmentTypes[] }) {
+export function IncludeDevelopment({ list, title }: { list: IncludesDevelopmentTypes[], title: string }) {
     if (!list) {
         return <></>
     }
 
     return (
         <div className={s.wrapper}>
-            <Title value={'включено в разработку'} size='md' />
+            <Title value={title} size='md' />
             <div className={s.list}>
                 {
                     list.map(item => (

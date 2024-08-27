@@ -8,8 +8,14 @@ interface BaseEntity {
 
 export interface Service extends BaseEntity {
 	name: string;
+	title:string
 	description: string;
+	description_2:string
+	count_days:string
+	meta_title:string
+	meta_description:string
 	price: number;
+	slug: string;
 	discount: number;
 	isHide: boolean;
 	isAvailable: boolean;
@@ -51,11 +57,18 @@ export interface EntityActions<T> {
 }
 
 export interface ProductType {
-	id: string;
+	id: number | string
 	name: string;
-	description: string;
+	slug: string;
 	price: number;
 	discount: number | null;
 	isAvailable: boolean;
 	type: string;
+
+	title: string
+	description:string
+	description_2:string
+	count_days:string
+	meta_title:string
+	meta_description:string
 }
