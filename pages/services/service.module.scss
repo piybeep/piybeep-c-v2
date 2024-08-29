@@ -5,16 +5,27 @@
 
     position: relative;
     z-index: 1;
+
+    width: 100%;
+    max-width: 1920px;
+
+    margin: 0 auto;
+
+    padding: 0px 140px;
 }
 
 @media screen and (max-width:1420px) {
     .wrapper {
         row-gap: 200px;
+
+        padding: 0px 24px;
     }
 }
 
 @media screen and (max-width:1000px) {
     .wrapper {
         row-gap: 100px;
+
+        padding: 0px 16px;
     }
 }

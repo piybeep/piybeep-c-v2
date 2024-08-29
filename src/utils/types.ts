@@ -74,4 +74,23 @@ export interface ProductType {
 
 	createdAt: Date;
 	updatedAt: Date;
+
+	steps?:ServiceStepList[]
+}
+
+export interface ServiceStepList{
+	id:number
+	title:string,
+	text:string,
+	step_items: ServiceStepListItem[]
+	uslugi:{
+		id: number
+	}
+}
+
+export interface ServiceStepListItem{
+	id: number
+	title: string,
+	count: string, 
+	text: string,
 }

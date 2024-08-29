@@ -2,16 +2,16 @@ import axios from "axios";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ReactNode } from "react";
-import { ButtonOpenForm, Title } from "../../src/components";
+import { Title } from "../../src/components";
 import { BaseLayout } from "../../src/layouts";
-import { ServicePreview } from "../../src/modules/pages/service";
+import { ServicePreview, Steps } from "../../src/modules/pages/service";
 import { ContactsType, IncludesDevelopmentTypes } from "../../src/types";
-import { EntityActions, EntityState, Portal, ProductType, Project, Service } from "../../src/utils";
+import { ProductType, Project, Service, ServiceStepList } from "../../src/utils";
 
 import { Eyes, Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
 import s from './service.module.scss';
 
-export default function ServicePage({ service, servicePosts, projects, services }:
+export default function ServicePage({ service, servicePosts, projects, services, steps }:
     {
         service: { attributes: ProductType, id: number },
         servicePosts: IncludesDevelopmentTypes[],
@@ -23,7 +23,8 @@ export default function ServicePage({ service, servicePosts, projects, services 
                 }
             }
         },
-        services: ProductType[]
+        services: ProductType[],
+        steps: ServiceStepList[]
     }) {
     if (!service) {
         return (
@@ -36,11 +37,14 @@ export default function ServicePage({ service, servicePosts, projects, services 
 
     const currentServicePosts = servicePosts?.filter(item => item?.uslugi?.id === service.id) ?? null
 
+    const filterSteps = steps.filter(step => step?.uslugi?.id === service.id) ?? null
+
     return (
         <div className={s.wrapper}>
             <Title value={service.attributes.name} position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
             <ServicePreview {...service.attributes} />
             <IncludeDevelopment list={currentServicePosts} title={'что вы получите'} />
+            <Steps steps={filterSteps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
             <Technologies />
             <ServicesList list={services.filter(i => i.id != service.id)} isCollapse />
@@ -95,6 +99,15 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data)
         .catch(error => console.error(error.response.data.error))
 
+    const steps = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/steps?populate=*`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+    })
+        .then(res => res.data.data)
+        .catch(error => console.error(error.response.data.error))
+
     return {
         props: {
             service: serviceRes ?? null,
@@ -102,6 +115,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
             services: services ?? null,
             servicePosts: servicePosts ?? null,
             projects: projects_response ?? null,
+            steps: steps ?? null
         }
     }
 })
