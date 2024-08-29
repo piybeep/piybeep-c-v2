@@ -38,7 +38,8 @@
         margin-bottom: 30px;
     }
 
-    p {
+    p,
+    li::marker {
         color: var(--light, #ECECEC);
 
         font-family: Inter;
@@ -61,10 +62,12 @@
 
         margin-top: 30px;
 
-        p {
+        p,
+        li::marker {
             margin: 0px;
         }
     }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -108,7 +111,8 @@
             margin-bottom: 25px;
         }
 
-        p {
+        p,
+        li::marker {
             font-size: 14px;
             margin-bottom: 15px;
         }
