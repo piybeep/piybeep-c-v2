@@ -10,18 +10,20 @@ import { Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, Technol
 import { ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
-import { ContactsType, IncludesDevelopmentTypes } from "../src/types";
+import { ContactsType, IncludesDevelopmentTypes, WedoTypes } from "../src/types";
 
 export default function Home({
 	projects,
 	services,
 	reviews,
-	includesDevelopment
+	includesDevelopment,
+	wedo_response
 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
-	includesDevelopment: IncludesDevelopmentTypes[]
+	includesDevelopment: IncludesDevelopmentTypes[],
+	wedo_response: WedoTypes[]
 }) {
 	return (
 		<main
@@ -32,7 +34,7 @@ export default function Home({
 		>
 			<div className="content-wrapper">
 				<Preview text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
-				<WeDo />
+				<WeDo list={wedo_response.filter(i => i.type === 'main' || i.type === 'both')} />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
@@ -120,13 +122,28 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		includesDevelopment = includesDevelopment_response.value.data.data
 	}
 
+	const wedo_response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/wedos?${qs.stringify(Object.assign({ populate: '*' },
+		{
+			sort: 'rank:asc'
+		}
+	))
+		}`, {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+		}
+	})
+		.then(res => res.data.data)
+		.catch(error => console.error(error))
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
 			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
 			contacts: contacts,
-			includesDevelopment
+			includesDevelopment,
+			wedo_response: wedo_response ?? null
 		}
 	};
 };

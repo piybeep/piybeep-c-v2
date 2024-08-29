@@ -27,7 +27,7 @@ export function ServicesList({ list, isCollapse = false }: { list: ProductType[]
                 {isCollapse && <span onClick={() => setIsOpen(state => !state)} className={s.list__before}></span>}
                 {
                     list.map((item, index) => (
-                        <Link href={[PAGES_LINK.SERVICES, item.slug].join('/')} key={item.id} className={s.list__item}>
+                        <Link href={[PAGES_LINK.SERVICES, item.slug].join('/')} key={item.id} id={item.name} className={s.list__item}>
                             <div className={s.list__info}>
                                 <span className={s.list__text}>{(index + 1 < 10) && '0'}{index + 1}</span>
                                 <h2 className={s.list__title}>{item.name}</h2>

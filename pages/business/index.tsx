@@ -10,18 +10,20 @@ import { AboutUs, Form, OurProjects, Preview, Reviews, Steps, Technologies, Text
 import { Automation, Slider, Text } from "../../src/modules/pages/business";
 import { ButtonOpenForm } from "../../src/components";
 import qs from "qs";
-import { ContactsType, SliderDataType } from "../../src/types";
+import { ContactsType, SliderDataType, WedoTypes } from "../../src/types";
 
 export default function BusinessPage({
 	projects,
 	services,
 	reviews,
-	sliderData
+	sliderData,
+	wedo_response
 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
-	sliderData: SliderDataType[]
+	sliderData: SliderDataType[],
+	wedo_response: WedoTypes[]
 }) {
 	return (
 		<main
@@ -40,7 +42,7 @@ export default function BusinessPage({
 				/> 
 				*/}
 
-				<WeDo biz />
+				<WeDo list={wedo_response.filter(i => i.type === 'business' || i.type === 'both')} />
 				<Automation />
 				<Steps />
 				<OurProjects projects={projects.list} count={projects.total_count} />
@@ -129,13 +131,28 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		sliderData = slider_response.value.data.data
 	}
 
+	const wedo_response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/wedos?${qs.stringify(Object.assign({ populate: '*' },
+		{
+			sort: 'rank:asc'
+		}
+	))
+		}`, {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+		}
+	})
+		.then(res => res.data.data)
+		.catch(error => console.error(error))
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
 			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
 			contacts: contacts,
-			sliderData: sliderData
+			sliderData: sliderData,
+			wedo_response: wedo_response ?? null
 		}
 	};
 };
