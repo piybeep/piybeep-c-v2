@@ -6,9 +6,9 @@ import { Title } from "../../src/components";
 import { DefalutLayout } from "../../src/layouts";
 import { ServicePreview } from "../../src/modules/pages/service";
 import { ContactsType, IncludesDevelopmentTypes } from "../../src/types";
-import { ProductType, Project } from "../../src/utils";
+import { Portal, ProductType, Project, Service } from "../../src/utils";
 
-import { IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
+import { Eyes, Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
 import s from './service.module.scss';
 
 export default function ServicePage({ service, servicePosts, projects, services }:
@@ -44,6 +44,10 @@ export default function ServicePage({ service, servicePosts, projects, services 
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
             <Technologies />
             <ServicesList list={services.filter(i => i.id != service.id)} isCollapse />
+            <Form services={services as Service[]} />
+            <Portal>
+                <Eyes />
+            </Portal>
         </div>
     );
 }

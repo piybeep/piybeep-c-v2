@@ -11,7 +11,7 @@ import { useApp } from "../../store";
 import { useInView } from "react-intersection-observer";
 import { Button, Input, Privacy, SelectItem, Title } from "../../components";
 
-export function Form({ services }: { services: Service[]; count: number }) {
+export function Form({ services }: { services: Service[]; count?: number }) {
 
 	const {
 		add: addUserSelect,
