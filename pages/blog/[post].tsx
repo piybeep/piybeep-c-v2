@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { DefalutLayout } from "../../src/layouts";
 import { ReactNode } from "react";
-import { ButtonBack } from "../../src/components";
+import { ButtonBack, ButtonOpenForm } from "../../src/components";
 import axios from "axios";
 import { BlogsResTypes, BlogsSlugTypes, ContactsType } from "../../src/types";
 import { GetServerSideProps } from "next";
 import { PostInfo } from "../../src/modules/pages/blog";
+import { Portal, ProductType } from "../../src/utils";
+import { Eyes, PopupForm } from "../../src/modules";
 
 export default function PostPage({ blogsRes }: { blogsRes: BlogsSlugTypes }) {
 
@@ -19,12 +21,16 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsSlugTypes }) {
     }
 
     return (
-        <>
+        <main style={{
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
             <ButtonBack />
             {
                 blogsRes && <PostInfo post={blogsRes} />
             }
-        </>
+            <ButtonOpenForm />
+        </main>
     );
 };
 
@@ -47,10 +53,20 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data.data)
         .catch(error => console.error(error.response.data.error))
 
+    const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/services?populate=*`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+    })
+        .then(res => res.data.data)
+        .catch(error => console.error(error.response.data.error))
+
     return {
         props: {
             blogsRes: blogsRes ?? null,
-            contacts: contacts ?? null
+            contacts: contacts ?? null,
+            services: services ?? null
         }
     }
 
@@ -61,10 +77,12 @@ PostPage.getLayout = (
     page: ReactNode,
     {
         blogsRes,
-        contacts
+        contacts,
+        services
     }: {
         blogsRes: { attributes: BlogsResTypes }
         contacts: ContactsType[]
+        services: ProductType[]
     }
 ) => (
     <DefalutLayout contacts={contacts}>
@@ -74,5 +92,18 @@ PostPage.getLayout = (
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
+        <Portal>
+            <PopupForm
+                services={
+                    services.map(itemService => (
+                        {
+                            ...itemService,
+                            isHide: itemService.type === 'other'
+                        }
+                    ))
+                }
+                count={services.length} />
+            <Eyes />
+        </Portal>
     </DefalutLayout>
 );

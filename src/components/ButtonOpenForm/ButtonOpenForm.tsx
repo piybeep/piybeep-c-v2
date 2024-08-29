@@ -9,6 +9,7 @@ import classNames from "classnames";
 export function ButtonOpenForm() {
     const { mutate } = useRouterQuery();
     const isFooterFormInView = useApp((state) => state.isFooterFormInView);
+    const isFooterInView = useApp((state) => state.isFooterInView);
 
     const handleOpenForm = () => {
         mutate({
@@ -19,7 +20,7 @@ export function ButtonOpenForm() {
     return (
         <div
             className={classNames(s.btn_wrapper, {
-                [s.hide]: isFooterFormInView,
+                [s.hide]: isFooterFormInView || isFooterInView,
             })}
         >
             <button type={"button"} onClick={() => handleOpenForm()}>

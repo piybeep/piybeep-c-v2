@@ -1,10 +1,22 @@
+import { useInView } from "react-intersection-observer";
+import { useApp } from "../../store";
 import { ContactsType } from "../../types";
 import s from "./Footer.module.scss";
 import { Contacts, Copyright, Navigation, Social } from "./components";
 
 export function Footer({ contacts }: { contacts: ContactsType[] }) {
+
+	const toggleIsFooterInView = useApp(
+		(state) => state.toggleIsFooterInView,
+	);
+	const { ref } = useInView({
+		onChange: (inView) => {
+			toggleIsFooterInView(inView);
+		},
+	});
+
 	return (
-		<footer className={s.footer}>
+		<footer className={s.footer} ref={ref}>
 			<div className={s.info}>
 				<div className={s.info__column}>
 					<Navigation />
