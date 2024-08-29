@@ -7,11 +7,16 @@ import imageEye from "../../../public/imgs/eyes.png";
 
 import s from "./Eyes.module.scss";
 import classNames from "classnames";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export function Eyes() {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const { isHas, query, mutate } = useRouterQuery();
+	const router = useRouter()
+	const pathname = usePathname()
+
+	const { isHas, query } = useRouterQuery();
 
 	useEffect(() => {
 		if (isHas("form") && query.form === "success") {
@@ -32,9 +37,8 @@ export function Eyes() {
 	const closeEyes = () => {
 		setIsOpen(false);
 
-		mutate({
-			query: null,
-		});
+		// Фикс за место mutate
+		router.replace(pathname, undefined, { shallow: true });
 	};
 
 	return (

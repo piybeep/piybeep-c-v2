@@ -2,11 +2,11 @@ import axios from "axios";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Title } from "../../src/components";
-import { DefalutLayout } from "../../src/layouts";
+import { ButtonOpenForm, Title } from "../../src/components";
+import { BaseLayout } from "../../src/layouts";
 import { ServicePreview } from "../../src/modules/pages/service";
 import { ContactsType, IncludesDevelopmentTypes } from "../../src/types";
-import { Portal, ProductType, Project, Service } from "../../src/utils";
+import { EntityActions, EntityState, Portal, ProductType, Project, Service } from "../../src/utils";
 
 import { Eyes, Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
 import s from './service.module.scss';
@@ -45,9 +45,6 @@ export default function ServicePage({ service, servicePosts, projects, services 
             <Technologies />
             <ServicesList list={services.filter(i => i.id != service.id)} isCollapse />
             <Form services={services as Service[]} />
-            <Portal>
-                <Eyes />
-            </Portal>
         </div>
     );
 }
@@ -112,19 +109,32 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
 ServicePage.getLayout = (
     page: ReactNode,
     {
+        services,
         service,
         contacts
     }: {
+        services: ProductType[],
         service: { attributes: ProductType },
         contacts: ContactsType[]
     }
 ) => (
-    <DefalutLayout contacts={contacts}>
+    <BaseLayout
+        contacts={contacts}
+        services={
+            {
+                list: services.map(itemService => (
+                    {
+                        ...itemService,
+                        isHide: itemService.type === 'other'
+                    })),
+                total_count: services.length,
+                error: null
+            }}>
         <Head>
             <title>{service?.attributes?.meta_title ?? ''} - piybeep.</title>
             <meta name="description" content={service?.attributes?.meta_description ?? ''} />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
-    </DefalutLayout>
+    </BaseLayout>
 );

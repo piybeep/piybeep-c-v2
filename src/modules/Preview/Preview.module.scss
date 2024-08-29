@@ -34,7 +34,7 @@
     }
 
     &::after {
-        content: ' которые хотят сделать интернет-маркетинг эффективнее';
+        content: attr(data-description);
         display: inline-block;
 
         position: absolute;

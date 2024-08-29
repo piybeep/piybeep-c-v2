@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 interface BaseEntity {
-	id: string;
+	id: string | number;
 	createdAt: Date;
 	updatedAt: Date;
 }
@@ -16,7 +16,7 @@ export interface Service extends BaseEntity {
 	meta_description:string
 	price: number;
 	slug: string;
-	discount: number;
+	discount: number | null;
 	isHide: boolean;
 	isAvailable: boolean;
 	type: string;
@@ -71,4 +71,7 @@ export interface ProductType {
 	count_days:string
 	meta_title:string
 	meta_description:string
+
+	createdAt: Date;
+	updatedAt: Date;
 }

@@ -6,8 +6,8 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
-import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
+import { Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
+import { ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
 import { ContactsType, IncludesDevelopmentTypes } from "../src/types";
@@ -31,18 +31,9 @@ export default function Home({
 			}}
 		>
 			<div className="content-wrapper">
-				<Preview />
-				{/* 
-				<AboutUs
-					title={"Продающие сайты для ваших маркетинговых целей."}
-					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
-				уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-				эффективнее.`}
-				/> 
-				*/}
+				<Preview text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
 				<WeDo />
 				<OurProjects projects={projects.list} count={projects.total_count} />
-				{/* <Advantages /> */}
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
 				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />

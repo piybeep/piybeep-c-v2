@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
+import { MENU_ITEMS } from "../../constatnts";
 
 import s from "./Header.module.scss";
 
-import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
+import { ButtonHome, Contact, Logo, NavLink } from "./components";
 import { ContactsType } from "../../types";
 import transformPhoneNumber from "../../utils/transformPhoneNumber";
 
@@ -49,7 +49,6 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 
 	return (
 		<>
-			<Preview />
 			<header className={classNames(s.header)}>
 				<div className={s.bar}>
 					<div className={s.logo}>
