@@ -3,14 +3,9 @@ import { ProductType } from '../../utils';
 import s from './ServicesList.module.scss'
 import { useState } from 'react';
 import classNames from 'classnames';
-import { useRouter } from 'next/router';
 import { PAGES_LINK } from '../../constatnts';
 
 export function ServicesList({ list, isCollapse = false }: { list: ProductType[], isCollapse?: boolean }) {
-
-    const router = useRouter()
-
-    console.log(router)
 
     const [isOpen, setIsOpen] = useState(false)
 
