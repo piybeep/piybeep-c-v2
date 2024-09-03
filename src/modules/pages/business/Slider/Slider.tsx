@@ -34,7 +34,7 @@ export function Slider({ data }: { data: SliderDataType[] }) {
                 className={s.wrapper__slider}
             >
                 {
-                    data.map(i => <SwiperSlide key={i.id} className={s.wrapper__slide}>
+                    data.concat(data).map((i, index) => <SwiperSlide key={index} className={s.wrapper__slide}>
                         {({ isActive }) => (
                             <p className={classNames(s.wrapper__text, {
                                 [s.wrapper__text_active]: isActive
