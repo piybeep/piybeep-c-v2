@@ -14,8 +14,9 @@ export function Item({ name, href, index, title, text }: ItemProps) {
 
         setTimeout(() => {
             document.getElementById(name)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 300);
+        }, 500);
     }
+
     return (
         <button
             onClick={handleScrollTo}
