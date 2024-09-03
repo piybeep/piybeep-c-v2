@@ -1,7 +1,7 @@
 import { Project, Review } from "../../../../utils"
 
 export interface SlideProps {
-    id: string
+    id: string | number
     text: string
     href: string
     author: string
