@@ -41,8 +41,10 @@ export default function ServicePage({ service, servicePosts, projects, services,
 
     return (
         <div className={s.wrapper}>
-            <Title value={service.attributes.name} position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
-            <ServicePreview {...service.attributes} />
+            <div className={s.wrapper__header}>
+                <Title value={service.attributes.name} position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
+                <ServicePreview {...service.attributes} />
+            </div>
             <IncludeDevelopment list={currentServicePosts} title={'что вы получите'} />
             <Steps steps={filterSteps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
