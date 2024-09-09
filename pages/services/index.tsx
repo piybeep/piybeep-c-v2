@@ -21,6 +21,7 @@ export default function Services({
 				flexDirection: "column",
 			}}
 		>
+			{/* Тест vercel */}
 			<div className="content-wrapper">
 				<Products
 					list={services.list.filter((i) => i.type === "service")}
