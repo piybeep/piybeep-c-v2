@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { ItemProps } from "./Item.types";
 
 import s from './Item.module.scss'
@@ -10,11 +8,7 @@ export function Item({ name, href, index, title, text }: ItemProps) {
     const router = useRouter()
 
     const handleScrollTo = () => {
-        router.push(href)
-
-        setTimeout(() => {
-            document.getElementById(name)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 500);
+        router.push(`${href}?${name}`)
     }
 
     return (
