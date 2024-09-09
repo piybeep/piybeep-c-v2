@@ -17,7 +17,7 @@ export function Products({ list }: { list: ProductType[] }) {
 				document.getElementById(itemName)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
 			}, 300);
 		}
-	}, [router])
+	}, [list, router])
 
 	return (
 		<BlockLayout
