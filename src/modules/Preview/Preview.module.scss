@@ -15,10 +15,10 @@
 
 .text {
     color: $white-color;
-    font-family: "Roboto Flex", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 48px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 130%;
 
     margin: 0px;
@@ -49,10 +49,10 @@
 
 .button {
     color: $white-color;
-    font-family: "Roboto Flex";
-    font-size: 116px;
+    font-family: "Roboto", sans-serif;
+    font-size: 96px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: normal;
 
     display: flex;
@@ -65,6 +65,8 @@
     border: none;
 
     padding: 40px 80px;
+
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 1550px) {
