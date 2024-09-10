@@ -35,14 +35,27 @@ export default function ServicePage({ service, servicePosts, projects, services,
         )
     }
 
+    const currentServicePosts = service.attributes.service_posts?.data
+        .map(item => item.id)
+        // Костыльно пофиксил типы !!!
+        .map(id => servicePosts.find(post => post.id === id)!)!
+    // Костыльно пофиксил типы !!!
+
+    const currentSteps = service.attributes.steps?.data
+        .map(step => step.id)
+        // Костыльно пофиксил типы
+        .map(id => steps.find(step => step.id === id)!)
+    // Костыльно пофиксил типы
+
     return (
         <div className={s.wrapper}>
             <div className={s.wrapper__header}>
                 <Title value={service.attributes.name} tag='h1' position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
                 <ServicePreview {...service.attributes} />
             </div>
-            <IncludeDevelopment list={servicePosts} title={'что вы получите'} />
-            <Steps steps={steps} />
+            {/* Пока не знаю как пофиксить */}
+            <IncludeDevelopment list={currentServicePosts} title={'что вы получите'} />
+            <Steps steps={currentSteps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
             <Technologies />
             <ServicesList list={services.filter(i => i.id != service.id)} isCollapse={services.filter(i => i.id != service.id).length > 3} />

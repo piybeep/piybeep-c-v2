@@ -75,7 +75,24 @@ export interface ProductType {
 	createdAt: Date;
 	updatedAt: Date;
 
-	steps?:ServiceStepList[]
+	steps?: {
+		data: ServiceStepList[]
+	}
+
+	service_posts?: {
+		data: ServicePostType[]
+	}
+}
+
+export interface ServicePostType {
+	attributes:{
+		createdAt: string
+		publishedAt: string
+		text: string
+		title: string
+		updatedAt: string
+	}
+	id: number
 }
 
 export interface ServiceStepList{
@@ -83,9 +100,9 @@ export interface ServiceStepList{
 	title:string,
 	text:string,
 	step_items: ServiceStepListItem[]
-	uslugi:{
+	uslugis:{
 		id: number
-	}
+	}[]
 }
 
 export interface ServiceStepListItem{
