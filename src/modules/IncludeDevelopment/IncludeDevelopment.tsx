@@ -4,7 +4,7 @@ import s from './IncludeDevelopment.module.scss'
 import { Title } from '../../components';
 
 export function IncludeDevelopment({ list, title }: { list: IncludesDevelopmentTypes[] | [], title: string }) {
-    if (!list) {
+    if (!list || list.length <= 0) {
         return <></>
     }
 
