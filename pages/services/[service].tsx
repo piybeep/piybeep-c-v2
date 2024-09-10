@@ -8,7 +8,7 @@ import { ServicePreview, Steps } from "../../src/modules/pages/service";
 import { ContactsType, IncludesDevelopmentTypes } from "../../src/types";
 import { ProductType, Project, Service, ServiceStepList } from "../../src/utils";
 
-import { Eyes, Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
+import { Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
 import s from './service.module.scss';
 
 export default function ServicePage({ service, servicePosts, projects, services, steps }:
@@ -35,21 +35,17 @@ export default function ServicePage({ service, servicePosts, projects, services,
         )
     }
 
-    const currentServicePosts = servicePosts?.filter(item => item?.uslugi?.id === service.id) ?? null
-
-    const filterSteps = steps.filter(step => step?.uslugi?.id === service.id) ?? null
-
     return (
         <div className={s.wrapper}>
             <div className={s.wrapper__header}>
                 <Title value={service.attributes.name} tag='h1' position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
                 <ServicePreview {...service.attributes} />
             </div>
-            <IncludeDevelopment list={currentServicePosts} title={'что вы получите'} />
-            <Steps steps={filterSteps} />
+            <IncludeDevelopment list={servicePosts} title={'что вы получите'} />
+            <Steps steps={steps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
             <Technologies />
-            <ServicesList list={services.filter(i => i.id != service.id)} isCollapse />
+            <ServicesList list={services.filter(i => i.id != service.id)} isCollapse={services.filter(i => i.id != service.id).length > 3} />
             <Form services={services as Service[]} />
         </div>
     );
