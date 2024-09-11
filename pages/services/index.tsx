@@ -24,7 +24,7 @@ export default function Services({
 			{/* Тест vercel */}
 			<div className="content-wrapper">
 				<Products
-					list={services.list.filter((i) => i.type === "service")}
+					list={services?.list?.filter((i) => i.type === "service")}
 				/>
 				<Support />
 			</div>
@@ -55,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message),
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка'),
 		});
 	}
 

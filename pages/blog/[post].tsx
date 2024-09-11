@@ -42,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const contacts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contacts?populate=*`, {
         headers: {
@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/services?populate=*`, {
         headers: {
@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     return {
         props: {
@@ -95,14 +95,14 @@ PostPage.getLayout = (
         <Portal>
             <PopupForm
                 services={
-                    services.map(itemService => (
+                    services?.map(itemService => (
                         {
                             ...itemService,
                             isHide: itemService.type === 'other'
                         }
                     ))
                 }
-                count={services.length} />
+                count={services?.length} />
             <Eyes />
         </Portal>
     </DefalutLayout>

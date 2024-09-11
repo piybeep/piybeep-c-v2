@@ -162,7 +162,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     return {
         props: {
@@ -195,14 +195,14 @@ BlogPage.getLayout = (
         <Portal>
             <PopupForm
                 services={
-                    services.map(itemService => (
+                    services?.map(itemService => (
                         {
                             ...itemService,
                             isHide: itemService.type === 'other'
                         }
                     ))
                 }
-                count={services.length} />
+                count={services?.length} />
             <Eyes />
         </Portal>
     </DefalutLayout>

@@ -109,7 +109,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		}
 	})
 		.then(res => res.data.data)
-		.catch(error => ({ error: error.response.data.error.message }))
+		.catch(error => ({ error: error.response?.data?.error?.message ?? 'Произошла ошибка' }))
 
 	if (projects_response.status === "fulfilled") {
 		useProjects.setState(
@@ -121,7 +121,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data.error.message)
+			error: new Error(projects_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

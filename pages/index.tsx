@@ -34,7 +34,7 @@ export default function Home({
 		>
 			<div className="content-wrapper">
 				<Preview text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
-				<WeDo list={wedo_response.filter(i => i.type === 'main' || i.type === 'both')} />
+				<WeDo list={wedo_response?.filter(i => i.type === 'main' || i.type === 'both')} />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data.error.message)
+			error: new Error(projects_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -92,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data.error.message)
+			error: new Error(reviews_response.reason.response?.data?.error?.message ?? "Произошла ошибка")
 		});
 	}
 
@@ -106,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

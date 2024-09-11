@@ -42,7 +42,7 @@ export default function BusinessPage({
 				/> 
 				*/}
 
-				<WeDo list={wedo_response.filter(i => i.type === 'business' || i.type === 'both')} />
+				<WeDo list={wedo_response?.filter(i => i.type === 'business' || i.type === 'both')} />
 				<Automation />
 				<Steps />
 				<OurProjects projects={projects.list} count={projects.total_count} />
@@ -87,7 +87,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data.error.message)
+			error: new Error(projects_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -115,7 +115,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data.error.message)
+			error: new Error(reviews_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

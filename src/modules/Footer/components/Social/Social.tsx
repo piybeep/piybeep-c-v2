@@ -6,7 +6,7 @@ import { ContactsType } from "../../../../types";
 export function Social({ social }: { social: ContactsType[] }) {
     return (
         <div className={s.social}>
-            {social.map((link) => (
+            {social?.map((link) => (
                 <Link
                     className={s.social__link}
                     key={link.type}

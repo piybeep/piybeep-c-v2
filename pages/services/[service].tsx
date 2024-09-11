@@ -29,9 +29,9 @@ export default function ServicePage({ service, servicePosts, projects, services,
     if (!service) {
         return (
             // Сюда заглушку для ошибок
-            <>
+            <main style={{ display: 'flex', flexDirection: 'column' }}>
                 Произошла ошибка
-            </>
+            </main>
         )
     }
 
@@ -72,7 +72,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const servicePosts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/service-posts?populate=*`, {
         headers: {
@@ -81,7 +81,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const contacts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contacts?populate=*`, {
         headers: {
@@ -90,7 +90,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/services?populate=*`, {
         headers: {
@@ -99,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const projects_response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*`, {
         headers: {
@@ -108,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     const steps = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/steps?populate=*`, {
         headers: {
@@ -117,7 +117,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         }
     })
         .then(res => res.data.data)
-        .catch(error => console.error(error.response.data.error))
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
     return {
         props: {
@@ -147,12 +147,12 @@ ServicePage.getLayout = (
         contacts={contacts}
         services={
             {
-                list: services.map(itemService => (
+                list: services?.map(itemService => (
                     {
                         ...itemService,
                         isHide: itemService.type === 'other'
                     })),
-                total_count: services.length,
+                total_count: services?.length,
                 error: null
             }}>
         <Head>

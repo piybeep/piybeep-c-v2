@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data.error.message)
+			error: new Error(projects_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -76,7 +76,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

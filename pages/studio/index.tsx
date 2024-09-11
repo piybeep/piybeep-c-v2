@@ -61,7 +61,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

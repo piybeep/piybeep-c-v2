@@ -10,7 +10,7 @@ export function Products({ list }: { list: ProductType[] }) {
 	const router = useRouter()
 	useEffect(() => {
 		const itemName = decodeURIComponent(router.asPath.split('?')[1])
-		const currentItem = list.find(item => item.name === itemName)
+		const currentItem = list?.find(item => item.name === itemName)
 
 		if (currentItem) {
 			setTimeout(() => {

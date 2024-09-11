@@ -21,11 +21,11 @@ export function Footer({ contacts }: { contacts: ContactsType[] }) {
 				<div className={s.info__column}>
 					<Navigation />
 					<Contacts
-						phone={contacts.find(i => i.type === 'phone')?.text!}
-						email={contacts.find(i => i.type === 'email')?.text!} />
+						phone={contacts?.find(i => i.type === 'phone')?.text!}
+						email={contacts?.find(i => i.type === 'email')?.text!} />
 				</div>
 				<div className={s.info__column}>
-					<Social social={contacts.filter(i => i.type === 'tg' || i.type === 'vk' || i.type === 'wa')} />
+					<Social social={contacts?.filter(i => i.type === 'tg' || i.type === 'vk' || i.type === 'wa')} />
 					<Copyright />
 				</div>
 			</div>
