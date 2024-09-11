@@ -10,6 +10,7 @@ import { ProductType, Project, Service, ServiceStepList } from "../../src/utils"
 
 import { Form, IncludeDevelopment, OurProjects, ServicesList, Technologies } from "../../src/modules";
 import s from './service.module.scss';
+import qs from "qs";
 
 export default function ServicePage({ service, servicePosts, projects, services, steps }:
     {
@@ -24,7 +25,8 @@ export default function ServicePage({ service, servicePosts, projects, services,
             }
         },
         services: ProductType[],
-        steps: ServiceStepList[]
+        steps: ServiceStepList[],
+        servicePostsTest: any
     }) {
     if (!service) {
         return (
@@ -35,17 +37,13 @@ export default function ServicePage({ service, servicePosts, projects, services,
         )
     }
 
-    const currentServicePosts = service.attributes.service_posts?.data
-        .map(item => item.id)
-        // Костыльно пофиксил типы !!!
-        .map(id => servicePosts.find(post => post.id === id)!)!
-    // Костыльно пофиксил типы !!!
-
     const currentSteps = service.attributes.steps?.data
         .map(step => step.id)
-        // Костыльно пофиксил типы
         .map(id => steps.find(step => step.id === id)!)
-    // Костыльно пофиксил типы
+
+    const currentServicePosts = service.attributes.service_posts?.data
+        .map(service => service.id)
+        .map(id => servicePosts.find(service => service.id === id)!)!
 
     return (
         <div className={s.wrapper}>
@@ -53,7 +51,6 @@ export default function ServicePage({ service, servicePosts, projects, services,
                 <Title value={service.attributes.name} tag='h1' position='center' subtitle={`от ${service.attributes.price} тыс. руб.`} />
                 <ServicePreview {...service.attributes} />
             </div>
-            {/* Пока не знаю как пофиксить */}
             <IncludeDevelopment list={currentServicePosts} title={'что вы получите'} />
             <Steps steps={currentSteps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
@@ -66,15 +63,6 @@ export default function ServicePage({ service, servicePosts, projects, services,
 
 export const getServerSideProps: GetServerSideProps = (async (ctx) => {
     const serviceRes = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/slugify/slugs/service/${ctx?.query?.service}?populate=*`, {
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
-        }
-    })
-        .then(res => res.data.data)
-        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
-
-    const servicePosts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/service-posts?populate=*`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -110,7 +98,17 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data)
         .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
-    const steps = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/steps?populate=*`, {
+    const querySteps = qs.stringify({
+        filters: {
+            id: {
+                $in: serviceRes.attributes.steps.data.map((i: { id: number }) => i.id),
+            },
+        },
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+
+    const steps = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/steps?populate=*&${querySteps}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -119,6 +117,26 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
         .then(res => res.data.data)
         .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
 
+
+    const queryServicePosts = qs.stringify({
+        filters: {
+            id: {
+                $in: serviceRes.attributes.service_posts?.data.map((i: { id: number }) => i.id),
+            },
+        },
+    }, {
+        encodeValuesOnly: true, // prettify URL
+    });
+
+    const servicePosts = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/service-posts?populate=*&${queryServicePosts}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+    })
+        .then(res => res.data.data)
+        .catch(error => console.error(error))
+
     return {
         props: {
             service: serviceRes ?? null,
@@ -126,7 +144,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
             services: services ?? null,
             servicePosts: servicePosts ?? null,
             projects: projects_response ?? null,
-            steps: steps ?? null
+            steps: steps ?? null,
         }
     }
 })

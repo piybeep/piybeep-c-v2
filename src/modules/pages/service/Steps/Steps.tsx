@@ -3,7 +3,6 @@ import { ServiceStepList } from '../../../../utils';
 import s from './Steps.module.scss'
 
 export function Steps({ steps }: { steps?: ServiceStepList[] }) {
-    console.log(steps)
     if (!steps || steps.length <= 0) {
         // Тут вывод заглушки
         return <></>
