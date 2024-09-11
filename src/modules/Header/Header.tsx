@@ -68,8 +68,10 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 					</div>
 
 					<div className={s.info}>
-						<Contact value={transformPhoneNumber(contacts?.find(i => i.type === 'phone')?.text!)} prefix="tel:" />
-						<Contact value={contacts?.find(i => i.type === 'email')?.text!} prefix="mailto:" />
+						<Contact value={transformPhoneNumber(contacts?.find(i => i.type === 'phone')?.text ?? '') ?? ''}
+							prefix="tel:"
+						/>
+						<Contact value={contacts?.find(i => i.type === 'email')?.text ?? ''} prefix="mailto:" />
 					</div>
 				</div>
 			</header>
