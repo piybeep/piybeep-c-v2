@@ -67,6 +67,44 @@
     padding: 40px 80px;
 
     margin: 0 auto;
+
+    transition: .2s;
+
+    &__svg {
+        transition: .2s;
+
+        * {
+            transition: .2s;
+        }
+    }
+
+    &:hover {
+        background-color: $very-light-color;
+        color: $black-color;
+
+        .button__svg {
+            stroke: $black-color;
+
+            path {
+                fill: $black-color;
+                stroke: $black-color;
+            }
+        }
+
+        &:active {
+            background-color: $light-color;
+            color: $black-color;
+
+            .button__svg {
+                stroke: $black-color;
+
+                path {
+                    fill: $black-color;
+                    stroke: $black-color;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 1550px) {

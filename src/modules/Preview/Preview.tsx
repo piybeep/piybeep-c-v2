@@ -5,9 +5,9 @@ import s from './Preview.module.scss'
 export function Preview({ text, description }: { text: string, description: string }) {
     return (
         <div className={s.wrapper}>
-            <h2 className={s.text} data-description={description}>
+            <h1 className={s.text} data-description={description}>
                 <span className={s.text__bold}>piybeep.</span> {text}
-            </h2>
+            </h1>
             <button className={s.button} onClick={() => document.getElementById('form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}>
                 Заказать сайт
                 <svg className={s.button__svg} width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
