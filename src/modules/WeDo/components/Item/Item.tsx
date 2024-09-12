@@ -3,12 +3,12 @@ import { ItemProps } from "./Item.types";
 import s from './Item.module.scss'
 import { useRouter } from "next/router";
 
-export function Item({ name, href, index, title, text }: ItemProps) {
+export function Item({ name, href, index, title, text, hrefTo }: ItemProps) {
 
     const router = useRouter()
 
     const handleScrollTo = () => {
-        router.push(`${href}?${name}`)
+        router.push(`${href}${hrefTo ? `/${hrefTo}` : `?${name}`}`)
     }
 
     return (

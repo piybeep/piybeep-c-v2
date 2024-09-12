@@ -21,6 +21,7 @@ export function WeDo({ list }: { list?: WedoTypes[] }) {
 						<Item
 							key={current.title}
 							name={current.title}
+							hrefTo={current.href}
 							href={'services'}
 							index={index}
 							title={current.title}
