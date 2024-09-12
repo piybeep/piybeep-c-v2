@@ -21,10 +21,7 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsSlugTypes }) {
     }
 
     return (
-        <main style={{
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
+        <main style={{ display: 'flex', flexDirection: 'column', paddingTop: '0px' }}>
             <ButtonBack />
             {
                 blogsRes && <PostInfo post={blogsRes} />
