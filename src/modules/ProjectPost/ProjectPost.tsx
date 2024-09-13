@@ -19,7 +19,11 @@ export function ProjectPost({ project }: { project: Project }) {
 				<Link
 					target="_blank"
 					className={s.container__link}
-					href={project.link}
+					href={
+						project.link.startsWith('https')
+							? project.link
+							: `https://${project.link}`
+					}
 				>
 					{project.link}
 				</Link>
