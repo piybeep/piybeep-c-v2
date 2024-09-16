@@ -3,14 +3,24 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 120px;
+    row-gap: 250px;
 
     width: 100%;
-    max-width: 561px;
 
     margin: 0 auto;
 
     z-index: -1;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 120px;
+
+        width: 100%;
+        max-width: 561px;
+
+        margin: 0 auto;
+    }
 
     &__title {
         color: $white-color;
@@ -76,10 +86,20 @@
     }
 }
 
+@media screen and (max-width: 1550px) {
+    .wrapper {
+        row-gap: 200px;
+    }
+}
+
 
 @media screen and (max-width: 1024px) {
     .wrapper {
-        row-gap: 80px;
+        row-gap: 120px;
+
+        &__content {
+            row-gap: 80px;
+        }
     }
 }
 
@@ -95,7 +115,11 @@
 
 @media screen and (max-width: 430px) {
     .wrapper {
-        row-gap: 50px;
+        row-gap: 60px;
+
+        &__content {
+            row-gap: 50px;
+        }
 
         &__title,
         &__text {

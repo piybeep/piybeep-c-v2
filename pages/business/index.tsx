@@ -47,7 +47,6 @@ export default function BusinessPage({
 				<Steps />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<Technologies />
-				<Text />
 				<Slider data={sliderData} />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER_BIZ} />
