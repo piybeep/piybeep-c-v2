@@ -29,7 +29,7 @@ export default function CreateRequest({
 	})
 	.then(() => axios.post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/telegram-bot-strapi/send-message`, {
 		parse_mode: "markdown",
-		message: `*Новая заявка*
+		message: `**Новая заявка**
 
 Имя: ${name}
 Связь: ${contact}
