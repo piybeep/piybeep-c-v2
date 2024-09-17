@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Service } from "../utils";
+import { toNamespacedPath } from "path/posix";
 
 interface RequestPayload {
 	name: string;
@@ -27,11 +28,13 @@ export default function CreateRequest({
 		}
 	})
 	.then(() => axios.post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/telegram-bot-strapi/send-message`, {
-		message: `
-		У вас новая заявка от ${name}.
-		\n Контакты: ${contact}.
-		\n Услуги: ${selects.map(i => i).join(', ')}
-		`
+		message: `Новая заявка
+
+Имя: ${name}
+Связь: ${contact}
+Выбор:
+${selects.map(i => `- ${i}`).join('\n')}
+`
 	}).catch(err => console.log(err)))
 	.catch(error => console.error(error?.message ?? error));
 }
