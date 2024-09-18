@@ -7,12 +7,18 @@
     margin: 0 auto;
 
     padding: 0px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 60vh;
 }
 
 .text {
     color: $white-color;
     font-family: "Roboto", sans-serif;
-    font-size: 48px;
+    font-size: 36px;
     font-style: normal;
     font-weight: 300;
     line-height: 130%;
@@ -155,10 +161,8 @@
     }
 }
 
-@media screen and (max-width: 795px) {
+@media screen and (max-width: 768px) {
     .wrapper {
-        row-gap: 116px;
-
         max-width: fit-content;
     }
 
