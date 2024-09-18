@@ -68,11 +68,12 @@ export function ButtonOpenForm() {
 
     return (
         <div
+            onClick={() => handleOpenForm()}
             className={classNames(s.btn_wrapper, {
                 [s.hide]: isFooterFormInView || isFooterInView,
             })}
         >
-            <button type={"button"} onClick={() => handleOpenForm()}>
+            <button type={"button"}>
                 <span>Заказать сайт</span>
                 <ArrowResize />
             </button>
