@@ -33,7 +33,7 @@ export default function Home({
 			}}
 		>
 			<div className="content-wrapper">
-				<Preview text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
+				<Preview withPadding text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
 				<WeDo list={wedo_response?.filter(i => i.type === 'main' || i.type === 'both')} />
 				<OurProjects projects={projects.list} count={projects.total_count} />
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
