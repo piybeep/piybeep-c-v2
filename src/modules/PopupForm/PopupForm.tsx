@@ -11,6 +11,7 @@ import { Service, toast } from "../../utils";
 import { Input, Privacy, SelectItem, Title } from "../../components";
 
 import s from "./PopupForm.module.scss";
+import { useAptabase } from "@aptabase/react";
 
 export function PopupForm({
 	services,
@@ -19,12 +20,14 @@ export function PopupForm({
 	count: number;
 }) {
 	const [isOpen, setIsOpen] = useState(false);
+	const { trackEvent } = useAptabase();
 
 	const { isHas, query, mutate } = useRouterQuery();
 
 	useEffect(() => {
 		if (isHas("form") && query.form === "request") {
 			setIsOpen(true);
+			trackEvent('open-popup-form')
 		} else {
 			setIsOpen(false);
 		}
