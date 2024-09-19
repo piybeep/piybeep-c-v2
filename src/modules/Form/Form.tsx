@@ -10,8 +10,10 @@ import { Service, toast } from "../../utils";
 import { useApp } from "../../store";
 import { useInView } from "react-intersection-observer";
 import { Button, Input, Privacy, SelectItem, Title } from "../../components";
+import { useAptabase } from "@aptabase/react";
 
 export function Form({ services }: { services: Service[]; count?: number }) {
+	const { trackEvent } = useAptabase();
 
 	const {
 		add: addUserSelect,
@@ -76,6 +78,7 @@ export function Form({ services }: { services: Service[]; count?: number }) {
 			"selects",
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
+		trackEvent('user-select-change');
 	}, [query.userSelect]);
 
 	// Заглушка для сбоя по данным
