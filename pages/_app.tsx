@@ -8,7 +8,7 @@ import "../src/styles/globals.scss";
 import "swiper/css";
 import { YandexMetricaProvider } from "next-yandex-metrica";
 import { GoogleAnalytics } from "nextjs-google-analytics";
-// import { AptabaseProvider } from "@aptabase/react";
+import { AptabaseProvider } from "@aptabase/react";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement, props: any) => ReactNode;
@@ -23,10 +23,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 	if (process.env.NODE_ENV != 'production') {
 		return (
 			<div className={classNames("wrapper")}>
-				{/* <AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST, isDebug: true }}> */}
-				<Toaster position="top-center" reverseOrder={false} />
-				{getLayout(<Component {...pageProps} />, pageProps)}
-				{/* </AptabaseProvider> */}
+				<AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST, isDebug: true }}>
+					<Toaster position="top-center" reverseOrder={false} />
+					{getLayout(<Component {...pageProps} />, pageProps)}
+				</AptabaseProvider>
 			</div>
 		)
 	}
@@ -43,12 +43,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 			tagID={89981393}
 		>
 			<GoogleAnalytics gaMeasurementId={"G-X9R96DCG15"} trackPageViews />
-			{/* <AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST }}> */}
-			<div className={classNames("wrapper")}>
-				<Toaster position="top-center" reverseOrder={false} />
-				{getLayout(<Component {...pageProps} />, pageProps)}
-			</div>
-			{/* </AptabaseProvider> */}
+			<AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST }}>
+				<div className={classNames("wrapper")}>
+					<Toaster position="top-center" reverseOrder={false} />
+					{getLayout(<Component {...pageProps} />, pageProps)}
+				</div>
+			</AptabaseProvider>
 		</YandexMetricaProvider>
 	);
 }
