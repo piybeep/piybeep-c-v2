@@ -1,13 +1,6 @@
 @import '../../styles/variables.scss';
 
 .wrapper {
-    width: 100%;
-    max-width: 1120px;
-
-    margin: 0 auto;
-
-    padding: 0px 10px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,261 +8,121 @@
     height: 60vh;
 }
 
-.text {
+.content {
+    margin: 0px;
+
     color: $white-color;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto;
     font-size: 36px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 130%;
 
-    margin: 0px;
-    width: 100%;
-    max-width: 700px;
+    display: flex;
+    align-items: flex-start;
 
-    position: relative;
+    &__title {
+        width: 100%;
+        max-width: 615px;
 
-    padding-bottom: 30px;
+        display: block;
 
-    &__bold {
-        font-weight: 400;
+        &_business {
+            max-width: 630px;
+        }
     }
 
-    &__padding {
-        padding-bottom: 100px;
+    &__text {
+        font-weight: 300;
     }
 
-    &::after {
-        content: attr(data-description);
+    &__description {
         display: inline-block;
-
-        position: absolute;
-        margin-left: 15px;
+        margin-left: -250px;
+        padding-top: 48px;
 
         width: 100%;
-        max-width: 520px;
+        max-width: 393px;
 
         color: $gray-color;
+
         font-weight: 300;
     }
 }
 
-.button {
-    color: $white-color;
-    font-family: "Roboto", sans-serif;
-    font-size: 96px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
 
-    display: flex;
-    align-items: center;
-    column-gap: 60px;
-
-    background-color: $dark-gray-color;
-
-    border-radius: 200px;
-    border: none;
-
-    padding: 40px 80px;
-
-    margin: 0 auto;
-
-    transition: .2s;
-
-    &__svg {
-        transition: .2s;
-
-        * {
-            transition: .2s;
-        }
-    }
-
-    &:hover {
-        background-color: $very-light-color;
-        color: $black-color;
-
-        .button__svg {
-            stroke: $black-color;
-
-            path {
-                fill: $black-color;
-                stroke: $black-color;
-            }
-        }
-
-        &:active {
-            background-color: $light-color;
-            color: $black-color;
-
-            .button__svg {
-                stroke: $black-color;
-
-                path {
-                    fill: $black-color;
-                    stroke: $black-color;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1550px) {
-    .wrapper {
-        row-gap: 194px;
-
-        padding: 0px;
-
-        max-width: 880px;
-    }
-
-    .text {
-        font-size: 36px;
-
-        max-width: 615px;
-
-        margin-left: 68px;
-
-        &::after {
-            max-width: 393px;
-        }
-    }
-
-    .button {
-        font-size: 83px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .wrapper {
-        row-gap: 174px;
-    }
-
-    .text {
-        margin: 0px;
-    }
-
-    .button {
-        font-size: 64px;
-
-        width: fit-content;
-
-        margin: 0 auto;
-
-        padding: 25px 50px;
-
-        column-gap: 40px;
-
-        &__svg {
-            width: 57px;
-            height: 50px;
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .wrapper {
-        max-width: fit-content;
-    }
-
-    .text {
+@media screen and (max-width: 800px) {
+    .content {
         font-size: 24px;
 
-        max-width: 417px;
+        &__title {
+            max-width: 418px;
 
-        margin-left: 49px;
-
-        &::after {
-            max-width: 259px;
+            &_business {
+                max-width: 440px;
+            }
         }
 
-        &__padding {
-            padding-bottom: 65px;
+        &__description {
+            max-width: 267px;
+
+            padding-top: 30px;
+            margin-left: -180px;
         }
     }
 }
 
-
-@media screen and (max-width:680px) {
-    .wrapper {
-        row-gap: 92px;
-
-        max-width: 358px;
-    }
-
-    .text {
+@media screen and (max-width: 555px) {
+    .content {
         font-size: 20px;
 
-        max-width: 233px;
-        margin-left: 0px;
+        &__title {
+            max-width: 221px;
 
-        &::after {
-            max-width: 219px;
-
-            margin-left: 4px;
+            &_business {
+                max-width: 250px;
+            }
         }
 
-        &__padding {
-            padding-bottom: 55px;
-        }
-    }
+        &__description {
+            max-width: 213px;
 
-    .button {
-        font-size: 28px;
+            padding-top: 52px;
+            margin-left: -126px;
 
-        padding: 15px 25px;
+            &_business {
+                max-width: 267px;
 
-        column-gap: 15px;
-
-        &__svg {
-            width: 23px;
-            height: auto;
+                margin-left: -110px;
+            }
         }
     }
 }
 
-@media screen and (max-width: 500px) {
-    .wrapper {
-        justify-content: flex-start;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .wrapper {
-        max-width: 324px;
-        row-gap: 86px;
-    }
-
-    .text {
+@media screen and (max-width: 375px) {
+    .content {
         font-size: 18px;
+
+        &__description {
+            padding-top: 47px;
+            margin-left: -133px;
+
+            margin-right: -40px;
+
+            &_business {
+                margin-left: -145px;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 320px) {
-    .wrapper {
-        row-gap: 80px;
-
-        max-width: 271px;
-    }
-
-    .text {
+@media screen and (max-width: 330px) {
+    .content {
         font-size: 16px;
 
-        max-width: 177px;
-
-        text-wrap: balance;
-
-        &::after {
-            max-width: 176px;
+        &__description {
+            padding-top: 42px;
+            margin-left: -140px;
         }
-
-        &__padding {
-            padding-bottom: 40px;
-        }
-    }
-
-    .button {
-        padding: 15px 25px;
-        white-space: nowrap;
     }
 }

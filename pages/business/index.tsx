@@ -33,7 +33,7 @@ export default function BusinessPage({
 			}}
 		>
 			<div className="content-wrapper">
-				<Preview text={"разрабатывает уникальные решения для бизнеса"} description={"сложные и логические"} />
+				<Preview isBusiness text={"разрабатывает уникальные решения для бизнеса"} description={"сложные и логические"} />
 				{/*
 				<AboutUs
 					title={"Уникальные решения для бизнеса.\nСложные и логические."}
