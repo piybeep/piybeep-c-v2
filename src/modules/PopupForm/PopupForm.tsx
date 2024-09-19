@@ -27,7 +27,10 @@ export function PopupForm({
 	useEffect(() => {
 		if (isHas("form") && query.form === "request") {
 			setIsOpen(true);
-			trackEvent('open-popup-form')
+			console.log('test');
+			trackEvent('open-popup-form').then(() => {
+				console.log('open-popup-form');
+			})
 		} else {
 			setIsOpen(false);
 		}

@@ -23,8 +23,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 	if (process.env.NODE_ENV != 'production') {
 		return (
 			<div className={classNames("wrapper")}>
+				<AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{host: process.env.NEXT_PUBLIC_APTABASE_HOST, isDebug: true}}>
 				<Toaster position="top-center" reverseOrder={false} />
 				{getLayout(<Component {...pageProps} />, pageProps)}
+				</AptabaseProvider>
 			</div>
 		)
 	}
@@ -41,7 +43,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 			tagID={89981393}
 		>
 			<GoogleAnalytics gaMeasurementId={"G-X9R96DCG15"} trackPageViews />
-			<AptabaseProvider appKey={'A-SH-6115144629'}>
+			<AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{host: process.env.NEXT_PUBLIC_APTABASE_HOST}}>
 			<div className={classNames("wrapper")}>
 				<Toaster position="top-center" reverseOrder={false} />
 				{getLayout(<Component {...pageProps} />, pageProps)}
