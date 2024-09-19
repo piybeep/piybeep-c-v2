@@ -39,7 +39,7 @@ export default function Home({
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
 				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
-				<Technologies />
+				{/* <Technologies /> */}
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
 			</div>

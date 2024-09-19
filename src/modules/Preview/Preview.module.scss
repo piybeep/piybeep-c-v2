@@ -50,6 +50,7 @@
         max-width: 520px;
 
         color: $gray-color;
+        font-weight: 300;
     }
 }
 
@@ -227,6 +228,12 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .wrapper {
+        justify-content: flex-start;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .wrapper {
         max-width: 324px;
@@ -246,12 +253,14 @@
     }
 
     .text {
-        font-size: 15px;
+        font-size: 16px;
 
         max-width: 177px;
 
+        text-wrap: balance;
+
         &::after {
-            max-width: 166px;
+            max-width: 176px;
         }
 
         &__padding {
