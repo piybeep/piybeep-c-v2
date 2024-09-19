@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps = (async (ctx) => {
     const querySteps = qs.stringify({
         filters: {
             id: {
-                $in: serviceRes.attributes.steps.data.map((i: { id: number }) => i.id),
+                $in: serviceRes?.attributes?.steps?.data?.map((i: { id: number }) => i?.id),
             },
         },
     }, {
