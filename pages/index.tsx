@@ -6,7 +6,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
+import { Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, TextSlider, WeDo } from "../src/modules";
 import { ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
@@ -39,7 +39,6 @@ export default function Home({
 				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
 				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
-				{/* <Technologies /> */}
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
 			</div>
