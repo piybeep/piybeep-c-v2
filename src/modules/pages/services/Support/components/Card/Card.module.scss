@@ -57,18 +57,12 @@
 
       &:not(.group:nth-child(1)) {
         &::before {
-          content: "+";
+          content: url('../../.././../../../../public/svg/support/plus.svg');
           display: block;
 
-          font-family: "Courier New", Courier, monospace;
-          font-weight: 100;
-          font-size: 64px;
-          line-height: 1px;
-          color: #ececec;
-
           position: absolute;
-          top: -40px;
-          left: -20px;
+          top: -50px;
+          left: -10px;
         }
       }
     }
@@ -77,7 +71,7 @@
   .price {
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 16px;
     line-height: 21px;
     text-transform: uppercase;
@@ -133,6 +127,10 @@
 
       >* {
         font-size: 14px;
+      }
+
+      h3 {
+        font-size: 24px;
       }
     }
 

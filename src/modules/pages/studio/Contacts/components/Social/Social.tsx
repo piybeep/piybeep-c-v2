@@ -14,7 +14,7 @@ export function Social({ social }: { social: ContactsType[] }) {
             {social.map((current) => (
                 <Link
                     key={current.type}
-                    href={current.text}
+                    href={current.type === 'wa' ? `https://wa.me/${current.text}` : current.text}
                     className={s.social__link}
                     target={'_blank'}
                 >

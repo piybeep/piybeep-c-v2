@@ -12,7 +12,7 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 	const titles = [
 		{
 			text: "Сайты",
-			price: `> 29 900 ₽.`,
+			price: `> 99 900 ₽.`,
 			islink: true
 		},
 		{

@@ -20,7 +20,7 @@ export function ButtonHome({ pathname }: ButtonHomeProps) {
             >
                 Главная
             </Link>
-            <Link
+            {/* <Link
                 className={classNames({
                     [s.active]:
                         pathname == PAGES_LINK.MAIN ||
@@ -30,7 +30,7 @@ export function ButtonHome({ pathname }: ButtonHomeProps) {
                 href={PAGES_LINK.MAIN}
             >
                 Для маркетинга
-            </Link>
+            </Link> */}
             <Link
                 className={classNames({
                     [s.active]:
