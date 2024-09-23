@@ -1,10 +1,3 @@
-// import adaptive from '../../public/imgs/business/dazzle-software-testing.svg'
-// import spa from '../../public/imgs/business/dazzle-man-programmer-writing-code-on-a-laptop.svg'
-// import support from '../../public/imgs/business/dazzle-man-standing-near-board-with-graphs.svg'
-// import effect from '../../public/imgs/business/dazzle-team-celebrating-success-of-a-work-project.svg'
-// import web from '../../public/imgs/business/dazzle-guy-has-key-to-information-secured-by-password.svg'
-// import security from '../../public/imgs/business/dazzle-software-testing.svg'
-
 import adaptive from '../../public/svg/business/adaptive.svg'
 import spa from '../../public/svg/business/spa.svg'
 import support from '../../public/svg/business/support.svg'
