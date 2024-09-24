@@ -2,10 +2,15 @@
 
 import classNames from 'classnames';
 import s from './Preview.module.scss'
+import { useEffect, useState } from 'react';
 
 export function Preview({ text, description, isBusiness = false }: { text: string, description: string, isBusiness?: boolean }) {
+    useEffect(() => {
+        document.getElementById('previewId')?.scrollIntoView({ behavior: 'instant', block: 'center' })
+    }, [])
+
     return (
-        <div className={s.wrapper}>
+        <div className={s.wrapper} id='previewId'>
             <h1 className={s.content}>
                 <span className={classNames(s.content__title, {
                     [s.content__title_business]: isBusiness

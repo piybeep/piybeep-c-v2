@@ -27,24 +27,13 @@ export function Navigation() {
                 <Link
                     className={classNames(s.home__link, {
                         [s.home__active]:
-                            query.pathname == PAGES_LINK.MAIN ||
-                            (query.pathname !== PAGES_LINK.MAIN &&
-                                query.pathname !== PAGES_LINK.BUSINESS),
-                    })}
-                    href={PAGES_LINK.MAIN}
-                >
-                    для маркетинга
-                </Link>
-                <Link
-                    className={classNames(s.home__link, {
-                        [s.home__active]:
                             query.pathname == PAGES_LINK.BUSINESS ||
                             (query.pathname !== PAGES_LINK.MAIN &&
                                 query.pathname !== PAGES_LINK.BUSINESS),
                     })}
                     href={PAGES_LINK.BUSINESS}
                 >
-                    для бизнеса
+                    Для бизнеса
                 </Link>
             </div>
             <div className={classNames(s.pages)}>

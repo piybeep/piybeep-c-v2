@@ -49,7 +49,7 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 
 	return (
 		<>
-			<header className={classNames(s.header)}>
+			<header className={classNames(s.header)} id='headerId'>
 				<div className={s.bar}>
 					<div className={s.logo}>
 						<Logo />
