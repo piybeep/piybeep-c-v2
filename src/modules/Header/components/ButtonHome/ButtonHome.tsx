@@ -7,7 +7,6 @@ import { ButtonHomeProps } from "./ButtonHome.types";
 
 export function ButtonHome({ pathname }: ButtonHomeProps) {
 
-    console.log(pathname)
     return (
         <div className={classNames(s.links)}>
             <Link
