@@ -10,7 +10,7 @@ export function Preview({ text, description, isBusiness = false }: { text: strin
                 <span className={classNames(s.content__title, {
                     [s.content__title_business]: isBusiness
                 })}>
-                    piypeep. <span className={s.content__text}>{text}</span>
+                    piybeep. <span className={s.content__text}>{text}</span>
                 </span>
                 <span className={classNames(s.content__description, {
                     [s.content__description_business]: isBusiness
