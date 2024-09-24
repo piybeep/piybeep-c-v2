@@ -51,7 +51,7 @@ export function ButtonHome({ pathname }: ButtonHomeProps) {
                 })}
                 href={PAGES_LINK.MAIN}
             >
-                Маркетинг
+                Главная
             </Link>
             <Link
                 className={classNames(s.alt, {
