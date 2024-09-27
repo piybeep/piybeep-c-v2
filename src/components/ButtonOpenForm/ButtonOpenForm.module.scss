@@ -16,6 +16,9 @@ div.btn_wrapper {
 
     transition: .2s;
 
+    background: rgba(16, 15, 19, 0.50);
+    backdrop-filter: blur(7.5px);
+
     &:hover {
         background: #ececec;
         box-shadow: 0 0 10px #100f131f;
