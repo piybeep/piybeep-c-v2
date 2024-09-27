@@ -26,7 +26,6 @@ export default function PostPage({ blogsRes }: { blogsRes: BlogsSlugTypes }) {
             {
                 blogsRes && <PostInfo post={blogsRes} />
             }
-            <ButtonOpenForm />
         </main>
     );
 };
@@ -89,6 +88,7 @@ PostPage.getLayout = (
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
+        <ButtonOpenForm />
         <Portal>
             <PopupForm
                 services={

@@ -73,7 +73,6 @@ export default function PortfolioCase({
 						count={projects.total_count - 1} />
 				</div>
 				<Form services={services.list} count={services.total_count} />
-				<ButtonOpenForm />
 			</main>
 		);
 	}
@@ -164,4 +163,7 @@ PortfolioCase.getLayout = (
 		services: EntityState<Service> & EntityActions<Service>;
 		contacts: ContactsType[]
 	}
-) => <BaseLayout contacts={contacts} services={services}>{page}</BaseLayout>;
+) => <BaseLayout contacts={contacts} services={services}>
+		{page}
+		<ButtonOpenForm />
+	</BaseLayout>;
