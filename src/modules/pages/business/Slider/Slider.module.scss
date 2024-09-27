@@ -17,7 +17,7 @@
         row-gap: 120px;
 
         width: 100%;
-        max-width: 561px;
+        max-width: 1080px;
 
         margin: 0 auto;
     }
@@ -29,12 +29,13 @@
         font-style: normal;
         font-weight: 300;
         line-height: 30px;
+        text-align: center;
 
         margin: 0px;
     }
 
     &__slider {
-        height: 569px;
+        height: 540px;
         position: relative;
 
         &::after {
@@ -89,6 +90,14 @@
 @media screen and (max-width: 1550px) {
     .wrapper {
         row-gap: 200px;
+
+        &__content {
+            max-width: 834px;
+        }
+
+        &__slider {
+            height: 692px;
+        }
     }
 }
 
@@ -99,6 +108,12 @@
 
         &__content {
             row-gap: 80px;
+
+            max-width: 644px;
+        }
+
+        &__slider {
+            height: 420px;
         }
     }
 }
@@ -109,6 +124,10 @@
         &__title,
         &__text {
             font-size: 18px;
+        }
+
+        &__content {
+            max-width: 560px;
         }
     }
 }
@@ -124,6 +143,10 @@
         &__title,
         &__text {
             font-size: 13px;
+        }
+
+        &__slider {
+            height: 328px;
         }
     }
 }

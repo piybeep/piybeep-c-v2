@@ -17,9 +17,9 @@ export function Slider({ data }: { data: SliderDataType[] }) {
 
     return (
         <div className={s.wrapper}>
-            <Text />
+            {/* <Text /> */}
             <div className={s.wrapper__content}>
-                <h2 className={s.wrapper__title}>Они оптимизируют работу компании во многих сферах...</h2>
+                <h2 className={s.wrapper__title}>Наши веб-сервисы ускорят выполнение рутинных процессов и помогут вам сфокусироваться на более важных задачах. Они оптимизируют работу компании во многих сферах...</h2>
                 <Swiper
                     direction={'vertical'}
                     pagination={{
