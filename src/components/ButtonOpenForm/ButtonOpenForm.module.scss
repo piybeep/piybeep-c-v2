@@ -30,9 +30,13 @@ div.btn_wrapper {
 
             svg {
                 path {
-                    fill: #100F13;
+                    stroke: #100F13;
                 }
             }
+        }
+
+        .arrow::before {
+            background-color: #100F13;
         }
     }
 
@@ -83,16 +87,6 @@ div.btn_wrapper {
             white-space: nowrap;
         }
 
-        svg {
-            width: 100%;
-            height: 18px;
-
-            path {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
         &,
         * {
             transition: 0.2s;
@@ -100,6 +94,38 @@ div.btn_wrapper {
     }
 }
 
+.arrow {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: '';
+        display: inline-block;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: #ececec;
+
+        position: relative;
+        left: 10px;
+
+        transition: .2s;
+    }
+
+    svg {
+        width: fit-content;
+        height: 19px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .arrow::before {
+        left: 9px;
+    }
+}
 
 @media screen and (max-width: 430px) {
     div.btn_wrapper {
