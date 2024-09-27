@@ -162,7 +162,7 @@ Home.getLayout = (
 	<BaseLayout reviews={reviews} services={services} contacts={contacts}>
 		<Head>
 			<title>
-				Веб-студия разработки, дизайна и продвижения. Разработка сайтов под ключ |Piybeep
+				Веб-студия разработки, дизайна и продвижения. Разработка сайтов под ключ | Piybeep
 			</title>
 			<meta
 				name="description"
