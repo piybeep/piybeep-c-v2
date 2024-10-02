@@ -55,7 +55,7 @@ export default function ServicePage({ service, servicePosts, projects, services,
             <Steps steps={currentSteps} />
             <OurProjects projects={projects?.data} count={projects?.meta?.pagination?.total} />
             <Technologies />
-            <ServicesList list={services.filter(i => i.id != service.id)} isCollapse={services.filter(i => i.id != service.id).length > 3} />
+            <ServicesList list={services.filter(i => i.type === 'service').filter(i => i.id != service.id)} isCollapse={services.filter(i => i.id != service.id).length > 3} />
             <Form services={services as Service[]} />
         </div>
     );
