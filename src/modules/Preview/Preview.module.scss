@@ -51,6 +51,7 @@
 
         &_main {
             margin-left: -260px;
+            padding-top: 47px;
         }
     }
 }
@@ -92,6 +93,10 @@
 
             padding-top: 30px;
             margin-left: -180px;
+
+            &_main {
+                padding-top: 31px;
+            }
         }
     }
 }
@@ -143,6 +148,10 @@
             &_business {
                 margin-left: -145px;
             }
+
+            &_main {
+                margin-left: -140px;
+            }
         }
     }
 }
@@ -161,6 +170,10 @@
         &__description {
             padding-top: 42px;
             margin-left: -140px;
+
+            &_main {
+                margin-left: -148px;
+            }
         }
     }
 }
