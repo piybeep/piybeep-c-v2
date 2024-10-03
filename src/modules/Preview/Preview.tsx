@@ -2,7 +2,6 @@
 
 import classNames from 'classnames';
 import s from './Preview.module.scss'
-import { useEffect, useState } from 'react';
 
 export function Preview({ text, description, isBusiness = false }: { text: string, description: string, isBusiness?: boolean }) {
     return (
@@ -14,7 +13,8 @@ export function Preview({ text, description, isBusiness = false }: { text: strin
                     piybeep. <span className={s.content__text}>{text}</span>
                 </span>
                 <span className={classNames(s.content__description, {
-                    [s.content__description_business]: isBusiness
+                    [s.content__description_business]: isBusiness,
+                    [s.content__description_main]: !isBusiness
                 })}>
                     {description}
                 </span>
