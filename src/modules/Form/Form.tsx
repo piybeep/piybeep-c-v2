@@ -10,8 +10,10 @@ import { Service, toast } from "../../utils";
 import { useApp } from "../../store";
 import { useInView } from "react-intersection-observer";
 import { Button, Input, Privacy, SelectItem, Title } from "../../components";
+import { useAptabase } from "@aptabase/react";
 
-export function Form({ services }: { services: Service[]; count: number }) {
+export function Form({ services }: { services: Service[]; count?: number }) {
+	const { trackEvent } = useAptabase();
 
 	const {
 		add: addUserSelect,
@@ -76,6 +78,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 			"selects",
 			isHas("userSelect") ? (query.userSelect as string).split(",") : [],
 		);
+		trackEvent('user-select-change');
 	}, [query.userSelect]);
 
 	// Заглушка для сбоя по данным
@@ -86,7 +89,7 @@ export function Form({ services }: { services: Service[]; count: number }) {
 	return (
 		<main className={s.wrapper} ref={ref}>
 			<Title value="Оставьте заявку и мы с вами свяжемся" size='md' />
-			<form className={s.form} onSubmit={formik.handleSubmit}>
+			<form className={s.form} id="form" onSubmit={formik.handleSubmit}>
 				<div className={s.info}>
 					<Input
 						name="name"

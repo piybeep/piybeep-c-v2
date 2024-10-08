@@ -1,0 +1,156 @@
+@import '../../../../styles/variables.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 250px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    z-index: -1;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 120px;
+
+        width: 100%;
+        max-width: 1080px;
+
+        margin: 0 auto;
+    }
+
+    &__title {
+        color: $white-color;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 30px;
+        text-align: center;
+
+        margin: 0px;
+    }
+
+    &__slider {
+        height: 540px;
+        position: relative;
+
+        &::after {
+            display: inline-block;
+            content: '';
+
+            position: absolute;
+            top: 0px;
+            left: 0px;
+
+            width: 100%;
+            height: -webkit-fill-available;
+
+            background: linear-gradient(180deg, rgba(16, 15, 19, 0.00) 0%, #100F13 93%);
+            z-index: 1;
+        }
+    }
+
+    &__slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    &__text {
+        color: $white-color;
+        font-family: Inter;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+
+        margin: 0px;
+
+        transition: 1s;
+
+        padding: 10px 15px;
+
+        border-radius: 100px;
+
+        background-color: transparent;
+
+        &_active {
+            background-color: #fff;
+            color: $black-color;
+        }
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .wrapper {
+        row-gap: 200px;
+
+        &__content {
+            max-width: 834px;
+        }
+
+        &__slider {
+            height: 692px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        row-gap: 120px;
+
+        &__content {
+            row-gap: 80px;
+
+            max-width: 644px;
+        }
+
+        &__slider {
+            height: 420px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+
+        &__title,
+        &__text {
+            font-size: 18px;
+        }
+
+        &__content {
+            max-width: 560px;
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .wrapper {
+        row-gap: 60px;
+
+        &__content {
+            row-gap: 50px;
+        }
+
+        &__title,
+        &__text {
+            font-size: 13px;
+        }
+
+        &__title {
+            line-height: 130%;
+        }
+
+        &__slider {
+            height: 328px;
+        }
+    }
+}

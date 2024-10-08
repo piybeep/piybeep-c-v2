@@ -1,12 +1,13 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { CONTACTS_DATA, MENU_ITEMS } from "../../constatnts";
+import { MENU_ITEMS } from "../../constatnts";
 
 import s from "./Header.module.scss";
 
-import { ButtonHome, Contact, Logo, NavLink, Preview } from "./components";
+import { ButtonHome, Contact, Logo, NavLink } from "./components";
 import { ContactsType } from "../../types";
+import transformPhoneNumber from "../../utils/transformPhoneNumber";
 
 export function Header({ contacts }: { contacts: ContactsType[] }) {
 	const query = useRouter();
@@ -48,8 +49,7 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 
 	return (
 		<>
-			<Preview />
-			<header className={classNames(s.header)}>
+			<header className={classNames(s.header)} id='headerId'>
 				<div className={s.bar}>
 					<div className={s.logo}>
 						<Logo />
@@ -68,8 +68,10 @@ export function Header({ contacts }: { contacts: ContactsType[] }) {
 					</div>
 
 					<div className={s.info}>
-						<Contact value={contacts?.find(i => i.type === 'phone')?.text!} prefix="tel:" />
-						<Contact value={contacts?.find(i => i.type === 'email')?.text!} prefix="mailto:" />
+						<Contact value={transformPhoneNumber(contacts?.find(i => i.type === 'phone')?.text ?? '') ?? ''}
+							prefix="tel:"
+						/>
+						<Contact value={contacts?.find(i => i.type === 'email')?.text ?? ''} prefix="mailto:" />
 					</div>
 				</div>
 			</header>

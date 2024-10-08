@@ -3,9 +3,9 @@
   flex-direction: column;
   column-gap: 50px;
 
-  font-family: "Actay", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 20px;
   line-height: 130%;
 
@@ -30,11 +30,13 @@
     padding: 0;
 
     height: auto;
+
+    font-weight: 300;
   }
 }
 
-@media screen and (min-width: 0px){
-  .wrapper{
+@media screen and (min-width: 0px) {
+  .wrapper {
     padding: 120px 0;
 
     background-size: contain;

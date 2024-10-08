@@ -4,7 +4,7 @@ const nextConfig = {
 	// reactStrictMode: false,
 	swcMinify: true,
 	images: {
-		domains: ["piybeep.com", "piybeep.ru", "localhost"],
+		domains: ["piybeep.com", "piybeep.ru", "localhost", "strapi.testbeep.ru", "strapi.piybeep.com"],
 	},
 	poweredByHeader: false,
 	productionBrowserSourceMaps: true,

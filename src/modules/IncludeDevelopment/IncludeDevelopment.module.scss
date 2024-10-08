@@ -1,0 +1,97 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 120px;
+    column-gap: 40px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 102px;
+        height: auto;
+    }
+
+    &__title {
+        color: $white-color;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+
+        text-wrap: balance;
+
+        margin: 0px;
+    }
+
+    &__text {
+        color: $gray-color;
+        text-align: center;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 130%;
+
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .list {
+
+        &__title {
+            font-size: 26px;
+        }
+
+        &__text {
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        row-gap: 50px;
+    }
+
+    .list {
+        row-gap: 50px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .list {
+        display: flex;
+        flex-direction: column;
+
+        &__img {
+            max-width: 75px;
+        }
+
+        &__title {
+            font-size: 20px;
+        }
+    }
+}

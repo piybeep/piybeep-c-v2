@@ -1,17 +1,24 @@
 import Link from "next/link";
-import Image from "next/image";
-
 import { BlockLayout } from "../../../../layouts";
-
-import RightArrow from "../../../../../public/svg/Arrows/RightGray.svg";
 import { PAGES_LINK } from "../../../../constatnts";
-
-import { Item } from "./components";
-
-import s from "./Products.module.scss";
 import { ProductType } from "../../../../utils";
+import { ServicesList } from "../../../ServicesList";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export function Products({ list }: { list: ProductType[] }) {
+	const router = useRouter()
+	useEffect(() => {
+		const itemName = decodeURIComponent(router.asPath.split('?')[1])
+		const currentItem = list?.find(item => item.name === itemName)
+
+		if (currentItem) {
+			setTimeout(() => {
+				document.getElementById(itemName)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+			}, 300);
+		}
+	}, [list, router])
+
 	return (
 		<BlockLayout
 			size='lg'
@@ -19,24 +26,12 @@ export function Products({ list }: { list: ProductType[] }) {
 			value="Сделаем для вас"
 			subtitle={
 				<Link href={[PAGES_LINK.STUDIO, "#stacks"].join("")}>
-					Стек разработки <Image src={RightArrow} alt="" />
+					Стек разработки
 				</Link>
 			}
 			position="center"
 		>
-			<div className={s.wrapper}>
-				{list?.map((i, index) => (
-					<Item
-						className={s.item}
-						key={i.id}
-						number={index + 1}
-						title={i.name}
-						description={i.description}
-						price={i.price}
-						discount={i.discount!}
-					/>
-				))}
-			</div>
+			<ServicesList list={list} />
 		</BlockLayout>
 	);
 }

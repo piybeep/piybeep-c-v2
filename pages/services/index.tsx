@@ -21,9 +21,10 @@ export default function Services({
 				flexDirection: "column",
 			}}
 		>
+			{/* Тест vercel */}
 			<div className="content-wrapper">
 				<Products
-					list={services.list.filter((i) => i.type === "service")}
+					list={services?.list?.filter((i) => i.type === "service")}
 				/>
 				<Support />
 			</div>
@@ -54,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message),
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка'),
 		});
 	}
 
@@ -84,7 +85,7 @@ Services.getLayout = (
 ) => (
 	<BaseLayout services={services} contacts={contacts}>
 		<Head>
-			<title>Услуги веб-студии: разработка, дизайн и поддержка сайтов под ключ |Piybeep</title>
+			<title>Услуги веб-студии: разработка, дизайн и поддержка сайтов под ключ | Piybeep</title>
 			<meta name="description" content="Мы предлагаем индивидуальный подход к созданию проектов под ключ. Наша команда ориентирована на создание адаптивных сайтов с оптимизацией для поисковых систем." />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

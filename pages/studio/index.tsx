@@ -6,7 +6,7 @@ import axios from "axios";
 import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
 import { AboutUs, Contacts, Team } from "../../src/modules/pages/studio";
-import { Form, Steps, Technologies } from "../../src/modules";
+import { Form, Technologies } from "../../src/modules";
 import { ButtonOpenForm } from "../../src/components";
 import { Spa } from "../../src/modules/pages/studio/Spa";
 import { ContactsType } from "../../src/types";
@@ -29,7 +29,6 @@ export default function Studio({
 				<AboutUs />
 				<Team />
 				<Spa />
-				<Steps />
 				<Contacts contacts={contacts} />
 				<Technologies />
 			</div>
@@ -61,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 

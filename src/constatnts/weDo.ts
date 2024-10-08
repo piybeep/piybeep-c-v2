@@ -38,9 +38,9 @@ export const WE_DO_LIST = [
 
 export const WE_DO_LIST_BIZ = [
 	{
-		title: "Веб-сервисы",
+		title: "UX/UI-дизайн",
 		text: "со сложным функционалом и продуманной логикой",
-		name: "Веб-сервис",
+		name: "UX/UI-дизайн",
 	},
 	{
 		title: "Лендинги",
