@@ -2,9 +2,17 @@
 
 const nextConfig = {
 	// reactStrictMode: false,
+	output: "standalone",
 	swcMinify: true,
 	images: {
-		domains: ["piybeep.com", "piybeep.ru", "localhost"],
+		remotePatterns: [{
+			protocol: 'https',
+			hostname: '**.piybeep.com'
+		},{
+			protocol: 'https',
+			hostname: '**.piybeep.ru'
+		}],
+		// domains: ["piybeep.com", "piybeep.ru", "localhost", "strapi.testbeep.ru", "strapi.piybeep.com"],
 	},
 	poweredByHeader: false,
 	productionBrowserSourceMaps: true,

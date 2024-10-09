@@ -20,9 +20,9 @@ export function ProjectPost({ project }: { project: Project }) {
 					target="_blank"
 					className={s.container__link}
 					href={
-						project.link?.startsWith("http")
+						project.link?.startsWith('https')
 							? project.link
-							: `http://${project.link}`
+							: `https://${project.link}`
 					}
 				>
 					{project.link}
@@ -33,7 +33,10 @@ export function ProjectPost({ project }: { project: Project }) {
 	return (
 		<div className={s.container}>
 			<h1 className={s.container__title}>{project.title}</h1>
-			<p className={s.container__text}>{project.access && ACCESS_DECODING[project.access]}</p>
+			{
+				project.link &&
+				<p className={s.container__text}>{project.access && ACCESS_DECODING[project.access]}</p>
+			}
 			{project.task && (
 				<div className={s.info}>
 					<h2 className={s.info__title}>Задача.</h2>

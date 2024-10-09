@@ -3,8 +3,8 @@
 .header {
   display: grid;
   grid-template-areas:
-        'number title'
-        'number slogan';
+    'number title'
+    'number slogan';
   gap: 15px;
   justify-content: flex-start;
   align-items: flex-start;
@@ -16,7 +16,7 @@
     font-size: 20px;
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 300;
     line-height: normal;
 
     grid-area: number;
@@ -31,9 +31,9 @@
 
     color: $white-color;
     font-size: 48px;
-    font-family: Actay, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
 
     grid-area: title;
@@ -47,7 +47,7 @@
     font-size: 16px;
     font-family: Inter, sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 130%;
 
     grid-area: slogan;
@@ -70,11 +70,11 @@
 @media screen and (max-width: 460px) {
   .header {
     grid-template-areas:
-            'number'
-            'title'
-            '.'
-            '.'
-            'slogan';
+      'number'
+      'title'
+      '.'
+      '.'
+      'slogan';
 
     row-gap: 5px;
     column-gap: 5px;

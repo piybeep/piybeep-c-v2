@@ -1,16 +1,22 @@
 import { StaticImageData } from "next/image";
 
 interface BaseEntity {
-	id: string;
+	id: string | number;
 	createdAt: Date;
 	updatedAt: Date;
 }
 
 export interface Service extends BaseEntity {
 	name: string;
+	title:string
 	description: string;
+	description_2:string
+	count_days:string
+	meta_title:string
+	meta_description:string
 	price: number;
-	discount: number;
+	slug: string;
+	discount: number | null;
 	isHide: boolean;
 	isAvailable: boolean;
 	type: string;
@@ -51,11 +57,57 @@ export interface EntityActions<T> {
 }
 
 export interface ProductType {
-	id: string;
+	id: number | string
 	name: string;
-	description: string;
+	slug: string;
 	price: number;
 	discount: number | null;
 	isAvailable: boolean;
 	type: string;
+
+	title: string
+	description:string
+	description_2:string
+	count_days:string
+	meta_title:string
+	meta_description:string
+
+	createdAt: Date;
+	updatedAt: Date;
+
+	steps?: {
+		data: ServiceStepList[]
+	}
+
+	service_posts?: {
+		data: ServicePostType[]
+	}
+}
+
+export interface ServicePostType {
+	attributes:{
+		createdAt: string
+		publishedAt: string
+		text: string
+		title: string
+		updatedAt: string
+	}
+	id: number
+}
+
+export interface ServiceStepList{
+	id:number
+	title:string,
+	text:string,
+	step_items: ServiceStepListItem[]
+	uslugis:{
+		id: number
+	}[]
+}
+
+export interface ServiceStepListItem{
+	id: number
+	title: string,
+	count: string, 
+	text: string,
 }

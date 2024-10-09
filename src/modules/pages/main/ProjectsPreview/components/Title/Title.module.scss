@@ -1,40 +1,37 @@
+@import '../../../../../../styles/variables.scss';
+
 .title {
     display: flex;
+    row-gap: 5px;
     flex-direction: column;
 
     &__text {
-        width: fit-content;
-
-        white-space: nowrap;
-
-        font-family: "Inter", Arial, Helvetica, sans-serif;
+        color: $white-color;
+        font-family: Inter, sans-serif;
+        font-size: 16px;
         font-style: normal;
-        font-weight: 400;
-        font-size: 48px;
+        font-weight: 300;
         line-height: normal;
 
-        margin: 0;
+        margin: 0px;
+
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        white-space: noWrap;
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 430px) {
     .title {
-        &__text {
-            font-size: 36px;
-        }
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .title {
-
         &__text {
             font-size: 24px;
         }
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 340px) {
     .title {
         &__text {
             font-size: 20px;

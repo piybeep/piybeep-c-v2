@@ -1,15 +1,23 @@
 @import '../../../../styles/variables.scss';
 
 .wrapper {
-  width: 100%;
-  min-width: calc(320px - 16px * 2);
-  max-width: 920px;
-
-  margin: 0 auto;
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  width: 100%;
+
+  &__content {
+    width: 100%;
+    min-width: calc(320px - 16px * 2);
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .info {
@@ -70,8 +78,12 @@
 
 @media screen and (max-width: 768px) {
   .wrapper {
-    flex-direction: column;
-    row-gap: 100px;
+
+    &__content {
+
+      flex-direction: column;
+      row-gap: 100px;
+    }
   }
 
   .info {

@@ -8,9 +8,9 @@
   position: relative;
 
   &__title {
-    font-family: "Actay", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 48px;
     line-height: 60px;
     text-align: center;
@@ -22,7 +22,7 @@
   &__text {
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     line-height: 130%;
     color: #ececec;
@@ -32,7 +32,7 @@
   &__text {
     font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     line-height: 130%;
 
@@ -57,7 +57,7 @@
     &__title {
       font-family: "Inter", sans-serif;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 16px;
       line-height: 130%;
 
@@ -69,6 +69,7 @@
       font-family: "Inter", sans-serif;
       font-size: 16px;
       margin-top: 10px;
+      font-weight: 300;
       white-space: pre-wrap;
     }
   }

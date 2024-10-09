@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { DefalutLayout } from "../../src/layouts";
+import { BaseLayout, DefalutLayout } from "../../src/layouts";
 import { Header, List } from "../../src/modules/pages/blog";
 
 import s from './index.module.scss'
@@ -13,6 +13,9 @@ import { ErrorText } from "../../src/modules/pages/blog/components";
 import { useFetchBlogs, useThrottle } from "../../src/hooks";
 import { GetServerSideProps } from "next";
 import qs from "qs";
+import { Portal, ProductType, Service } from "../../src/utils";
+import { ButtonOpenForm } from "../../src/components";
+import { Eyes, PopupForm } from "../../src/modules";
 export default function BlogPage() {
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -123,6 +126,7 @@ export default function BlogPage() {
                     [s.preloader__isView]: inView
                 })} ref={ref} />
             }
+            <ButtonOpenForm />
         </div>
     );
 };
@@ -151,9 +155,19 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
         contacts = contacts_response.value.data.data
     }
 
+    const services = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/services?populate=*`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+        }
+    })
+        .then(res => res.data.data)
+        .catch(error => console.error(error.response?.data?.error ?? 'Произошла ошибка'))
+
     return {
         props: {
-            contacts: contacts
+            contacts: contacts,
+            services: services ?? null
         }
     };
 };
@@ -161,18 +175,35 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 BlogPage.getLayout = (
     page: ReactNode,
     {
-        contacts
+        contacts,
+        services
     }:
         {
-            contacts: ContactsType[]
+            contacts: ContactsType[],
+            services: ProductType[]
         }
 ) => (
-    <DefalutLayout contacts={contacts}>
+    <DefalutLayout
+        contacts={contacts}
+    >
         <Head>
             <title>Блог веб-студии: технологии, SEO, командная работа | Piybeep</title>
             <meta name="description" content="Исследуйте последние технологические тренды, лучшие практики SEO и секреты эффективной командной работы в блоге нашей веб-студии. Оставайтесь в курсе инноваций и улучшайте свои навыки вместе с экспертами отрасли." />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         {page}
+        <Portal>
+            <PopupForm
+                services={
+                    services?.map(itemService => (
+                        {
+                            ...itemService,
+                            isHide: itemService.type === 'other'
+                        }
+                    ))
+                }
+                count={services?.length} />
+            <Eyes />
+        </Portal>
     </DefalutLayout>
 );

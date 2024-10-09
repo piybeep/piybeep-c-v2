@@ -12,11 +12,12 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 	const titles = [
 		{
 			text: "Сайты",
-			price: `> 65 900 р.`,
+			price: `> 99 900 ₽.`,
+			islink: true
 		},
 		{
 			text: "Поддержка",
-			price: `> 9 900 р./мес`,
+			price: `> 7 400 ₽/мес`,
 		},
 	];
 
@@ -24,20 +25,20 @@ export function ProjectsPreview({ projects }: { projects: Project[] }) {
 		<div className={s.wrapper}>
 			<div className={s.titles}>
 				{titles.map((title) => (
-					<Title key={title.text} text={title.text} price={title.price} />
+					<Title key={title.text} text={title.text} price={title.price} isLink={title.islink} />
 				))}
+				<p className={s.text}>
+					Каждый проект мы разрабатываем с нуля и полностью полагаемся на наших
+					специалистов, которые придут к результату, который необходим именно вам.
+					Ведь самое главное - это получить продукт, который решает ваши задачи и
+					приносит прибыль.
+				</p>
 			</div>
-			<p className={s.text}>
-				Каждый проект мы разрабатываем с нуля и полностью полагаемся на наших
-				специалистов, которые придут к результату, который необходим именно вам.
-				Ведь самое главное - это получить продукт, который решает ваши задачи и
-				приносит прибыль.
-			</p>
 			<div className={s.preview}>
 				{projects.map((link) => (
 					<NavLink
-						key={link.id}
 						slug={link.slug}
+						key={link.id}
 						title={link.title}
 						href={PAGES_LINK.PORTFOLIO}
 						preview_image={process.env.NEXT_PUBLIC_STRAPI_URL + link.preview_image.url}

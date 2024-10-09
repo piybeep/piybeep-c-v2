@@ -6,20 +6,24 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { EntityActions, EntityState, Project, Review, Service } from "../src/utils";
 import { useProjects, useReviews, useServices } from "../src/store";
-import { AboutUs, Form, OurProjects, Reviews, Steps, Technologies, TextSlider, WeDo } from "../src/modules";
-import { Advantages, ProjectsPreview } from "../src/modules/pages/main";
+import { Form, IncludeDevelopment, OurProjects, Preview, Reviews, Steps, TextSlider, WeDo } from "../src/modules";
+import { ProjectsPreview } from "../src/modules/pages/main";
 import { ButtonOpenForm } from "../src/components";
 import qs from "qs";
-import { ContactsType } from "../src/types";
+import { ContactsType, IncludesDevelopmentTypes, WedoTypes } from "../src/types";
 
 export default function Home({
 	projects,
 	services,
-	reviews
+	reviews,
+	includesDevelopment,
+	wedo_response
 }: {
 	projects: EntityState<Project> & EntityActions<Project>;
 	services: EntityState<Service> & EntityActions<Service>;
 	reviews: EntityState<Review> & EntityActions<Review>;
+	includesDevelopment: IncludesDevelopmentTypes[],
+	wedo_response: WedoTypes[]
 }) {
 	return (
 		<main
@@ -29,18 +33,12 @@ export default function Home({
 			}}
 		>
 			<div className="content-wrapper">
-				<AboutUs
-					title={"Продающие сайты для ваших маркетинговых целей."}
-					description={`piybeep. разрабатывает продающие сайты для компаний, которые хотят
-				уверенно овладеть таким каналом продаж, либо улучшить его и сделать свой интернет-маркетинг
-				эффективнее.`}
-				/>
-				<WeDo />
+				<Preview text={"разрабатывает продающие сайты для компаний"} description={"которые хотят сделать интернет-маркетинг эффективнее"} />
+				<WeDo list={wedo_response?.filter(i => i.type === 'main' || i.type === 'both')} />
 				<OurProjects projects={projects.list} count={projects.total_count} />
-				<Advantages />
+				<IncludeDevelopment list={includesDevelopment} title={'включено в разработку'} />
 				<Steps />
 				<ProjectsPreview projects={projects?.list?.slice(0, 12)} />
-				<Technologies />
 				<Reviews reviews={reviews.list} count={reviews.total_count} />
 				<TextSlider slogans={TEXT_SLIDER} />
 			</div>
@@ -51,12 +49,12 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["projects", "services", "reviews", "contacts"];
+	const URIs = ["projects", "services", "reviews", "contacts", "includes-in-the-developments"];
 
-	const [projects_response, services_response, reviews_response, contacts_response] =
+	const [projects_response, services_response, reviews_response, contacts_response, includesDevelopment_response] =
 		await Promise.allSettled(
 			URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?${qs.stringify(Object.assign({ populate: '*' },
-				i != "contacts" &&
+				(i != "contacts" && i != "includes-in-the-developments") &&
 				{
 					sort: 'rank:asc'
 				}
@@ -79,7 +77,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useProjects.setState({
-			error: new Error(projects_response.reason.response.data.error.message)
+			error: new Error(projects_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -93,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useReviews.setState({
-			error: new Error(reviews_response.reason.response.data.error.message)
+			error: new Error(reviews_response.reason.response?.data?.error?.message ?? "Произошла ошибка")
 		});
 	}
 
@@ -107,7 +105,7 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		);
 	} else {
 		useServices.setState({
-			error: new Error(services_response.reason.response.data.error.message)
+			error: new Error(services_response.reason.response?.data?.error?.message ?? 'Произошла ошибка')
 		});
 	}
 
@@ -117,12 +115,34 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		contacts = contacts_response.value.data.data
 	}
 
+	let includesDevelopment = []
+
+	if (includesDevelopment_response.status === 'fulfilled') {
+		includesDevelopment = includesDevelopment_response.value.data.data
+	}
+
+	const wedo_response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/wedos?${qs.stringify(Object.assign({ populate: '*' },
+		{
+			sort: 'rank:asc'
+		}
+	))
+		}`, {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+		}
+	})
+		.then(res => res.data.data)
+		.catch(error => console.error(error))
+
 	return {
 		props: {
 			projects: useProjects.getState().error?.message ? JSON.stringify(useProjects.getState()) : useProjects.getState(),
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
 			reviews: useReviews.getState().error?.message ? JSON.stringify(useReviews.getState()) : useReviews.getState(),
-			contacts: contacts
+			contacts: contacts,
+			includesDevelopment,
+			wedo_response: wedo_response ?? null
 		}
 	};
 };
@@ -132,17 +152,17 @@ Home.getLayout = (
 	{
 		services,
 		reviews,
-		contacts
+		contacts,
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
 		reviews: EntityState<Review> & EntityActions<Review>;
-		contacts: ContactsType[]
+		contacts: ContactsType[],
 	}
 ) => (
 	<BaseLayout reviews={reviews} services={services} contacts={contacts}>
 		<Head>
 			<title>
-				Веб-студия разработки, дизайна и продвижения. Разработка сайтов под ключ |Piybeep
+				Веб-студия разработки, дизайна и продвижения. Разработка сайтов под ключ | Piybeep
 			</title>
 			<meta
 				name="description"

@@ -18,7 +18,7 @@
   &__title {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     line-height: 130%;
 
@@ -39,5 +39,7 @@
 @media screen and (max-width: 430px) {
   .item {
     row-gap: 15px;
+
+    max-width: 60px;
   }
 }

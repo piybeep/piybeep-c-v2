@@ -150,10 +150,19 @@
 }
 
 @font-face {
-  font-family: 'Roboto Flex';
-  src: url('../../public/fonts/RobotoFlex-Regular.woff2') format('woff2'),
-    url('../../public/fonts/RobotoFlex-Regular.woff') format('woff'),
-    url('../../public/fonts/RobotoFlex-Regular.ttf') format('truetype');
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto-Light.woff2') format('woff2'),
+    url('../../public/fonts/Roboto-Light.woff') format('woff'),
+    url('../../public/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../public/fonts/Roboto-Regular.woff2') format('woff2'),
+    url('../../public/fonts/Roboto-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

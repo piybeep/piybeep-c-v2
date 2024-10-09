@@ -9,7 +9,7 @@
     .col {
       font-family: "Inter", sans-serif;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 15px;
       line-height: 130%;
 
@@ -37,16 +37,9 @@
 @media screen and (max-width: 768px) {
   .container {
     .cards {
-      row-gap: 50px;
+      row-gap: 70px;
       flex-direction: column;
-
-      > div:nth-of-type(2) {
-        align-self: center;
-      }
-
-      > div:nth-of-type(3) {
-        align-self: flex-end;
-      }
+      align-items: center;
     }
   }
 }
@@ -57,14 +50,22 @@
       flex-direction: column;
       row-gap: 30px;
     }
+  }
+}
 
+@media screen and (max-width: 720px) {
+  .container {
+    .description {
+      padding-top: 16px;
+      padding-bottom: 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .container {
     .cards {
-      row-gap: 50px;
-      flex-direction: column;
-
-      > div {
-        align-self: flex-start !important;
-      }
+      row-gap: 60px;
     }
   }
 }

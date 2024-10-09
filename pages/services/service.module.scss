@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 250px;
+
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 1920px;
+
+    margin: 0 auto;
+
+    padding: 0px 140px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        row-gap: 110px;
+
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width:1420px) {
+    .wrapper {
+        row-gap: 200px;
+
+        padding: 0px 24px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .wrapper {
+        row-gap: 100px;
+
+        padding: 0px 16px;
+
+        &__header {
+            margin-top: 50px;
+            row-gap: 100px;
+        }
+    }
+}

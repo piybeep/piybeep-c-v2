@@ -6,11 +6,11 @@ import { ContactsType } from "../../../../types";
 export function Social({ social }: { social: ContactsType[] }) {
     return (
         <div className={s.social}>
-            {social.map((link) => (
+            {social?.map((link) => (
                 <Link
                     className={s.social__link}
                     key={link.type}
-                    href={link.text}
+                    href={link.type === 'wa' ? link.text.startsWith('https://wa.me/') ? link.text : `https://wa.me/${link.text}` : link.text}
                     title={link.type === 'vk' ? "Вконтакте" : link.type === 'wa' ? "WhatsApp" : "Телеграм"}
                     target={'_blank'}>
                     {link.type === 'vk' ? "Вконтакте" : link.type === 'wa' ? "WhatsApp" : "Телеграм"}

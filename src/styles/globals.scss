@@ -11,6 +11,8 @@ a {
 
 .not_found {
   z-index: 5;
+
+  display: flex;
 }
 
 html,
@@ -73,7 +75,7 @@ body {
       .content-wrapper {
         display: flex;
         flex-direction: column;
-        row-gap: 200px;
+        row-gap: 250px;
         margin-bottom: 150px;
       }
     }
@@ -105,9 +107,19 @@ body {
       }
     }
   }
+
+  body {
+    .wrapper {
+      main {
+        .content-wrapper {
+          row-gap: 200px;
+        }
+      }
+    }
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   body {
     .wrapper {
       main {
@@ -144,6 +156,8 @@ body {
     .wrapper {
       main {
         max-width: 1318px;
+
+        margin: 0 auto;
       }
     }
   }

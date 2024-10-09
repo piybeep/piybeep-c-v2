@@ -10,7 +10,7 @@ import { Review } from '../../utils';
 export function PopupReview({ reviews }: { reviews: Review[] }) {
     const router = useRouter()
     const { query } = router
-    const review = reviews?.find(i => i.id === query.id)
+    const review = reviews?.find(i => i.id === Number(query.id))
 
     useEffect(() => {
         query.form === 'review'

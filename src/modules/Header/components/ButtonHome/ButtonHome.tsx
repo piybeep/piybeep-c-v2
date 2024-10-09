@@ -6,15 +6,13 @@ import { PAGES_LINK } from "../../../../constatnts";
 import { ButtonHomeProps } from "./ButtonHome.types";
 
 export function ButtonHome({ pathname }: ButtonHomeProps) {
+
     return (
         <div className={classNames(s.links)}>
             <Link
                 className={classNames({
                     [s.active]:
-                        pathname == PAGES_LINK.MAIN ||
-                        pathname == PAGES_LINK.BUSINESS ||
-                        (pathname !== PAGES_LINK.MAIN &&
-                            pathname !== PAGES_LINK.BUSINESS),
+                        pathname == PAGES_LINK.MAIN
                 })}
                 href={PAGES_LINK.MAIN}
             >
@@ -23,20 +21,7 @@ export function ButtonHome({ pathname }: ButtonHomeProps) {
             <Link
                 className={classNames({
                     [s.active]:
-                        pathname == PAGES_LINK.MAIN ||
-                        (pathname !== PAGES_LINK.MAIN &&
-                            pathname !== PAGES_LINK.BUSINESS),
-                })}
-                href={PAGES_LINK.MAIN}
-            >
-                Для маркетинга
-            </Link>
-            <Link
-                className={classNames({
-                    [s.active]:
-                        pathname == PAGES_LINK.BUSINESS ||
-                        (pathname !== PAGES_LINK.MAIN &&
-                            pathname !== PAGES_LINK.BUSINESS),
+                        pathname == PAGES_LINK.BUSINESS
                 })}
                 href={PAGES_LINK.BUSINESS}
             >
@@ -45,20 +30,16 @@ export function ButtonHome({ pathname }: ButtonHomeProps) {
             <Link
                 className={classNames(s.alt, {
                     [s.active]:
-                        pathname == PAGES_LINK.MAIN ||
-                        (pathname !== PAGES_LINK.MAIN &&
-                            pathname !== PAGES_LINK.BUSINESS),
+                        pathname == PAGES_LINK.MAIN
                 })}
                 href={PAGES_LINK.MAIN}
             >
-                Маркетинг
+                Главная
             </Link>
             <Link
                 className={classNames(s.alt, {
                     [s.active]:
-                        pathname == PAGES_LINK.BUSINESS ||
-                        (pathname !== PAGES_LINK.MAIN &&
-                            pathname !== PAGES_LINK.BUSINESS),
+                        pathname == PAGES_LINK.BUSINESS
                 })}
                 href={PAGES_LINK.BUSINESS}
             >

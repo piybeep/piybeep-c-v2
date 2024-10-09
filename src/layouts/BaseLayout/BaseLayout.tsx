@@ -10,7 +10,7 @@ export function BaseLayout({
 	contacts
 }: {
 	children: React.ReactNode;
-	services: EntityState<Service> & EntityActions<Service>;
+	services: EntityState<Service>;
 	reviews?: EntityState<Review> & EntityActions<Review>
 	contacts: ContactsType[]
 }) {

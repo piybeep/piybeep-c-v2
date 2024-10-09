@@ -9,7 +9,6 @@ module.exports = {
 				userAgent: "*",
 				disallow: ["/404", "/api/*", "/*?etext*", "/?etext*", "/*?form*", ...Array(12).fill(0).map((_, i) => `/portfolio/${i + 1}`)],
 				allow: ["/"],
-				'Clean-param': 'etext',
 			},
 		]
 	},

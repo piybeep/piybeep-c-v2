@@ -2,7 +2,7 @@ export const SUPPORT_ITEMS = [
 	{
 		id: 1,
 		title: "Моральная поддержка",
-		description: "5 часов поддержки",
+		description: "5 часов",
 		options: [
 			[
 				"Бесперебойная работа сервера",
@@ -15,12 +15,12 @@ export const SUPPORT_ITEMS = [
 				"Резервное копирование",
 			],
 		],
-		price: 9900,
+		price: 7400,
 	},
 	{
 		id: 2,
 		title: "Ведем за ручку",
-		description: "12 часов поддержки",
+		description: "12 часов",
 		options: [
 			[
 				"Бесперебойная работа сервера",
@@ -37,12 +37,12 @@ export const SUPPORT_ITEMS = [
 				"Интеграция с сервисами при необходимости",
 			],
 		],
-		price: 19900,
+		price: 11900,
 	},
 	{
 		id: 3,
 		title: "В огонь и в воду",
-		description: "30 часов поддержки",
+		description: "30 часов",
 		options: [
 			[
 				"Бесперебойная работа сервера",
@@ -63,6 +63,6 @@ export const SUPPORT_ITEMS = [
 				"Доработка и изменение дизайна и функционала сайта",
 			],
 		],
-		price: 39900,
+		price: 23900,
 	},
 ];
