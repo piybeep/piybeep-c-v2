@@ -1,7 +1,7 @@
 /** @type {import("next-sitemap").IConfig} */
 
 module.exports = {
-	siteUrl: "https://testbeep.ru",
+	siteUrl: "https://piybeep.com",
 	exclude: ["/404"],
 	robotsTxtOptions: {
 		policies: [
