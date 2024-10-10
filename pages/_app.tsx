@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 			tagID={89981393}
 		>
 			<GoogleAnalytics gaMeasurementId={"G-X9R96DCG15"} trackPageViews />
-			<AptabaseProvider appKey={process.env.NEXT_PUBLIC_APTABASE_KEY!} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST }}>
+			<AptabaseProvider appKey={"A-SH-6115144629"} options={{ host: process.env.NEXT_PUBLIC_APTABASE_HOST }}>
 				<div className={classNames("wrapper")}>
 					<Toaster position="top-center" reverseOrder={false} />
 					{getLayout(<Component {...pageProps} />, pageProps)}
