@@ -2,3 +2,7 @@ node_modules
 .next
 .git*
 .idea
+Dockerfile
+.dockerignore
+npm-debug.log
+README.md
