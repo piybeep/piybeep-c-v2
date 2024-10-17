@@ -2,6 +2,7 @@
 
 module.exports = {
 	siteUrl: "https://piybeep.com",
+	generateIndexSitemap: false,
 	exclude: ["/404"],
 	robotsTxtOptions: {
 		policies: [
