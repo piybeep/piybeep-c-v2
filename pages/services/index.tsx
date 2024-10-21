@@ -88,6 +88,7 @@ Services.getLayout = (
 			<title>Услуги веб-студии: разработка, дизайн и поддержка сайтов под ключ | Piybeep</title>
 			<meta name="description" content="Мы предлагаем индивидуальный подход к созданию проектов под ключ. Наша команда ориентирована на создание адаптивных сайтов с оптимизацией для поисковых систем." />
 			<link rel="icon" href="/favicon.ico" />
+			<link rel="canonical" href={`https://piybeep.com/services`} />
 		</Head>
 		{page}
 	</BaseLayout>
