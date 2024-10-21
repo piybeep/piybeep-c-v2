@@ -30,6 +30,7 @@ export default function PortfolioCase({
 				<Head>
 					<title>Проект не найден - piybeep.</title>
 					<link rel="icon" href="/favicon.ico" />
+					<link rel="canonical" href={`https://piybeep.com/portfolio`} />
 				</Head>
 				<ButtonBack />
 				<div className="content-wrapper">
@@ -63,6 +64,7 @@ export default function PortfolioCase({
 					<title>{project.attributes?.meta_title ?? 'Наш проект'} - piybeep.</title>
 					<meta name="description" content={project?.attributes?.meta_description ?? 'Наш проект'} />
 					<link rel="icon" href="/favicon.ico" />
+					<link rel="canonical" href={`https://piybeep.com/portfolio/${project?.attributes?.slug ?? ''}`} />
 				</Head>
 				<ButtonBack />
 				<div className="content-wrapper">

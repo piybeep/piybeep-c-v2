@@ -177,6 +177,7 @@ ServicePage.getLayout = (
             <title>{service?.attributes?.meta_title ?? ''} - piybeep.</title>
             <meta name="description" content={service?.attributes?.meta_description ?? ''} />
             <link rel="icon" href="/favicon.ico" />
+            <link rel="canonical" href={`https://piybeep.com/services/${service?.attributes?.slug ?? ''}`} />
         </Head>
         {page}
     </BaseLayout>

@@ -171,6 +171,7 @@ BusinessPage.getLayout = (
 	<BaseLayout reviews={reviews} services={services} contacts={contacts}>
 		<Head>
 			<title>Разработка веб-приложений для бизнеса. Автоматизация бизнес-процессов | Piybeep</title>
+			<link rel="canonical" href="https://piybeep.com/business" />
 			<meta
 				name="description"
 				content="Мы предлагаем разработку приложений для бизнеса и автоматизацию процессов внутри компании. Улучшите эффективность и продуктивность с нашими инновационными решениями."

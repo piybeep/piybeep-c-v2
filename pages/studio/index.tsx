@@ -93,6 +93,7 @@ Studio.getLayout = (
 			<title>Веб-студия – команда, процесс разработки, заказать сайт под ключ | Piybeep</title>
 			<meta name="description" content="Узнайте о нашей команде: веб-разработчики, дизайнеры и аналитики. Мы предоставляем разработку сайтов, уникальный дизайн, мобильную адаптивность и техническую поддержку." />
 			<link rel="icon" href="/favicon.ico" />
+			<link rel="canonical" href="https://piybeep.com/studio" />
 		</Head>
 		{page}
 	</BaseLayout>

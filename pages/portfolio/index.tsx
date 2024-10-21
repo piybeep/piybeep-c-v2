@@ -110,6 +110,7 @@ Portfolio.getLayout = (
 			<title>Портфолио: проекты и работы под ключ качественно и в срок | Piybeep</title>
 			<meta name="description" content="Портфолио Piybeep с креативными проектами под ключ: мы специализируемся на разработке уникальных сайтов, интернет-визиток, лендингов, интернет-магазинов и веб-приложений." />
 			<link rel="icon" href="/favicon.ico" />
+			<link rel="canonical" href="https://piybeep.com/portfolio" />
 		</Head>
 		{page}
 	</BaseLayout>
