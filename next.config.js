@@ -8,9 +8,11 @@ const nextConfig = {
 		remotePatterns: [{
 			protocol: 'https',
 			hostname: '**.piybeep.com'
-		},{
+		}, {
 			protocol: 'https',
 			hostname: '**.piybeep.ru'
+		}, {
+			hostname: 'localhost',
 		}],
 		// domains: ["piybeep.com", "piybeep.ru", "localhost", "strapi.testbeep.ru", "strapi.piybeep.com"],
 	},

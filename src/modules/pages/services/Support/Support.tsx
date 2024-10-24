@@ -5,8 +5,14 @@ import { BlockLayout } from "../../../../layouts";
 import { Card } from "./components";
 
 import s from "./Support.module.scss";
+import { ISupport } from "../../../../types";
 
-export function Support() {
+export function Support({ supports }: { supports: ISupport[] }) {
+
+	if (!supports) {
+		return <></>
+	}
+
 	const DESCRIPTION = [
 		"Мы всегда рады продолжать сотрудничество и оказываем поддержку сайта на основе наших тарифов. Она включает в себя регулярное обновление контента, исправление ошибок и уязвимостей, резервное копирование данных.",
 		"Поддержка сайта поможет улучшить его поисковую оптимизацию и привлечение трафика, что приведет к увеличению посещаемости и доходов. Она улучшит его безопасность, производительность и функциональность.",
@@ -23,14 +29,14 @@ export function Support() {
 					))}
 				</div>
 				<div className={s.cards}>
-					{SUPPORT_ITEMS.map((i) => {
+					{supports.map((support) => {
 						return (
 							<Card
-								key={i.id}
-								title={i.title}
-								description={i.description}
-								options={i.options}
-								price={i.price}
+								key={support.id}
+								title={support.title}
+								description={support.description}
+								options={support.support_lists}
+								price={support.price}
 							/>
 						);
 					})}

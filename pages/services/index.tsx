@@ -7,13 +7,26 @@ import { EntityActions, EntityState, Service } from "../../src/utils";
 import { useServices } from "../../src/store";
 import { Products, Support } from "../../src/modules/pages/services";
 import { Form } from "../../src/modules";
-import { ContactsType } from "../../src/types";
+import { ContactsType, ISupport, ISupportList } from "../../src/types";
 
 export default function Services({
 	services,
+	supports,
+	supportsList
 }: {
 	services: EntityState<Service> & EntityActions<Service>;
+	supports: ISupport[],
+	supportsList: ISupportList[]
 }) {
+
+	const data = supports.map(support => ({
+		id: support.id,
+		title: support.title,
+		description: support.description,
+		support_lists: support.support_lists?.map(item => supportsList?.find(list => list?.id === item?.id)),
+		price: support.price
+	}))
+
 	return (
 		<main
 			style={{
@@ -26,7 +39,7 @@ export default function Services({
 				<Products
 					list={services?.list?.filter((i) => i.type === "service")}
 				/>
-				<Support />
+				<Support supports={data ?? null} />
 			</div>
 			<Form services={services.list} count={services.total_count} />
 		</main>
@@ -34,10 +47,10 @@ export default function Services({
 }
 
 export const getServerSideProps: GetServerSideProps = async (_ctx) => {
-	const URIs = ["services", "contacts"];
+	const URIs = ["services", "contacts", "supports"];
 
-	const [services_response, contacts_response] = await Promise.allSettled(
-		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*&${i != 'contacts' && 'sort=rank:asc'}`, {
+	const [services_response, contacts_response, supports__response] = await Promise.allSettled(
+		URIs.map((i) => axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/${i}?populate=*&${i != 'contacts' && i != 'supports' && 'sort=rank:asc'}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
@@ -65,10 +78,27 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 		contacts = contacts_response.value.data.data
 	}
 
+	let supports = []
+
+	if (supports__response.status === 'fulfilled') {
+		supports = supports__response.value.data.data
+	}
+
+	const support_list__responce = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/support-lists?populate=*`, {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+		}
+	})
+
+	let supportsList = support_list__responce.data.data
+
 	return {
 		props: {
 			services: useServices.getState().error?.message ? JSON.stringify(useServices.getState()) : useServices.getState(),
-			contacts: contacts
+			contacts: contacts,
+			supports: supports,
+			supportsList: supportsList
 		},
 	};
 };
@@ -77,10 +107,10 @@ Services.getLayout = (
 	page: ReactNode,
 	{
 		services,
-		contacts
+		contacts,
 	}: {
 		services: EntityState<Service> & EntityActions<Service>;
-		contacts: ContactsType[]
+		contacts: ContactsType[],
 	},
 ) => (
 	<BaseLayout services={services} contacts={contacts}>

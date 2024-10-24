@@ -12,16 +12,17 @@ export function Card({
 	...props
 }: CardProps) {
 	const router = useRouter();
+
 	return (
 		<div {...props} className={classNames(s.card, className)}>
 			<div className={s.title}>
 				<h3 style={{ margin: '0px' }}>{title}</h3>
 			</div>
 			<div className={s.options}>
-				{options.map((i, index) => (
-					<ul key={index} className={s.group}>
-						{i.map((item, ind) => (
-							<li key={ind}>{item}</li>
+				{options.map(option => (
+					<ul key={option?.id} className={s.group}>
+						{option?.support_items.map((item, ind) => (
+							<li key={ind}>{item.item}</li>
 						))}
 					</ul>
 				))}
