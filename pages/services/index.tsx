@@ -90,8 +90,14 @@ export const getServerSideProps: GetServerSideProps = async (_ctx) => {
 			Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
 		}
 	})
+		.then(res => res)
+		.catch(error => console.error(error))
 
-	let supportsList = support_list__responce.data.data
+	let supportsList = []
+
+	if (support_list__responce) {
+		supportsList = support_list__responce.data.data
+	}
 
 	return {
 		props: {
